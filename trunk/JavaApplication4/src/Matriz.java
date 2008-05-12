@@ -36,7 +36,7 @@ public class Matriz {
         tituloLinha.remove( index );
     }
     
-    public void alterarPosicaoLinha(int de, int para){
+    public void alterarPosicaoLinha(int de, int para) {
         
     }
 
