@@ -8,7 +8,7 @@ public class Matriz {
     int linhas = 0;
     LinkedList<String> tituloLinha;
     LinkedList<String> tituloColuna;
-    LinkedList<LinkedList> linha;
+    LinkedList<LinkedList> linha; 
 
     public Matriz() {
         tituloLinha = new LinkedList<String>();
