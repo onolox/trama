@@ -35,7 +35,7 @@ public class JTableCustomizado extends JTable {
         
      
 
-        setModel( new ModeloTabela() );
+        setModel( new ModeloTabela("UC X Requisitos") );
         
         setDefaultRenderer( String.class, cell );
         setDefaultRenderer( RendererLinha.class, cell0 );
