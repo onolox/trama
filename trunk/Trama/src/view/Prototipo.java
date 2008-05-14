@@ -18,6 +18,7 @@ public class Prototipo extends javax.swing.JFrame {
     /** Creates new form Prototipo */
     public Prototipo() {
         initComponents();
+        setLocationRelativeTo( null);
     }
 
     /** This method is called from within the constructor to
@@ -88,10 +89,9 @@ public class Prototipo extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
 
-        FormListener formListener = new FormListener();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Trama");
+        setMinimumSize(new java.awt.Dimension(800, 550));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
@@ -108,7 +108,11 @@ public class Prototipo extends javax.swing.JFrame {
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setIconTextGap(1);
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton3.addActionListener(formListener);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jToolBar1.add(jButton3);
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Open16.gif"))); // NOI18N
@@ -117,6 +121,11 @@ public class Prototipo extends javax.swing.JFrame {
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton4.setIconTextGap(1);
         jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jToolBar1.add(jButton4);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Save16.gif"))); // NOI18N
@@ -125,7 +134,11 @@ public class Prototipo extends javax.swing.JFrame {
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setIconTextGap(1);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton2.addActionListener(formListener);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jToolBar1.add(jButton2);
 
         jPanel1.add(jToolBar1);
@@ -189,7 +202,11 @@ public class Prototipo extends javax.swing.JFrame {
         jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton6.setIconTextGap(1);
         jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton6.addActionListener(formListener);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         jToolBar2.add(jButton6);
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Down16.gif"))); // NOI18N
@@ -443,23 +460,6 @@ public class Prototipo extends javax.swing.JFrame {
         );
 
         pack();
-    }
-
-    // Code for dispatching events from components to event handlers.
-
-    private class FormListener implements java.awt.event.ActionListener {
-        FormListener() {}
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            if (evt.getSource() == jButton3) {
-                Prototipo.this.jButton3ActionPerformed(evt);
-            }
-            else if (evt.getSource() == jButton2) {
-                Prototipo.this.jButton2ActionPerformed(evt);
-            }
-            else if (evt.getSource() == jButton6) {
-                Prototipo.this.jButton6ActionPerformed(evt);
-            }
-        }
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -473,6 +473,10 @@ public class Prototipo extends javax.swing.JFrame {
 private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 // TODO add your handling code here:
 }//GEN-LAST:event_jButton3ActionPerformed
+
+private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jButton4ActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -486,7 +490,7 @@ private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 
             public void run() {
                 new Prototipo().setVisible( true );
-            }
+                           }
         } );
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
