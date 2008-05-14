@@ -18,7 +18,7 @@ public class Prototipo extends javax.swing.JFrame {
     /** Creates new form Prototipo */
     public Prototipo() {
         initComponents();
-        setLocationRelativeTo( null);
+        setExtendedState( MAXIMIZED_BOTH);
     }
 
     /** This method is called from within the constructor to
