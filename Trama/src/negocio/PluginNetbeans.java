@@ -3,12 +3,12 @@
  * and open the template in the editor.
  */
 
-package control;
+package negocio;
 
 /**
  *
  * @author Fabio
  */
-public class PluginTexto {
+public class PluginNetbeans {
 
 }

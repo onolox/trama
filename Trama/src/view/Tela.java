@@ -1,7 +1,5 @@
 package view;
 
-
-import model.ModeloTabela;
 import javax.swing.UIManager;
 
 /*
@@ -14,11 +12,10 @@ import javax.swing.UIManager;
  * @author  Fabio
  */
 public class Tela extends javax.swing.JFrame {
-
     /** Creates new form Tela */
     public Tela() {
         initComponents();
-        setExtendedState( MAXIMIZED_BOTH); 
+        setExtendedState( MAXIMIZED_BOTH );
     }
 
     /** This method is called from within the constructor to
@@ -487,11 +484,10 @@ private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             ex.printStackTrace();
         }
         java.awt.EventQueue.invokeLater( new Runnable() {
-
-            public void run() {
-                new Tela().setVisible( true );
-                           }
-        }  );
+                                     public void run() {
+                                         new Tela().setVisible( true );
+                                     }
+                                 } );
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton10;

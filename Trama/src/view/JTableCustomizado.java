@@ -1,7 +1,7 @@
 package view;
 
 
-import model.ModeloTabela;
+import persistencia.ModeloTabela;
 import java.awt.Font;
 import java.util.Enumeration;
 import java.util.List;
