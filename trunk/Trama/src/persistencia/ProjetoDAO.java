@@ -3,12 +3,12 @@
  * and open the template in the editor.
  */
 
-package negocio;
+package persistencia;
 
 /**
  *
  * @author Fabio
  */
-public class PluginTexto {
+public class ProjetoDAO {
 
 }

@@ -1,5 +1,7 @@
-package persistencia;
+package negocio;
 
+import visao.renderer.RendererLinha;
+import persistencia.*;
 import visao.*;
 import javax.swing.JLabel;
 import javax.swing.table.AbstractTableModel;
