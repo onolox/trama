@@ -5,7 +5,7 @@ import model.ModeloTabela;
 import javax.swing.UIManager;
 
 /*
- * Prototipo.java
+ * Tela.java
  *
  * Created on 22 de Abril de 2008, 16:13
  */
@@ -13,10 +13,10 @@ import javax.swing.UIManager;
  *
  * @author  Fabio
  */
-public class Prototipo extends javax.swing.JFrame {
+public class Tela extends javax.swing.JFrame {
 
-    /** Creates new form Prototipo */
-    public Prototipo() {
+    /** Creates new form Tela */
+    public Tela() {
         initComponents();
         setExtendedState( MAXIMIZED_BOTH); 
     }
@@ -33,7 +33,7 @@ public class Prototipo extends javax.swing.JFrame {
         jToolBar1 = new javax.swing.JToolBar();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        salvarProjeto = new javax.swing.JButton();
         jToolBar3 = new javax.swing.JToolBar();
         jButton16 = new javax.swing.JButton();
         jButton17 = new javax.swing.JButton();
@@ -128,18 +128,18 @@ public class Prototipo extends javax.swing.JFrame {
         });
         jToolBar1.add(jButton4);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Save16.gif"))); // NOI18N
-        jButton2.setText("Salvar");
-        jButton2.setFocusable(false);
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setIconTextGap(1);
-        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        salvarProjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Save16.gif"))); // NOI18N
+        salvarProjeto.setText("Salvar");
+        salvarProjeto.setFocusable(false);
+        salvarProjeto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        salvarProjeto.setIconTextGap(1);
+        salvarProjeto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        salvarProjeto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                salvarProjetoActionPerformed(evt);
             }
         });
-        jToolBar1.add(jButton2);
+        jToolBar1.add(salvarProjeto);
 
         jPanel1.add(jToolBar1);
 
@@ -462,9 +462,9 @@ public class Prototipo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void salvarProjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarProjetoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+}//GEN-LAST:event_salvarProjetoActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
@@ -489,9 +489,9 @@ private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         java.awt.EventQueue.invokeLater( new Runnable() {
 
             public void run() {
-                new Prototipo().setVisible( true );
+                new Tela().setVisible( true );
                            }
-        } );
+        }  );
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton10;
@@ -502,7 +502,6 @@ private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
@@ -553,5 +552,6 @@ private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JToolBar jToolBar3;
     private javax.swing.JToolBar jToolBar4;
     private javax.swing.JToolBar jToolBar6;
+    private javax.swing.JButton salvarProjeto;
     // End of variables declaration//GEN-END:variables
 }
