@@ -1,6 +1,6 @@
 package persistencia;
 
-import view.*;
+import visao.*;
 import javax.swing.JLabel;
 import javax.swing.table.AbstractTableModel;
 
