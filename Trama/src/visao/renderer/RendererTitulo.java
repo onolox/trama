@@ -1,4 +1,4 @@
-package visao;
+package visao.renderer;
 
 
 import java.awt.Color;

@@ -1,6 +1,9 @@
 package visao;
 
-import persistencia.ModeloTabela;
+import visao.renderer.RendererTitulo;
+import visao.renderer.CellRenderizador;
+import visao.renderer.RendererLinha;
+import negocio.ModeloTabela;
 import java.awt.Font;
 import java.util.Enumeration;
 import javax.swing.JTable;

@@ -9,6 +9,6 @@ package negocio;
  *
  * @author Fabio
  */
-public class PluginNetbeans {
+public class ControleProjeto {
 
 }
