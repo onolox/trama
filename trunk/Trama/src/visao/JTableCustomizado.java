@@ -15,7 +15,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
-import visao.renderer.RendererLinha;
+import visao.renderer.RendererCelula;
 
 /**
  *
@@ -27,7 +27,7 @@ public class JTableCustomizado extends JTable {
     Enumeration<TableColumn> l;
 
     public JTableCustomizado() {
-        cell = new RendererLinha();
+        cell = new RendererCelula();
         cell0 = new RendererTituloLinha();
 
         setAutoResizeMode( AUTO_RESIZE_OFF );
