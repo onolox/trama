@@ -1,18 +1,25 @@
 package visao;
 
 import javax.swing.UIManager;
+import negocio.ControleProjeto;
+import negocio.ExportarImagem;
+import negocio.ExportarPDF;
+import negocio.Imprimir;
+import negocio.LerModelo;
+import negocio.Matriz;
 
-/*
- * Tela.java
- *
- * Created on 22 de Abril de 2008, 16:13
- */
 /**
  *
  * @author  Fabio
  */
 public class Tela extends javax.swing.JFrame {
-    /** Creates new form Tela */
+    ControleProjeto projeto;
+    Matriz matriz;
+    ExportarImagem exImagem;
+    ExportarPDF exPDF;
+    Imprimir imprimir;
+    LerModelo lerModelo;
+
     public Tela() {
         initComponents();
         setExtendedState( MAXIMIZED_BOTH );
@@ -474,9 +481,7 @@ private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 // TODO add your handling code here:
 }//GEN-LAST:event_jButton4ActionPerformed
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main( String args[] ) {
         try {
             UIManager.setLookAndFeel( UIManager.getSystemLookAndFeelClassName() );

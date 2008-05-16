@@ -1,5 +1,6 @@
 package visao;
 
+import negocio.Matriz;
 import visao.renderer.RendererTituloLinha;
 import persistencia.*;
 import visao.*;

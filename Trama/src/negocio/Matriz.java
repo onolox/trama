@@ -1,5 +1,6 @@
-package persistencia;
+package negocio;
 
+import persistencia.*;
 import java.util.LinkedList;
 
 public class Matriz {
