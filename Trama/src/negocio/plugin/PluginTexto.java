@@ -5,10 +5,27 @@
 
 package negocio.plugin;
 
+import java.util.List;
+
 /**
  *
  * @author Fabio
  */
-public class PluginTexto {
+public class PluginTexto implements InterfacePlugin{
+
+    @Override
+    public String getNome() {
+        throw new UnsupportedOperationException( "Not supported yet." );
+    }
+
+    @Override
+    public String getExtensao() {
+        throw new UnsupportedOperationException( "Not supported yet." );
+    }
+
+    @Override
+    public List<String> getObjetos() {
+        throw new UnsupportedOperationException( "Not supported yet." );
+    }
 
 }
