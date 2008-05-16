@@ -1,6 +1,6 @@
 package visao;
 
-import visao.renderer.RendererLinha;
+import visao.renderer.RendererTituloLinha;
 import persistencia.*;
 import visao.*;
 import javax.swing.JLabel;
@@ -33,7 +33,7 @@ public class ModeloTabela extends AbstractTableModel {
     public Class getColumnClass( int columnIndex ) {
         switch ( columnIndex ) {
             case 0:
-                return RendererLinha.class;
+                return RendererTituloLinha.class;
             default:
                 return String.class;
         }
