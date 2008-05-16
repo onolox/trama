@@ -14,8 +14,8 @@ import javax.swing.table.DefaultTableCellRenderer;
  *
  * @author Fabio
  */
-public class CellRenderizador extends DefaultTableCellRenderer {
-    public CellRenderizador() {
+public class RendererTituloLinha extends DefaultTableCellRenderer {
+    public RendererTituloLinha() {
         super();
     }
 

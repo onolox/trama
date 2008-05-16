@@ -1,4 +1,4 @@
-package negocio;
+package visao;
 
 import visao.renderer.RendererLinha;
 import persistencia.*;
@@ -16,12 +16,12 @@ public class ModeloTabela extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return matriz.getLinhas();
+        return matriz.getQLinhas();
     }
 
     @Override
     public int getColumnCount() {
-        return matriz.getColunas();
+        return matriz.getQColunas();
     }
 
     @Override

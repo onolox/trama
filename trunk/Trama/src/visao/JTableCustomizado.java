@@ -1,9 +1,9 @@
 package visao;
 
 import visao.renderer.RendererTitulo;
-import visao.renderer.CellRenderizador;
+import visao.renderer.RendererTituloLinha;
 import visao.renderer.RendererLinha;
-import negocio.ModeloTabela;
+import visao.ModeloTabela;
 import java.awt.Font;
 import java.util.Enumeration;
 import javax.swing.JTable;
@@ -26,7 +26,7 @@ public class JTableCustomizado extends JTable {
     Enumeration<TableColumn> l;
 
     public JTableCustomizado() {
-        cell = new CellRenderizador();
+        cell = new RendererTituloLinha();
         cell0 = new RendererLinha();
 
         setAutoResizeMode( AUTO_RESIZE_OFF );
