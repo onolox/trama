@@ -1,8 +1,8 @@
 package visao;
 
-import visao.renderer.RendererTitulo;
+import visao.renderer.RendererTituloColuna;
+
 import visao.renderer.RendererTituloLinha;
-import visao.renderer.RendererLinha;
 import visao.ModeloTabela;
 import java.awt.Font;
 import java.util.Enumeration;
@@ -15,6 +15,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
+import visao.renderer.RendererLinha;
 
 /**
  *
@@ -26,8 +27,8 @@ public class JTableCustomizado extends JTable {
     Enumeration<TableColumn> l;
 
     public JTableCustomizado() {
-        cell = new RendererTituloLinha();
-        cell0 = new RendererLinha();
+        cell = new RendererLinha();
+        cell0 = new RendererTituloLinha();
 
         setAutoResizeMode( AUTO_RESIZE_OFF );
         setFont( new Font( "Arial", 0, 12 ) );
@@ -37,7 +38,7 @@ public class JTableCustomizado extends JTable {
         setModel( new ModeloTabela( "UC X Requisitos" ) );
 
         setDefaultRenderer( String.class, cell );
-        setDefaultRenderer( RendererLinha.class, cell0 );
+        setDefaultRenderer( RendererTituloLinha.class, cell0 );
 
         TableColumnModel modelocoluna = getColumnModel();
         l = modelocoluna.getColumns();
@@ -50,7 +51,7 @@ public class JTableCustomizado extends JTable {
 
             }
 
-            tc.setHeaderRenderer( new RendererTitulo() );
+            tc.setHeaderRenderer( new RendererTituloColuna() );
 
 
 

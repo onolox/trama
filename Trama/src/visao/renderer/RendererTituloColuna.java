@@ -15,9 +15,9 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
-public class RendererTitulo extends DefaultTableCellRenderer {
+public class RendererTituloColuna extends DefaultTableCellRenderer {
 
-    public RendererTitulo() {
+    public RendererTituloColuna() {
         super();
     }
 

@@ -6,14 +6,6 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author Fabio
- */
 public class RendererTituloLinha extends DefaultTableCellRenderer {
     public RendererTituloLinha() {
         super();
@@ -24,10 +16,12 @@ public class RendererTituloLinha extends DefaultTableCellRenderer {
 
         JLabel label = ( JLabel ) super.getTableCellRendererComponent( table, value, isSelected, hasFocus, row, column );
 
-
-        label.setHorizontalAlignment( JLabel.CENTER );
-        label.setBackground( javax.swing.UIManager.getDefaults().getColor( "Button.highlight" ) );
+        label.setHorizontalAlignment( RIGHT );
         label.setOpaque( true );
+        label.setBackground( javax.swing.UIManager.getDefaults().getColor( "Button.light" ) );
+        label.setBorder( new javax.swing.border.SoftBevelBorder( javax.swing.border.BevelBorder.RAISED ) );
+
+
         return label;
     }
 }
