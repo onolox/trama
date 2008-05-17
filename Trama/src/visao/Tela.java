@@ -5,7 +5,7 @@ import negocio.ControleProjeto;
 import negocio.ExportarImagem;
 import negocio.ExportarPDF;
 import negocio.Imprimir;
-import negocio.LerModelo;
+import negocio.plugin.LerDoModelo;
 import negocio.Matriz;
 
 /**
@@ -18,7 +18,7 @@ public class Tela extends javax.swing.JFrame {
     ExportarImagem exImagem;
     ExportarPDF exPDF;
     Imprimir imprimir;
-    LerModelo lerModelo;
+    LerDoModelo lerModelo;
 
     public Tela() {
         initComponents();
