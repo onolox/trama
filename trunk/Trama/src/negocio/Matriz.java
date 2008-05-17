@@ -30,9 +30,9 @@ public class Matriz {
         addColuna( "Coluna 07" );
         addColuna( "Coluna 08" );
 
-        for ( int l = 0; l < matriz.getQLinhas(); l++ ) {
-            System.out.println( l + ":" + ( matriz.getLinha( l ).size() - 1 ) );
-        }
+       // for ( int l = 0; l < matriz.getQLinhas(); l++ ) {
+       //     System.out.println( l + ":" + ( matriz.getLinha( l ).size() - 1 ) );
+       //}
     }
 
     public void setDadoMatriz( int valor, int linha, int coluna ) {

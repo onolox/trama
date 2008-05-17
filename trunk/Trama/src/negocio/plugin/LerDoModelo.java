@@ -3,12 +3,12 @@
  * and open the template in the editor.
  */
 
-package negocio;
+package negocio.plugin;
 
 /**
  *
  * @author Fabio
  */
-public class LerModelo {
+public class LerDoModelo {
 
 }
