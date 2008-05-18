@@ -568,6 +568,7 @@
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new visao.JTableCustomizado();"/>
+                        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="headerColunaClicked();"/>
                       </AuxValues>
                     </Component>
                   </SubComponents>

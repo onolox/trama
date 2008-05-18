@@ -25,6 +25,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
+import negocio.Matriz;
 import visao.renderer.RendererCelula;
 
 /**
@@ -32,15 +33,14 @@ import visao.renderer.RendererCelula;
  * @author Fabio
  */
 public class JTableCustomizado extends JTable {
-    DefaultTableCellRenderer cell;
-    DefaultTableCellRenderer cell0;
-    Enumeration<TableColumn> l;
-    JTableHeader header;
-
+    private DefaultTableCellRenderer cell;
+    private DefaultTableCellRenderer cell0;
+    private Enumeration<TableColumn> l;
+   
     public JTableCustomizado() {
         cell = new RendererCelula();
         cell0 = new RendererTituloLinha();
-
+       
         setAutoResizeMode( AUTO_RESIZE_OFF );
         setFont( new Font( "Arial", 0, 12 ) );
 
@@ -48,23 +48,12 @@ public class JTableCustomizado extends JTable {
         setColumnSelectionAllowed( true );
         setCellSelectionEnabled( true );
 
-
-
         setModel( new ModeloTabela( "UC X Requisitos" ) );
 
         setDefaultRenderer( String.class, cell );
         setDefaultRenderer( RendererTituloLinha.class, cell0 );
-
-        header = getTableHeader();
-        header.addMouseListener( new MouseAdapter() {
-                             public void mouseClicked( MouseEvent e ) {
-                                 int pick = header.columnAtPoint( e.getPoint() );
-
-                                 System.out.println( "coluna= " + pick );
-                             }
-                         } );
-
-
+        
+       
         TableColumnModel modelocoluna = getColumnModel();
         l = modelocoluna.getColumns();
         while ( l.hasMoreElements() ) {
@@ -76,35 +65,6 @@ public class JTableCustomizado extends JTable {
             }
 
             tc.setHeaderRenderer( new RendererTituloColuna() );
-        }
-
-
-    }
-
-    private class aaa implements TableColumnModelListener {
-        @Override
-        public void columnAdded( TableColumnModelEvent e ) {
-            throw new UnsupportedOperationException( "Not supported yet." );
-        }
-
-        @Override
-        public void columnRemoved( TableColumnModelEvent e ) {
-            throw new UnsupportedOperationException( "Not supported yet." );
-        }
-
-        @Override
-        public void columnMoved( TableColumnModelEvent e ) {
-            throw new UnsupportedOperationException( "Not supported yet." );
-        }
-
-        @Override
-        public void columnMarginChanged( ChangeEvent e ) {
-            throw new UnsupportedOperationException( "Not supported yet." );
-        }
-
-        @Override
-        public void columnSelectionChanged( ListSelectionEvent e ) {
-            throw new UnsupportedOperationException( "Not supported yet." );
         }
     }
 }
