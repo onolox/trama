@@ -7,6 +7,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.jar.JarFile;
 
@@ -15,17 +16,14 @@ public class LerDoModelo {
     private LinkedList<String> list;
     PluginInterface pl = null;
 
-    public String getNomes() {
+    public HashMap<String, LinkedList<String>> getNomesExtensoes() {
+        LinkedList<String> temp = null;
+        HashMap<String, LinkedList<String>> nE = new HashMap<String, LinkedList<String>>();
         list = getJars();
-
-        throw new UnsupportedOperationException( "Not supported yet." );
-    }
-
-    public LinkedList<String> getExtensoes() {
-        list = getJars();
-
-
-        throw new UnsupportedOperationException( "Not supported yet." );
+        
+        
+        
+        return nE;
     }
 
     public LinkedList<String> getObjetos( String arquivo ) {
@@ -34,7 +32,7 @@ public class LerDoModelo {
         throw new UnsupportedOperationException( "Not supported yet." );
     }
 
-    public LinkedList<String> getJars() { // retorna uma lista de jars no diretorio
+    private LinkedList<String> getJars() { // retorna uma lista de jars no diretorio
 
         LinkedList<String> l = new LinkedList<String>();
         File f = new File( DIRBASE );
@@ -47,15 +45,19 @@ public class LerDoModelo {
         return l;
     }
 
-    public PluginInterface getClasseJar( String arquivo ) {
+    /**
+     * Busca a classe "principal" do jar.
+     * @param arquivo
+     * @return
+     */
+    private PluginInterface getClasseJar( String arquivo ) {
         URLClassLoader load;
         try {
             URL url = new URL( "jar", "", "file:" + arquivo + "!/" );
 
             JarURLConnection jar = ( JarURLConnection ) url.openConnection(); // abro o url pro jar
 
-            JarFile j = jar.getJarFile();
-            Enumeration arq = j.entries(); // pego os arquivos que estão no jar
+            Enumeration arq = jar.getJarFile().entries(); // pego os arquivos que estão no jar
 
             load = new URLClassLoader( new URL[]{ url } ); // pra ler a classe do jar
 
