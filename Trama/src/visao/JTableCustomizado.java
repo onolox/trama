@@ -6,12 +6,15 @@ import visao.renderer.RendererTituloLinha;
 import visao.ModeloTabela;
 import java.awt.Font;
 import java.util.Enumeration;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JCheckBox;
 import javax.swing.JTable;
 
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
@@ -33,7 +36,11 @@ public class JTableCustomizado extends JTable {
         setAutoResizeMode( AUTO_RESIZE_OFF );
         setFont( new Font( "Arial", 0, 12 ) );
 
+        setRowSelectionAllowed( false );
+        setColumnSelectionAllowed( false );
+        setCellSelectionEnabled( true );
 
+       
 
         setModel( new ModeloTabela( "UC X Requisitos" ) );
 
