@@ -73,7 +73,7 @@ public class Matriz {
         matriz.getLinhas().add( para, l );
     }
 
-    public void mudarTituloLinha( int index, String titulo ) {
+    public void setTituloLinha( int index, String titulo ) {
         matriz.getTituloLinha().set( index, titulo );
     }
 

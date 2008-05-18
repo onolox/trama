@@ -1,7 +1,9 @@
 package visao;
 
-import javax.swing.JFileChooser;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.UIManager;
+import javax.swing.table.JTableHeader;
 import negocio.ControleProjeto;
 import negocio.ExportarImagem;
 import negocio.ExportarPDF;
@@ -14,16 +16,19 @@ import negocio.Matriz;
  * @author  Fabio
  */
 public class Tela extends javax.swing.JFrame {
-    ControleProjeto projeto;
-    Matriz matriz;
-    ExportarImagem exImagem;
-    ExportarPDF exPDF;
-    Imprimir imprimir;
-    LerDoModelo lerModelo;
+    private ControleProjeto projeto;
+    private Matriz matriz;
+    private ExportarImagem exImagem;
+    private ExportarPDF exPDF;
+    private Imprimir imprimir;
+    private LerDoModelo lerModelo;
+    private JTableHeader header;
 
     public Tela() {
         initComponents();
-      //  setExtendedState( MAXIMIZED_BOTH );
+    //  setExtendedState( MAXIMIZED_BOTH );
+        
+        
     }
 
     /** This method is called from within the constructor to
@@ -63,6 +68,7 @@ public class Tela extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new visao.JTableCustomizado();
+        headerColunaClicked();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -507,6 +513,19 @@ private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
 private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
 // TODO add your handling code here:
 }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void headerColunaClicked() {
+        header = jTable1.getTableHeader();
+
+        header.addMouseListener( new MouseAdapter() {
+                             public void mouseClicked( MouseEvent e ) {
+                                 int pick = header.columnAtPoint( e.getPoint() );
+
+                                 System.out.println( "coluna= " + pick );
+
+                             }
+                         } );
+    }
 
     public static void main( String args[] ) {
         try {
