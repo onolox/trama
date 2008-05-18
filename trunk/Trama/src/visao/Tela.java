@@ -23,7 +23,7 @@ public class Tela extends javax.swing.JFrame {
 
     public Tela() {
         initComponents();
-        setExtendedState( MAXIMIZED_BOTH );
+      //  setExtendedState( MAXIMIZED_BOTH );
     }
 
     /** This method is called from within the constructor to
