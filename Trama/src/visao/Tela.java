@@ -314,6 +314,11 @@ public class Tela extends javax.swing.JFrame {
         jLabel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel2.setOpaque(true);
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -498,6 +503,10 @@ private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
     System.out.println( "Linha=" + ( linha + 1 ) + "   coluna= " + coluna );
 
 }//GEN-LAST:event_jTable1MouseClicked
+
+private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+// TODO add your handling code here:
+}//GEN-LAST:event_jLabel2MouseClicked
 
     public static void main( String args[] ) {
         try {

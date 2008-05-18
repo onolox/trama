@@ -5,6 +5,7 @@ import visao.renderer.RendererTituloColuna;
 import visao.renderer.RendererTituloLinha;
 import visao.ModeloTabela;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
 import java.util.Enumeration;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JCheckBox;
@@ -37,7 +38,7 @@ public class JTableCustomizado extends JTable {
         setFont( new Font( "Arial", 0, 12 ) );
 
         setRowSelectionAllowed( false );
-        setColumnSelectionAllowed( false );
+        setColumnSelectionAllowed( true );
         setCellSelectionEnabled( true );
 
        
@@ -48,6 +49,12 @@ public class JTableCustomizado extends JTable {
         setDefaultRenderer( RendererTituloLinha.class, cell0 );
 
         TableColumnModel modelocoluna = getColumnModel();
+        /*modelocoluna.addColumnModelListener(  {                            
+         public void mouseClicked( MouseEvent evt ) {
+                                LabelMouseClicked( evt );
+                            }
+                        } );*/
+                                
         l = modelocoluna.getColumns();
         while ( l.hasMoreElements() ) {
             TableColumn tc = l.nextElement();
@@ -55,22 +62,11 @@ public class JTableCustomizado extends JTable {
             tc.setPreferredWidth( 20 );
             if ( tc.getHeaderValue().equals( "" ) ) {
                 tc.setPreferredWidth( 100 );
-
             }
 
             tc.setHeaderRenderer( new RendererTituloColuna() );
-
-
-
-
-
-
-
-
-
-
-
-
         }
+        
+        
     }
 }

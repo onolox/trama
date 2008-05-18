@@ -49,4 +49,5 @@ public class ModeloTabela extends AbstractTableModel {
                 return matriz.getTituloColuna( columnIndex );
         }
     }
+    
 }
