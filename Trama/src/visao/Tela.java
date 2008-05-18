@@ -2,6 +2,7 @@ package visao;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JTable;
 import javax.swing.UIManager;
 import javax.swing.table.JTableHeader;
 import negocio.ControleProjeto;
@@ -23,12 +24,23 @@ public class Tela extends javax.swing.JFrame {
     private Imprimir imprimir;
     private LerDoModelo lerModelo;
     private JTableHeader header;
+    private JTableCustomizado jTable1 = new JTableCustomizado();
+    private Object jScrollPane1;
 
     public Tela() {
         initComponents();
     //  setExtendedState( MAXIMIZED_BOTH );
+
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTable1);
         
+        headerColunaClicked();
         
+    matriz = jTable1.tabe.matriz;
     }
 
     /** This method is called from within the constructor to
@@ -66,9 +78,7 @@ public class Tela extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new visao.JTableCustomizado();
-        headerColunaClicked();
+        jScrollPane2 = new javax.swing.JScrollPane();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -292,23 +302,19 @@ public class Tela extends javax.swing.JFrame {
         jTabbedPane1.setBackground(new java.awt.Color(204, 204, 204));
         jTabbedPane1.setName("Requisitos X UC"); // NOI18N
 
-        jTable1.setSelectionForeground(new java.awt.Color(0, 0, 0));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE)
+            .addGap(0, 854, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
+            .addGap(0, 437, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Requisitos X UC", jPanel3);
@@ -502,29 +508,31 @@ private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 private void jButton3ActionPerformed1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed1
 }//GEN-LAST:event_jButton3ActionPerformed1
 
-private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+// TODO add your handling code here:
+}//GEN-LAST:event_jLabel2MouseClicked
+
+private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {                                     
     int linha = jTable1.getSelectedRow();
     int coluna = jTable1.getSelectedColumn();
 
     System.out.println( "Linha=" + ( linha + 1 ) + "   coluna= " + coluna );
 
-}//GEN-LAST:event_jTable1MouseClicked
-
-private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-// TODO add your handling code here:
-}//GEN-LAST:event_jLabel2MouseClicked
+}
 
     private void headerColunaClicked() {
         header = jTable1.getTableHeader();
 
         header.addMouseListener( new MouseAdapter() {
+                             @Override
                              public void mouseClicked( MouseEvent e ) {
-                                 int pick = header.columnAtPoint( e.getPoint() );
+                                 int coluna = header.columnAtPoint( e.getPoint() );
 
-                                 System.out.println( "coluna= " + pick );
-
+                                 System.out.println( "coluna= " + coluna );
+                                 matriz.setTituloColuna( coluna, "coluna9999"  );
+                                 jTable1.getColumnModel().getColumn( coluna ).setHeaderValue( "45");
                              }
-                         } );
+                         } );;
     }
 
     public static void main( String args[] ) {
@@ -588,11 +596,10 @@ private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;
