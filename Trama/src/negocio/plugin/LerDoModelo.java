@@ -9,7 +9,6 @@ import java.net.URLClassLoader;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.jar.JarFile;
 
 public class LerDoModelo {
     private final String DIRBASE = "plugins/";
@@ -20,9 +19,9 @@ public class LerDoModelo {
         LinkedList<String> temp = null;
         HashMap<String, LinkedList<String>> nE = new HashMap<String, LinkedList<String>>();
         list = getJars();
-        
-        
-        
+
+
+
         return nE;
     }
 
