@@ -25,7 +25,7 @@ public class RendererTituloColuna extends DefaultTableCellRenderer {
     public Component getTableCellRendererComponent( JTable table, Object value,
                                                     boolean isSelected, boolean hasFocus, int row, int column ) {
 
-       /* JLabel label = new JLabel();
+        JLabel label = new JLabel();
 
         label.setHorizontalAlignment( CENTER );
         label.setOpaque( true );
@@ -34,16 +34,9 @@ public class RendererTituloColuna extends DefaultTableCellRenderer {
 
         Icon icon = getVerticalCaption( label, value.toString(), true );
         label.setIcon( icon );
-       
-
+        
         return label;
-        */
-        
-        JButton but = new JButton(value.toString());
-        
-        
-        return but;
-    }
+       }
 
    
     Icon getVerticalCaption( JComponent component, String caption, boolean clockwise ) {
