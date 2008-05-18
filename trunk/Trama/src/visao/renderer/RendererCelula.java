@@ -1,6 +1,5 @@
 package visao.renderer;
 
-
 import java.awt.Component;
 import javax.swing.JLabel;
 import javax.swing.JTable;
@@ -28,6 +27,15 @@ public class RendererCelula extends DefaultTableCellRenderer {
         label.setHorizontalAlignment( JLabel.CENTER );
         label.setBackground( javax.swing.UIManager.getDefaults().getColor( "Button.highlight" ) );
         label.setOpaque( true );
+
+        if ( value.equals( "0" ) ) {
+            label.setText( "" );
+        } else if ( value.equals( "1" ) ) {
+            label.setText( "X" );
+        } else if ( value.equals( "2" ) ) {
+            label.setText( "X" );
+            label.setBackground( javax.swing.UIManager.getDefaults().getColor( "CheckBox.shadow" ) );
+        }
         return label;
     }
 }

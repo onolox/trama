@@ -286,8 +286,12 @@ public class Tela extends javax.swing.JFrame {
         jTabbedPane1.setBackground(new java.awt.Color(204, 204, 204));
         jTabbedPane1.setName("Requisitos X UC"); // NOI18N
 
-        jTable1.setCellSelectionEnabled(true);
         jTable1.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -303,8 +307,8 @@ public class Tela extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Requisitos X UC", jPanel3);
 
-        jLabel2.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 12));
+        jLabel2.setBackground(javax.swing.UIManager.getDefaults().getColor("CheckBox.shadow"));
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("jLabel2");
         jLabel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -478,7 +482,6 @@ public class Tela extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
 private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
 }//GEN-LAST:event_jButton3ActionPerformed
 
 private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -486,8 +489,15 @@ private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 }//GEN-LAST:event_jButton4ActionPerformed
 
 private void jButton3ActionPerformed1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed1
-
 }//GEN-LAST:event_jButton3ActionPerformed1
+
+private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    int linha = jTable1.getSelectedRow();
+    int coluna = jTable1.getSelectedColumn();
+
+    System.out.println( "Linha=" + ( linha + 1 ) + "   coluna= " + coluna );
+
+}//GEN-LAST:event_jTable1MouseClicked
 
     public static void main( String args[] ) {
         try {

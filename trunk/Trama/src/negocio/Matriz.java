@@ -29,6 +29,10 @@ public class Matriz {
         addColuna( "Coluna 06" );
         addColuna( "Coluna 07" );
         addColuna( "Coluna 08" );
+        
+        setDadoMatriz( 1, 2, 2 );
+        setDadoMatriz( 1, 3, 4 );
+        setDadoMatriz( 2, 5, 7 );
 
        // for ( int l = 0; l < matriz.getQLinhas(); l++ ) {
        //     System.out.println( l + ":" + ( matriz.getLinha( l ).size() - 1 ) );
@@ -36,7 +40,7 @@ public class Matriz {
     }
 
     public void setDadoMatriz( int valor, int linha, int coluna ) {
-        matriz.getLinha( linha ).set( coluna, valor + "" );
+        matriz.getLinha( linha - 1 ).set( coluna, valor + "" );
     }
 
     public String getDadoMatriz( int linha, int coluna ) {
