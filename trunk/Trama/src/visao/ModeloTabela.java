@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.table.AbstractTableModel;
 
 public class ModeloTabela extends AbstractTableModel {
-    private Matriz matriz;
+    Matriz matriz;
 
     public ModeloTabela( String nome ) {
         super();
@@ -48,6 +48,7 @@ public class ModeloTabela extends AbstractTableModel {
             default:
                 return matriz.getTituloColuna( columnIndex );
         }
+        
     }
     
 }
