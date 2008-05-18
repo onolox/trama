@@ -622,6 +622,9 @@
                     <Property name="horizontalTextPosition" type="int" value="0"/>
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel2MouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
