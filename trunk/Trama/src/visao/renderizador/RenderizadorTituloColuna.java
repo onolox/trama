@@ -1,4 +1,4 @@
-package visao.renderer;
+package visao.renderizador;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -14,8 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
-public class RendererTituloColuna extends DefaultTableCellRenderer {
-    public RendererTituloColuna() {
+public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
+    public RenderizadorTituloColuna() {
         super();
     }
 

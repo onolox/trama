@@ -1,4 +1,4 @@
-package visao.renderer;
+package visao.renderizador;
 
 import java.awt.Component;
 import javax.swing.JLabel;
@@ -13,8 +13,8 @@ import javax.swing.table.DefaultTableCellRenderer;
  *
  * @author Fabio
  */
-public class RendererCelula extends DefaultTableCellRenderer {
-    public RendererCelula() {
+public class RenderizadorCelula extends DefaultTableCellRenderer {
+    public RenderizadorCelula() {
         super();
     }
 

@@ -2,7 +2,6 @@ package visao;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JTable;
 import javax.swing.UIManager;
 import javax.swing.table.JTableHeader;
 import negocio.ControleProjeto;
@@ -532,7 +531,7 @@ private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {
                                  matriz.setTituloColuna( coluna, "coluna9999"  );
                                  jTable1.getColumnModel().getColumn( coluna ).setHeaderValue( "45");
                              }
-                         } );;
+                         } );
     }
 
     public static void main( String args[] ) {
