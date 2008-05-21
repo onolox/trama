@@ -1,4 +1,4 @@
-package negocio.plugin;
+package negocio.plugin.interf;
 
 import java.util.LinkedList;
 
