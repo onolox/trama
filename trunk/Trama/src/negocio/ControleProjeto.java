@@ -10,5 +10,24 @@ package negocio;
  * @author Fabio
  */
 public class ControleProjeto {
+	public Projeto m_Projeto;
+	public ProjetoDAO m_ProjetoDAO;
 
+
+
+public void abrirProjeto(){
+
+	}
+
+	public void criarNovoProjeto(){
+
+	}
+
+	public void fecharProjeto(){
+
+	}
+
+	public void salvarProjeto(){
+
+	}
 }

@@ -11,4 +11,8 @@ package negocio;
  */
 public class ExportarImagem {
 
+
+	public void exportar(){
+
+	}
 }

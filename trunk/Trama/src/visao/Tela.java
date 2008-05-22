@@ -2,26 +2,15 @@ package visao;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.UIManager;
 import javax.swing.table.JTableHeader;
-import negocio.ControleProjeto;
-import negocio.ExportarImagem;
-import negocio.ExportarPDF;
-import negocio.Imprimir;
-import negocio.plugin.LerDoModelo;
-import negocio.Matriz;
+import negocio.TelaController;
 
 /**
  *
  * @author  Fabio
  */
 public class Tela extends javax.swing.JFrame {
-    private ControleProjeto projeto;
-    private Matriz matriz;
-    private ExportarImagem exImagem;
-    private ExportarPDF exPDF;
-    private Imprimir imprimir;
-    private LerDoModelo lerModelo;
+   
     private JTableHeader header;
     private JTableCustomizado jTable1 = new JTableCustomizado();
     private Object jScrollPane1;
@@ -39,7 +28,7 @@ public class Tela extends javax.swing.JFrame {
 
         headerColunaClicked();
 
-        matriz = jTable1.tabe.matriz;
+       // matriz = jTable1.tabe.matriz;
     }
 
     /** This method is called from within the constructor to
@@ -590,24 +579,13 @@ private void novaLinhaColunaActionPerformed(java.awt.event.ActionEvent evt) {//G
                                  int coluna = header.columnAtPoint( e.getPoint() );
 
                                  System.out.println( "coluna= " + coluna );
-                                 matriz.setTituloColuna( coluna, "coluna9999" );
+                                // matriz.setTituloColuna( coluna, "coluna9999" );
                                  jTable1.getColumnModel().getColumn( coluna ).setHeaderValue( "45" );
                              }
                          } );
     }
 
-    public static void main( String args[] ) {
-        try {
-            UIManager.setLookAndFeel( UIManager.getSystemLookAndFeelClassName() );
-        } catch ( Exception ex ) {
-            ex.printStackTrace();
-        }
-        java.awt.EventQueue.invokeLater( new Runnable() {
-                                     public void run() {
-                                         new Tela().setVisible( true );
-                                     }
-                                 } );
-    }
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton abrirProjeto;
     private javax.swing.JMenuItem abrirProjetoMenu;
@@ -668,5 +646,6 @@ private void novaLinhaColunaActionPerformed(java.awt.event.ActionEvent evt) {//G
     private javax.swing.JMenuItem salvarPDFMenu;
     private javax.swing.JButton salvarProjeto;
     private javax.swing.JMenuItem salvarProjetoMenu;
+	public TelaController m_TelaController;
     // End of variables declaration//GEN-END:variables
 }

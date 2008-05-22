@@ -10,5 +10,9 @@ package persistencia;
  * @author Fabio
  */
 public class Projeto {
+	private LinkedList<DadosMatriz> matrizes;
+	private String nome;
+	public DadosMatriz m_DadosMatriz;
+
 
 }

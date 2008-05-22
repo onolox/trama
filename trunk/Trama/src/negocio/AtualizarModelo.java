@@ -10,5 +10,19 @@ package negocio;
  * @author Fabio
  */
 public class AtualizarModelo {
+	public LerDoModelo m_LerDoModelo;
 
+
+
+	public void atualizarLinha(){
+
+	}
+
+	public void atualizarColuna(){
+
+	}
+
+	public void atualizarMatriz(){
+
+	}
 }

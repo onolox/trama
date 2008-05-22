@@ -6,6 +6,7 @@ import visao.renderizador.RenderizadorTituloLinha;
 
 public class ModeloTabela extends AbstractTableModel {
     Matriz matriz;
+	public RenderizadorTituloLinha m_RenderizadorTituloLinha;
 
     public ModeloTabela( String nome ) {
         super();
