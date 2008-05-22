@@ -15,6 +15,8 @@ public class LerDoModelo {
     private final String DIRBASE = "plugins/";
     private LinkedList<String> list;
     PluginInterface pl = null;
+	public PluginTexto m_PluginTexto;
+	public PluginNetbeans m_PluginNetbeans;
 
     public HashMap<String, LinkedList<String>> getNomesExtensoes() {
         LinkedList<String> temp = null;

@@ -11,4 +11,8 @@ package negocio;
  */
 public class Imprimir {
 
+
+	public void imprimir(){
+
+	}
 }

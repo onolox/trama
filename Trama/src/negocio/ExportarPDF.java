@@ -11,4 +11,8 @@ package negocio;
  */
 public class ExportarPDF {
 
+
+	public void exportar(){
+
+	}
 }
