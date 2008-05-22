@@ -28,18 +28,18 @@ public class Tela extends javax.swing.JFrame {
 
     public Tela() {
         initComponents();
-    //  setExtendedState( MAXIMIZED_BOTH );
+        //  setExtendedState( MAXIMIZED_BOTH );
 
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(jTable1);
-        
+        jTable1.addMouseListener( new java.awt.event.MouseAdapter() {
+                              public void mouseClicked( java.awt.event.MouseEvent evt ) {
+                                  jTable1MouseClicked( evt );
+                              }
+                          } );
+        jScrollPane2.setViewportView( jTable1 );
+
         headerColunaClicked();
-        
-    matriz = jTable1.tabe.matriz;
+
+        matriz = jTable1.tabe.matriz;
     }
 
     /** This method is called from within the constructor to
@@ -62,38 +62,39 @@ public class Tela extends javax.swing.JFrame {
         jToolBar2 = new javax.swing.JToolBar();
         jLabel1 = new javax.swing.JLabel();
         cancelarEdicao = new javax.swing.JButton();
-        okedicao = new javax.swing.JButton();
+        okEdicao = new javax.swing.JButton();
         nomeTextField = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
+        deslocar1 = new javax.swing.JButton();
+        deslocar2 = new javax.swing.JButton();
+        destacar = new javax.swing.JButton();
         jToolBar4 = new javax.swing.JToolBar();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        novaLinhaColuna = new javax.swing.JButton();
+        apagarLinhaColuna = new javax.swing.JButton();
         ordenar = new javax.swing.JButton();
         importar = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
+        atualizar = new javax.swing.JButton();
         jToolBar6 = new javax.swing.JToolBar();
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanel4 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        novoProjetoMenu = new javax.swing.JMenuItem();
+        abrirProjetoMenu = new javax.swing.JMenuItem();
+        salvarProjetoMenu = new javax.swing.JMenuItem();
+        fecharProjetoMenu = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JSeparator();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        salvarPDFMenu = new javax.swing.JMenuItem();
+        salvarImagemMenu = new javax.swing.JMenuItem();
+        imprimirMenu = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
+        jMenuItem12 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
@@ -104,7 +105,6 @@ public class Tela extends javax.swing.JFrame {
         jMenu10 = new javax.swing.JMenu();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem13 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -177,6 +177,11 @@ public class Tela extends javax.swing.JFrame {
         novaMatriz.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         novaMatriz.setIconTextGap(1);
         novaMatriz.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        novaMatriz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                novaMatrizActionPerformed(evt);
+            }
+        });
         jToolBar3.add(novaMatriz);
 
         apagarMatriz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Stop16.gif"))); // NOI18N
@@ -185,6 +190,11 @@ public class Tela extends javax.swing.JFrame {
         apagarMatriz.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         apagarMatriz.setIconTextGap(1);
         apagarMatriz.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        apagarMatriz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                apagarMatrizActionPerformed(evt);
+            }
+        });
         jToolBar3.add(apagarMatriz);
 
         jPanel1.add(jToolBar3);
@@ -203,12 +213,12 @@ public class Tela extends javax.swing.JFrame {
         cancelarEdicao.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar2.add(cancelarEdicao);
 
-        okedicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon_ok.gif"))); // NOI18N
-        okedicao.setFocusable(false);
-        okedicao.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        okedicao.setIconTextGap(1);
-        okedicao.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar2.add(okedicao);
+        okEdicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon_ok.gif"))); // NOI18N
+        okEdicao.setFocusable(false);
+        okEdicao.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        okEdicao.setIconTextGap(1);
+        okEdicao.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar2.add(okEdicao);
 
         nomeTextField.setColumns(15);
         nomeTextField.setFont(new java.awt.Font("Arial", 0, 12));
@@ -217,35 +227,45 @@ public class Tela extends javax.swing.JFrame {
         nomeTextField.setMinimumSize(new java.awt.Dimension(10, 30));
         jToolBar2.add(nomeTextField);
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Play16.gif"))); // NOI18N
-        jButton6.setText("Direita");
-        jButton6.setAlignmentX(0.5F);
-        jButton6.setFocusable(false);
-        jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton6.setIconTextGap(1);
-        jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        deslocar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Play16.gif"))); // NOI18N
+        deslocar1.setText("Direita");
+        deslocar1.setAlignmentX(0.5F);
+        deslocar1.setFocusable(false);
+        deslocar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        deslocar1.setIconTextGap(1);
+        deslocar1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        deslocar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                deslocar1ActionPerformed(evt);
             }
         });
-        jToolBar2.add(jButton6);
+        jToolBar2.add(deslocar1);
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Down16.gif"))); // NOI18N
-        jButton7.setText("Baixo");
-        jButton7.setFocusable(false);
-        jButton7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton7.setIconTextGap(1);
-        jButton7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar2.add(jButton7);
+        deslocar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Down16.gif"))); // NOI18N
+        deslocar2.setText("Baixo");
+        deslocar2.setFocusable(false);
+        deslocar2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        deslocar2.setIconTextGap(1);
+        deslocar2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        deslocar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deslocar2ActionPerformed(evt);
+            }
+        });
+        jToolBar2.add(deslocar2);
 
-        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Find16.gif"))); // NOI18N
-        jButton13.setText("Destacar");
-        jButton13.setFocusable(false);
-        jButton13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton13.setIconTextGap(1);
-        jButton13.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar2.add(jButton13);
+        destacar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Find16.gif"))); // NOI18N
+        destacar.setText("Destacar");
+        destacar.setFocusable(false);
+        destacar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        destacar.setIconTextGap(1);
+        destacar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        destacar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                destacarActionPerformed(evt);
+            }
+        });
+        jToolBar2.add(destacar);
 
         jPanel1.add(jToolBar2);
 
@@ -254,27 +274,42 @@ public class Tela extends javax.swing.JFrame {
         jToolBar4.setMinimumSize(new java.awt.Dimension(200, 30));
         jToolBar4.setPreferredSize(new java.awt.Dimension(230, 30));
 
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/RowDelete16.gif"))); // NOI18N
-        jButton8.setText("Novo");
-        jButton8.setFocusable(false);
-        jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton8.setIconTextGap(1);
-        jButton8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar4.add(jButton8);
+        novaLinhaColuna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/RowDelete16.gif"))); // NOI18N
+        novaLinhaColuna.setText("Novo");
+        novaLinhaColuna.setFocusable(false);
+        novaLinhaColuna.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        novaLinhaColuna.setIconTextGap(1);
+        novaLinhaColuna.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        novaLinhaColuna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                novaLinhaColunaActionPerformed(evt);
+            }
+        });
+        jToolBar4.add(novaLinhaColuna);
 
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon-delete.gif"))); // NOI18N
-        jButton9.setText("Apagar");
-        jButton9.setFocusable(false);
-        jButton9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton9.setIconTextGap(1);
-        jButton9.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar4.add(jButton9);
+        apagarLinhaColuna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon-delete.gif"))); // NOI18N
+        apagarLinhaColuna.setText("Apagar");
+        apagarLinhaColuna.setFocusable(false);
+        apagarLinhaColuna.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        apagarLinhaColuna.setIconTextGap(1);
+        apagarLinhaColuna.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        apagarLinhaColuna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                apagarLinhaColunaActionPerformed(evt);
+            }
+        });
+        jToolBar4.add(apagarLinhaColuna);
 
         ordenar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Preferences16.gif"))); // NOI18N
         ordenar.setText("Ordenar");
         ordenar.setFocusable(false);
         ordenar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         ordenar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        ordenar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ordenarActionPerformed(evt);
+            }
+        });
         jToolBar4.add(ordenar);
 
         importar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Import16.gif"))); // NOI18N
@@ -283,15 +318,25 @@ public class Tela extends javax.swing.JFrame {
         importar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         importar.setIconTextGap(1);
         importar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        importar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                importarActionPerformed(evt);
+            }
+        });
         jToolBar4.add(importar);
 
-        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Refresh16.gif"))); // NOI18N
-        jButton15.setText("Atualizar");
-        jButton15.setFocusable(false);
-        jButton15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton15.setIconTextGap(1);
-        jButton15.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar4.add(jButton15);
+        atualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Refresh16.gif"))); // NOI18N
+        atualizar.setText("Atualizar");
+        atualizar.setFocusable(false);
+        atualizar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        atualizar.setIconTextGap(1);
+        atualizar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        atualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atualizarActionPerformed(evt);
+            }
+        });
+        jToolBar4.add(atualizar);
 
         jPanel1.add(jToolBar4);
 
@@ -318,34 +363,15 @@ public class Tela extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Requisitos X UC", jPanel3);
 
-        jLabel2.setBackground(javax.swing.UIManager.getDefaults().getColor("CheckBox.shadow"));
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 12));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("jLabel2");
-        jLabel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel2.setOpaque(true);
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(649, Short.MAX_VALUE))
+            .addGap(0, 854, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(391, Short.MAX_VALUE))
+            .addGap(0, 437, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("UC X Classes Análise", jPanel4);
@@ -391,25 +417,29 @@ public class Tela extends javax.swing.JFrame {
 
         jMenu1.setText("Arquivo");
 
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/New16.gif"))); // NOI18N
-        jMenuItem3.setText("Novo Projeto...");
-        jMenu1.add(jMenuItem3);
+        novoProjetoMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/New16.gif"))); // NOI18N
+        novoProjetoMenu.setText("Novo Projeto...");
+        jMenu1.add(novoProjetoMenu);
 
-        jMenuItem4.setText("Salvar Projeto");
-        jMenu1.add(jMenuItem4);
+        abrirProjetoMenu.setText("Abrir Projeto...");
+        jMenu1.add(abrirProjetoMenu);
 
-        jMenuItem5.setText("Fechar Projeto");
-        jMenu1.add(jMenuItem5);
+        salvarProjetoMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/SaveAll16.gif"))); // NOI18N
+        salvarProjetoMenu.setText("Salvar Projeto");
+        jMenu1.add(salvarProjetoMenu);
+
+        fecharProjetoMenu.setText("Fechar Projeto");
+        jMenu1.add(fecharProjetoMenu);
         jMenu1.add(jSeparator3);
 
-        jMenuItem1.setText("Salvar como PDF");
-        jMenu1.add(jMenuItem1);
+        salvarPDFMenu.setText("Salvar como PDF...");
+        jMenu1.add(salvarPDFMenu);
 
-        jMenuItem2.setText("Salvar como Imagem");
-        jMenu1.add(jMenuItem2);
+        salvarImagemMenu.setText("Salvar como Imagem...");
+        jMenu1.add(salvarImagemMenu);
 
-        jMenuItem7.setText("Imprimir...");
-        jMenu1.add(jMenuItem7);
+        imprimirMenu.setText("Imprimir...");
+        jMenu1.add(imprimirMenu);
 
         jMenuBar1.add(jMenu1);
 
@@ -420,6 +450,9 @@ public class Tela extends javax.swing.JFrame {
 
         jMenu4.setText("Apagar Matriz");
         jMenu2.add(jMenu4);
+
+        jMenuItem12.setText("Atualizar Matriz...");
+        jMenu2.add(jMenuItem12);
 
         jMenuBar1.add(jMenu2);
 
@@ -450,9 +483,6 @@ public class Tela extends javax.swing.JFrame {
 
         jMenuItem11.setText("Importar");
         jMenu10.add(jMenuItem11);
-
-        jMenuItem12.setText("Atualizar");
-        jMenu10.add(jMenuItem12);
 
         jMenuItem13.setText("Destacar");
         jMenu10.add(jMenuItem13);
@@ -493,10 +523,6 @@ public class Tela extends javax.swing.JFrame {
         // TODO add your handling code here:
 }//GEN-LAST:event_salvarProjetoActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
 private void novoProjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoProjetoActionPerformed
 }//GEN-LAST:event_novoProjetoActionPerformed
 
@@ -507,17 +533,53 @@ private void abrirProjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 private void novoProjetoActionPerformed1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoProjetoActionPerformed1
 }//GEN-LAST:event_novoProjetoActionPerformed1
 
-private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+private void novaMatrizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novaMatrizActionPerformed
 // TODO add your handling code here:
-}//GEN-LAST:event_jLabel2MouseClicked
+}//GEN-LAST:event_novaMatrizActionPerformed
 
-private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {                                     
-    int linha = jTable1.getSelectedRow();
-    int coluna = jTable1.getSelectedColumn();
+private void apagarMatrizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarMatrizActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_apagarMatrizActionPerformed
 
-    System.out.println( "Linha=" + ( linha + 1 ) + "   coluna= " + coluna );
+private void deslocar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deslocar1ActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_deslocar1ActionPerformed
 
-}
+private void deslocar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deslocar2ActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_deslocar2ActionPerformed
+
+private void destacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destacarActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_destacarActionPerformed
+
+private void atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_atualizarActionPerformed
+
+private void importarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importarActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_importarActionPerformed
+
+private void ordenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordenarActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_ordenarActionPerformed
+
+private void apagarLinhaColunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarLinhaColunaActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_apagarLinhaColunaActionPerformed
+
+private void novaLinhaColunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novaLinhaColunaActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_novaLinhaColunaActionPerformed
+
+    private void jTable1MouseClicked( java.awt.event.MouseEvent evt ) {
+        int linha = jTable1.getSelectedRow();
+        int coluna = jTable1.getSelectedColumn();
+
+        System.out.println( "Linha=" + ( linha + 1 ) + "   coluna= " + coluna );
+
+    }
 
     private void headerColunaClicked() {
         header = jTable1.getTableHeader();
@@ -528,8 +590,8 @@ private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {
                                  int coluna = header.columnAtPoint( e.getPoint() );
 
                                  System.out.println( "coluna= " + coluna );
-                                 matriz.setTituloColuna( coluna, "coluna9999"  );
-                                 jTable1.getColumnModel().getColumn( coluna ).setHeaderValue( "45");
+                                 matriz.setTituloColuna( coluna, "coluna9999" );
+                                 jTable1.getColumnModel().getColumn( coluna ).setHeaderValue( "45" );
                              }
                          } );
     }
@@ -548,18 +610,19 @@ private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton abrirProjeto;
+    private javax.swing.JMenuItem abrirProjetoMenu;
+    private javax.swing.JButton apagarLinhaColuna;
     private javax.swing.JButton apagarMatriz;
+    private javax.swing.JButton atualizar;
     private javax.swing.JButton cancelarEdicao;
+    private javax.swing.JButton deslocar1;
+    private javax.swing.JButton deslocar2;
+    private javax.swing.JButton destacar;
+    private javax.swing.JMenuItem fecharProjetoMenu;
     private javax.swing.JButton importar;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JMenuItem imprimirMenu;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu2;
@@ -571,18 +634,12 @@ private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
@@ -601,10 +658,15 @@ private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {
     private javax.swing.JToolBar jToolBar4;
     private javax.swing.JToolBar jToolBar6;
     private javax.swing.JTextField nomeTextField;
+    private javax.swing.JButton novaLinhaColuna;
     private javax.swing.JButton novaMatriz;
     private javax.swing.JButton novoProjeto;
-    private javax.swing.JButton okedicao;
+    private javax.swing.JMenuItem novoProjetoMenu;
+    private javax.swing.JButton okEdicao;
     private javax.swing.JButton ordenar;
+    private javax.swing.JMenuItem salvarImagemMenu;
+    private javax.swing.JMenuItem salvarPDFMenu;
     private javax.swing.JButton salvarProjeto;
+    private javax.swing.JMenuItem salvarProjetoMenu;
     // End of variables declaration//GEN-END:variables
 }
