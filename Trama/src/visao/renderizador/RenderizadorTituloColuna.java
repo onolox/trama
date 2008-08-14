@@ -37,7 +37,13 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
        }
 
    
-    Icon getVerticalCaption( JComponent component, String caption, boolean clockwise ) {
+	/**
+	 * 
+	 * @param componente
+	 * @param texto
+	 * @param sentido
+	 */
+    private Icon getVerticalCaption(JComponent componente, String texto, boolean sentido) {
         Font f = component.getFont();
         FontMetrics fm = component.getFontMetrics( f );
         int captionHeight = fm.getHeight();

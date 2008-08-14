@@ -18,11 +18,10 @@ public class JTableCustomizado extends JTable {
     private DefaultTableCellRenderer cell;
     private DefaultTableCellRenderer cell0;
     private Enumeration<TableColumn> l;
-    ModeloTabela tabe;
-    public RenderizadorCelula m_RenderizadorCelula;
-    public RenderizadorTituloColuna m_RenderizadorTituloColuna;
-    public Tela m_Tela;
-    ModeloTabela m_ModeloTabela;
+    private ModeloTabela modelo;
+    private String nome;
+
+    
 
     public JTableCustomizado() {
         cell = new RenderizadorCelula();
@@ -53,5 +52,28 @@ public class JTableCustomizado extends JTable {
 
             tc.setHeaderRenderer( new RenderizadorTituloColuna() );
         }
+    }
+
+    /**
+     * 
+     * @param modelo
+     */
+    public JTableCustomizado( ModeloTabela modelo ) {
+    }
+
+    public String exportarImagem() {
+        return "";
+    }
+
+    public String exportarPDF() {
+        return "";
+    }
+
+    public String imprimir() {
+        return "";
+    }
+    
+    public String getNome() {
+        return nome;
     }
 }

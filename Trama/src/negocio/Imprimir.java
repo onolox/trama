@@ -10,9 +10,15 @@ package negocio;
  * @author Fabio
  */
 public class Imprimir {
+	public CriadorImagem m_CriadorImagem;
 
 
-	public void imprimir(){
+
+	/**
+	 * 
+	 * @param table
+	 */
+	public void imprimir(JTable table){
 
 	}
 }

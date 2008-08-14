@@ -1,5 +1,6 @@
 package visao;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.table.JTableHeader;
@@ -12,7 +13,7 @@ import negocio.TelaController;
 public class Tela extends javax.swing.JFrame {
    
     private JTableHeader header;
-    private JTableCustomizado jTable1 = new JTableCustomizado();
+    protected JTableCustomizado jTable1 = new JTableCustomizado();
     private Object jScrollPane1;
 
     public Tela() {
@@ -30,6 +31,178 @@ public class Tela extends javax.swing.JFrame {
 
        // matriz = jTable1.tabe.matriz;
     }
+    
+    private void abrirProjeto(){
+
+	}
+
+	/**
+	 * GEN-LAST:event_apagarLinhaColunaActionPerformed
+	 */
+	private void adicionarColuna(){
+
+	}
+
+	/**
+	 * GEN-LAST:event_atualizarActionPerformed
+	 */
+	private void adicionarColunasModelo(){
+
+	}
+
+	/**
+	 * GEN-LAST:event_apagarLinhaColunaActionPerformed
+	 */
+	private void adicionarLinha(){
+
+	}
+
+	/**
+	 * GEN-LAST:event_apagarLinhaColunaActionPerformed
+	 */
+	private void adicionarLinhasModelo(){
+
+	}
+
+	/**
+	 * GEN-LAST:event_novoProjetoActionPerformed1
+	 */
+	private void adicionarMatriz(){
+
+	}
+
+	/**
+	 * GEN-LAST:event_apagarMatrizActionPerformed
+	 */
+	private void alterarPosicaoColuna(){
+
+	}
+
+	/**
+	 * GEN-LAST:event_deslocar1ActionPerformed
+	 */
+	private void alterarPosicaoLinha(){
+
+	}
+
+	/**
+	 * GEN-LAST:event_apagarLinhaColunaActionPerformed
+	 */
+	private void atualizarColuna(){
+
+	}
+
+	/**
+	 * GEN-LAST:event_apagarLinhaColunaActionPerformed
+	 */
+	private void atualizarLinha(){
+
+	}
+
+	/**
+	 * GEN-LAST:event_salvarProjetoActionPerformed
+	 */
+	private void criarNovoProjeto(){
+
+	}
+
+	/**
+	 * GEN-LAST:event_deslocar2ActionPerformed
+	 */
+	private void destacarElementos(){
+
+	}
+
+	/**
+	 * GEN-LAST:event_novaMatrizActionPerformed
+	 */
+	private void excluirMatriz(){
+
+	}
+
+	/**
+	 * GEN-LAST:event_ordenarActionPerformed
+	 */
+	private void exclulirColuna(){
+
+	}
+
+	/**
+	 * GEN-LAST:event_ordenarActionPerformed
+	 */
+	private void exclulirLinha(){
+
+	}
+
+	private void exportarImagem(){
+
+	}
+
+	private void exportarPDF(){
+
+	}
+
+	private void fecharProjeto(){
+
+	}
+
+	private void imprimir(){
+
+	}
+
+	/**
+	 * GEN-LAST:event_importarActionPerformed
+	 */
+	private void ordenarColuna(){
+
+	}
+
+	/**
+	 * GEN-LAST:event_importarActionPerformed
+	 */
+	private void ordenarLinha(){
+
+	}
+
+	/**
+	 * 
+	 * @param evt
+	 */
+	private void posisaoJTable(ActionEvent evt){
+
+	}
+
+	private void resetarDestaque(){
+
+	}
+
+	/**
+	 * </editor-fold>                        
+	 */
+	private void salvarProjeto(){
+
+	}
+
+	/**
+	 * GEN-LAST:event_destacarActionPerformed
+	 */
+	private void sincronizarColuna(){
+
+	}
+
+	/**
+	 * GEN-LAST:event_destacarActionPerformed
+	 */
+	private void sincronizarLinha(){
+
+	}
+
+	/**
+	 * GEN-LAST:event_destacarActionPerformed
+	 */
+	private void sincronizarMatriz(){
+
+	}
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -39,7 +212,6 @@ public class Tela extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jFileChooser1 = new javax.swing.JFileChooser();
         jPanel1 = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
         novoProjeto = new javax.swing.JButton();
@@ -67,9 +239,7 @@ public class Tela extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
+        jTableCustomizado1 = new visao.JTableCustomizado();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         novoProjetoMenu = new javax.swing.JMenuItem();
@@ -104,13 +274,14 @@ public class Tela extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(800, 550));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setPreferredSize(new java.awt.Dimension(777, 36));
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
 
         jToolBar1.setRollover(true);
         jToolBar1.setAlignmentX(0.0F);
-        jToolBar1.setMaximumSize(new java.awt.Dimension(150, 31));
+        jToolBar1.setMaximumSize(new java.awt.Dimension(150, 35));
         jToolBar1.setMinimumSize(new java.awt.Dimension(158, 30));
-        jToolBar1.setPreferredSize(new java.awt.Dimension(110, 30));
+        jToolBar1.setPreferredSize(new java.awt.Dimension(110, 45));
 
         novoProjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Add16.gif"))); // NOI18N
         novoProjeto.setText("Novo");
@@ -158,7 +329,7 @@ public class Tela extends javax.swing.JFrame {
         jToolBar3.setAlignmentY(0.5F);
         jToolBar3.setMaximumSize(new java.awt.Dimension(50, 50));
         jToolBar3.setMinimumSize(new java.awt.Dimension(50, 50));
-        jToolBar3.setPreferredSize(new java.awt.Dimension(80, 30));
+        jToolBar3.setPreferredSize(new java.awt.Dimension(80, 45));
 
         novaMatriz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/RowDelete16.gif"))); // NOI18N
         novaMatriz.setText("Novo");
@@ -191,7 +362,7 @@ public class Tela extends javax.swing.JFrame {
         jToolBar2.setRollover(true);
         jToolBar2.setMaximumSize(new java.awt.Dimension(400, 30));
         jToolBar2.setMinimumSize(new java.awt.Dimension(300, 30));
-        jToolBar2.setPreferredSize(new java.awt.Dimension(340, 30));
+        jToolBar2.setPreferredSize(new java.awt.Dimension(340, 45));
 
         jLabel1.setText(null);
         jToolBar2.add(jLabel1);
@@ -261,7 +432,7 @@ public class Tela extends javax.swing.JFrame {
         jToolBar4.setRollover(true);
         jToolBar4.setMaximumSize(new java.awt.Dimension(400, 30));
         jToolBar4.setMinimumSize(new java.awt.Dimension(200, 30));
-        jToolBar4.setPreferredSize(new java.awt.Dimension(230, 30));
+        jToolBar4.setPreferredSize(new java.awt.Dimension(230, 45));
 
         novaLinhaColuna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/RowDelete16.gif"))); // NOI18N
         novaLinhaColuna.setText("Novo");
@@ -276,11 +447,12 @@ public class Tela extends javax.swing.JFrame {
         });
         jToolBar4.add(novaLinhaColuna);
 
-        apagarLinhaColuna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon-delete.gif"))); // NOI18N
+        apagarLinhaColuna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Volume16.gif"))); // NOI18N
         apagarLinhaColuna.setText("Apagar");
         apagarLinhaColuna.setFocusable(false);
         apagarLinhaColuna.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         apagarLinhaColuna.setIconTextGap(1);
+        apagarLinhaColuna.setMaximumSize(new java.awt.Dimension(100, 100));
         apagarLinhaColuna.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         apagarLinhaColuna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -335,6 +507,8 @@ public class Tela extends javax.swing.JFrame {
         jTabbedPane1.setBackground(new java.awt.Color(204, 204, 204));
         jTabbedPane1.setName("Requisitos X UC"); // NOI18N
 
+        jScrollPane2.setViewportView(jTableCustomizado1);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -345,51 +519,12 @@ public class Tela extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 437, Short.MAX_VALUE)
+            .addGap(0, 420, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Requisitos X UC", jPanel3);
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 854, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 437, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("UC X Classes Análise", jPanel4);
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 854, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 437, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("UC X Robustez", jPanel5);
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 854, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 437, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Robustez X Classes Projeto", jPanel6);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -399,7 +534,7 @@ public class Tela extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
         );
 
         jTabbedPane1.getAccessibleContext().setAccessibleName("Requisitos X UC");
@@ -500,7 +635,7 @@ public class Tela extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -585,6 +720,8 @@ private void novaLinhaColunaActionPerformed(java.awt.event.ActionEvent evt) {//G
                          } );
     }
 
+	
+
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton abrirProjeto;
@@ -599,7 +736,6 @@ private void novaLinhaColunaActionPerformed(java.awt.event.ActionEvent evt) {//G
     private javax.swing.JMenuItem fecharProjetoMenu;
     private javax.swing.JButton importar;
     private javax.swing.JMenuItem imprimirMenu;
-    private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
@@ -623,13 +759,11 @@ private void novaLinhaColunaActionPerformed(java.awt.event.ActionEvent evt) {//G
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private visao.JTableCustomizado jTableCustomizado1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JToolBar jToolBar3;
@@ -646,6 +780,5 @@ private void novaLinhaColunaActionPerformed(java.awt.event.ActionEvent evt) {//G
     private javax.swing.JMenuItem salvarPDFMenu;
     private javax.swing.JButton salvarProjeto;
     private javax.swing.JMenuItem salvarProjetoMenu;
-	public TelaController m_TelaController;
     // End of variables declaration//GEN-END:variables
 }

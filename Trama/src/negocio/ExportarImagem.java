@@ -10,9 +10,16 @@ package negocio;
  * @author Fabio
  */
 public class ExportarImagem {
+	public CriadorImagem m_CriadorImagem;
+	public CriarImagem m_CriarImagem;
 
 
-	public void exportar(){
+
+	/**
+	 * 
+	 * @param table
+	 */
+	public void exportar(JTable table){
 
 	}
 }
