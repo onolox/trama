@@ -17,6 +17,9 @@ public class DadosMatriz {
     private LinkedList<String> tituloLinha;
     private LinkedList<String> tituloColuna;
     private LinkedList<LinkedList> linha;
+	private String tituloColunaArquivo;
+	private String tituloLinhaArquivo;
+	public Projeto m_Projeto;
 
     public DadosMatriz() {
         tituloLinha = new LinkedList<String>();
@@ -98,4 +101,28 @@ public class DadosMatriz {
     public void setLinha( LinkedList<LinkedList> linha ) {
         this.linha = linha;
     }
+
+	public String getTituloColunaArquivo(){
+		return "";
+	}
+
+	public String getTituloLinhaArquivo(){
+		return "";
+	}
+
+	/**
+	 * 
+	 * @param arquivo
+	 */
+	public void setTituloColunaArquivo(String arquivo){
+
+	}
+
+	/**
+	 * 
+	 * @param arquivo
+	 */
+	public void setTituloLinhaArquivo(String arquivo){
+
+	}
 }

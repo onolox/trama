@@ -5,10 +5,10 @@ import javax.swing.table.AbstractTableModel;
 import visao.renderizador.RenderizadorTituloLinha;
 
 public class ModeloTabela extends AbstractTableModel {
-    Matriz matriz;
-	public RenderizadorTituloLinha m_RenderizadorTituloLinha;
+    private Matriz matriz;
+    private RenderizadorTituloLinha m_RenderizadorTituloLinha;
 
-    public ModeloTabela( String nome ) {
+    public ModeloTabela( String nome, Matriz matriz ) {
         super();
         matriz = new Matriz( nome );
     }
@@ -46,7 +46,14 @@ public class ModeloTabela extends AbstractTableModel {
             default:
                 return matriz.getTituloColuna( columnIndex );
         }
-        
+
     }
-    
+
+    /**
+     * 
+     * @param nome
+     * @param matriz
+     */
+    public ModeloTabela( String nome, Matriz matriz ) {
+    }
 }

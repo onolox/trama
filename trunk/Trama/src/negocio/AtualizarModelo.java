@@ -11,18 +11,27 @@ package negocio;
  */
 public class AtualizarModelo {
 	public LerDoModelo m_LerDoModelo;
+	public LeitorDeModelo m_LeitorDeModelo;
 
 
 
-	public void atualizarLinha(){
-
-	}
-
-	public void atualizarColuna(){
+	public void sincronizarLinha(){
 
 	}
 
-	public void atualizarMatriz(){
+	public void sincronizarColuna(){
+
+	}
+
+	public void sincronizarMatriz(){
+
+	}
+
+	/**
+	 * 
+	 * @param lerModelo
+	 */
+	public void AtualizarModelo(LerDoModelo lerModelo){
 
 	}
 }
