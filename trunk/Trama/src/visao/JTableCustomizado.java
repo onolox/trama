@@ -1,5 +1,11 @@
 package visao;
 
+
+
+import visao.ModeloTabela;
+
+
+
 import java.awt.Font;
 import java.util.Enumeration;
 import javax.swing.JTable;
@@ -33,8 +39,8 @@ public class JTableCustomizado extends JTable {
         setRowSelectionAllowed( false );
         setColumnSelectionAllowed( true );
         setCellSelectionEnabled( true );
-        tabe = new ModeloTabela( "UC X Requisitos" );
-        setModel( tabe );
+ //       tabe = new ModeloTabela( "UC X Requisitos" );
+ //      setModel( tabe );
 
         setDefaultRenderer( String.class, cell );
         setDefaultRenderer( RenderizadorTituloLinha.class, cell0 );

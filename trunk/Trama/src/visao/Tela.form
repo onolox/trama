@@ -13,38 +13,59 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Novo Projeto..."/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="novoProjetoMenu.addActionListener(this);"/>
+              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="abrirProjetoMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Abrir Projeto..."/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="abrirProjetoMenu.addActionListener(this);"/>
+              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="salvarProjetoMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salvar Projeto"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="salvarProjetoMenu.addActionListener(this);"/>
+              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="fecharProjetoMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Fechar Projeto"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="fecharProjetoMenu.addActionListener(this);"/>
+              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JSeparator" name="jSeparator3">
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="salvarPDFMenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Salvar como PDF..."/>
+                <Property name="text" type="java.lang.String" value="Salvar Como PDF..."/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="salvarPDFMenu.addActionListener(this);"/>
+              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="salvarImagemMenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Salvar como Imagem..."/>
+                <Property name="text" type="java.lang.String" value="Salvar Como Imagem..."/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="salvarImagemMenu.addActionListener(this);"/>
+              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="imprimirMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Imprimir..."/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="imprimirMenu.addActionListener(this);"/>
+              </AuxValues>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -53,20 +74,29 @@
             <Property name="text" type="java.lang.String" value="Matriz"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+            <MenuItem class="javax.swing.JMenuItem" name="novaMatrizMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nova Matriz"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="novaMatrizMenu.addActionListener(this);"/>
+              </AuxValues>
             </MenuItem>
-            <Menu class="javax.swing.JMenu" name="jMenu4">
+            <MenuItem class="javax.swing.JMenuItem" name="sincronizarMatrizMenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Apagar Matriz"/>
+                <Property name="text" type="java.lang.String" value="Sincronizar Matriz..."/>
               </Properties>
-            </Menu>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem12">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="sincronizarMatrizMenu.addActionListener(this);"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="excluirMatrizMenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Atualizar Matriz..."/>
+                <Property name="text" type="java.lang.String" value="Excluir Matriz"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="excluirMatrizMenu.addActionListener(this);"/>
+              </AuxValues>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -75,34 +105,44 @@
             <Property name="text" type="java.lang.String" value="Linha/Coluna"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="novaLinhaColunaMenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nova Linha"/>
+                <Property name="text" type="java.lang.String" value="Nova Linha/Coluna"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="novaLinhaColunaMenu.addActionListener(this);"/>
+              </AuxValues>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="excluirLinhaColunaMenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Apagar Linha"/>
+                <Property name="text" type="java.lang.String" value="Excluir Linha/Coluna"/>
               </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JSeparator" name="jSeparator1">
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Nova Coluna"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Apagar Coluna"/>
-              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="excluirLinhaColunaMenu.addActionListener(this);"/>
+              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JSeparator" name="jSeparator2">
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
+            <MenuItem class="javax.swing.JMenuItem" name="sincronizarMenu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Sincronizar do Modelo"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="ordenarMenu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ordenar"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="ordenarMenu.addActionListener(this);"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="importarDoModeloMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Importar do Modelo..."/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="importarDoModeloMenu.addActionListener(this);"/>
+              </AuxValues>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -111,25 +151,29 @@
             <Property name="text" type="java.lang.String" value="Ferramentas"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Ordenar"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem11">
+            <MenuItem class="javax.swing.JMenuItem" name="importarMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Importar"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="importarMenu.addActionListener(this);"/>
+              </AuxValues>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem13">
+            <MenuItem class="javax.swing.JMenuItem" name="destacarMenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Destacar"/>
+                <Property name="text" type="java.lang.String" value="Destacar Rela&#xe7;&#xf5;es"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="destacar.addActionListener(this);"/>
+              </AuxValues>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem14">
+            <MenuItem class="javax.swing.JMenuItem" name="resetarCamposNovosMenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Resetar campos novos"/>
+                <Property name="text" type="java.lang.String" value="Resetar Campos Novos"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="resetarCamposNovosMenu.addActionListener(this);"/>
+              </AuxValues>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -138,10 +182,13 @@
             <Property name="text" type="java.lang.String" value="Ajuda"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
+            <MenuItem class="javax.swing.JMenuItem" name="sobreMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sobre"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="sobreMenu.addActionListener(this);"/>
+              </AuxValues>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -175,7 +222,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
-          <Component id="jPanel1" alignment="0" pref="800" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" pref="787" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -235,6 +282,9 @@
                 <Property name="iconTextGap" type="int" value="1"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="novoProjeto.addActionListener(this);"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="abrirProjeto">
               <Properties>
@@ -247,6 +297,9 @@
                 <Property name="iconTextGap" type="int" value="1"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="abrirProjeto.addActionListener(this);"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="salvarProjeto">
               <Properties>
@@ -259,6 +312,9 @@
                 <Property name="iconTextGap" type="int" value="1"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="salvarProjeto.addActionListener(this);"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -290,6 +346,9 @@
                 <Property name="iconTextGap" type="int" value="1"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="novoProjeto.addActionListener(this);"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="apagarMatriz">
               <Properties>
@@ -302,6 +361,9 @@
                 <Property name="iconTextGap" type="int" value="1"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="apagarMatriz.addActionListener(this);"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -335,6 +397,9 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="cancelarEdicao.addActionListener(this);"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="okEdicao">
               <Properties>
@@ -346,6 +411,9 @@
                 <Property name="iconTextGap" type="int" value="1"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="okEdicao.addActionListener(this);"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="nomeTextField">
               <Properties>
@@ -373,6 +441,9 @@
                   <Dimension value="[50, 10]"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="nomeTextField.addActionListener(this);"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="deslocar1">
               <Properties>
@@ -385,6 +456,9 @@
                 <Property name="iconTextGap" type="int" value="1"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="deslocar1.addActionListener(this);"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="deslocar2">
               <Properties>
@@ -396,6 +470,9 @@
                 <Property name="iconTextGap" type="int" value="1"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="deslocar2.addActionListener(this);"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="novaLinhaColuna">
               <Properties>
@@ -408,13 +485,16 @@
                 <Property name="iconTextGap" type="int" value="1"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="novaLinhaColuna.addActionListener(this);"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="apagarLinhaColuna">
+            <Component class="javax.swing.JButton" name="excluirLinhaColuna">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/icons/button_cancel-26.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Apagar"/>
+                <Property name="text" type="java.lang.String" value="Excluir"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="iconTextGap" type="int" value="1"/>
@@ -423,6 +503,9 @@
                 </Property>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="excluirLinhaColuna.addActionListener(this);"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -436,7 +519,7 @@
               <Dimension value="[200, 30]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[160, 45]"/>
+              <Dimension value="[170, 45]"/>
             </Property>
           </Properties>
 
@@ -452,6 +535,9 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="ordenar.addActionListener(this);"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="importar">
               <Properties>
@@ -464,18 +550,24 @@
                 <Property name="iconTextGap" type="int" value="1"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="importar.addActionListener(this);"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="atualizar">
+            <Component class="javax.swing.JButton" name="sincronizar">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/icons/reload_all_tabs-26.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Atualizar"/>
+                <Property name="text" type="java.lang.String" value="Sincronizar"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="iconTextGap" type="int" value="1"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="sincronizar.addActionListener(this);"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -497,6 +589,9 @@
                 <Property name="iconTextGap" type="int" value="1"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="destacar.addActionListener(this);"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -514,12 +609,12 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jTabbedPane1" alignment="0" pref="800" max="32767" attributes="0"/>
+              <Component id="jTabbedPane1" alignment="0" pref="787" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jTabbedPane1" alignment="0" pref="448" max="32767" attributes="0"/>
+              <Component id="jTabbedPane1" alignment="0" pref="470" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -549,18 +644,12 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="795" max="32767" attributes="0"/>
-                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane2" alignment="0" pref="795" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="jScrollPane2" alignment="0" pref="782" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="420" max="32767" attributes="0"/>
-                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane2" alignment="0" pref="420" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="jScrollPane2" alignment="0" pref="442" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
