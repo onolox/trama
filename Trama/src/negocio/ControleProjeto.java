@@ -5,22 +5,23 @@
 
 package negocio;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import persistencia.DadosMatriz;
+import persistencia.PersistenciaProjeto;
+import persistencia.Projeto;
+import visao.*;
+
 /**
  *
  * @author Fabio
  */
 public class ControleProjeto {
-	public Projeto m_Projeto;
-	private ProjetoDAO m_ProjetoDAO;
-	private Matriz m_Matriz;
-	public DadosMatriz m_DadosMatriz;
-	private DadosMatriz dadosMatriz;
-	private Matriz matriz;
+	
 	private Projeto projeto;
-	private ProjetoDAO projetoDAO;
 	private LinkedList<Matriz> matrizes;
-	public ModeloTabela m_ModeloTabela;
-	private PersistenciaProjeto m_PersistenciaProjeto;
+	
+	private PersistenciaProjeto persistenciaProjeto;
 
 
 
@@ -28,7 +29,7 @@ public class ControleProjeto {
 	 * 
 	 * @param nome
 	 */
-public LinkedList<ModeloTabela> abrirProjeto(String nome){
+       public LinkedList<ModeloTabela> abrirProjeto(String nome){
 
 	}
 
