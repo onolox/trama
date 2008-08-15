@@ -227,19 +227,19 @@ public class Tela extends javax.swing.JFrame {
         nomeTextField = new javax.swing.JTextField();
         deslocar1 = new javax.swing.JButton();
         deslocar2 = new javax.swing.JButton();
-        destacar = new javax.swing.JButton();
-        jToolBar4 = new javax.swing.JToolBar();
         novaLinhaColuna = new javax.swing.JButton();
         apagarLinhaColuna = new javax.swing.JButton();
+        jToolBar4 = new javax.swing.JToolBar();
         ordenar = new javax.swing.JButton();
         importar = new javax.swing.JButton();
         atualizar = new javax.swing.JButton();
+        jToolBar5 = new javax.swing.JToolBar();
+        destacar = new javax.swing.JButton();
         jToolBar6 = new javax.swing.JToolBar();
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTableCustomizado1 = new visao.JTableCustomizado();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         novoProjetoMenu = new javax.swing.JMenuItem();
@@ -283,7 +283,7 @@ public class Tela extends javax.swing.JFrame {
         jToolBar1.setMinimumSize(new java.awt.Dimension(158, 30));
         jToolBar1.setPreferredSize(new java.awt.Dimension(110, 45));
 
-        novoProjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Add16.gif"))); // NOI18N
+        novoProjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/new window-26.png"))); // NOI18N
         novoProjeto.setText("Novo");
         novoProjeto.setFocusable(false);
         novoProjeto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -297,7 +297,7 @@ public class Tela extends javax.swing.JFrame {
         });
         jToolBar1.add(novoProjeto);
 
-        abrirProjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Open16.gif"))); // NOI18N
+        abrirProjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/fileopen-26.png"))); // NOI18N
         abrirProjeto.setText("Abrir");
         abrirProjeto.setFocusable(false);
         abrirProjeto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -310,7 +310,7 @@ public class Tela extends javax.swing.JFrame {
         });
         jToolBar1.add(abrirProjeto);
 
-        salvarProjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Save16.gif"))); // NOI18N
+        salvarProjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/filesave-26.png"))); // NOI18N
         salvarProjeto.setText("Salvar");
         salvarProjeto.setFocusable(false);
         salvarProjeto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -331,7 +331,7 @@ public class Tela extends javax.swing.JFrame {
         jToolBar3.setMinimumSize(new java.awt.Dimension(50, 50));
         jToolBar3.setPreferredSize(new java.awt.Dimension(80, 45));
 
-        novaMatriz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/RowDelete16.gif"))); // NOI18N
+        novaMatriz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/1day-26 copy.png"))); // NOI18N
         novaMatriz.setText("Novo");
         novaMatriz.setFocusable(false);
         novaMatriz.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -344,7 +344,7 @@ public class Tela extends javax.swing.JFrame {
         });
         jToolBar3.add(novaMatriz);
 
-        apagarMatriz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Stop16.gif"))); // NOI18N
+        apagarMatriz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agt_action_fail-26.png"))); // NOI18N
         apagarMatriz.setText("Apagar");
         apagarMatriz.setFocusable(false);
         apagarMatriz.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -373,7 +373,7 @@ public class Tela extends javax.swing.JFrame {
         cancelarEdicao.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar2.add(cancelarEdicao);
 
-        okEdicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon_ok.gif"))); // NOI18N
+        okEdicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agt_action_success-26.png"))); // NOI18N
         okEdicao.setFocusable(false);
         okEdicao.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         okEdicao.setIconTextGap(1);
@@ -384,11 +384,12 @@ public class Tela extends javax.swing.JFrame {
         nomeTextField.setFont(new java.awt.Font("Arial", 0, 12));
         nomeTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         nomeTextField.setCaretColor(new java.awt.Color(255, 255, 255));
-        nomeTextField.setMinimumSize(new java.awt.Dimension(10, 30));
+        nomeTextField.setMaximumSize(new java.awt.Dimension(150, 30));
+        nomeTextField.setMinimumSize(new java.awt.Dimension(10, 10));
+        nomeTextField.setPreferredSize(new java.awt.Dimension(50, 10));
         jToolBar2.add(nomeTextField);
 
-        deslocar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Play16.gif"))); // NOI18N
-        deslocar1.setText("Direita");
+        deslocar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/1downarrow-24.png"))); // NOI18N
         deslocar1.setAlignmentX(0.5F);
         deslocar1.setFocusable(false);
         deslocar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -401,8 +402,7 @@ public class Tela extends javax.swing.JFrame {
         });
         jToolBar2.add(deslocar1);
 
-        deslocar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Down16.gif"))); // NOI18N
-        deslocar2.setText("Baixo");
+        deslocar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/1downarrow1-24.png"))); // NOI18N
         deslocar2.setFocusable(false);
         deslocar2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         deslocar2.setIconTextGap(1);
@@ -414,27 +414,7 @@ public class Tela extends javax.swing.JFrame {
         });
         jToolBar2.add(deslocar2);
 
-        destacar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Find16.gif"))); // NOI18N
-        destacar.setText("Destacar");
-        destacar.setFocusable(false);
-        destacar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        destacar.setIconTextGap(1);
-        destacar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        destacar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                destacarActionPerformed(evt);
-            }
-        });
-        jToolBar2.add(destacar);
-
-        jPanel1.add(jToolBar2);
-
-        jToolBar4.setRollover(true);
-        jToolBar4.setMaximumSize(new java.awt.Dimension(400, 30));
-        jToolBar4.setMinimumSize(new java.awt.Dimension(200, 30));
-        jToolBar4.setPreferredSize(new java.awt.Dimension(230, 45));
-
-        novaLinhaColuna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/RowDelete16.gif"))); // NOI18N
+        novaLinhaColuna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/7days-26.png"))); // NOI18N
         novaLinhaColuna.setText("Novo");
         novaLinhaColuna.setFocusable(false);
         novaLinhaColuna.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -445,9 +425,9 @@ public class Tela extends javax.swing.JFrame {
                 novaLinhaColunaActionPerformed(evt);
             }
         });
-        jToolBar4.add(novaLinhaColuna);
+        jToolBar2.add(novaLinhaColuna);
 
-        apagarLinhaColuna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Volume16.gif"))); // NOI18N
+        apagarLinhaColuna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/button_cancel-26.png"))); // NOI18N
         apagarLinhaColuna.setText("Apagar");
         apagarLinhaColuna.setFocusable(false);
         apagarLinhaColuna.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -459,9 +439,16 @@ public class Tela extends javax.swing.JFrame {
                 apagarLinhaColunaActionPerformed(evt);
             }
         });
-        jToolBar4.add(apagarLinhaColuna);
+        jToolBar2.add(apagarLinhaColuna);
 
-        ordenar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Preferences16.gif"))); // NOI18N
+        jPanel1.add(jToolBar2);
+
+        jToolBar4.setRollover(true);
+        jToolBar4.setMaximumSize(new java.awt.Dimension(400, 30));
+        jToolBar4.setMinimumSize(new java.awt.Dimension(200, 30));
+        jToolBar4.setPreferredSize(new java.awt.Dimension(160, 45));
+
+        ordenar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/db-26.png"))); // NOI18N
         ordenar.setText("Ordenar");
         ordenar.setFocusable(false);
         ordenar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -473,7 +460,7 @@ public class Tela extends javax.swing.JFrame {
         });
         jToolBar4.add(ordenar);
 
-        importar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Import16.gif"))); // NOI18N
+        importar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/inbox-26 copy.png"))); // NOI18N
         importar.setText("Importar");
         importar.setFocusable(false);
         importar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -486,7 +473,7 @@ public class Tela extends javax.swing.JFrame {
         });
         jToolBar4.add(importar);
 
-        atualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Refresh16.gif"))); // NOI18N
+        atualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/reload_all_tabs-26.png"))); // NOI18N
         atualizar.setText("Atualizar");
         atualizar.setFocusable(false);
         atualizar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -501,21 +488,36 @@ public class Tela extends javax.swing.JFrame {
 
         jPanel1.add(jToolBar4);
 
+        jToolBar5.setRollover(true);
+
+        destacar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/irkickoff-26.png"))); // NOI18N
+        destacar.setText("Destacar");
+        destacar.setFocusable(false);
+        destacar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        destacar.setIconTextGap(1);
+        destacar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        destacar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                destacarActionPerformed(evt);
+            }
+        });
+        jToolBar5.add(destacar);
+
+        jPanel1.add(jToolBar5);
+
         jToolBar6.setRollover(true);
         jPanel1.add(jToolBar6);
 
         jTabbedPane1.setBackground(new java.awt.Color(204, 204, 204));
         jTabbedPane1.setName("Requisitos X UC"); // NOI18N
 
-        jScrollPane2.setViewportView(jTableCustomizado1);
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 854, Short.MAX_VALUE)
+            .addGap(0, 795, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -530,7 +532,7 @@ public class Tela extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 859, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -630,7 +632,7 @@ public class Tela extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 859, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -763,11 +765,11 @@ private void novaLinhaColunaActionPerformed(java.awt.event.ActionEvent evt) {//G
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private visao.JTableCustomizado jTableCustomizado1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JToolBar jToolBar3;
     private javax.swing.JToolBar jToolBar4;
+    private javax.swing.JToolBar jToolBar5;
     private javax.swing.JToolBar jToolBar6;
     private javax.swing.JTextField nomeTextField;
     private javax.swing.JButton novaLinhaColuna;
