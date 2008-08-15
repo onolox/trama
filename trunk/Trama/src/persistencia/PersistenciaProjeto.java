@@ -6,23 +6,7 @@
 package persistencia;
 
 
-/**
- *
- * @author Fabio
- */
-public class PersistenciaProjeto {
-	public Projeto m_Projeto;
 
-
-
-	public void abrir(){
-
-	}
-
-	public void salvar(){
-
-	}
-}
 /**
  * @author Fabio
  * @version 1.0
@@ -34,10 +18,7 @@ public class PersistenciaProjeto {
 
 	}
 
-	public void finalize() throws Throwable {
-
-	}
-
+	
 	/**
 	 * 
 	 * @param nome
@@ -50,8 +31,8 @@ public class PersistenciaProjeto {
 	 * 
 	 * @param projeto
 	 */
-	public salvar(Projeto projeto){
-
+	public String salvar(Projeto projeto){
+return null;
 	}
 
 }

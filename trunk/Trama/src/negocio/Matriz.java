@@ -122,20 +122,11 @@ public class Matriz {
     }
 
     /**
-     * Número positivo aumenta, negativo diminui.
+     * NÃºmero positivo aumenta, negativo diminui.
      * @param colunas Quantidade para aumentar ou diminuir.
      */
     public int getQLinhas() {
         return matriz.getQLinhas();
     }
 }
-
-
-
-
-
-
-
-
-
 

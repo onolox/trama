@@ -11,14 +11,11 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-
 public class LeitorDeModelo {
     private final String DIRBASE = "plugins/";
     private LinkedList<String> list;
-    PluginInterface pl;
-	public PluginTexto m_PluginTexto;
-	public PluginNetbeans m_PluginNetbeans;
-	private LinkedList<String> lista;
+    private PluginInterface pl;
+    private LinkedList<String> lista;
 
     public HashMap<String, LinkedList<String>> getNomesExtensoes() {
         LinkedList<String> temp = null;
@@ -90,51 +87,5 @@ public class LeitorDeModelo {
         return pl;
     }
 }
-/**
- * @author Fabio
- * @version 1.0
- * @updated 03-jun-2008 15:13:49
- */
-public class LeitorDeModelo {
 
-	private final String DIRBASE = "plugins/";
-	private LinkedList<String> lista;
-	public PluginInterface m_PluginInterface;
-	public PluginTexto m_PluginTexto;
-	public PluginNetbeans m_PluginNetbeans;
 
-	public LeitorDeModelo(){
-
-	}
-
-	public void finalize() throws Throwable {
-
-	}
-
-	/**
-	 * Busca a classe "principal" do jar.
-	 * @return
-	 * 
-	 * @param arquivo
-	 */
-	private PluginInterface getClasseJar(String arquivo){
-		return null;
-	}
-
-	private LinkedList<String> getJars(){
-		return null;
-	}
-
-	public HashMap<String, LinkedList<String>> getNomesExtensoes(){
-		return null;
-	}
-
-	/**
-	 * 
-	 * @param arquivo
-	 */
-	public LinkedList<String> getObjetos(String arquivo){
-		return null;
-	}
-
-}
