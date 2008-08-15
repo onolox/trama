@@ -286,7 +286,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
         jToolBar3.setAlignmentY(0.5F);
         jToolBar3.setMaximumSize(new java.awt.Dimension(50, 50));
         jToolBar3.setMinimumSize(new java.awt.Dimension(50, 50));
-        jToolBar3.setPreferredSize(new java.awt.Dimension(80, 45));
+        jToolBar3.setPreferredSize(new java.awt.Dimension(85, 45));
 
         novaMatriz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/1day-26 copy.png"))); // NOI18N
         novaMatriz.setText("Novo");

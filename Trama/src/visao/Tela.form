@@ -329,7 +329,7 @@
               <Dimension value="[50, 50]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[80, 45]"/>
+              <Dimension value="[85, 45]"/>
             </Property>
           </Properties>
 
