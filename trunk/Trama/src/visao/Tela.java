@@ -255,11 +255,12 @@ public class Tela extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JSeparator();
-        jMenu7 = new javax.swing.JMenu();
-        jMenu9 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JSeparator();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenu10 = new javax.swing.JMenu();
         jMenuItem10 = new javax.swing.JMenuItem();
@@ -289,12 +290,6 @@ public class Tela extends javax.swing.JFrame {
         novoProjeto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         novoProjeto.setIconTextGap(1);
         novoProjeto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        novoProjeto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                novoProjetoActionPerformed(evt);
-                novoProjetoActionPerformed1(evt);
-            }
-        });
         jToolBar1.add(novoProjeto);
 
         abrirProjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/fileopen-26.png"))); // NOI18N
@@ -303,11 +298,6 @@ public class Tela extends javax.swing.JFrame {
         abrirProjeto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         abrirProjeto.setIconTextGap(1);
         abrirProjeto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        abrirProjeto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                abrirProjetoActionPerformed(evt);
-            }
-        });
         jToolBar1.add(abrirProjeto);
 
         salvarProjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/filesave-26.png"))); // NOI18N
@@ -316,11 +306,6 @@ public class Tela extends javax.swing.JFrame {
         salvarProjeto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         salvarProjeto.setIconTextGap(1);
         salvarProjeto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        salvarProjeto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salvarProjetoActionPerformed(evt);
-            }
-        });
         jToolBar1.add(salvarProjeto);
 
         jPanel1.add(jToolBar1);
@@ -337,11 +322,6 @@ public class Tela extends javax.swing.JFrame {
         novaMatriz.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         novaMatriz.setIconTextGap(1);
         novaMatriz.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        novaMatriz.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                novaMatrizActionPerformed(evt);
-            }
-        });
         jToolBar3.add(novaMatriz);
 
         apagarMatriz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agt_action_fail-26.png"))); // NOI18N
@@ -350,11 +330,6 @@ public class Tela extends javax.swing.JFrame {
         apagarMatriz.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         apagarMatriz.setIconTextGap(1);
         apagarMatriz.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        apagarMatriz.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                apagarMatrizActionPerformed(evt);
-            }
-        });
         jToolBar3.add(apagarMatriz);
 
         jPanel1.add(jToolBar3);
@@ -395,11 +370,6 @@ public class Tela extends javax.swing.JFrame {
         deslocar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         deslocar1.setIconTextGap(1);
         deslocar1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        deslocar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deslocar1ActionPerformed(evt);
-            }
-        });
         jToolBar2.add(deslocar1);
 
         deslocar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/1downarrow1-24.png"))); // NOI18N
@@ -407,11 +377,6 @@ public class Tela extends javax.swing.JFrame {
         deslocar2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         deslocar2.setIconTextGap(1);
         deslocar2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        deslocar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deslocar2ActionPerformed(evt);
-            }
-        });
         jToolBar2.add(deslocar2);
 
         novaLinhaColuna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/7days-26.png"))); // NOI18N
@@ -420,11 +385,6 @@ public class Tela extends javax.swing.JFrame {
         novaLinhaColuna.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         novaLinhaColuna.setIconTextGap(1);
         novaLinhaColuna.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        novaLinhaColuna.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                novaLinhaColunaActionPerformed(evt);
-            }
-        });
         jToolBar2.add(novaLinhaColuna);
 
         apagarLinhaColuna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/button_cancel-26.png"))); // NOI18N
@@ -434,11 +394,6 @@ public class Tela extends javax.swing.JFrame {
         apagarLinhaColuna.setIconTextGap(1);
         apagarLinhaColuna.setMaximumSize(new java.awt.Dimension(100, 100));
         apagarLinhaColuna.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        apagarLinhaColuna.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                apagarLinhaColunaActionPerformed(evt);
-            }
-        });
         jToolBar2.add(apagarLinhaColuna);
 
         jPanel1.add(jToolBar2);
@@ -453,11 +408,6 @@ public class Tela extends javax.swing.JFrame {
         ordenar.setFocusable(false);
         ordenar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         ordenar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        ordenar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ordenarActionPerformed(evt);
-            }
-        });
         jToolBar4.add(ordenar);
 
         importar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/inbox-26 copy.png"))); // NOI18N
@@ -466,11 +416,6 @@ public class Tela extends javax.swing.JFrame {
         importar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         importar.setIconTextGap(1);
         importar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        importar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                importarActionPerformed(evt);
-            }
-        });
         jToolBar4.add(importar);
 
         atualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/reload_all_tabs-26.png"))); // NOI18N
@@ -479,11 +424,6 @@ public class Tela extends javax.swing.JFrame {
         atualizar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         atualizar.setIconTextGap(1);
         atualizar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        atualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atualizarActionPerformed(evt);
-            }
-        });
         jToolBar4.add(atualizar);
 
         jPanel1.add(jToolBar4);
@@ -496,11 +436,6 @@ public class Tela extends javax.swing.JFrame {
         destacar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         destacar.setIconTextGap(1);
         destacar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        destacar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                destacarActionPerformed(evt);
-            }
-        });
         jToolBar5.add(destacar);
 
         jPanel1.add(jToolBar5);
@@ -543,14 +478,12 @@ public class Tela extends javax.swing.JFrame {
 
         jMenu1.setText("Arquivo");
 
-        novoProjetoMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/New16.gif"))); // NOI18N
         novoProjetoMenu.setText("Novo Projeto...");
         jMenu1.add(novoProjetoMenu);
 
         abrirProjetoMenu.setText("Abrir Projeto...");
         jMenu1.add(abrirProjetoMenu);
 
-        salvarProjetoMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/SaveAll16.gif"))); // NOI18N
         salvarProjetoMenu.setText("Salvar Projeto");
         jMenu1.add(salvarProjetoMenu);
 
@@ -584,20 +517,21 @@ public class Tela extends javax.swing.JFrame {
 
         jMenu5.setText("Linha/Coluna");
 
-        jMenu6.setText("Nova Linha");
-        jMenu5.add(jMenu6);
+        jMenuItem2.setText("Nova Linha");
+        jMenu5.add(jMenuItem2);
 
-        jMenu8.setText("Apagar Linha");
-        jMenu5.add(jMenu8);
+        jMenuItem1.setText("Apagar Linha");
+        jMenu5.add(jMenuItem1);
         jMenu5.add(jSeparator1);
 
-        jMenu7.setText("Nova Coluna");
-        jMenu5.add(jMenu7);
+        jMenuItem3.setText("Nova Coluna");
+        jMenu5.add(jMenuItem3);
 
-        jMenu9.setText("Apagar Coluna");
-        jMenu5.add(jMenu9);
+        jMenuItem4.setText("Apagar Coluna");
+        jMenu5.add(jMenuItem4);
+        jMenu5.add(jSeparator2);
 
-        jMenuItem9.setText("Importar do Modelo");
+        jMenuItem9.setText("Importar do Modelo...");
         jMenu5.add(jMenuItem9);
 
         jMenuBar1.add(jMenu5);
@@ -645,60 +579,6 @@ public class Tela extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void salvarProjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarProjetoActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_salvarProjetoActionPerformed
-
-private void novoProjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoProjetoActionPerformed
-}//GEN-LAST:event_novoProjetoActionPerformed
-
-private void abrirProjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abrirProjetoActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_abrirProjetoActionPerformed
-
-private void novoProjetoActionPerformed1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoProjetoActionPerformed1
-}//GEN-LAST:event_novoProjetoActionPerformed1
-
-private void novaMatrizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novaMatrizActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_novaMatrizActionPerformed
-
-private void apagarMatrizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarMatrizActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_apagarMatrizActionPerformed
-
-private void deslocar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deslocar1ActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_deslocar1ActionPerformed
-
-private void deslocar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deslocar2ActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_deslocar2ActionPerformed
-
-private void destacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destacarActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_destacarActionPerformed
-
-private void atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_atualizarActionPerformed
-
-private void importarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importarActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_importarActionPerformed
-
-private void ordenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordenarActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_ordenarActionPerformed
-
-private void apagarLinhaColunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarLinhaColunaActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_apagarLinhaColunaActionPerformed
-
-private void novaLinhaColunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novaLinhaColunaActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_novaLinhaColunaActionPerformed
-
     private void jTable1MouseClicked( java.awt.event.MouseEvent evt ) {
         int linha = jTable1.getSelectedRow();
         int coluna = jTable1.getSelectedColumn();
@@ -745,16 +625,16 @@ private void novaLinhaColunaActionPerformed(java.awt.event.ActionEvent evt) {//G
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
@@ -763,6 +643,7 @@ private void novaLinhaColunaActionPerformed(java.awt.event.ActionEvent evt) {//G
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JToolBar jToolBar1;
