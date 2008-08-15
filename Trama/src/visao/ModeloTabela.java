@@ -33,7 +33,7 @@ public class ModeloTabela extends AbstractTableModel {
 			case 0:
 				return RenderizadorTituloLinha.class;
 			default:
-				return String.class;
+				return R;
 		}
 	}
 	
