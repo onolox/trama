@@ -2,6 +2,7 @@ package visao.renderizador;
 
 import java.awt.Color;
 import java.awt.Component;
+
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
@@ -32,22 +33,21 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 
         Icon icon = getVerticalCaption( label, value.toString(), true );
         label.setIcon( icon );
-        
-        return label;
-       }
 
-   
-	/**
-	 * 
-	 * @param componente
-	 * @param texto
-	 * @param sentido
-	 */
-    private Icon getVerticalCaption(JComponent componente, String texto, boolean sentido) {
-        Font f = component.getFont();
-        FontMetrics fm = component.getFontMetrics( f );
+        return label;
+    }
+
+    /**
+     * 
+     * @param componente
+     * @param texto
+     * @param sentido
+     */
+    private Icon getVerticalCaption( JComponent componente, String texto, boolean sentido ) {
+        Font f = componente.getFont();
+        FontMetrics fm = componente.getFontMetrics( f );
         int captionHeight = fm.getHeight();
-        int captionWidth = fm.stringWidth( caption );
+        int captionWidth = fm.stringWidth( texto );
         BufferedImage bi = new BufferedImage( captionHeight + 4,
                                               captionWidth + 4, BufferedImage.TYPE_INT_ARGB );
         Graphics2D g = ( Graphics2D ) bi.getGraphics();
@@ -56,18 +56,18 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 
         g.fillRect( 0, 0, bi.getWidth(), bi.getHeight() );
 
-        g.setColor( component.getForeground() );
+        g.setColor( componente.getForeground() );
         g.setFont( f );
         g.setRenderingHint( RenderingHints.KEY_TEXT_ANTIALIASING,
                             RenderingHints.VALUE_TEXT_ANTIALIAS_ON );
 
-        if ( clockwise ) {
+        if ( sentido ) {
             g.rotate( Math.PI / 2 );
         } else {
             g.rotate( -Math.PI / 2 );
             g.translate( -bi.getHeight(), bi.getWidth() );
         }
-        g.drawString( caption, 2, -6 );
+        g.drawString( texto, 2, -6 );
 
         Icon icon = new ImageIcon( bi );
         return icon;

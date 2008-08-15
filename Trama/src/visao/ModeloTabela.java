@@ -48,12 +48,4 @@ public class ModeloTabela extends AbstractTableModel {
         }
 
     }
-
-    /**
-     * 
-     * @param nome
-     * @param matriz
-     */
-    public ModeloTabela( String nome, Matriz matriz ) {
-    }
 }
