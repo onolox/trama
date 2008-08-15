@@ -11,209 +11,169 @@ import visao.*;
  * @updated 03-jun-2008 12:43:56
  */
 public class ControleTela {
-    private ControleProjeto controleProjeto;
-    private Tela tela;
-    private LeitorDeModelo leitorDeModelo;
-    private int colunaAtual,  linhaAtual;
-    private String matrizAtual;
+        private ControleProjeto controleProjeto;
+        private Tela tela;
+        private LeitorDeModelo leitorDeModelo;
+        private int colunaAtual,  linhaAtual;
+        private String matrizAtual;
 
-    /**
-     *
-     * @param tela
-     */
-    public ControleTela( Tela tela ) {
-    }
+        /**
+         * 
+         * @param tela    tela
+         */
+        public ControleTela( Tela tela ) {
+        }
 
-    /**
-     *
-     * @param nome
-     */
-    public LinkedList<ModeloTabela> abrirProjeto( String nome ) {
-        return null;
-    }
+        /**
+         * 
+         * @param nome    nome
+         */
+        public LinkedList<ModeloTabela> abrirProjeto( String nome ) {
+                return null;
+        }
 
-    /**
-     *
-     * @param coluna
-     */
-    public String adicionarColuna( String coluna ) {
-        return "";
-    }
+        /**
+         * 
+         * @param nome    nome
+         */
+        public String adicionarColuna( String nome ) {
+                return "";
+        }
 
-    /**
-     *
-     * @param nome
-     */
-    public LinkedList<String> adicionarColunasModelo( String nome ) {
-        return null;
-    }
+        /**
+         * 
+         * @param nome    nome
+         */
+        public LinkedList<String> adicionarColunasModelo( String nome ) {
+                return null;
+        }
 
-    /**
-     *
-     * @param linha
-     */
-    public String adicionarLinha( String linha ) {
-        return "";
-    }
+        /**
+         * 
+         * @param nome    nome
+         */
+        public String adicionarLinha( String nome ) {
+                return "";
+        }
 
-    /**
-     *
-     * @param nome
-     */
-    public LinkedList<String> adicionarLinhasModelo( String nome ) {
-        return null;
-    }
+        /**
+         * 
+         * @param nome    nome
+         */
+        public LinkedList<String> adicionarLinhasModelo( String nome ) {
+                return null;
+        }
 
-    /**
-     *
-     * @param nome
-     */
-    public ModeloTabela adicionarMatriz( String nome ) {
-        return null;
-    }
+        /**
+         * 
+         * @param nome    nome
+         */
+        public ModeloTabela adicionarMatriz( String nome ) {
+                return null;
+        }
 
-    /**
-     *
-     * @param de
-     * @param para
-     */
-    public String alterarPosicaoColuna( int de, int para ) {
-        return "";
-    }
+        /**
+         * 
+         * @param para    para
+         */
+        public String alterarPosicaoColuna( String para ) {
+                return "";
+        }
 
-    /**
-     *
-     * @param de
-     * @param para
-     */
-    public String alterarPosicaoLinha( int de, int para ) {
-        return "";
-    }
+        /**
+         * 
+         * @param para    para
+         */
+        public String alterarPosicaoLinha( String para ) {
+                return "";
+        }
 
-    /**
-     *
-     * @param nome
-     */
-    public String atualizarColuna( String nome ) {
-        return "";
-    }
+        /**
+         * 
+         * @param nome    nome
+         */
+        public String atualizarColuna( String nome ) {
+                return "";
+        }
 
-    /**
-     *
-     * @param nome
-     */
-    public String atualizarLinha( String nome ) {
-        return "";
-    }
+        /**
+         * 
+         * @param nome    nome
+         */
+        public String atualizarLinha( String nome ) {
+                return "";
+        }
 
-    public void criarNovoProjeto() {
-    }
+        public String criarNovoProjeto() {
+                return "";
+        }
 
-    /**
-     *
-     * @param elemento
-     * @param tipo
-     */
-    public HashMap<String, LinkedList<String>> destacarElementos() {
-        return null;
-    }
+        public HashMap<String, LinkedList<String>> destacarElementos() {
+                return null;
+        }
 
-    /**
-     *
-     * @param coluna
-     * @param matriz
-     */
-    public String excluirColuna() {
-        return "";
-    }
+        public String excluirColuna() {
+                return "";
+        }
 
-    /**
-     *
-     * @param linha
-     * @param matriz
-     */
-    public String excluirLinha() {
-        return "";
-    }
+        public String excluirLinha() {
+                return "";
+        }
 
-    /**
-     *
-     * @param nome
-     */
-    public String excluirMatriz() {
-        return "";
-    }
+        public String excluirMatriz() {
+                return "";
+        }
 
-    public String exportarImagem() {
-        return "";
-    }
+        public void fecharProjeto() {
+        }
 
-    public String exportarPDF() {
-        return "";
-    }
+        public HashMap<String, LinkedList<String>> getNomeExtensoes() {
+                return null;
+        }
 
-    public void fecharProjeto() {
-    }
+        public String ordenarColuna() {
+                return "";
+        }
 
-    public HashMap<String, LinkedList<String>> getNomeExtensoes() {
-        return null;
-    }
+        public String ordenarLinha() {
+                return "";
+        }
 
-    public String imprimir() {
-        return "";
-    }
+        public String resetarDestaque() {
+                return "";
+        }
 
-    /**
-     *
-     * @param nomeMatriz
-     */
-    public String ordenarColuna() {
-        return "";
-    }
+        /**
+         * 
+         * @param nome    nome
+         */
+        public String salvarProjeto( String nome ) {
+                return "";
+        }
 
-    /**
-     *
-     * @param nomeMatriz
-     */
-    public String ordenarLinha() {
-        return "";
-    }
+        public String setDado() {
+                return "";
+        }
 
-    /**
-     *
-     * @param nomeMatriz
-     */
-    public String resetarDestaque() {
-        return "";
-    }
+        /**
+         * 
+         * @param nome
+         * @param linha
+         * @param coluna    coluna
+         */
+        public String setMatrizAtual( String nome, int linha, int coluna ) {
+                return "";
+        }
 
-    public String salvarProjeto() {
-        return "";
-    }
+        public String sincronizarColuna() {
+                return "";
+        }
 
-    /**
-     *
-     * @param nome
-     */
-    public void sincronizarColuna() {
-    }
+        public String sincronizarLinha() {
+                return "";
+        }
 
-    /**
-     *
-     * @param nome
-     */
-    public void sincronizarLinha() {
-    }
-
-    /**
-     *
-     * @param nome
-     */
-    public String sincronizarMatriz() {
-        return "";
-    }
-
-    public String setDado() {
-        return null;
-    }
+        public String sincronizarMatriz() {
+                return "";
+        }
 }

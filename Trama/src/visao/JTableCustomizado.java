@@ -75,6 +75,6 @@ public class JTableCustomizado extends JTable {
         }
 
         public String getNome() {
-                return nome;
+                return modelo.getNomeMatriz();
         }
 }
