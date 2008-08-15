@@ -6,33 +6,16 @@ import java.util.LinkedList;
 public class Matriz {
     private DadosMatriz matriz;
 
-    public Matriz() {
-        matriz = new DadosMatriz();
+    public Matriz(DadosMatriz matriz) {
+        this.matriz = matriz;
     }
 
     public Matriz( String nome ) {
         matriz = new DadosMatriz();
 
-        addLinha( "Linha 01" );
-        addLinha( "Linha 02" );
-        addLinha( "Linha 03" );
-        addLinha( "Linha 04" );
-        addLinha( "Linha 05" );
-        addLinha( "Linha 06" );
-        addLinha( "Linha 07" );
-        addLinha( "Linha 08" );
-        addColuna( "Coluna 01" );
-        addColuna( "Coluna 02" );
-        addColuna( "Coluna 03" );
-        addColuna( "Coluna 04" );
-        addColuna( "Coluna 05" );
-        addColuna( "Coluna 06" );
-        addColuna( "Coluna 07" );
-        addColuna( "Coluna 08" );
+       
         
-        setDadoMatriz( 1, 2, 2 );
-        setDadoMatriz( 1, 3, 4 );
-        setDadoMatriz( 2, 5, 7 );
+        
 
        // for ( int l = 0; l < matriz.getQLinhas(); l++ ) {
        //     System.out.println( l + ":" + ( matriz.getLinha( l ).size() - 1 ) );
@@ -52,8 +35,12 @@ public class Matriz {
                 return matriz.getLinha( linha ).get( coluna ).toString();
         }
     }
+    
+     public DadosMatriz getDadosMatriz(  ) {
+        return null;
+    }
 
-    public void addLinha( String titulo ) {
+    public void adicionarLinha( String titulo ) {
         matriz.setQLinhas( 1 );
         matriz.getTituloLinha().add( titulo );
         matriz.getLinhas().add( new LinkedList<String>() );
@@ -81,7 +68,7 @@ public class Matriz {
         return matriz.getTituloLinha().get( index );
     }
 
-    public void addColuna( String titulo ) { //------------------------------
+    public void adicionarColuna( String titulo ) { //------------------------------
 
         matriz.setQColunas( 1 );
         matriz.getTituloColuna().add( titulo );
@@ -127,6 +114,18 @@ public class Matriz {
      */
     public int getQLinhas() {
         return matriz.getQLinhas();
+    }
+    
+    public LinkedList<String> destacarElementos(String nomeElemento, String tipo){
+            return null;
+    }
+    
+    public String getNomeMatriz(){
+            return null;
+    }
+    
+    public String setNomeMatriz(String nome){
+            return null;
     }
 }
 
