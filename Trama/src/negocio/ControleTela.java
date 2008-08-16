@@ -2,211 +2,206 @@ package negocio;
 
 import java.util.HashMap;
 import java.util.LinkedList;
+
 import negocio.leitor.LeitorDeModelo;
-import visao.*;
+import visao.ModeloTabela;
+import visao.Tela;
 
-/**
- * @author Fabio
- * @version 1.0
- * @updated 03-jun-2008 12:43:56
- */
 public class ControleTela {
-        private ControleProjeto controleProjeto;
-        private Tela tela;
-        private LeitorDeModelo leitorDeModelo;
-        private int colunaAtual,  linhaAtual;
-        private String matrizAtual;
-
-        /**
-         * 
-         * @param tela    tela
-         */
-        public ControleTela( Tela tela ) {
-                this.tela = tela;
-                leitorDeModelo = new LeitorDeModelo();
-        }
-
-        /**
-         * 
-         * @param nome    nome
-         */
-        public LinkedList<ModeloTabela> abrirProjeto( String nome ) {
-                return null;
-        }
-
-        /**
-         * 
-         * @param nome    nome
-         */
-        public String adicionarColuna( String nome ) {
-                return "";
-        }
-
-        /**
-         * 
-         * @param nome    nome
-         */
-        public LinkedList<String> adicionarColunasModelo( String nome ) {
-                return null;
-        }
-
-        /**
-         * 
-         * @param nome    nome
-         */
-        public String adicionarLinha( String nome ) {
-                return "";
-        }
-
-        /**
-         * 
-         * @param nome    nome
-         */
-        public LinkedList<String> adicionarLinhasModelo( String nome ) {
-                return null;
-        }
-
-        /**
-         * 
-         * @param nome    nome
-         */
-        public ModeloTabela adicionarMatriz( String nome ) {
-                return null;
-        }
-
-        /**
-         * 
-         * @param para    para
-         */
-        public String alterarPosicaoColuna( String para ) {
-                return "";
-        }
-
-        /**
-         * 
-         * @param para    para
-         */
-        public String alterarPosicaoLinha( String para ) {
-                return "";
-        }
-
-        /**
-         * 
-         * @param nome    nome
-         */
-        public String atualizarColuna( String nome ) {
-                return "";
-        }
-
-        /**
-         * 
-         * @param nome    nome
-         */
-        public String atualizarLinha( String nome ) {
-                return "";
-        }
-
-        public String criarNovoProjeto() {
-                String s = "";
-                
-                
-                
-                return "";
-        }
-
-        public HashMap<String, LinkedList<String>> destacarElementos() {
-                return null;
-        }
-
-        public String excluirColuna() {
-                return "";
-        }
-
-        public String excluirLinha() {
-                return "";
-        }
-
-        public String excluirMatriz() {
-                return "";
-        }
-
-        public void fecharProjeto() {
-        }
-
-        public HashMap<String, LinkedList<String>> getNomeExtensoes() {
-                return null;
-        }
-
-        public String ordenarColuna() {
-                return "";
-        }
-
-        public String ordenarLinha() {
-                return "";
-        }
-
-        public String resetarDestaque() {
-                return "";
-        }
-
-        /**
-         * 
-         * @param nome    nome
-         */
-        public String salvarProjeto( String nome ) {
-                return "";
-        }
-
-        public String setDado() {
-                return "";
-        }
-
-        /**
-         * 
-         * @param nome
-         * @param linha
-         * @param coluna    coluna
-         */
-        public String setMatrizAtual( String nome, int linha, int coluna ) {
-                return "";
-        }
-
-        public String sincronizarColuna() {
-                return "";
-        }
-
-        public String sincronizarLinha() {
-                return "";
-        }
-
-        public String sincronizarMatriz() {
-                return "";
-        }
-
-        public int getColunaAtual() {
-                return colunaAtual;
-        }
-
-        public void setColunaAtual( int colunaAtual ) {
-                this.colunaAtual = colunaAtual;
-        }
-
-       
-        public int getLinhaAtual() {
-                return linhaAtual;
-        }
-
-        public void setLinhaAtual( int linhaAtual ) {
-                this.linhaAtual = linhaAtual;
-        }
-
-        public String getMatrizAtual() {
-                return matrizAtual;
-        }
-
-        public void setMatrizAtual( String matrizAtual ) {
-                this.matrizAtual = matrizAtual;
-        }
-        
-        
+	private ControleProjeto controleProjeto;
+	private Tela tela;
+	private LeitorDeModelo leitorDeModelo;
+	private int colunaAtual, linhaAtual;
+	private String matrizAtual;
+	
+	public ControleTela( Tela tela ) {
+		this.tela = tela;
+		leitorDeModelo = new LeitorDeModelo();
+	}
+	
+	public LinkedList< ModeloTabela > abrirProjeto( String nome ) {
+		return null;
+	}
+	
+	public String adicionarColuna( String nome ) {
+		String s = "ok";
+		
+		return s;
+	}
+	
+	public LinkedList< String > adicionarColunasModelo( String nome ) {
+		return null;
+	}
+	
+	public String adicionarLinha( String nome ) {
+		String s = "ok";
+		
+		return s;
+	}
+	
+	public LinkedList< String > adicionarLinhasModelo( String nome ) {
+		return null;
+	}
+	
+	public ModeloTabela adicionarMatriz( String nome ) {
+		return null;
+	}
+	
+	/**
+	 * @param para para
+	 */
+	public String alterarPosicaoColuna( String para ) {
+		String s = "ok";
+		
+		return s;
+	}
+	
+	public String alterarPosicaoLinha( String para ) {
+		String s = "ok";
+		
+		return s;
+	}
+	
+	public String atualizarColuna( String nome ) {
+		String s = "ok";
+		
+		return s;
+	}
+	
+	public String atualizarLinha( String nome ) {
+		String s = "ok";
+		
+		return s;
+	}
+	
+	public String criarNovoProjeto() {
+		String s = "ok";
+		controleProjeto = new ControleProjeto();
+		
+		return s;
+	}
+	
+	public HashMap< String, LinkedList< String >> destacarElementos() {
+		return null;
+	}
+	
+	public String excluirColuna() {
+		String s = "ok";
+		
+		return s;
+	}
+	
+	public String excluirLinha() {
+		String s = "ok";
+		
+		return s;
+	}
+	
+	public String excluirMatriz() {
+		String s = "ok";
+		
+		return s;
+	}
+	
+	public void fecharProjeto() {
+	}
+	
+	public HashMap< String, LinkedList< String >> getNomeExtensoes() {
+		return null;
+	}
+	
+	public String ordenarColuna() {
+		String s = "ok";
+		
+		return s;
+	}
+	
+	public String ordenarLinha() {
+		String s = "ok";
+		
+		return s;
+	}
+	
+	public String resetarDestaque() {
+		return "";
+	}
+	
+	public String salvarProjeto( String nome ) {
+		String s = "ok";
+		
+		return s;
+	}
+	
+	public String setDado() {
+		String s = "ok";
+		
+		return s;
+	}
+	
+	public String setMatrizAtual( String nome, int linha, int coluna ) {
+		String s = "ok";
+		
+		return s;
+	}
+	
+	public String sincronizarColuna() {
+		String s = "ok";
+		
+		return s;
+	}
+	
+	public String sincronizarLinha() {
+		String s = "ok";
+		
+		return s;
+	}
+	
+	public String sincronizarMatriz() {
+		String s = "ok";
+		
+		return s;
+	}
+	
+	/**
+	 * @return the colunaAtual
+	 */
+	public int getColunaAtual() {
+		return colunaAtual;
+	}
+	
+	/**
+	 * @param colunaAtual the colunaAtual to set
+	 */
+	public void setColunaAtual( int colunaAtual ) {
+		this.colunaAtual = colunaAtual;
+	}
+	
+	/**
+	 * @return the linhaAtual
+	 */
+	public int getLinhaAtual() {
+		return linhaAtual;
+	}
+	
+	/**
+	 * @param linhaAtual the linhaAtual to set
+	 */
+	public void setLinhaAtual( int linhaAtual ) {
+		this.linhaAtual = linhaAtual;
+	}
+	
+	/**
+	 * @return the matrizAtual
+	 */
+	public String getMatrizAtual() {
+		return matrizAtual;
+	}
+	
+	/**
+	 * @param matrizAtual the matrizAtual to set
+	 */
+	public void setMatrizAtual( String matrizAtual ) {
+		this.matrizAtual = matrizAtual;
+	}
+	
 }
