@@ -5,6 +5,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextField;
 import javax.swing.table.JTableHeader;
 
 import negocio.ControleTela;
@@ -14,133 +20,117 @@ import negocio.ControleTela;
  * @author  Fabio
  */
 public class Tela extends javax.swing.JFrame implements ActionListener {
-    private JTableHeader header;
-    private Object jScrollPane1;
-    private ControleTela controle;
+        private JTableHeader header;
+        private Object jScrollPane1;
+        private ControleTela controle;
 
-    public Tela() {
-        initComponents();
-        //  setExtendedState( MAXIMIZED_BOTH );
-        controle = new ControleTela( this );
+        public Tela() {
+                initComponents();
+                //  setExtendedState( MAXIMIZED_BOTH );
+                controle = new ControleTela( this );
 
-      //  jTable1.addMouseListener( new java.awt.event.MouseAdapter() {
-      //                        public void mouseClicked( java.awt.event.MouseEvent evt ) {
-       //                           jTable1MouseClicked( evt );
-     //                         }
-      //                    } );
-  //      jScrollPane2.setViewportView( jTable1 );
+        //  jTable1.addMouseListener( new java.awt.event.MouseAdapter() {
+        //                        public void mouseClicked( java.awt.event.MouseEvent evt ) {
+        //                           jTable1MouseClicked( evt );
+        //                         }
+        //                    } );
+        //      jScrollPane2.setViewportView( jTable1 );
 
-    //    headerColunaClicked();
+        //    headerColunaClicked();
 
 
-    }
+        }
 
-    private void abrirProjeto() {
-    }
+        private void abrirProjeto() {
+        }
 
-  
-    private void adicionarColuna() {
-    }
+        private void adicionarColuna() {
+        }
 
-   
-    private void adicionarColunasModelo() {
-    }
+        private void adicionarColunasModelo() {
+        }
 
-   
-    private void adicionarLinha() {
-    }
+        private void adicionarLinha() {
+        }
 
-   
-    private void adicionarLinhasModelo() {
-    }
+        private void adicionarLinhasModelo() {
+        }
 
-    private void adicionarMatriz() {
-    }
+        private void adicionarMatriz() {
+        }
 
-    
-    private void alterarPosicaoColuna() {
-    }
+        private void alterarPosicaoColuna() {
+        }
 
-  
-    private void alterarPosicaoLinha() {
-    }
+        private void alterarPosicaoLinha() {
+        }
 
-   
-    private void atualizarColuna() {
-    }
+        private void atualizarColuna() {
+        }
 
-    
-    private void atualizarLinha() {
-    }
+        private void atualizarLinha() {
+        }
 
-    
-    private void criarNovoProjeto() {
-    }
+        private void criarNovoProjeto() {
+                String s = controle.criarNovoProjeto();
+                if ( s != "ok" ) {
+                        JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+                }
+        }
 
-    
-    private void destacarElementos() {
-    }
+        private void destacarElementos() {
+        }
 
-    
-    private void excluirMatriz() {
-    }
+        private void excluirMatriz() {
+        }
 
-   
-    private void exclulirColuna() {
-    }
+        private void exclulirColuna() {
+        }
 
-   
-    private void exclulirLinha() {
-    }
+        private void exclulirLinha() {
+        }
 
-    private void exportarImagem() {
-    }
+        private void exportarImagem() {
+        }
 
-    private void exportarPDF() {
-    }
+        private void exportarPDF() {
+        }
 
-    private void fecharProjeto() {
-    }
+        private void fecharProjeto() {
+        }
 
-    private void imprimir() {
-    }
+        private void imprimir() {
+        }
 
-   
-    private void ordenarColuna() {
-    }
+        private void ordenarColuna() {
+        }
 
-   
-    private void ordenarLinha() {
-    }
+        private void ordenarLinha() {
+        }
 
-   
-    private void posisaoJTable( ActionEvent evt ) {
-    }
+        private void posisaoJTable( ActionEvent evt ) {
+        }
 
-    private void resetarDestaque() {
-    }
+        private void resetarDestaque() {
+        }
 
-    
-    private void salvarProjeto() {
-    }
+        private void salvarProjeto() {
+        }
 
-    
-    private void sincronizarColuna() {
-    }
+        private void sincronizarColuna() {
+        }
 
-    
-    private void sincronizarLinha() {
-    }
+        private void sincronizarLinha() {
+        }
 
-   
-    private void sincronizarMatriz() {
-    }
+        private void sincronizarMatriz() {
+        }
 
-    /** This method is called from within the constructor to
-     * initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is
-     * always regenerated by the Form Editor.
-     */
+        /** This method is called from within the constructor to
+         * initialize the form.
+         * WARNING: Do NOT modify this code. The content of this method is
+         * always regenerated by the Form Editor.
+         */
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -558,31 +548,52 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                          } );
     }
 
-    @Override
-    public void actionPerformed( ActionEvent e ) {
-        if ( e.getSource() == novoProjeto || e.getSource() == novoProjetoMenu ) {
-        } else if ( e.getSource() == abrirProjeto || e.getSource() == abrirProjetoMenu ) {
-        } else if ( e.getSource() == salvarProjeto || e.getSource() == salvarProjetoMenu ) {
-        } else if ( e.getSource() == fecharProjetoMenu ) {
-        } else if ( e.getSource() == novaMatriz || e.getSource() == novaMatrizMenu ) {
-        } else if ( e.getSource() == apagarMatriz || e.getSource() == excluirMatrizMenu ) {
-        } else if ( e.getSource() == sincronizarMatrizMenu ) {
-        } else if ( e.getSource() == cancelarEdicao ) {
-        } else if ( e.getSource() == okEdicao || e.getSource() == nomeTextField ) {
-        } else if ( e.getSource() == deslocar1 ) {
-        } else if ( e.getSource() == deslocar2 ) {
-        } else if ( e.getSource() == novaLinhaColuna || e.getSource() == novaLinhaColunaMenu ) {
-        } else if ( e.getSource() == excluirLinhaColuna || e.getSource() == excluirLinhaColunaMenu ) {
-        } else if ( e.getSource() == ordenar || e.getSource() == ordenarMenu ) {
-        } else if ( e.getSource() == importar || e.getSource() == importarMenu ) {
-        } else if ( e.getSource() == sincronizar || e.getSource() == sincronizarMenu ) {
-        } else if ( e.getSource() == destacar || e.getSource() == destacarMenu ) {
-        } else if ( e.getSource() == resetarCamposNovosMenu ) {
-        } else if ( e.getSource() == salvarPDFMenu ) {
-        } else if ( e.getSource() == salvarImagemMenu ) {
-        } else if ( e.getSource() == imprimirMenu ) {
+        @Override
+        public void actionPerformed( ActionEvent e ) {
+                if ( e.getSource() == novoProjeto || e.getSource() == novoProjetoMenu ) {
+                        criarNovoProjeto();
+                } else if ( e.getSource() == abrirProjeto || e.getSource() == abrirProjetoMenu ) {
+                        abrirProjeto();
+                } else if ( e.getSource() == salvarProjeto || e.getSource() == salvarProjetoMenu ) {
+                        salvarProjeto();
+                } else if ( e.getSource() == fecharProjetoMenu ) {
+                        fecharProjeto();
+                } else if ( e.getSource() == novaMatriz || e.getSource() == novaMatrizMenu ) {
+                        adicionarMatriz();
+                } else if ( e.getSource() == apagarMatriz || e.getSource() == excluirMatrizMenu ) {
+                        excluirMatriz();
+                } else if ( e.getSource() == sincronizarMatrizMenu ) {
+                        
+                } else if ( e.getSource() == cancelarEdicao ) {
+                } else if ( e.getSource() == okEdicao || e.getSource() == nomeTextField ) {
+                        
+                } else if ( e.getSource() == deslocar1 ) {
+                        
+                } else if ( e.getSource() == deslocar2 ) {
+                        
+                } else if ( e.getSource() == novaLinhaColuna || e.getSource() == novaLinhaColunaMenu ) {
+                        
+                        
+                } else if ( e.getSource() == excluirLinhaColuna || e.getSource() == excluirLinhaColunaMenu ) {
+                        
+                } else if ( e.getSource() == ordenar || e.getSource() == ordenarMenu ) {
+                        
+                } else if ( e.getSource() == importar || e.getSource() == importarMenu ) {
+                        
+                } else if ( e.getSource() == sincronizar || e.getSource() == sincronizarMenu ) {
+                        
+                } else if ( e.getSource() == destacar || e.getSource() == destacarMenu ) {
+                        
+                } else if ( e.getSource() == resetarCamposNovosMenu ) {
+                        
+                } else if ( e.getSource() == salvarPDFMenu ) {
+                        
+                } else if ( e.getSource() == salvarImagemMenu ) {
+                        
+                } else if ( e.getSource() == imprimirMenu ) {
+                        
+                }
         }
-    }
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton abrirProjeto;
@@ -641,6 +652,313 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
     private javax.swing.JMenuItem sincronizarMenu;
     private javax.swing.JMenuItem sobreMenu;
     // End of variables declaration//GEN-END:variables
+
+    
+    
+    
+        public JButton getAbrirProjeto() {
+                return abrirProjeto;
+        }
+
+        public void setAbrirProjeto( JButton abrirProjeto ) {
+                this.abrirProjeto = abrirProjeto;
+        }
+
+        public JMenuItem getAbrirProjetoMenu() {
+                return abrirProjetoMenu;
+        }
+
+        public void setAbrirProjetoMenu( JMenuItem abrirProjetoMenu ) {
+                this.abrirProjetoMenu = abrirProjetoMenu;
+        }
+
+        public JButton getApagarMatriz() {
+                return apagarMatriz;
+        }
+
+        public void setApagarMatriz( JButton apagarMatriz ) {
+                this.apagarMatriz = apagarMatriz;
+        }
+
+        public JButton getCancelarEdicao() {
+                return cancelarEdicao;
+        }
+
+        public void setCancelarEdicao( JButton cancelarEdicao ) {
+                this.cancelarEdicao = cancelarEdicao;
+        }
+
+        public JButton getDeslocar1() {
+                return deslocar1;
+        }
+
+        public void setDeslocar1( JButton deslocar1 ) {
+                this.deslocar1 = deslocar1;
+        }
+
+        public JButton getDeslocar2() {
+                return deslocar2;
+        }
+
+        public void setDeslocar2( JButton deslocar2 ) {
+                this.deslocar2 = deslocar2;
+        }
+
+        public JButton getDestacar() {
+                return destacar;
+        }
+
+        public void setDestacar( JButton destacar ) {
+                this.destacar = destacar;
+        }
+
+        public JMenuItem getDestacarMenu() {
+                return destacarMenu;
+        }
+
+        public void setDestacarMenu( JMenuItem destacarMenu ) {
+                this.destacarMenu = destacarMenu;
+        }
+
+        public JButton getExcluirLinhaColuna() {
+                return excluirLinhaColuna;
+        }
+
+        public void setExcluirLinhaColuna( JButton excluirLinhaColuna ) {
+                this.excluirLinhaColuna = excluirLinhaColuna;
+        }
+
+        public JMenuItem getExcluirLinhaColunaMenu() {
+                return excluirLinhaColunaMenu;
+        }
+
+        public void setExcluirLinhaColunaMenu( JMenuItem excluirLinhaColunaMenu ) {
+                this.excluirLinhaColunaMenu = excluirLinhaColunaMenu;
+        }
+
+        public JMenuItem getExcluirMatrizMenu() {
+                return excluirMatrizMenu;
+        }
+
+        public void setExcluirMatrizMenu( JMenuItem excluirMatrizMenu ) {
+                this.excluirMatrizMenu = excluirMatrizMenu;
+        }
+
+        public JMenuItem getFecharProjetoMenu() {
+                return fecharProjetoMenu;
+        }
+
+        public void setFecharProjetoMenu( JMenuItem fecharProjetoMenu ) {
+                this.fecharProjetoMenu = fecharProjetoMenu;
+        }
+
+        public JTableHeader getHeader() {
+                return header;
+        }
+
+        public void setHeader( JTableHeader header ) {
+                this.header = header;
+        }
+
+        public JButton getImportar() {
+                return importar;
+        }
+
+        public void setImportar( JButton importar ) {
+                this.importar = importar;
+        }
+
+        public JMenuItem getImportarDoModeloMenu() {
+                return importarDoModeloMenu;
+        }
+
+        public void setImportarDoModeloMenu( JMenuItem importarDoModeloMenu ) {
+                this.importarDoModeloMenu = importarDoModeloMenu;
+        }
+
+        public JMenuItem getImportarMenu() {
+                return importarMenu;
+        }
+
+        public void setImportarMenu( JMenuItem importarMenu ) {
+                this.importarMenu = importarMenu;
+        }
+
+        public JMenuItem getImprimirMenu() {
+                return imprimirMenu;
+        }
+
+        public void setImprimirMenu( JMenuItem imprimirMenu ) {
+                this.imprimirMenu = imprimirMenu;
+        }
+
+        public JLabel getJLabel1() {
+                return jLabel1;
+        }
+
+        public void setJLabel1( JLabel jLabel1 ) {
+                this.jLabel1 = jLabel1;
+        }
+
+        public JTabbedPane getJTabbedPane1() {
+                return jTabbedPane1;
+        }
+
+        public void setJTabbedPane1( JTabbedPane jTabbedPane1 ) {
+                this.jTabbedPane1 = jTabbedPane1;
+        }
+
+        public JTextField getNomeTextField() {
+                return nomeTextField;
+        }
+
+        public void setNomeTextField( JTextField nomeTextField ) {
+                this.nomeTextField = nomeTextField;
+        }
+
+        public JButton getNovaLinhaColuna() {
+                return novaLinhaColuna;
+        }
+
+        public void setNovaLinhaColuna( JButton novaLinhaColuna ) {
+                this.novaLinhaColuna = novaLinhaColuna;
+        }
+
+        public JMenuItem getNovaLinhaColunaMenu() {
+                return novaLinhaColunaMenu;
+        }
+
+        public void setNovaLinhaColunaMenu( JMenuItem novaLinhaColunaMenu ) {
+                this.novaLinhaColunaMenu = novaLinhaColunaMenu;
+        }
+
+        public JButton getNovaMatriz() {
+                return novaMatriz;
+        }
+
+        public void setNovaMatriz( JButton novaMatriz ) {
+                this.novaMatriz = novaMatriz;
+        }
+
+        public JMenuItem getNovaMatrizMenu() {
+                return novaMatrizMenu;
+        }
+
+        public void setNovaMatrizMenu( JMenuItem novaMatrizMenu ) {
+                this.novaMatrizMenu = novaMatrizMenu;
+        }
+
+        public JButton getNovoProjeto() {
+                return novoProjeto;
+        }
+
+        public void setNovoProjeto( JButton novoProjeto ) {
+                this.novoProjeto = novoProjeto;
+        }
+
+        public JMenuItem getNovoProjetoMenu() {
+                return novoProjetoMenu;
+        }
+
+        public void setNovoProjetoMenu( JMenuItem novoProjetoMenu ) {
+                this.novoProjetoMenu = novoProjetoMenu;
+        }
+
+        public JButton getOkEdicao() {
+                return okEdicao;
+        }
+
+        public void setOkEdicao( JButton okEdicao ) {
+                this.okEdicao = okEdicao;
+        }
+
+        public JButton getOrdenar() {
+                return ordenar;
+        }
+
+        public void setOrdenar( JButton ordenar ) {
+                this.ordenar = ordenar;
+        }
+
+        public JMenuItem getOrdenarMenu() {
+                return ordenarMenu;
+        }
+
+        public void setOrdenarMenu( JMenuItem ordenarMenu ) {
+                this.ordenarMenu = ordenarMenu;
+        }
+
+        public JMenuItem getResetarCamposNovosMenu() {
+                return resetarCamposNovosMenu;
+        }
+
+        public void setResetarCamposNovosMenu( JMenuItem resetarCamposNovosMenu ) {
+                this.resetarCamposNovosMenu = resetarCamposNovosMenu;
+        }
+
+        public JMenuItem getSalvarImagemMenu() {
+                return salvarImagemMenu;
+        }
+
+        public void setSalvarImagemMenu( JMenuItem salvarImagemMenu ) {
+                this.salvarImagemMenu = salvarImagemMenu;
+        }
+
+        public JMenuItem getSalvarPDFMenu() {
+                return salvarPDFMenu;
+        }
+
+        public void setSalvarPDFMenu( JMenuItem salvarPDFMenu ) {
+                this.salvarPDFMenu = salvarPDFMenu;
+        }
+
+        public JButton getSalvarProjeto() {
+                return salvarProjeto;
+        }
+
+        public void setSalvarProjeto( JButton salvarProjeto ) {
+                this.salvarProjeto = salvarProjeto;
+        }
+
+        public JMenuItem getSalvarProjetoMenu() {
+                return salvarProjetoMenu;
+        }
+
+        public void setSalvarProjetoMenu( JMenuItem salvarProjetoMenu ) {
+                this.salvarProjetoMenu = salvarProjetoMenu;
+        }
+
+        public JButton getSincronizar() {
+                return sincronizar;
+        }
+
+        public void setSincronizar( JButton sincronizar ) {
+                this.sincronizar = sincronizar;
+        }
+
+        public JMenuItem getSincronizarMatrizMenu() {
+                return sincronizarMatrizMenu;
+        }
+
+        public void setSincronizarMatrizMenu( JMenuItem sincronizarMatrizMenu ) {
+                this.sincronizarMatrizMenu = sincronizarMatrizMenu;
+        }
+
+        public JMenuItem getSincronizarMenu() {
+                return sincronizarMenu;
+        }
+
+        public void setSincronizarMenu( JMenuItem sincronizarMenu ) {
+                this.sincronizarMenu = sincronizarMenu;
+        }
+
+        public JMenuItem getSobreMenu() {
+                return sobreMenu;
+        }
+
+        public void setSobreMenu( JMenuItem sobreMenu ) {
+                this.sobreMenu = sobreMenu;
+        }
 
     
 
