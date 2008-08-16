@@ -18,6 +18,7 @@ public class DadosMatriz {
 	private String tituloColunaArquivo;
 	private String tituloLinhaArquivo;
 	
+	
 	public DadosMatriz( String nome ) {
 		tituloLinha = new LinkedList< String >();
 		tituloColuna = new LinkedList< String >();
