@@ -22,6 +22,8 @@ public class ControleTela {
          * @param tela    tela
          */
         public ControleTela( Tela tela ) {
+                this.tela = tela;
+                leitorDeModelo = new LeitorDeModelo();
         }
 
         /**
@@ -105,6 +107,10 @@ public class ControleTela {
         }
 
         public String criarNovoProjeto() {
+                String s = "";
+                
+                
+                
                 return "";
         }
 
@@ -176,4 +182,31 @@ public class ControleTela {
         public String sincronizarMatriz() {
                 return "";
         }
+
+        public int getColunaAtual() {
+                return colunaAtual;
+        }
+
+        public void setColunaAtual( int colunaAtual ) {
+                this.colunaAtual = colunaAtual;
+        }
+
+       
+        public int getLinhaAtual() {
+                return linhaAtual;
+        }
+
+        public void setLinhaAtual( int linhaAtual ) {
+                this.linhaAtual = linhaAtual;
+        }
+
+        public String getMatrizAtual() {
+                return matrizAtual;
+        }
+
+        public void setMatrizAtual( String matrizAtual ) {
+                this.matrizAtual = matrizAtual;
+        }
+        
+        
 }
