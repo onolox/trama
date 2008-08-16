@@ -18,14 +18,12 @@ public class DadosMatriz {
 	private String tituloColunaArquivo;
 	private String tituloLinhaArquivo;
 	
-	
 	public DadosMatriz( String nome ) {
 		tituloLinha = new LinkedList< String >();
 		tituloColuna = new LinkedList< String >();
 		linha = new LinkedList< LinkedList >();
 		this.nomeMatriz = nome;
 		tituloColuna.add( "" );
-		
 	}
 	
 	public int getQColunas() {
@@ -95,24 +93,24 @@ public class DadosMatriz {
 	}
 	
 	public String getTituloColunaArquivo() {
-		return "";
+		return tituloColunaArquivo;
 	}
 	
 	public String getTituloLinhaArquivo() {
-		return "";
+		return tituloLinhaArquivo;
 	}
 	
 	/**
 	 * @param arquivo
 	 */
 	public void setTituloColunaArquivo( String arquivo ) {
-		
+		tituloColunaArquivo = arquivo;
 	}
 	
 	/**
 	 * @param arquivo
 	 */
 	public void setTituloLinhaArquivo( String arquivo ) {
-		
+		tituloLinhaArquivo = arquivo;
 	}
 }

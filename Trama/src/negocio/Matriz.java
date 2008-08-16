@@ -1,131 +1,131 @@
 package negocio;
 
-import persistencia.*;
 import java.util.LinkedList;
 
+import persistencia.DadosMatriz;
+
 public class Matriz {
-    private DadosMatriz matriz;
-
-    public Matriz(DadosMatriz matriz) {
-        this.matriz = matriz;
-    }
-
-    public Matriz( String nome ) {
-        matriz = new DadosMatriz();
-
-       
-        
-        
-
-       // for ( int l = 0; l < matriz.getQLinhas(); l++ ) {
-       //     System.out.println( l + ":" + ( matriz.getLinha( l ).size() - 1 ) );
-       //}
-    }
-
-    public void setDadoMatriz( int valor, int linha, int coluna ) {
-        matriz.getLinha( linha - 1 ).set( coluna, valor + "" );
-    }
-
-    public String getDadoMatriz( int linha, int coluna ) {
-        //  System.out.println( linha +"::"+coluna );
-        switch ( coluna ) {
-            case 0:
-                return getTituloLinha( linha );
-            default:
-                return matriz.getLinha( linha ).get( coluna ).toString();
-        }
-    }
-    
-     public DadosMatriz getDadosMatriz(  ) {
-        return null;
-    }
-
-    public void adicionarLinha( String titulo ) {
-        matriz.setQLinhas( 1 );
-        matriz.getTituloLinha().add( titulo );
-        matriz.getLinhas().add( new LinkedList<String>() );
-        for ( int l = 0; l < matriz.getQColunas(); l++ ) {
-            matriz.getLinhas().getLast().add( "0" );
-        }
-    }
-
-    public void removeLinha( int index ) {
-        matriz.setQLinhas( -1 );
-        matriz.getLinhas().remove( index );
-        matriz.getTituloLinha().remove( index );
-    }
-
-    public void alterarPosicaoLinha( int de, int para ) {
-        LinkedList l = matriz.getLinhas().remove( de );
-        matriz.getLinhas().add( para, l );
-    }
-
-    public void setTituloLinha( int index, String titulo ) {
-        matriz.getTituloLinha().set( index, titulo );
-    }
-
-    public String getTituloLinha( int index ) {
-        return matriz.getTituloLinha().get( index );
-    }
-
-    public void adicionarColuna( String titulo ) { //------------------------------
-
-        matriz.setQColunas( 1 );
-        matriz.getTituloColuna().add( titulo );
-
-        for ( int i = 0; i < matriz.getQLinhas(); i++ ) {
-            matriz.getLinha( i ).add( "0" );
-        }
-    }
-
-    public void removeColuna( int index ) {
-        matriz.setQColunas( -1 );
-        matriz.getTituloColuna().remove( index );
-
-        for ( int i = 0; i < matriz.getQLinhas(); i++ ) {
-            matriz.getLinha( i ).remove( index );
-        }
-    }
-
-    public void alterarPosicaoColuna( int de, int para ) {
-        String s = "";
-        for ( int i = 0; i < matriz.getQLinhas(); i++ ) {
-            s = ( String ) matriz.getLinha( i ).remove( de );
-            matriz.getLinha( i ).add( para, s );
-        }
-    }
-
-    public void setTituloColuna( int index, String titulo ) {
-        matriz.setTituloColuna( index, titulo );
-
-    }
-
-    public String getTituloColuna( int index ) {
-        return matriz.getTituloColuna( index );
-    }
-
-    public int getQColunas() {
-        return matriz.getQColunas();
-    }
-
-    /**
-     * NÃºmero positivo aumenta, negativo diminui.
-     * @param colunas Quantidade para aumentar ou diminuir.
-     */
-    public int getQLinhas() {
-        return matriz.getQLinhas();
-    }
-    
-    public LinkedList<String> destacarElementos(String nomeElemento, String tipo){
-            return null;
-    }
-    
-    public String getNomeMatriz(){
-            return null;
-    }
-    
-    public String setNomeMatriz(String nome){
-            return null;
-    }
+	private DadosMatriz matriz;
+	
+	public Matriz( DadosMatriz matriz ) {
+		this.matriz = matriz;
+	}
+	
+	public Matriz( String nome ) {
+		matriz = new DadosMatriz( nome );
+		
+	}
+	
+	public void setDadoMatriz( int valor, int linha, int coluna ) {
+		matriz.getLinha( linha - 1 ).set( coluna, valor + "" );
+	}
+	
+	public String getDadoMatriz( int linha, int coluna ) {
+		// System.out.println( linha +"::"+coluna );
+		switch( coluna ) {
+			case 0:
+				return getTituloLinha( linha );
+			default:
+				return matriz.getLinha( linha ).get( coluna ).toString();
+		}
+	}
+	
+	public DadosMatriz getDadosMatriz() {
+		return null;
+	}
+	
+	public void adicionarLinha( String titulo ) {
+		matriz.setQLinhas( 1 );
+		matriz.getTituloLinha().add( titulo );
+		matriz.getLinhas().add( new LinkedList< String >() );
+		for( int l = 0; l < matriz.getQColunas(); l++ ){
+			matriz.getLinhas().getLast().add( "0" );
+		}
+	}
+	
+	public void removeLinha( int index ) {
+		matriz.setQLinhas( -1 );
+		matriz.getLinhas().remove( index );
+		matriz.getTituloLinha().remove( index );
+	}
+	
+	public void alterarPosicaoLinha( int de, int para ) {
+		LinkedList l = matriz.getLinhas().remove( de );
+		matriz.getLinhas().add( para, l );
+	}
+	
+	public void setTituloLinha( int index, String titulo ) {
+		matriz.getTituloLinha().set( index, titulo );
+	}
+	
+	public String getTituloLinha( int index ) {
+		return matriz.getTituloLinha().get( index );
+	}
+	
+	public void adicionarColuna( String titulo ) { // ------------------------------
+	
+		matriz.setQColunas( 1 );
+		matriz.getTituloColuna().add( titulo );
+		
+		for( int i = 0; i < matriz.getQLinhas(); i++ ){
+			matriz.getLinha( i ).add( "0" );
+		}
+	}
+	
+	public void removeColuna( int index ) {
+		matriz.setQColunas( -1 );
+		matriz.getTituloColuna().remove( index );
+		
+		for( int i = 0; i < matriz.getQLinhas(); i++ ){
+			matriz.getLinha( i ).remove( index );
+		}
+	}
+	
+	public void alterarPosicaoColuna( int de, int para ) {
+		String s = "";
+		for( int i = 0; i < matriz.getQLinhas(); i++ ){
+			s = ( String ) matriz.getLinha( i ).remove( de );
+			matriz.getLinha( i ).add( para, s );
+		}
+	}
+	
+	public void setTituloColuna( int index, String titulo ) {
+		matriz.setTituloColuna( index, titulo );
+		
+	}
+	
+	public String getTituloColuna( int index ) {
+		return matriz.getTituloColuna( index );
+	}
+	
+	public int getQColunas() {
+		return matriz.getQColunas();
+	}
+	
+	/**
+	 * N�mero positivo aumenta, negativo diminui.
+	 * 
+	 * @param colunas Quantidade para aumentar ou diminuir.
+	 */
+	public int getQLinhas() {
+		return matriz.getQLinhas();
+	}
+	
+	public LinkedList< String > destacarElementos( String nomeElemento, String tipo ) {
+		return null;
+	}
+	
+	public String getNomeMatriz() {
+		return matriz.getNomeMatriz();
+	}
+	
+	public String setNomeMatriz( String nome ) {
+		String s = "ok";
+		try{
+			matriz.setNomeMatriz( nome );
+		} catch( Exception e ){
+			s = "erro";
+		}
+		return s;
+	}
 }
-
