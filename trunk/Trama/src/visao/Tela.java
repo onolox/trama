@@ -4,7 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
 import javax.swing.table.JTableHeader;
+
 import negocio.ControleTela;
 
 /**
@@ -36,84 +38,58 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
     private void abrirProjeto() {
     }
 
-    /**
-     * GEN-LAST:event_apagarLinhaColunaActionPerformed
-     */
+  
     private void adicionarColuna() {
     }
 
-    /**
-     * GEN-LAST:event_atualizarActionPerformed
-     */
+   
     private void adicionarColunasModelo() {
     }
 
-    /**
-     * GEN-LAST:event_apagarLinhaColunaActionPerformed
-     */
+   
     private void adicionarLinha() {
     }
 
-    /**
-     * GEN-LAST:event_apagarLinhaColunaActionPerformed
-     */
+   
     private void adicionarLinhasModelo() {
     }
 
     private void adicionarMatriz() {
     }
 
-    /**
-     * GEN-LAST:event_apagarMatrizActionPerformed
-     */
+    
     private void alterarPosicaoColuna() {
     }
 
-    /**
-     * GEN-LAST:event_deslocar1ActionPerformed
-     */
+  
     private void alterarPosicaoLinha() {
     }
 
-    /**
-     * GEN-LAST:event_apagarLinhaColunaActionPerformed
-     */
+   
     private void atualizarColuna() {
     }
 
-    /**
-     * GEN-LAST:event_apagarLinhaColunaActionPerformed
-     */
+    
     private void atualizarLinha() {
     }
 
-    /**
-     * GEN-LAST:event_salvarProjetoActionPerformed
-     */
+    
     private void criarNovoProjeto() {
     }
 
-    /**
-     * GEN-LAST:event_deslocar2ActionPerformed
-     */
+    
     private void destacarElementos() {
     }
 
-    /**
-     * GEN-LAST:event_novaMatrizActionPerformed
-     */
+    
     private void excluirMatriz() {
     }
 
-    /**
-     * GEN-LAST:event_ordenarActionPerformed
-     */
+   
     private void exclulirColuna() {
     }
 
-    /**
-     * GEN-LAST:event_ordenarActionPerformed
-     */
+   
     private void exclulirLinha() {
     }
 
@@ -129,49 +105,34 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
     private void imprimir() {
     }
 
-    /**
-     * GEN-LAST:event_importarActionPerformed
-     */
+   
     private void ordenarColuna() {
     }
 
-    /**
-     * GEN-LAST:event_importarActionPerformed
-     */
+   
     private void ordenarLinha() {
     }
 
-    /**
-     * 
-     * @param evt
-     */
+   
     private void posisaoJTable( ActionEvent evt ) {
     }
 
     private void resetarDestaque() {
     }
 
-    /**
-     * </editor-fold>                        
-     */
+    
     private void salvarProjeto() {
     }
 
-    /**
-     * GEN-LAST:event_destacarActionPerformed
-     */
+    
     private void sincronizarColuna() {
     }
 
-    /**
-     * GEN-LAST:event_destacarActionPerformed
-     */
+    
     private void sincronizarLinha() {
     }
 
-    /**
-     * GEN-LAST:event_destacarActionPerformed
-     */
+   
     private void sincronizarMatriz() {
     }
 
