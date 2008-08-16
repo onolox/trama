@@ -1,7 +1,8 @@
 package visao;
 
-import negocio.Matriz;
 import javax.swing.table.AbstractTableModel;
+
+import negocio.Matriz;
 import visao.renderizador.RenderizadorTituloLinha;
 
 public class ModeloTabela extends AbstractTableModel {
@@ -33,7 +34,7 @@ public class ModeloTabela extends AbstractTableModel {
 			case 0:
 				return RenderizadorTituloLinha.class;
 			default:
-				return R;
+				return RendererizadorCelula.class;
 		}
 	}
 	
