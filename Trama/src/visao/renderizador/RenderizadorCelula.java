@@ -12,11 +12,9 @@ public class RenderizadorCelula extends DefaultTableCellRenderer {
 	}
 	
 	@Override
-	public Component getTableCellRendererComponent( JTable table, Object value, boolean isSelected,
-			boolean hasFocus, int row, int column ) {
+	public Component getTableCellRendererComponent( JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column ) {
 		
-		JLabel label = ( JLabel ) super.getTableCellRendererComponent( table, value, isSelected,
-			hasFocus, row, column );
+		JLabel label = ( JLabel ) super.getTableCellRendererComponent( table, value, isSelected, hasFocus, row, column );
 		
 		label.setHorizontalAlignment( JLabel.CENTER );
 		label.setBackground( javax.swing.UIManager.getDefaults().getColor( "Button.highlight" ) );
@@ -28,9 +26,7 @@ public class RenderizadorCelula extends DefaultTableCellRenderer {
 			label.setText( "X" );
 		} else if( value.equals( "2" ) ){
 			label.setText( "X" );
-			label
-				.setBackground( javax.swing.UIManager.getDefaults().getColor(
-					"CheckBox.shadow" ) );
+			label.setBackground( javax.swing.UIManager.getDefaults().getColor( "CheckBox.shadow" ) );
 		}
 		return label;
 	}
