@@ -156,7 +156,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 jToolBar3 = new javax.swing.JToolBar();
                 jSeparator1 = new javax.swing.JToolBar.Separator();
                 novaMatriz = new javax.swing.JButton();
-                apagarMatriz = new javax.swing.JButton();
+                excluirMatriz = new javax.swing.JButton();
                 jToolBar2 = new javax.swing.JToolBar();
                 jSeparator4 = new javax.swing.JToolBar.Separator();
                 cancelarEdicao = new javax.swing.JButton();
@@ -267,15 +267,15 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 jToolBar3.add(novaMatriz);
                 novoProjeto.addActionListener(this);
 
-                apagarMatriz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agt_action_fail-26.png"))); // NOI18N
-                apagarMatriz.setText("Apagar");
-                apagarMatriz.setEnabled(false);
-                apagarMatriz.setFocusable(false);
-                apagarMatriz.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-                apagarMatriz.setIconTextGap(1);
-                apagarMatriz.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-                jToolBar3.add(apagarMatriz);
-                apagarMatriz.addActionListener(this);
+                excluirMatriz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agt_action_fail-26.png"))); // NOI18N
+                excluirMatriz.setText("Excluir");
+                excluirMatriz.setEnabled(false);
+                excluirMatriz.setFocusable(false);
+                excluirMatriz.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+                excluirMatriz.setIconTextGap(1);
+                excluirMatriz.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+                jToolBar3.add(excluirMatriz);
+                excluirMatriz.addActionListener(this);
 
                 jPanel1.add(jToolBar3);
 
@@ -304,7 +304,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 okEdicao.addActionListener(this);
 
                 nomeTextField.setColumns(15);
-                nomeTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+                nomeTextField.setFont(new java.awt.Font("Arial", 0, 12));
                 nomeTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
                 nomeTextField.setCaretColor(new java.awt.Color(255, 255, 255));
                 nomeTextField.setEnabled(false);
@@ -594,7 +594,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                         fecharProjeto();
                 } else if ( e.getSource() == novaMatriz || e.getSource() == novaMatrizMenu ) {
                         adicionarMatriz();
-                } else if ( e.getSource() == apagarMatriz || e.getSource() == excluirMatrizMenu ) {
+                } else if ( e.getSource() == excluirMatriz || e.getSource() == excluirMatrizMenu ) {
                         excluirMatriz();
                 } else if ( e.getSource() == sincronizarMatrizMenu ) {
                         
@@ -632,7 +632,6 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
         // Variables declaration - do not modify//GEN-BEGIN:variables
         private javax.swing.JButton abrirProjeto;
         private javax.swing.JMenuItem abrirProjetoMenu;
-        private javax.swing.JButton apagarMatriz;
         private javax.swing.JButton cancelarEdicao;
         private javax.swing.JButton deslocar1;
         private javax.swing.JButton deslocar2;
@@ -640,6 +639,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
         private javax.swing.JMenuItem destacarMenu;
         private javax.swing.JButton excluirLinhaColuna;
         private javax.swing.JMenuItem excluirLinhaColunaMenu;
+        private javax.swing.JButton excluirMatriz;
         private javax.swing.JMenuItem excluirMatrizMenu;
         private javax.swing.JMenuItem fecharProjetoMenu;
         private javax.swing.JButton importar;
@@ -691,8 +691,8 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
         
            
         
-        public void setApagarMatriz( boolean estado ) {
-                apagarMatriz.setEnabled( estado );
+        public void setExcluirMatriz( boolean estado ) {
+                excluirMatriz.setEnabled( estado );
         }
 
         public void setCancelarEdicao( boolean estado ) {
