@@ -38,6 +38,8 @@ public class ControleTela {
 	
 	public String adicionarLinha( String nome ) {
 		String s = "ok";
+                
+                s = controleProjeto.adicionarLinha( nome, matrizAtual);
 		
 		return s;
 	}
@@ -53,6 +55,7 @@ public class ControleTela {
 		
 		tela.setExcluirMatrizMenu( true );
 		
+                matrizAtual = m.getNomeMatriz();
 		return m;
 	}
 	
