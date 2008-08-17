@@ -9,7 +9,7 @@ import visao.renderizador.RenderizadorTituloLinha;
 public class ModeloTabela extends AbstractTableModel {
 	private Matriz matriz;
 	
-	public ModeloTabela( String nome, Matriz matriz ) {
+	public ModeloTabela( Matriz matriz ) {
 		super();
 		this.matriz = matriz;
 	}
