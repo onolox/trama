@@ -265,7 +265,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 novaMatriz.setIconTextGap(1);
                 novaMatriz.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
                 jToolBar3.add(novaMatriz);
-                novoProjeto.addActionListener(this);
+                novaMatriz.addActionListener(this);
 
                 excluirMatriz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agt_action_fail-26.png"))); // NOI18N
                 excluirMatriz.setText("Excluir");
