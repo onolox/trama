@@ -32,6 +32,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 initComponents();
                 //  setExtendedState( MAXIMIZED_BOTH );
                 controle = new ControleTela( this );
+                matrizes = new LinkedList<JPanel>();
 
         //  jTable1.addMouseListener( new java.awt.event.MouseAdapter() {
         //                        public void mouseClicked( java.awt.event.MouseEvent evt ) {
