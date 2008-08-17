@@ -372,12 +372,12 @@
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="novoProjeto.addActionListener(this);"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="apagarMatriz">
+            <Component class="javax.swing.JButton" name="excluirMatriz">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/icons/agt_action_fail-26.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Apagar"/>
+                <Property name="text" type="java.lang.String" value="Excluir"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -385,7 +385,7 @@
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="apagarMatriz.addActionListener(this);"/>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="excluirMatriz.addActionListener(this);"/>
               </AuxValues>
             </Component>
           </SubComponents>
