@@ -103,7 +103,7 @@ public class Matriz {
 	}
 	
 	/**
-	 * Número positivo aumenta, negativo diminui.
+	 * Numero positivo aumenta, negativo diminui.
 	 * 
 	 * @param colunas Quantidade para aumentar ou diminuir.
 	 */
