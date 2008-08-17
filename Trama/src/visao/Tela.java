@@ -687,26 +687,9 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
         private javax.swing.JMenuItem sobreMenu;
         // End of variables declaration//GEN-END:variables
 
-    
-    
-    
-        public JButton getAbrirProjeto() {
-                return abrirProjeto;
-        }
-
-        public void setAbrirProjeto( JButton abrirProjeto ) {
-                this.abrirProjeto = abrirProjeto;
-        }
-
-        public JMenuItem getAbrirProjetoMenu() {
-                return abrirProjetoMenu;
-        }
-
-        public void setAbrirProjetoMenu( JMenuItem abrirProjetoMenu ) {
-                this.abrirProjetoMenu = abrirProjetoMenu;
-        }
-
-        public JButton getApagarMatriz() {
+        
+        
+            public JButton getApagarMatriz() {
                 return apagarMatriz;
         }
 
@@ -826,9 +809,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 this.imprimirMenu = imprimirMenu;
         }
 
-       
-
-               public JTextField getNomeTextField() {
+        public JTextField getNomeTextField() {
                 return nomeTextField;
         }
 
@@ -866,22 +847,6 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
         public void setNovaMatrizMenu( JMenuItem novaMatrizMenu ) {
                 this.novaMatrizMenu = novaMatrizMenu;
-        }
-
-        public JButton getNovoProjeto() {
-                return novoProjeto;
-        }
-
-        public void setNovoProjeto( JButton novoProjeto ) {
-                this.novoProjeto = novoProjeto;
-        }
-
-        public JMenuItem getNovoProjetoMenu() {
-                return novoProjetoMenu;
-        }
-
-        public void setNovoProjetoMenu( JMenuItem novoProjetoMenu ) {
-                this.novoProjetoMenu = novoProjetoMenu;
         }
 
         public JButton getOkEdicao() {
@@ -979,7 +944,4 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
         public void setSobreMenu( JMenuItem sobreMenu ) {
                 this.sobreMenu = sobreMenu;
         }
-
-    
-
 }

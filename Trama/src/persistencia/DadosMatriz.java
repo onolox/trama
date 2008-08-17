@@ -32,7 +32,7 @@ public class DadosMatriz {
 	}
 	
 	/**
-	 * Número positivo aumenta, negativo diminui.
+	 * Numero positivo aumenta, negativo diminui.
 	 * 
 	 * @param colunas Quantidade para aumentar ou diminuir.
 	 */
@@ -45,7 +45,7 @@ public class DadosMatriz {
 	}
 	
 	/**
-	 * Número positivo aumenta, negativo diminui.
+	 * Numero positivo aumenta, negativo diminui.
 	 * 
 	 * @param linhas Quantidade para aumentar ou diminuir.
 	 */
