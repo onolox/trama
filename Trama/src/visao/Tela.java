@@ -68,6 +68,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 
                 ModeloTabela m = controle.adicionarMatriz( s );
                 JPanel j = new JPanel();
+                j.setName( m.getNomeMatriz());
                 j.add( new JTableCustomizado( m ) );
                 matrizes.add( j );
                 
