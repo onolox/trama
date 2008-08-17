@@ -56,6 +56,14 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
         }
 
         private void adicionarLinha() {
+                String s = "";
+
+                s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a linha", "Adicionar Linha", JOptionPane.QUESTION_MESSAGE );
+                s = controle.adicionarLinha( s );
+                
+                  if ( s != "ok" ) {
+                        JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+                }
         }
 
         private void adicionarLinhasModelo() {
@@ -64,7 +72,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
         private void adicionarMatriz() {
                 String s = "";
                 
-                s = JOptionPane.showInputDialog( this, "Coloque o nome desejado para a matriz", "Adicionar Matriz", JOptionPane.QUESTION_MESSAGE );
+                s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a matriz", "Adicionar Matriz", JOptionPane.QUESTION_MESSAGE );
                 
                 ModeloTabela m = controle.adicionarMatriz( s );
                 JPanel j = new JPanel();

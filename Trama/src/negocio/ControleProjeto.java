@@ -33,7 +33,15 @@ public class ControleProjeto {
 	}
 	
 	public String adicionarLinha( String nome, String nomeMatriz ) {
-		return null;
+               String s = "ok";
+                
+                for ( Matriz matriz : matrizes ) {
+                        if(matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz )){
+                                
+                        }
+                }
+		
+		return s;
 	}
 	
 	public void adicionarLinhasModelo() {
