@@ -28,6 +28,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="salvarProjetoMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salvar Projeto"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="salvarProjetoMenu.addActionListener(this);"/>
@@ -36,6 +37,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="fecharProjetoMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Fechar Projeto"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="fecharProjetoMenu.addActionListener(this);"/>
@@ -46,6 +48,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="salvarPDFMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salvar Como PDF..."/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="salvarPDFMenu.addActionListener(this);"/>
@@ -54,6 +57,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="salvarImagemMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salvar Como Imagem..."/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="salvarImagemMenu.addActionListener(this);"/>
@@ -62,6 +66,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="imprimirMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Imprimir..."/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="imprimirMenu.addActionListener(this);"/>
@@ -77,6 +82,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="novaMatrizMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nova Matriz"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="novaMatrizMenu.addActionListener(this);"/>
@@ -85,6 +91,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="sincronizarMatrizMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sincronizar Matriz..."/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="sincronizarMatrizMenu.addActionListener(this);"/>
@@ -93,6 +100,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="excluirMatrizMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Excluir Matriz"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="excluirMatrizMenu.addActionListener(this);"/>
@@ -108,6 +116,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="novaLinhaColunaMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nova Linha/Coluna"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="novaLinhaColunaMenu.addActionListener(this);"/>
@@ -116,6 +125,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="excluirLinhaColunaMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Excluir Linha/Coluna"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="excluirLinhaColunaMenu.addActionListener(this);"/>
@@ -126,11 +136,13 @@
             <MenuItem class="javax.swing.JMenuItem" name="sincronizarMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sincronizar do Modelo"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="ordenarMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ordenar"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="ordenarMenu.addActionListener(this);"/>
@@ -139,6 +151,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="importarDoModeloMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Importar do Modelo..."/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="importarDoModeloMenu.addActionListener(this);"/>
@@ -154,6 +167,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="importarMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Importar"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="importarMenu.addActionListener(this);"/>
@@ -162,6 +176,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="destacarMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Destacar Rela&#xe7;&#xf5;es"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="destacar.addActionListener(this);"/>
@@ -170,6 +185,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="resetarCamposNovosMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Resetar Campos Novos"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="resetarCamposNovosMenu.addActionListener(this);"/>
@@ -256,6 +272,7 @@
       <SubComponents>
         <Container class="javax.swing.JToolBar" name="jToolBar1">
           <Properties>
+            <Property name="floatable" type="boolean" value="false"/>
             <Property name="rollover" type="boolean" value="true"/>
             <Property name="alignmentX" type="float" value="0.0"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -307,6 +324,7 @@
                   <Image iconType="3" name="/icons/filesave-26.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Salvar"/>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="iconTextGap" type="int" value="1"/>
@@ -320,6 +338,7 @@
         </Container>
         <Container class="javax.swing.JToolBar" name="jToolBar3">
           <Properties>
+            <Property name="floatable" type="boolean" value="false"/>
             <Property name="rollover" type="boolean" value="true"/>
             <Property name="alignmentY" type="float" value="0.5"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -335,12 +354,15 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
           <SubComponents>
+            <Component class="javax.swing.JToolBar$Separator" name="jSeparator1">
+            </Component>
             <Component class="javax.swing.JButton" name="novaMatriz">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/icons/1day-26 copy.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Novo"/>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="iconTextGap" type="int" value="1"/>
@@ -356,6 +378,7 @@
                   <Image iconType="3" name="/icons/agt_action_fail-26.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Apagar"/>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="iconTextGap" type="int" value="1"/>
@@ -369,6 +392,7 @@
         </Container>
         <Container class="javax.swing.JToolBar" name="jToolBar2">
           <Properties>
+            <Property name="floatable" type="boolean" value="false"/>
             <Property name="rollover" type="boolean" value="true"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[400, 30]"/>
@@ -383,16 +407,14 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="null"/>
-              </Properties>
+            <Component class="javax.swing.JToolBar$Separator" name="jSeparator4">
             </Component>
             <Component class="javax.swing.JButton" name="cancelarEdicao">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/icons/delete.gif"/>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
@@ -406,6 +428,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/icons/agt_action_success-26.png"/>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="iconTextGap" type="int" value="1"/>
@@ -431,6 +454,7 @@
                 <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[150, 30]"/>
                 </Property>
@@ -451,6 +475,7 @@
                   <Image iconType="3" name="/icons/1downarrow-24.png"/>
                 </Property>
                 <Property name="alignmentX" type="float" value="0.5"/>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="iconTextGap" type="int" value="1"/>
@@ -465,6 +490,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/icons/1downarrow1-24.png"/>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="iconTextGap" type="int" value="1"/>
@@ -480,6 +506,7 @@
                   <Image iconType="3" name="/icons/7days-26.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Novo"/>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="iconTextGap" type="int" value="1"/>
@@ -495,6 +522,7 @@
                   <Image iconType="3" name="/icons/button_cancel-26.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Excluir"/>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="iconTextGap" type="int" value="1"/>
@@ -511,6 +539,7 @@
         </Container>
         <Container class="javax.swing.JToolBar" name="jToolBar4">
           <Properties>
+            <Property name="floatable" type="boolean" value="false"/>
             <Property name="rollover" type="boolean" value="true"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[400, 30]"/>
@@ -525,12 +554,15 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
           <SubComponents>
+            <Component class="javax.swing.JToolBar$Separator" name="jSeparator5">
+            </Component>
             <Component class="javax.swing.JButton" name="ordenar">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/icons/db-26.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ordenar"/>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
@@ -545,6 +577,7 @@
                   <Image iconType="3" name="/icons/inbox-26 copy.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Importar"/>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="iconTextGap" type="int" value="1"/>
@@ -560,6 +593,7 @@
                   <Image iconType="3" name="/icons/reload_all_tabs-26.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Sincronizar"/>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="iconTextGap" type="int" value="1"/>
@@ -573,17 +607,21 @@
         </Container>
         <Container class="javax.swing.JToolBar" name="jToolBar5">
           <Properties>
+            <Property name="floatable" type="boolean" value="false"/>
             <Property name="rollover" type="boolean" value="true"/>
           </Properties>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
           <SubComponents>
+            <Component class="javax.swing.JToolBar$Separator" name="jSeparator6">
+            </Component>
             <Component class="javax.swing.JButton" name="destacar">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/icons/irkickoff-26.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Destacar"/>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="iconTextGap" type="int" value="1"/>
@@ -594,13 +632,6 @@
               </AuxValues>
             </Component>
           </SubComponents>
-        </Container>
-        <Container class="javax.swing.JToolBar" name="jToolBar6">
-          <Properties>
-            <Property name="rollover" type="boolean" value="true"/>
-          </Properties>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
         </Container>
       </SubComponents>
     </Container>
