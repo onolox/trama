@@ -49,6 +49,10 @@ public class ControleTela {
 	public ModeloTabela adicionarMatriz( String nome ) {
 		ModeloTabela m = controleProjeto.adicionarMatriz( nome );
 		
+		tela.setExcluirMatriz( true );
+		
+		tela.setExcluirMatrizMenu( true );
+		
 		return m;
 	}
 	
@@ -84,12 +88,11 @@ public class ControleTela {
 		controleProjeto = new ControleProjeto();
 		
 		tela.setSalvarProjeto( true );
-		tela.setExcluirMatriz( true );
 		tela.setNovaMatriz( true );
 		
 		tela.setSalvarProjetoMenu( true );
-		tela.setExcluirMatrizMenu( true );
 		tela.setNovaMatrizMenu( true );
+		tela.setFecharProjetoMenu( true );
 		
 		return s;
 	}
