@@ -83,6 +83,14 @@ public class ControleTela {
 		String s = "ok";
 		controleProjeto = new ControleProjeto();
 		
+		tela.setSalvarProjeto( true );
+		tela.setExcluirMatriz( true );
+		tela.setNovaMatriz( true );
+		
+		tela.setSalvarProjetoMenu( true );
+		tela.setExcluirMatrizMenu( true );
+		tela.setNovaMatrizMenu( true );
+		
 		return s;
 	}
 	
