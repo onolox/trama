@@ -689,259 +689,137 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
         
         
-            public JButton getApagarMatriz() {
-                return apagarMatriz;
+           
+        
+        public void setApagarMatriz( boolean estado ) {
+                apagarMatriz.setEnabled( estado );
         }
 
-        public void setApagarMatriz( JButton apagarMatriz ) {
-                this.apagarMatriz = apagarMatriz;
+        public void setCancelarEdicao( boolean estado ) {
+                this.cancelarEdicao.setEnabled( estado );
         }
 
-        public JButton getCancelarEdicao() {
-                return cancelarEdicao;
+        public void setDeslocar1( boolean estado ) {
+                this.deslocar1.setEnabled( estado );
         }
 
-        public void setCancelarEdicao( JButton cancelarEdicao ) {
-                this.cancelarEdicao = cancelarEdicao;
+        public void setDeslocar2( boolean estado ) {
+                this.deslocar2.setEnabled( estado );
         }
 
-        public JButton getDeslocar1() {
-                return deslocar1;
+        public void setDestacar( boolean estado ) {
+                this.destacar.setEnabled( estado );
         }
 
-        public void setDeslocar1( JButton deslocar1 ) {
-                this.deslocar1 = deslocar1;
+        public void setDestacarMenu( boolean estado ) {
+                this.destacarMenu.setEnabled( estado );
         }
 
-        public JButton getDeslocar2() {
-                return deslocar2;
+        public void setExcluirLinhaColuna( boolean estado ) {
+                this.excluirLinhaColuna.setEnabled( estado );
         }
 
-        public void setDeslocar2( JButton deslocar2 ) {
-                this.deslocar2 = deslocar2;
+        public void setExcluirLinhaColunaMenu( boolean estado ) {
+                this.excluirLinhaColunaMenu.setEnabled( estado );
         }
 
-        public JButton getDestacar() {
-                return destacar;
+        public void setExcluirMatrizMenu( boolean estado ) {
+                this.excluirMatrizMenu.setEnabled( estado );
         }
 
-        public void setDestacar( JButton destacar ) {
-                this.destacar = destacar;
+        public void setFecharProjetoMenu( boolean estado ) {
+                this.fecharProjetoMenu.setEnabled( estado );
         }
 
-        public JMenuItem getDestacarMenu() {
-                return destacarMenu;
+        public void setHeader( boolean estado ) {
+                this.header.setEnabled( estado );
         }
 
-        public void setDestacarMenu( JMenuItem destacarMenu ) {
-                this.destacarMenu = destacarMenu;
+        public void setImportar( boolean estado ) {
+                this.importar.setEnabled( estado );
         }
 
-        public JButton getExcluirLinhaColuna() {
-                return excluirLinhaColuna;
+        public void setImportarDoModeloMenu( boolean estado ) {
+                this.importarDoModeloMenu.setEnabled( estado );
         }
 
-        public void setExcluirLinhaColuna( JButton excluirLinhaColuna ) {
-                this.excluirLinhaColuna = excluirLinhaColuna;
+        public void setImportarMenu( boolean estado ) {
+                this.importarMenu.setEnabled( estado );
         }
 
-        public JMenuItem getExcluirLinhaColunaMenu() {
-                return excluirLinhaColunaMenu;
+        public void setImprimirMenu( boolean estado ) {
+                this.imprimirMenu.setEnabled( estado );
         }
 
-        public void setExcluirLinhaColunaMenu( JMenuItem excluirLinhaColunaMenu ) {
-                this.excluirLinhaColunaMenu = excluirLinhaColunaMenu;
+        public void setNomeTextField( boolean estado ) {
+                nomeTextField.setEnabled( estado );
         }
 
-        public JMenuItem getExcluirMatrizMenu() {
-                return excluirMatrizMenu;
+        public void setNomeTextField( String nome ) {
+                nomeTextField.setText( nome );
         }
 
-        public void setExcluirMatrizMenu( JMenuItem excluirMatrizMenu ) {
-                this.excluirMatrizMenu = excluirMatrizMenu;
+        public void setNovaLinhaColuna( boolean estado ) {
+                this.novaLinhaColuna.setEnabled( estado );
         }
 
-        public JMenuItem getFecharProjetoMenu() {
-                return fecharProjetoMenu;
+        public void setNovaLinhaColunaMenu( boolean estado ) {
+                this.novaLinhaColunaMenu.setEnabled( estado );
         }
 
-        public void setFecharProjetoMenu( JMenuItem fecharProjetoMenu ) {
-                this.fecharProjetoMenu = fecharProjetoMenu;
+        public void setNovaMatriz( boolean estado ) {
+                this.novaMatriz.setEnabled( estado );
         }
 
-        public JTableHeader getHeader() {
-                return header;
+        public void setNovaMatrizMenu( boolean estado ) {
+                this.novaMatrizMenu.setEnabled( estado );
         }
 
-        public void setHeader( JTableHeader header ) {
-                this.header = header;
+        public void setOkEdicao( boolean estado ) {
+                this.okEdicao.setEnabled( estado );
         }
 
-        public JButton getImportar() {
-                return importar;
+        public void setOrdenar( boolean estado ) {
+                this.ordenar.setEnabled( estado );
         }
 
-        public void setImportar( JButton importar ) {
-                this.importar = importar;
+        public void setOrdenarMenu( boolean estado ) {
+                this.ordenarMenu.setEnabled( estado );
         }
 
-        public JMenuItem getImportarDoModeloMenu() {
-                return importarDoModeloMenu;
+        public void setResetarCamposNovosMenu( boolean estado ) {
+                this.resetarCamposNovosMenu.setEnabled( estado );
         }
 
-        public void setImportarDoModeloMenu( JMenuItem importarDoModeloMenu ) {
-                this.importarDoModeloMenu = importarDoModeloMenu;
+        public void setSalvarImagemMenu( boolean estado ) {
+                this.salvarImagemMenu.setEnabled( estado );
         }
 
-        public JMenuItem getImportarMenu() {
-                return importarMenu;
+        public void setSalvarPDFMenu( boolean estado ) {
+                this.salvarPDFMenu.setEnabled( estado );
         }
 
-        public void setImportarMenu( JMenuItem importarMenu ) {
-                this.importarMenu = importarMenu;
+        public void setSalvarProjeto( boolean estado ) {
+                this.salvarProjeto.setEnabled( estado );
         }
 
-        public JMenuItem getImprimirMenu() {
-                return imprimirMenu;
+        public void setSalvarProjetoMenu( boolean estado ) {
+                this.salvarProjetoMenu.setEnabled( estado );
         }
 
-        public void setImprimirMenu( JMenuItem imprimirMenu ) {
-                this.imprimirMenu = imprimirMenu;
+        public void setSincronizar( boolean estado ) {
+                this.sincronizar.setEnabled( estado );
         }
 
-        public JTextField getNomeTextField() {
-                return nomeTextField;
+        public void setSincronizarMatrizMenu( boolean estado ) {
+                this.sincronizarMatrizMenu.setEnabled( estado );
         }
 
-        public void setNomeTextField( JTextField nomeTextField ) {
-                this.nomeTextField = nomeTextField;
+        public void setSincronizarMenu( boolean estado ) {
+                this.sincronizarMenu.setEnabled( estado );
         }
 
-        public JButton getNovaLinhaColuna() {
-                return novaLinhaColuna;
-        }
-
-        public void setNovaLinhaColuna( JButton novaLinhaColuna ) {
-                this.novaLinhaColuna = novaLinhaColuna;
-        }
-
-        public JMenuItem getNovaLinhaColunaMenu() {
-                return novaLinhaColunaMenu;
-        }
-
-        public void setNovaLinhaColunaMenu( JMenuItem novaLinhaColunaMenu ) {
-                this.novaLinhaColunaMenu = novaLinhaColunaMenu;
-        }
-
-        public JButton getNovaMatriz() {
-                return novaMatriz;
-        }
-
-        public void setNovaMatriz( JButton novaMatriz ) {
-                this.novaMatriz = novaMatriz;
-        }
-
-        public JMenuItem getNovaMatrizMenu() {
-                return novaMatrizMenu;
-        }
-
-        public void setNovaMatrizMenu( JMenuItem novaMatrizMenu ) {
-                this.novaMatrizMenu = novaMatrizMenu;
-        }
-
-        public JButton getOkEdicao() {
-                return okEdicao;
-        }
-
-        public void setOkEdicao( JButton okEdicao ) {
-                this.okEdicao = okEdicao;
-        }
-
-        public JButton getOrdenar() {
-                return ordenar;
-        }
-
-        public void setOrdenar( JButton ordenar ) {
-                this.ordenar = ordenar;
-        }
-
-        public JMenuItem getOrdenarMenu() {
-                return ordenarMenu;
-        }
-
-        public void setOrdenarMenu( JMenuItem ordenarMenu ) {
-                this.ordenarMenu = ordenarMenu;
-        }
-
-        public JMenuItem getResetarCamposNovosMenu() {
-                return resetarCamposNovosMenu;
-        }
-
-        public void setResetarCamposNovosMenu( JMenuItem resetarCamposNovosMenu ) {
-                this.resetarCamposNovosMenu = resetarCamposNovosMenu;
-        }
-
-        public JMenuItem getSalvarImagemMenu() {
-                return salvarImagemMenu;
-        }
-
-        public void setSalvarImagemMenu( JMenuItem salvarImagemMenu ) {
-                this.salvarImagemMenu = salvarImagemMenu;
-        }
-
-        public JMenuItem getSalvarPDFMenu() {
-                return salvarPDFMenu;
-        }
-
-        public void setSalvarPDFMenu( JMenuItem salvarPDFMenu ) {
-                this.salvarPDFMenu = salvarPDFMenu;
-        }
-
-        public JButton getSalvarProjeto() {
-                return salvarProjeto;
-        }
-
-        public void setSalvarProjeto( JButton salvarProjeto ) {
-                this.salvarProjeto = salvarProjeto;
-        }
-
-        public JMenuItem getSalvarProjetoMenu() {
-                return salvarProjetoMenu;
-        }
-
-        public void setSalvarProjetoMenu( JMenuItem salvarProjetoMenu ) {
-                this.salvarProjetoMenu = salvarProjetoMenu;
-        }
-
-        public JButton getSincronizar() {
-                return sincronizar;
-        }
-
-        public void setSincronizar( JButton sincronizar ) {
-                this.sincronizar = sincronizar;
-        }
-
-        public JMenuItem getSincronizarMatrizMenu() {
-                return sincronizarMatrizMenu;
-        }
-
-        public void setSincronizarMatrizMenu( JMenuItem sincronizarMatrizMenu ) {
-                this.sincronizarMatrizMenu = sincronizarMatrizMenu;
-        }
-
-        public JMenuItem getSincronizarMenu() {
-                return sincronizarMenu;
-        }
-
-        public void setSincronizarMenu( JMenuItem sincronizarMenu ) {
-                this.sincronizarMenu = sincronizarMenu;
-        }
-
-        public JMenuItem getSobreMenu() {
-                return sobreMenu;
-        }
-
-        public void setSobreMenu( JMenuItem sobreMenu ) {
-                this.sobreMenu = sobreMenu;
+        public void setSobreMenu( boolean estado ) {
+                this.sobreMenu.setEnabled( estado );
         }
 }
