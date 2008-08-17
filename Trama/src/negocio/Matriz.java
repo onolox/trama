@@ -12,8 +12,7 @@ public class Matriz {
 	}
 	
 	public Matriz( String nome ) {
-		matriz = new DadosMatriz( nome );
-		
+		matriz = new DadosMatriz( nome );		
 	}
 	
 	public void setDadoMatriz( int valor, int linha, int coluna ) {
