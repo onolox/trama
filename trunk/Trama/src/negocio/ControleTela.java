@@ -17,6 +17,9 @@ public class ControleTela {
 	public ControleTela( Tela tela ) {
 		this.tela = tela;
 		leitorDeModelo = new LeitorDeModelo();
+		colunaAtual = 0;
+		linhaAtual = 0;
+		matrizAtual = null;
 	}
 	
 	public LinkedList< ModeloTabela > abrirProjeto( String nome ) {
@@ -44,7 +47,9 @@ public class ControleTela {
 	}
 	
 	public ModeloTabela adicionarMatriz( String nome ) {
-		return null;
+		ModeloTabela m = controleProjeto.adicionarMatriz( nome );
+		
+		return m;
 	}
 	
 	/**
