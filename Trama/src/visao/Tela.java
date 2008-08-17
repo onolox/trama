@@ -154,10 +154,11 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 abrirProjeto = new javax.swing.JButton();
                 salvarProjeto = new javax.swing.JButton();
                 jToolBar3 = new javax.swing.JToolBar();
+                jSeparator1 = new javax.swing.JToolBar.Separator();
                 novaMatriz = new javax.swing.JButton();
                 apagarMatriz = new javax.swing.JButton();
                 jToolBar2 = new javax.swing.JToolBar();
-                jLabel1 = new javax.swing.JLabel();
+                jSeparator4 = new javax.swing.JToolBar.Separator();
                 cancelarEdicao = new javax.swing.JButton();
                 okEdicao = new javax.swing.JButton();
                 nomeTextField = new javax.swing.JTextField();
@@ -166,12 +167,13 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 novaLinhaColuna = new javax.swing.JButton();
                 excluirLinhaColuna = new javax.swing.JButton();
                 jToolBar4 = new javax.swing.JToolBar();
+                jSeparator5 = new javax.swing.JToolBar.Separator();
                 ordenar = new javax.swing.JButton();
                 importar = new javax.swing.JButton();
                 sincronizar = new javax.swing.JButton();
                 jToolBar5 = new javax.swing.JToolBar();
+                jSeparator6 = new javax.swing.JToolBar.Separator();
                 destacar = new javax.swing.JButton();
-                jToolBar6 = new javax.swing.JToolBar();
                 jPanel2 = new javax.swing.JPanel();
                 jTabbedPane1 = new javax.swing.JTabbedPane();
                 jMenuBar1 = new javax.swing.JMenuBar();
@@ -210,6 +212,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 jPanel1.setPreferredSize(new java.awt.Dimension(777, 36));
                 jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
 
+                jToolBar1.setFloatable(false);
                 jToolBar1.setRollover(true);
                 jToolBar1.setAlignmentX(0.0F);
                 jToolBar1.setMaximumSize(new java.awt.Dimension(150, 35));
@@ -236,6 +239,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 salvarProjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/filesave-26.png"))); // NOI18N
                 salvarProjeto.setText("Salvar");
+                salvarProjeto.setEnabled(false);
                 salvarProjeto.setFocusable(false);
                 salvarProjeto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
                 salvarProjeto.setIconTextGap(1);
@@ -245,14 +249,17 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 jPanel1.add(jToolBar1);
 
+                jToolBar3.setFloatable(false);
                 jToolBar3.setRollover(true);
                 jToolBar3.setAlignmentY(0.5F);
                 jToolBar3.setMaximumSize(new java.awt.Dimension(50, 50));
                 jToolBar3.setMinimumSize(new java.awt.Dimension(50, 50));
                 jToolBar3.setPreferredSize(new java.awt.Dimension(85, 45));
+                jToolBar3.add(jSeparator1);
 
                 novaMatriz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/1day-26 copy.png"))); // NOI18N
                 novaMatriz.setText("Novo");
+                novaMatriz.setEnabled(false);
                 novaMatriz.setFocusable(false);
                 novaMatriz.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
                 novaMatriz.setIconTextGap(1);
@@ -262,6 +269,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 apagarMatriz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agt_action_fail-26.png"))); // NOI18N
                 apagarMatriz.setText("Apagar");
+                apagarMatriz.setEnabled(false);
                 apagarMatriz.setFocusable(false);
                 apagarMatriz.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
                 apagarMatriz.setIconTextGap(1);
@@ -271,15 +279,15 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 jPanel1.add(jToolBar3);
 
+                jToolBar2.setFloatable(false);
                 jToolBar2.setRollover(true);
                 jToolBar2.setMaximumSize(new java.awt.Dimension(400, 30));
                 jToolBar2.setMinimumSize(new java.awt.Dimension(300, 30));
                 jToolBar2.setPreferredSize(new java.awt.Dimension(340, 45));
-
-                jLabel1.setText(null);
-                jToolBar2.add(jLabel1);
+                jToolBar2.add(jSeparator4);
 
                 cancelarEdicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete.gif"))); // NOI18N
+                cancelarEdicao.setEnabled(false);
                 cancelarEdicao.setFocusable(false);
                 cancelarEdicao.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
                 cancelarEdicao.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -287,6 +295,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 cancelarEdicao.addActionListener(this);
 
                 okEdicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agt_action_success-26.png"))); // NOI18N
+                okEdicao.setEnabled(false);
                 okEdicao.setFocusable(false);
                 okEdicao.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
                 okEdicao.setIconTextGap(1);
@@ -295,9 +304,10 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 okEdicao.addActionListener(this);
 
                 nomeTextField.setColumns(15);
-                nomeTextField.setFont(new java.awt.Font("Arial", 0, 12));
+                nomeTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
                 nomeTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
                 nomeTextField.setCaretColor(new java.awt.Color(255, 255, 255));
+                nomeTextField.setEnabled(false);
                 nomeTextField.setMaximumSize(new java.awt.Dimension(150, 30));
                 nomeTextField.setMinimumSize(new java.awt.Dimension(10, 10));
                 nomeTextField.setPreferredSize(new java.awt.Dimension(50, 10));
@@ -306,6 +316,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 deslocar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/1downarrow-24.png"))); // NOI18N
                 deslocar1.setAlignmentX(0.5F);
+                deslocar1.setEnabled(false);
                 deslocar1.setFocusable(false);
                 deslocar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
                 deslocar1.setIconTextGap(1);
@@ -314,6 +325,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 deslocar1.addActionListener(this);
 
                 deslocar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/1downarrow1-24.png"))); // NOI18N
+                deslocar2.setEnabled(false);
                 deslocar2.setFocusable(false);
                 deslocar2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
                 deslocar2.setIconTextGap(1);
@@ -323,6 +335,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 novaLinhaColuna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/7days-26.png"))); // NOI18N
                 novaLinhaColuna.setText("Novo");
+                novaLinhaColuna.setEnabled(false);
                 novaLinhaColuna.setFocusable(false);
                 novaLinhaColuna.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
                 novaLinhaColuna.setIconTextGap(1);
@@ -332,6 +345,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 excluirLinhaColuna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/button_cancel-26.png"))); // NOI18N
                 excluirLinhaColuna.setText("Excluir");
+                excluirLinhaColuna.setEnabled(false);
                 excluirLinhaColuna.setFocusable(false);
                 excluirLinhaColuna.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
                 excluirLinhaColuna.setIconTextGap(1);
@@ -342,13 +356,16 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 jPanel1.add(jToolBar2);
 
+                jToolBar4.setFloatable(false);
                 jToolBar4.setRollover(true);
                 jToolBar4.setMaximumSize(new java.awt.Dimension(400, 30));
                 jToolBar4.setMinimumSize(new java.awt.Dimension(200, 30));
                 jToolBar4.setPreferredSize(new java.awt.Dimension(170, 45));
+                jToolBar4.add(jSeparator5);
 
                 ordenar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/db-26.png"))); // NOI18N
                 ordenar.setText("Ordenar");
+                ordenar.setEnabled(false);
                 ordenar.setFocusable(false);
                 ordenar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
                 ordenar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -357,6 +374,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 importar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/inbox-26 copy.png"))); // NOI18N
                 importar.setText("Importar");
+                importar.setEnabled(false);
                 importar.setFocusable(false);
                 importar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
                 importar.setIconTextGap(1);
@@ -366,6 +384,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 sincronizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/reload_all_tabs-26.png"))); // NOI18N
                 sincronizar.setText("Sincronizar");
+                sincronizar.setEnabled(false);
                 sincronizar.setFocusable(false);
                 sincronizar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
                 sincronizar.setIconTextGap(1);
@@ -375,10 +394,13 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 jPanel1.add(jToolBar4);
 
+                jToolBar5.setFloatable(false);
                 jToolBar5.setRollover(true);
+                jToolBar5.add(jSeparator6);
 
                 destacar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/irkickoff-26.png"))); // NOI18N
                 destacar.setText("Destacar");
+                destacar.setEnabled(false);
                 destacar.setFocusable(false);
                 destacar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
                 destacar.setIconTextGap(1);
@@ -387,9 +409,6 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 destacar.addActionListener(this);
 
                 jPanel1.add(jToolBar5);
-
-                jToolBar6.setRollover(true);
-                jPanel1.add(jToolBar6);
 
                 jTabbedPane1.setBackground(new java.awt.Color(204, 204, 204));
                 jTabbedPane1.setName("Requisitos X UC"); // NOI18N
@@ -418,23 +437,28 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 abrirProjetoMenu.addActionListener(this);
 
                 salvarProjetoMenu.setText("Salvar Projeto");
+                salvarProjetoMenu.setEnabled(false);
                 jMenu1.add(salvarProjetoMenu);
                 salvarProjetoMenu.addActionListener(this);
 
                 fecharProjetoMenu.setText("Fechar Projeto");
+                fecharProjetoMenu.setEnabled(false);
                 jMenu1.add(fecharProjetoMenu);
                 fecharProjetoMenu.addActionListener(this);
                 jMenu1.add(jSeparator3);
 
                 salvarPDFMenu.setText("Salvar Como PDF...");
+                salvarPDFMenu.setEnabled(false);
                 jMenu1.add(salvarPDFMenu);
                 salvarPDFMenu.addActionListener(this);
 
                 salvarImagemMenu.setText("Salvar Como Imagem...");
+                salvarImagemMenu.setEnabled(false);
                 jMenu1.add(salvarImagemMenu);
                 salvarImagemMenu.addActionListener(this);
 
                 imprimirMenu.setText("Imprimir...");
+                imprimirMenu.setEnabled(false);
                 jMenu1.add(imprimirMenu);
                 imprimirMenu.addActionListener(this);
 
@@ -443,14 +467,17 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 jMenu2.setText("Matriz");
 
                 novaMatrizMenu.setText("Nova Matriz");
+                novaMatrizMenu.setEnabled(false);
                 jMenu2.add(novaMatrizMenu);
                 novaMatrizMenu.addActionListener(this);
 
                 sincronizarMatrizMenu.setText("Sincronizar Matriz...");
+                sincronizarMatrizMenu.setEnabled(false);
                 jMenu2.add(sincronizarMatrizMenu);
                 sincronizarMatrizMenu.addActionListener(this);
 
                 excluirMatrizMenu.setText("Excluir Matriz");
+                excluirMatrizMenu.setEnabled(false);
                 jMenu2.add(excluirMatrizMenu);
                 excluirMatrizMenu.addActionListener(this);
 
@@ -459,22 +486,27 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 jMenu5.setText("Linha/Coluna");
 
                 novaLinhaColunaMenu.setText("Nova Linha/Coluna");
+                novaLinhaColunaMenu.setEnabled(false);
                 jMenu5.add(novaLinhaColunaMenu);
                 novaLinhaColunaMenu.addActionListener(this);
 
                 excluirLinhaColunaMenu.setText("Excluir Linha/Coluna");
+                excluirLinhaColunaMenu.setEnabled(false);
                 jMenu5.add(excluirLinhaColunaMenu);
                 excluirLinhaColunaMenu.addActionListener(this);
                 jMenu5.add(jSeparator2);
 
                 sincronizarMenu.setText("Sincronizar do Modelo");
+                sincronizarMenu.setEnabled(false);
                 jMenu5.add(sincronizarMenu);
 
                 ordenarMenu.setText("Ordenar");
+                ordenarMenu.setEnabled(false);
                 jMenu5.add(ordenarMenu);
                 ordenarMenu.addActionListener(this);
 
                 importarDoModeloMenu.setText("Importar do Modelo...");
+                importarDoModeloMenu.setEnabled(false);
                 jMenu5.add(importarDoModeloMenu);
                 importarDoModeloMenu.addActionListener(this);
 
@@ -483,14 +515,17 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 jMenu10.setText("Ferramentas");
 
                 importarMenu.setText("Importar");
+                importarMenu.setEnabled(false);
                 jMenu10.add(importarMenu);
                 importarMenu.addActionListener(this);
 
                 destacarMenu.setText("Destacar Relações");
+                destacarMenu.setEnabled(false);
                 jMenu10.add(destacarMenu);
                 destacar.addActionListener(this);
 
                 resetarCamposNovosMenu.setText("Resetar Campos Novos");
+                resetarCamposNovosMenu.setEnabled(false);
                 jMenu10.add(resetarCamposNovosMenu);
                 resetarCamposNovosMenu.addActionListener(this);
 
@@ -611,7 +646,6 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
         private javax.swing.JMenuItem importarDoModeloMenu;
         private javax.swing.JMenuItem importarMenu;
         private javax.swing.JMenuItem imprimirMenu;
-        private javax.swing.JLabel jLabel1;
         private javax.swing.JMenu jMenu1;
         private javax.swing.JMenu jMenu10;
         private javax.swing.JMenu jMenu2;
@@ -620,15 +654,18 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
         private javax.swing.JMenuBar jMenuBar1;
         private javax.swing.JPanel jPanel1;
         private javax.swing.JPanel jPanel2;
+        private javax.swing.JToolBar.Separator jSeparator1;
         private javax.swing.JSeparator jSeparator2;
         private javax.swing.JSeparator jSeparator3;
+        private javax.swing.JToolBar.Separator jSeparator4;
+        private javax.swing.JToolBar.Separator jSeparator5;
+        private javax.swing.JToolBar.Separator jSeparator6;
         private javax.swing.JTabbedPane jTabbedPane1;
         private javax.swing.JToolBar jToolBar1;
         private javax.swing.JToolBar jToolBar2;
         private javax.swing.JToolBar jToolBar3;
         private javax.swing.JToolBar jToolBar4;
         private javax.swing.JToolBar jToolBar5;
-        private javax.swing.JToolBar jToolBar6;
         private javax.swing.JTextField nomeTextField;
         private javax.swing.JButton novaLinhaColuna;
         private javax.swing.JMenuItem novaLinhaColunaMenu;
@@ -789,23 +826,9 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 this.imprimirMenu = imprimirMenu;
         }
 
-        public JLabel getJLabel1() {
-                return jLabel1;
-        }
+       
 
-        public void setJLabel1( JLabel jLabel1 ) {
-                this.jLabel1 = jLabel1;
-        }
-
-        public JTabbedPane getJTabbedPane1() {
-                return jTabbedPane1;
-        }
-
-        public void setJTabbedPane1( JTabbedPane jTabbedPane1 ) {
-                this.jTabbedPane1 = jTabbedPane1;
-        }
-
-        public JTextField getNomeTextField() {
+               public JTextField getNomeTextField() {
                 return nomeTextField;
         }
 
