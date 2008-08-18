@@ -64,6 +64,8 @@ public class ControleProjeto {
 
         public ModeloTabela adicionarMatriz( String nomeMatriz ) {
                 Matriz m = new Matriz( new DadosMatriz( nomeMatriz ) );
+                m.adicionarLinha( "");
+                m.adicionarColuna( " ");
                 ModeloTabela mT = new ModeloTabela( m );
                 matrizes.add( m );
 

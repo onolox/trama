@@ -1,5 +1,6 @@
 package visao;
 
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -11,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -26,11 +28,10 @@ import negocio.ControleTela;
 public class Tela extends javax.swing.JFrame implements ActionListener {
         private JTableHeader header;
         private ControleTela controle;
-        private LinkedList< JPanel > matrizes;
+        private LinkedList<JPanel> matrizes;
 
         public Tela() {
                 initComponents();
-                //setExtendedState( MAXIMIZED_BOTH );
                 setLocationRelativeTo( null );
                 controle = new ControleTela( this );
                 matrizes = new LinkedList<JPanel>();
@@ -50,13 +51,17 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
         private void abrirProjeto() {
         }
 
-        private void adicionarColuna() {
-                 String s = "";
+        public void adicionarColuna() {
+                String s = "";
 
                 s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a coluna", "Adicionar Coluna", JOptionPane.QUESTION_MESSAGE );
                 s = controle.adicionarColuna( s );
-                
-                  if ( s != "ok" ) {
+
+
+               System.out.println( matrizes );
+
+
+                if ( !s.equalsIgnoreCase( "ok" )) {
                         JOptionPane.showMessageDialog( this, s, "Erro", 1 );
                 }
         }
@@ -69,8 +74,8 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a linha", "Adicionar Linha", JOptionPane.QUESTION_MESSAGE );
                 s = controle.adicionarLinha( s );
-                
-                  if ( s != "ok" ) {
+
+                if ( !s.equalsIgnoreCase( "ok" )) {
                         JOptionPane.showMessageDialog( this, s, "Erro", 1 );
                 }
         }
@@ -80,15 +85,17 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
         private void adicionarMatriz() {
                 String s = "";
-                
+
                 s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a matriz", "Adicionar Matriz", JOptionPane.QUESTION_MESSAGE );
-                
+
                 ModeloTabela m = controle.adicionarMatriz( s );
-                JPanel j = new JPanel();
-                j.setName( m.getNomeMatriz());
-                j.add( new JTableCustomizado( m ) );
-                matrizes.add( j );
+                JPanel j = new JPanel( new FlowLayout( 0 ) );
+                j.setName( m.getNomeMatriz() );
+                j.add( new JScrollPane( new JTableCustomizado( m ) ));
                 
+                matrizes.add( j );
+
+
                 jTabbedPane1.add( j );
         }
 
@@ -106,7 +113,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
         private void criarNovoProjeto() {
                 String s = controle.criarNovoProjeto();
-                if ( s != "ok" ) {
+                if ( !s.equalsIgnoreCase( "ok" )) {
                         JOptionPane.showMessageDialog( this, s, "Erro", 1 );
                 }
         }
