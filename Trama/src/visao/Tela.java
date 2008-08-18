@@ -95,42 +95,85 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                                                              System.out.println( "Matriz atual: " + jTableCustomizado.getNome() );
                                                      }
                                              }
-                                             
 
-                                             System.out.println( "Linha=" + ( linha + 1 ) + "   coluna= " + coluna );
+                                             System.out.println( "Linha=" + ( linha ) + "   coluna= " + coluna );
+
+                                             if ( coluna == 0 ) {// Toda vez que se clicar em um nome de linha
+                                                     for ( JTableCustomizado jTableCustomizado : matrizes ) {
+                                                             if ( jTableCustomizado.getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ) {
+                                                                     setNomeTextField( ( ( ModeloTabela ) jTableCustomizado.getModel() ).getMatriz().getTituloLinha( linha ) );
+                                                             }
+                                                     }
+
+                                                     setCancelarEdicao( true );
+                                                     setOkEdicao( true );
+                                                     setNomeTextField( true );
+                                                     setDeslocar1( true );
+                                                     setDeslocar2( true );
+                                                     setNovaLinhaColuna( true );
+                                                     setNovaLinhaColunaMenu( true );
+                                                     setExcluirLinhaColuna( true );
+                                                     setExcluirLinhaColunaMenu( true );
+                                                     setOrdenar( true );
+                                                     setOrdenarMenu( true );
+                                                     setImportar( true );
+                                                     setImportarMenu( true );
+                                                     setImportarDoModeloMenu( true );
+                                                     setDestacar( true );
+                                                     setDestacarMenu( true );
+                                             } else {
+                                                     setCancelarEdicao( false );
+                                                     setOkEdicao( false );
+                                                     setNomeTextField( false );
+                                                     setDeslocar1( false );
+                                                     setDeslocar2( false );
+                                                     setNovaLinhaColuna( false );
+                                                     setNovaLinhaColunaMenu( false );
+                                                     setExcluirLinhaColuna( false );
+                                                     setExcluirLinhaColunaMenu( false );
+                                                     setOrdenar( false );
+                                                     setOrdenarMenu( false );
+                                                     setImportar( false );
+                                                     setImportarMenu( false );
+                                                     setImportarDoModeloMenu( false );
+                                                     setDestacar( false );
+                                                     setDestacarMenu( false );
+                                             }
                                      }
                              } );
                 //  jScrollPane2.setViewportView( jTable1 );
 
 
                 header = jT.getTableHeader();
-
-                header.addMouseListener( new MouseAdapter() { // adiciona listeners aos cabecalhos
+                header.addMouseListener( new MouseAdapter() { // adiciona listeners aos cabecalhos ----Serve pros nomes de colunas
                                          @Override
                                          public void mouseClicked( MouseEvent e ) {
                                                  int coluna = header.columnAtPoint( e.getPoint() );
 
-                                                 System.out.println( "coluna= " + coluna );
-                                                 
-                                                 setCancelarEdicao( true);
-                                                 setOkEdicao( true);
-                                                 setNomeTextField( true);
-                                                 setDeslocar1( true);
-                                                 setDeslocar2( true);
-                                                 setNovaLinhaColuna( true);
-                                                 setNovaLinhaColunaMenu( true);
-                                                 setExcluirLinhaColuna( true);
-                                                 setExcluirLinhaColunaMenu( true);
-                                                 setOrdenar( true);
-                                                 setOrdenarMenu( true);
-                                                 setImportar( true);
-                                                 setImportarMenu( true);
-                                                 setImportarDoModeloMenu( true);
-                                                 setDestacar( true);
-                                                 setDestacarMenu( true);
-                                                 
-                                         // matriz.setTituloColuna( coluna, "coluna9999" );
-                                         // jTable1.getColumnModel().getColumn( coluna ).setHeaderValue( "45" );
+                                                 if ( coluna > 0 ) {
+                                                         for ( JTableCustomizado jTableCustomizado : matrizes ) {
+                                                                 if ( jTableCustomizado.getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ) {
+                                                                         setNomeTextField( ( ( ModeloTabela ) jTableCustomizado.getModel() ).getMatriz().getTituloColuna( coluna ) );
+                                                                 }
+                                                         }
+
+                                                         setCancelarEdicao( true );
+                                                         setOkEdicao( true );
+                                                         setNomeTextField( true );
+                                                         setDeslocar1( true );
+                                                         setDeslocar2( true );
+                                                         setNovaLinhaColuna( true );
+                                                         setNovaLinhaColunaMenu( true );
+                                                         setExcluirLinhaColuna( true );
+                                                         setExcluirLinhaColunaMenu( true );
+                                                         setOrdenar( true );
+                                                         setOrdenarMenu( true );
+                                                         setImportar( true );
+                                                         setImportarMenu( true );
+                                                         setImportarDoModeloMenu( true );
+                                                         setDestacar( true );
+                                                         setDestacarMenu( true );
+                                                 }
                                          }
                                  } );
 
@@ -371,9 +414,8 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 okEdicao.addActionListener(this);
 
                 nomeTextField.setColumns(15);
-                nomeTextField.setFont(new java.awt.Font("Arial", 0, 12));
+                nomeTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
                 nomeTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-                nomeTextField.setCaretColor(new java.awt.Color(255, 255, 255));
                 nomeTextField.setEnabled(false);
                 nomeTextField.setMaximumSize(new java.awt.Dimension(150, 30));
                 nomeTextField.setMinimumSize(new java.awt.Dimension(10, 10));
@@ -648,6 +690,8 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 } else if ( e.getSource() == cancelarEdicao ) {
                         
                 } else if ( e.getSource() == okEdicao || e.getSource() == nomeTextField ) {
+                         // matriz.setTituloColuna( coluna, "coluna9999" );
+                        // jTable1.getColumnModel().getColumn( coluna ).setHeaderValue( "45" );
                         
                 } else if ( e.getSource() == deslocar1 ) {
                         
