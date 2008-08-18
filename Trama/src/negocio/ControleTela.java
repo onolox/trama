@@ -50,19 +50,10 @@ public class ControleTela {
 
         public ModeloTabela adicionarMatriz( String nome ) {
                 ModeloTabela m = controleProjeto.adicionarMatriz( nome );
-
                 tela.setExcluirMatriz( true );
-
                 tela.setExcluirMatrizMenu( true );
-
                 matrizAtual = m.getNomeMatriz();
-
-                adicionarLinha( "" );
-                adicionarLinha( "" );
-                adicionarLinha( "" );
-                adicionarColuna( "");
-                adicionarColuna( "");
-                adicionarColuna( "");
+               
                 return m;
         }
 

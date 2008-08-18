@@ -5,6 +5,7 @@ import java.util.Enumeration;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 
@@ -20,6 +21,11 @@ public class JTableCustomizado extends JTable {
 	private DefaultTableCellRenderer cell0;
 	private Enumeration< TableColumn > l;
 	private ModeloTabela modelo;
+
+        public JTableCustomizado() {
+        }
+        
+        
 	
 	public JTableCustomizado( ModeloTabela modelo ) {
 		cell = new RenderizadorCelula();
@@ -38,19 +44,13 @@ public class JTableCustomizado extends JTable {
 		setDefaultRenderer( String.class, cell );
 		setDefaultRenderer( RenderizadorTituloLinha.class, cell0 );
 		
-		
-		
-		
-		
-	}
-	
-	public void fire() {
 		TableColumnModel modelocoluna = getColumnModel();
 		l = modelocoluna.getColumns();
-		
+		         
 		
 		  while( l.hasMoreElements() ){
 			TableColumn tc = l.nextElement();
+                          System.out.println( tc );
 			tc.setResizable( false );
 			tc.setPreferredWidth( 20 );
 			if( tc.getHeaderValue().equals( "" ) ){
@@ -60,6 +60,7 @@ public class JTableCustomizado extends JTable {
 		}
 	}
 	
+		
 	public String exportarImagem() {
 		return "";
 	}
