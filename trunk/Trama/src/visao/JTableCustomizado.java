@@ -35,20 +35,27 @@ public class JTableCustomizado extends JTable {
 	
 		setModel( modelo );
 		
-		setDefaultRenderer( RenderizadorCelula.class, cell );
+		setDefaultRenderer( String.class, cell );
 		setDefaultRenderer( RenderizadorTituloLinha.class, cell0 );
 		
+		
+		
+		
+		
+	}
+	
+	public void fire() {
 		TableColumnModel modelocoluna = getColumnModel();
 		l = modelocoluna.getColumns();
 		
-		while( l.hasMoreElements() ){
+		
+		  while( l.hasMoreElements() ){
 			TableColumn tc = l.nextElement();
 			tc.setResizable( false );
 			tc.setPreferredWidth( 20 );
 			if( tc.getHeaderValue().equals( "" ) ){
 				tc.setPreferredWidth( 100 );
 			}
-			
 			tc.setHeaderRenderer( new RenderizadorTituloColuna() );
 		}
 	}
