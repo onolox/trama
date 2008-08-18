@@ -28,13 +28,13 @@ import negocio.ControleTela;
 public class Tela extends javax.swing.JFrame implements ActionListener {
         private JTableHeader header;
         private ControleTela controle;
-        private LinkedList<JPanel> matrizes;
+        private LinkedList<JTableCustomizado> matrizes;
 
         public Tela() {
                 initComponents();
                 setLocationRelativeTo( null );
                 controle = new ControleTela( this );
-                matrizes = new LinkedList<JPanel>();
+                matrizes = new LinkedList<JTableCustomizado>();
         }
 
         private void abrirProjeto() {
@@ -83,13 +83,20 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 final JTableCustomizado jT = new JTableCustomizado( m );
                 j.add( new JScrollPane( jT ) );
 
-                jT.addMouseListener( new java.awt.event.MouseAdapter() {
+                jT.addMouseListener( new java.awt.event.MouseAdapter() { // Adiciona listener as tabelas
                                      @Override
                                      public void mouseClicked( java.awt.event.MouseEvent e ) {
                                              int linha = jT.getSelectedRow();
                                              int coluna = jT.getSelectedColumn();
 
+                                             for ( JTableCustomizado jTableCustomizado : matrizes ) {
+                                                     if ( jTableCustomizado == e.getSource() ) {
+                                                             controle.setMatrizAtual( jTableCustomizado.getNome() );
+                                                             System.out.println( "Matriz atual: " + jTableCustomizado.getNome() );
+                                                     }
+                                             }
                                              
+
                                              System.out.println( "Linha=" + ( linha + 1 ) + "   coluna= " + coluna );
                                      }
                              } );
@@ -98,18 +105,36 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 header = jT.getTableHeader();
 
-                header.addMouseListener( new MouseAdapter() {
+                header.addMouseListener( new MouseAdapter() { // adiciona listeners aos cabecalhos
                                          @Override
                                          public void mouseClicked( MouseEvent e ) {
                                                  int coluna = header.columnAtPoint( e.getPoint() );
 
                                                  System.out.println( "coluna= " + coluna );
+                                                 
+                                                 setCancelarEdicao( true);
+                                                 setOkEdicao( true);
+                                                 setNomeTextField( true);
+                                                 setDeslocar1( true);
+                                                 setDeslocar2( true);
+                                                 setNovaLinhaColuna( true);
+                                                 setNovaLinhaColunaMenu( true);
+                                                 setExcluirLinhaColuna( true);
+                                                 setExcluirLinhaColunaMenu( true);
+                                                 setOrdenar( true);
+                                                 setOrdenarMenu( true);
+                                                 setImportar( true);
+                                                 setImportarMenu( true);
+                                                 setImportarDoModeloMenu( true);
+                                                 setDestacar( true);
+                                                 setDestacarMenu( true);
+                                                 
                                          // matriz.setTituloColuna( coluna, "coluna9999" );
                                          // jTable1.getColumnModel().getColumn( coluna ).setHeaderValue( "45" );
                                          }
                                  } );
 
-                matrizes.add( j );
+                matrizes.add( jT );
 
 
                 jTabbedPane1.add( j );
