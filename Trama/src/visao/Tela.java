@@ -30,7 +30,8 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
         public Tela() {
                 initComponents();
-                //  setExtendedState( MAXIMIZED_BOTH );
+                //setExtendedState( MAXIMIZED_BOTH );
+                setLocationRelativeTo( null );
                 controle = new ControleTela( this );
                 matrizes = new LinkedList<JPanel>();
 
@@ -50,6 +51,14 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
         }
 
         private void adicionarColuna() {
+                 String s = "";
+
+                s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a coluna", "Adicionar Coluna", JOptionPane.QUESTION_MESSAGE );
+                s = controle.adicionarColuna( s );
+                
+                  if ( s != "ok" ) {
+                        JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+                }
         }
 
         private void adicionarColunasModelo() {

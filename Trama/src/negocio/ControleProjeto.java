@@ -27,7 +27,18 @@ public class ControleProjeto {
         }
 
         public String adicionarColuna( String nome, String nomeMatriz ) {
-                return null;
+               String s = "ok";
+
+                try {
+                        for ( Matriz matriz : matrizes ) {
+                                if ( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ) {
+                                        matriz.adicionarColuna( nome );
+                                }
+                        }
+                } catch ( Exception e ) {
+                        s = "Erro";
+                }
+                return s;
         }
 
         public void adicionarColunasModelo() {

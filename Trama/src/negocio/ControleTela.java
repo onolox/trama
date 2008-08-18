@@ -60,6 +60,9 @@ public class ControleTela {
                 adicionarLinha( "" );
                 adicionarLinha( "" );
                 adicionarLinha( "" );
+                adicionarColuna( "");
+                adicionarColuna( "");
+                adicionarColuna( "");
                 return m;
         }
 
