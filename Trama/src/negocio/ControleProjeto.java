@@ -16,6 +16,7 @@ public class ControleProjeto {
         public ControleProjeto() {
                 projeto = new Projeto();
                 persistenciaProjeto = new PersistenciaProjeto();
+                matrizes = new LinkedList< Matriz >();
         }
 
         public void abrirProjeto() {
