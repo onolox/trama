@@ -35,17 +35,6 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 setLocationRelativeTo( null );
                 controle = new ControleTela( this );
                 matrizes = new LinkedList<JPanel>();
-
-        //  jTable1.addMouseListener( new java.awt.event.MouseAdapter() {
-        //                        public void mouseClicked( java.awt.event.MouseEvent evt ) {
-        //                           jTable1MouseClicked( evt );
-        //                         }
-        //                    } );
-        //      jScrollPane2.setViewportView( jTable1 );
-
-        //    headerColunaClicked();
-
-
         }
 
         private void abrirProjeto() {
@@ -58,10 +47,10 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 s = controle.adicionarColuna( s );
 
 
-               System.out.println( matrizes );
+                System.out.println( matrizes );
 
 
-                if ( !s.equalsIgnoreCase( "ok" )) {
+                if ( !s.equalsIgnoreCase( "ok" ) ) {
                         JOptionPane.showMessageDialog( this, s, "Erro", 1 );
                 }
         }
@@ -75,7 +64,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a linha", "Adicionar Linha", JOptionPane.QUESTION_MESSAGE );
                 s = controle.adicionarLinha( s );
 
-                if ( !s.equalsIgnoreCase( "ok" )) {
+                if ( !s.equalsIgnoreCase( "ok" ) ) {
                         JOptionPane.showMessageDialog( this, s, "Erro", 1 );
                 }
         }
@@ -91,8 +80,35 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 ModeloTabela m = controle.adicionarMatriz( s );
                 JPanel j = new JPanel( new FlowLayout( 0 ) );
                 j.setName( m.getNomeMatriz() );
-                j.add( new JScrollPane( new JTableCustomizado( m ) ));
-                
+                final JTableCustomizado jT = new JTableCustomizado( m );
+                j.add( new JScrollPane( jT ) );
+
+                jT.addMouseListener( new java.awt.event.MouseAdapter() {
+                                     @Override
+                                     public void mouseClicked( java.awt.event.MouseEvent e ) {
+                                             int linha = jT.getSelectedRow();
+                                             int coluna = jT.getSelectedColumn();
+
+                                             
+                                             System.out.println( "Linha=" + ( linha + 1 ) + "   coluna= " + coluna );
+                                     }
+                             } );
+                //  jScrollPane2.setViewportView( jTable1 );
+
+
+                header = jT.getTableHeader();
+
+                header.addMouseListener( new MouseAdapter() {
+                                         @Override
+                                         public void mouseClicked( MouseEvent e ) {
+                                                 int coluna = header.columnAtPoint( e.getPoint() );
+
+                                                 System.out.println( "coluna= " + coluna );
+                                         // matriz.setTituloColuna( coluna, "coluna9999" );
+                                         // jTable1.getColumnModel().getColumn( coluna ).setHeaderValue( "45" );
+                                         }
+                                 } );
+
                 matrizes.add( j );
 
 
@@ -113,7 +129,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
         private void criarNovoProjeto() {
                 String s = controle.criarNovoProjeto();
-                if ( !s.equalsIgnoreCase( "ok" )) {
+                if ( !s.equalsIgnoreCase( "ok" ) ) {
                         JOptionPane.showMessageDialog( this, s, "Erro", 1 );
                 }
         }
@@ -585,28 +601,8 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 pack();
         }// </editor-fold>//GEN-END:initComponents
 
-    private void jTable1MouseClicked( java.awt.event.MouseEvent evt ) {
-      //  int linha = jTable1.getSelectedRow();
-     //   int coluna = jTable1.getSelectedColumn();
+   
 
-    //    System.out.println( "Linha=" + ( linha + 1 ) + "   coluna= " + coluna );
-
-    }
-
-    private void headerColunaClicked() {
-     //   header = jTable1.getTableHeader();
-
-        header.addMouseListener( new MouseAdapter() {
-                             @Override
-                             public void mouseClicked( MouseEvent e ) {
-                                 int coluna = header.columnAtPoint( e.getPoint() );
-
-                                 System.out.println( "coluna= " + coluna );
-                                // matriz.setTituloColuna( coluna, "coluna9999" );
-                                // jTable1.getColumnModel().getColumn( coluna ).setHeaderValue( "45" );
-                             }
-                         } );
-    }
 
         @Override
         public void actionPerformed( ActionEvent e ) {
