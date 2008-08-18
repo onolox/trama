@@ -53,7 +53,9 @@ public class ControleTela {
                 tela.setExcluirMatriz( true );
                 tela.setExcluirMatrizMenu( true );
                 matrizAtual = m.getNomeMatriz();
-               
+
+                adicionarLinha( "" );
+                adicionarColuna( " " );
                 return m;
         }
 

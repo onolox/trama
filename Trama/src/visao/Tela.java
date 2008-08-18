@@ -51,7 +51,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
         private void abrirProjeto() {
         }
 
-        public void adicionarColuna() {
+        private void adicionarColuna() {
                 String s = "";
 
                 s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a coluna", "Adicionar Coluna", JOptionPane.QUESTION_MESSAGE );
@@ -623,8 +623,9 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 } else if ( e.getSource() == excluirMatriz || e.getSource() == excluirMatrizMenu ) {
                         excluirMatriz();
                 } else if ( e.getSource() == sincronizarMatrizMenu ) {
-                        
+                        sincronizarMatriz();
                 } else if ( e.getSource() == cancelarEdicao ) {
+                        
                 } else if ( e.getSource() == okEdicao || e.getSource() == nomeTextField ) {
                         
                 } else if ( e.getSource() == deslocar1 ) {
