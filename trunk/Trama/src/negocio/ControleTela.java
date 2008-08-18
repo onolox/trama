@@ -58,8 +58,8 @@ public class ControleTela {
                 
                 matrizAtual = m.getNomeMatriz();
 
-                adicionarLinha( "" );
-                adicionarColuna( " " );
+                adicionarLinha( "Linha" );
+                adicionarColuna( "Coluna" );
                 return m;
         }
 
