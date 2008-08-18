@@ -52,6 +52,10 @@ public class ControleTela {
                 ModeloTabela m = controleProjeto.adicionarMatriz( nome );
                 tela.setExcluirMatriz( true );
                 tela.setExcluirMatrizMenu( true );
+                tela.setImprimirMenu( true);
+                tela.setSalvarImagemMenu( true);
+                tela.setSalvarPDFMenu( true);
+                
                 matrizAtual = m.getNomeMatriz();
 
                 adicionarLinha( "" );
