@@ -11,8 +11,40 @@ public class Matriz {
                 this.matriz = matriz;
         }
 
-        public void setDadoMatriz( int valor, int linha, int coluna ) {
-                matriz.getLinha( linha - 1 ).set( coluna, valor + "" );
+        public void adicionarColuna( String titulo ) { // ------------------------------
+
+                matriz.setQColunas( 1 );
+                matriz.getTituloColuna().add( titulo );
+
+                for ( int i = 0; i < matriz.getQLinhas(); i++ ) {
+                        matriz.getLinha( i ).add( "0" );
+                }
+        }
+
+        public void adicionarLinha( String titulo ) {
+                matriz.setQLinhas( 1 );
+                matriz.getTituloLinha().add( titulo );
+                matriz.getLinhas().add( new LinkedList<String>() );
+                for ( int l = 0; l < matriz.getQColunas(); l++ ) {
+                        matriz.getLinhas().getLast().add( "0" );
+                }
+        }
+
+        public void alterarPosicaoColuna( int de, int para ) {
+                String s = "";
+                for ( int i = 0; i < matriz.getQLinhas(); i++ ) {
+                        s = ( String ) matriz.getLinha( i ).remove( de );
+                        matriz.getLinha( i ).add( para, s );
+                }
+        }
+
+        public void alterarPosicaoLinha( int de, int para ) {
+                LinkedList l = matriz.getLinhas().remove( de );
+                matriz.getLinhas().add( para, l );
+        }
+
+        public LinkedList<String> destacarElementos( String nomeElemento, String tipo ) {
+                return null;
         }
 
         public String getDadoMatriz( int linha, int coluna ) {
@@ -29,68 +61,8 @@ public class Matriz {
                 return null;
         }
 
-        public void adicionarLinha( String titulo ) {
-                matriz.setQLinhas( 1 );
-                matriz.getTituloLinha().add( titulo );
-                matriz.getLinhas().add( new LinkedList<String>() );
-                for ( int l = 0; l < matriz.getQColunas(); l++ ) {
-                        matriz.getLinhas().getLast().add( "0" );
-                }
-        }
-
-        public void removeLinha( int index ) {
-                matriz.setQLinhas( -1 );
-                matriz.getLinhas().remove( index );
-                matriz.getTituloLinha().remove( index );
-        }
-
-        public void alterarPosicaoLinha( int de, int para ) {
-                LinkedList l = matriz.getLinhas().remove( de );
-                matriz.getLinhas().add( para, l );
-        }
-
-        public void setTituloLinha( int index, String titulo ) {
-                matriz.getTituloLinha().set( index, titulo );
-        }
-
-        public String getTituloLinha( int index ) {
-                return matriz.getTituloLinha().get( index );
-        }
-
-        public void adicionarColuna( String titulo ) { // ------------------------------
-
-                matriz.setQColunas( 1 );
-                matriz.getTituloColuna().add( titulo );
-
-                for ( int i = 0; i < matriz.getQLinhas(); i++ ) {
-                        matriz.getLinha( i ).add( "0" );
-                }
-        }
-
-        public void removeColuna( int index ) {
-                matriz.setQColunas( -1 );
-                matriz.getTituloColuna().remove( index );
-
-                for ( int i = 0; i < matriz.getQLinhas(); i++ ) {
-                        matriz.getLinha( i ).remove( index );
-                }
-        }
-
-        public void alterarPosicaoColuna( int de, int para ) {
-                String s = "";
-                for ( int i = 0; i < matriz.getQLinhas(); i++ ) {
-                        s = ( String ) matriz.getLinha( i ).remove( de );
-                        matriz.getLinha( i ).add( para, s );
-                }
-        }
-
-        public void setTituloColuna( int index, String titulo ) {
-                matriz.setTituloColuna( index, titulo );
-
-        }
-
-        public String getTituloColuna( int index ) {
-                return matriz.getTituloColuna( index );
+        public String getNomeMatriz() {
+                return matriz.getNomeMatriz();
         }
 
         public int getQColunas() {
@@ -106,12 +78,31 @@ public class Matriz {
                 return matriz.getQLinhas();
         }
 
-        public LinkedList<String> destacarElementos( String nomeElemento, String tipo ) {
-                return null;
+        public String getTituloColuna( int index ) {
+                return matriz.getTituloColuna( index );
         }
 
-        public String getNomeMatriz() {
-                return matriz.getNomeMatriz();
+        public String getTituloLinha( int index ) {
+                return matriz.getTituloLinha().get( index );
+        }
+
+        public void removeColuna( int index ) {
+                matriz.setQColunas( -1 );
+                matriz.getTituloColuna().remove( index );
+
+                for ( int i = 0; i < matriz.getQLinhas(); i++ ) {
+                        matriz.getLinha( i ).remove( index );
+                }
+        }
+
+        public void removeLinha( int index ) {
+                matriz.setQLinhas( -1 );
+                matriz.getLinhas().remove( index );
+                matriz.getTituloLinha().remove( index );
+        }
+
+        public void setDadoMatriz( int valor, int linha, int coluna ) {
+                matriz.getLinha( linha - 1 ).set( coluna, valor + "" );
         }
 
         public String setNomeMatriz( String nome ) {
@@ -122,5 +113,14 @@ public class Matriz {
                         s = "erro";
                 }
                 return s;
+        }
+
+        public void setTituloColuna( int index, String titulo ) {
+                matriz.setTituloColuna( index, titulo );
+
+        }
+
+        public void setTituloLinha( int index, String titulo ) {
+                matriz.getTituloLinha().set( index, titulo );
         }
 }
