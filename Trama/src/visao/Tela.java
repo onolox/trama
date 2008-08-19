@@ -155,14 +155,13 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                                              }
                                      }
                              } );
-                //  jScrollPane2.setViewportView( jTable1 );
-
 
                 header = jT.getTableHeader();
                 header.addMouseListener( new MouseAdapter() { // adiciona listeners aos cabecalhos ----Serve pros nomes de colunas -----------------------------------------
                                          @Override
                                          public void mouseClicked( MouseEvent e ) {
                                                  int coluna = header.columnAtPoint( e.getPoint() );
+                                                 controle.setLinhaAtual( -1 );
 
                                                  if ( coluna > 0 ) {
                                                          for ( JTableCustomizado jTableCustomizado : matrizes ) {
@@ -202,8 +201,6 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                                  } );
 
                 matrizes.add( jT );
-
-
                 jTabbedPane1.add( j );
         }
 
@@ -320,6 +317,8 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 salvarPDFMenu = new javax.swing.JMenuItem();
                 salvarImagemMenu = new javax.swing.JMenuItem();
                 imprimirMenu = new javax.swing.JMenuItem();
+                jSeparator7 = new javax.swing.JSeparator();
+                jMenuItem1 = new javax.swing.JMenuItem();
                 jMenu2 = new javax.swing.JMenu();
                 novaMatrizMenu = new javax.swing.JMenuItem();
                 sincronizarMatrizMenu = new javax.swing.JMenuItem();
@@ -445,7 +444,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 okEdicao.addActionListener(this);
 
                 nomeTextField.setColumns(15);
-                nomeTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+                nomeTextField.setFont(new java.awt.Font("Arial", 0, 12));
                 nomeTextField.setToolTipText("Nome da Linha ou Coluna Selecionada");
                 nomeTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
                 nomeTextField.setEnabled(false);
@@ -559,9 +558,6 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 jPanel1.add(jToolBar5);
 
-                jTabbedPane1.setBackground(new java.awt.Color(204, 204, 204));
-                jTabbedPane1.setName("Requisitos X UC"); // NOI18N
-
                 javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
                 jPanel2.setLayout(jPanel2Layout);
                 jPanel2Layout.setHorizontalGroup(
@@ -573,7 +569,29 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                         .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
                 );
 
-                jTabbedPane1.getAccessibleContext().setAccessibleName("Requisitos X UC");
+                jTabbedPane1.addChangeListener( new javax.swing.event.ChangeListener() {
+                        public void stateChanged( javax.swing.event.ChangeEvent evt ) {
+                                novaLinhaColunaMenu.setText( "Nova Linha/Coluna" );
+                                excluirLinhaColunaMenu.setText( "Excluir Linha/Coluna" );
+
+                                setCancelarEdicao( false );
+                                setOkEdicao( false );
+                                setNomeTextField( false );
+                                setDeslocar1( false );
+                                setDeslocar2( false );
+                                setNovaLinhaColuna( false );
+                                setNovaLinhaColunaMenu( false );
+                                setExcluirLinhaColuna( false );
+                                setExcluirLinhaColunaMenu( false );
+                                setOrdenar( false );
+                                setOrdenarMenu( false );
+                                setImportar( false );
+                                setImportarMenu( false );
+                                setImportarDoModeloMenu( false );
+                                setDestacar( false );
+                                setDestacarMenu( false );
+                        }
+                } );
 
                 jMenu1.setMnemonic('A');
                 jMenu1.setText("Arquivo");
@@ -611,6 +629,10 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 imprimirMenu.setEnabled(false);
                 jMenu1.add(imprimirMenu);
                 imprimirMenu.addActionListener(this);
+                jMenu1.add(jSeparator7);
+
+                jMenuItem1.setText("Sair");
+                jMenu1.add(jMenuItem1);
 
                 jMenuBar1.add(jMenu1);
 
@@ -744,7 +766,9 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                         
                 } else if ( e.getSource() == novaLinhaColuna || e.getSource() == novaLinhaColunaMenu ) {
                         if(controle.getColunaAtual() == 0){
-                                
+                                adicionarLinha();
+                        } else if(controle.getLinhaAtual() == -1){
+                                adicionarColuna();
                         }
                         
                 } else if ( e.getSource() == excluirLinhaColuna || e.getSource() == excluirLinhaColunaMenu ) {
@@ -791,6 +815,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
         private javax.swing.JMenu jMenu3;
         private javax.swing.JMenu jMenu5;
         private javax.swing.JMenuBar jMenuBar1;
+        private javax.swing.JMenuItem jMenuItem1;
         private javax.swing.JPanel jPanel1;
         private javax.swing.JPanel jPanel2;
         private javax.swing.JToolBar.Separator jSeparator1;
@@ -799,6 +824,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
         private javax.swing.JToolBar.Separator jSeparator4;
         private javax.swing.JToolBar.Separator jSeparator5;
         private javax.swing.JToolBar.Separator jSeparator6;
+        private javax.swing.JSeparator jSeparator7;
         private javax.swing.JTabbedPane jTabbedPane1;
         private javax.swing.JToolBar jToolBar1;
         private javax.swing.JToolBar jToolBar2;
