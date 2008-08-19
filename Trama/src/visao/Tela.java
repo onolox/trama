@@ -104,6 +104,16 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                                                                      setNomeTextField( ( ( ModeloTabela ) jTableCustomizado.getModel() ).getMatriz().getTituloLinha( linha ) );
                                                              }
                                                      }
+                                                     deslocar1.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/1downarrow-24.png" ) ) );
+                                                     deslocar1.setToolTipText( "Deslocar Linha Para Baixo" );
+                                                     deslocar2.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/1downarrow1-24.png" ) ) );
+                                                     deslocar1.setToolTipText( "Deslocar Linha Para Cima" );
+                                                     novaLinhaColuna.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/7days-26.png" ) ) );
+                                                     novaLinhaColuna.setToolTipText( "Nova Linha" );
+                                                     novaLinhaColunaMenu.setText( "Nova Linha" );
+                                                     nomeTextField.setToolTipText( "Nome da Linha Selecionada" );
+                                                     excluirLinhaColuna.setToolTipText( "Excluir Linha" );
+                                                     excluirLinhaColunaMenu.setText( "Excluir Linha" );
 
                                                      setCancelarEdicao( true );
                                                      setOkEdicao( true );
@@ -156,6 +166,16 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                                                                          setNomeTextField( ( ( ModeloTabela ) jTableCustomizado.getModel() ).getMatriz().getTituloColuna( coluna ) );
                                                                  }
                                                          }
+                                                         deslocar1.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/1leftarrow-24.png" ) ) );
+                                                         deslocar1.setToolTipText( "Deslocar Coluna Para Esquerda" );
+                                                         deslocar2.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/1rightarrow-24.png" ) ) );
+                                                         deslocar2.setToolTipText( "Deslocar Coluna Para Direita" );
+                                                         novaLinhaColuna.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/coluna 24.png" ) ) );
+                                                         novaLinhaColuna.setToolTipText( "Nova Coluna" );
+                                                         novaLinhaColunaMenu.setText( "Nova Coluna" );
+                                                         nomeTextField.setToolTipText( "Nome da Coluna Selecionada" );
+                                                         excluirLinhaColuna.setToolTipText( "Excluir Coluna" );
+                                                         excluirLinhaColunaMenu.setText( "Excluir Coluna" );
 
                                                          setCancelarEdicao( true );
                                                          setOkEdicao( true );
@@ -331,6 +351,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 novoProjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/new window-26.png"))); // NOI18N
                 novoProjeto.setText("Novo");
+                novoProjeto.setToolTipText("Novo Projeto");
                 novoProjeto.setFocusable(false);
                 novoProjeto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
                 novoProjeto.setIconTextGap(1);
@@ -340,6 +361,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 abrirProjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/fileopen-26.png"))); // NOI18N
                 abrirProjeto.setText("Abrir");
+                abrirProjeto.setToolTipText("Abrir Projeto");
                 abrirProjeto.setFocusable(false);
                 abrirProjeto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
                 abrirProjeto.setIconTextGap(1);
@@ -349,6 +371,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 salvarProjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/filesave-26.png"))); // NOI18N
                 salvarProjeto.setText("Salvar");
+                salvarProjeto.setToolTipText("Salvar Projeto");
                 salvarProjeto.setEnabled(false);
                 salvarProjeto.setFocusable(false);
                 salvarProjeto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -369,6 +392,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 novaMatriz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/1day-26 copy.png"))); // NOI18N
                 novaMatriz.setText("Novo");
+                novaMatriz.setToolTipText("Nova Matriz");
                 novaMatriz.setEnabled(false);
                 novaMatriz.setFocusable(false);
                 novaMatriz.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -379,6 +403,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 excluirMatriz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agt_action_fail-26.png"))); // NOI18N
                 excluirMatriz.setText("Excluir");
+                excluirMatriz.setToolTipText("Excluir Matriz Atual");
                 excluirMatriz.setEnabled(false);
                 excluirMatriz.setFocusable(false);
                 excluirMatriz.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -397,6 +422,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 jToolBar2.add(jSeparator4);
 
                 cancelarEdicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete.gif"))); // NOI18N
+                cancelarEdicao.setToolTipText("Cancelar Edição");
                 cancelarEdicao.setEnabled(false);
                 cancelarEdicao.setFocusable(false);
                 cancelarEdicao.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -405,6 +431,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 cancelarEdicao.addActionListener(this);
 
                 okEdicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agt_action_success-26.png"))); // NOI18N
+                okEdicao.setToolTipText("Confirmar Edição");
                 okEdicao.setEnabled(false);
                 okEdicao.setFocusable(false);
                 okEdicao.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -415,6 +442,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 nomeTextField.setColumns(15);
                 nomeTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+                nomeTextField.setToolTipText("Nome da Linha ou Coluna Selecionada");
                 nomeTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
                 nomeTextField.setEnabled(false);
                 nomeTextField.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -424,6 +452,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 nomeTextField.addActionListener(this);
 
                 deslocar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/1downarrow-24.png"))); // NOI18N
+                deslocar1.setToolTipText("Mover Para Esquerda/Cima");
                 deslocar1.setAlignmentX(0.5F);
                 deslocar1.setEnabled(false);
                 deslocar1.setFocusable(false);
@@ -434,6 +463,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 deslocar1.addActionListener(this);
 
                 deslocar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/1downarrow1-24.png"))); // NOI18N
+                deslocar2.setToolTipText("Mover Para Direita/Baxo");
                 deslocar2.setEnabled(false);
                 deslocar2.setFocusable(false);
                 deslocar2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -444,6 +474,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 novaLinhaColuna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/7days-26.png"))); // NOI18N
                 novaLinhaColuna.setText("Novo");
+                novaLinhaColuna.setToolTipText("Nova linha");
                 novaLinhaColuna.setEnabled(false);
                 novaLinhaColuna.setFocusable(false);
                 novaLinhaColuna.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -454,6 +485,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 excluirLinhaColuna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/button_cancel-26.png"))); // NOI18N
                 excluirLinhaColuna.setText("Excluir");
+                excluirLinhaColuna.setToolTipText("Excluir Linha/Coluna");
                 excluirLinhaColuna.setEnabled(false);
                 excluirLinhaColuna.setFocusable(false);
                 excluirLinhaColuna.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -474,6 +506,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 ordenar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/db-26.png"))); // NOI18N
                 ordenar.setText("Ordenar");
+                ordenar.setToolTipText("Ordenar");
                 ordenar.setEnabled(false);
                 ordenar.setFocusable(false);
                 ordenar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -483,6 +516,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 importar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/inbox-26 copy.png"))); // NOI18N
                 importar.setText("Importar");
+                importar.setToolTipText("Importar do Modelo");
                 importar.setEnabled(false);
                 importar.setFocusable(false);
                 importar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -493,6 +527,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 sincronizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/reload_all_tabs-26.png"))); // NOI18N
                 sincronizar.setText("Sincronizar");
+                sincronizar.setToolTipText("Sincronizar do Modelo");
                 sincronizar.setEnabled(false);
                 sincronizar.setFocusable(false);
                 sincronizar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -509,6 +544,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 destacar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/irkickoff-26.png"))); // NOI18N
                 destacar.setText("Destacar");
+                destacar.setToolTipText("Destacar Elementos Relacionados");
                 destacar.setEnabled(false);
                 destacar.setFocusable(false);
                 destacar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -535,6 +571,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 jTabbedPane1.getAccessibleContext().setAccessibleName("Requisitos X UC");
 
+                jMenu1.setMnemonic('A');
                 jMenu1.setText("Arquivo");
 
                 novoProjetoMenu.setText("Novo Projeto...");
@@ -573,6 +610,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 jMenuBar1.add(jMenu1);
 
+                jMenu2.setMnemonic('M');
                 jMenu2.setText("Matriz");
 
                 novaMatrizMenu.setText("Nova Matriz");
@@ -592,6 +630,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 jMenuBar1.add(jMenu2);
 
+                jMenu5.setMnemonic('L');
                 jMenu5.setText("Linha/Coluna");
 
                 novaLinhaColunaMenu.setText("Nova Linha/Coluna");
@@ -621,6 +660,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 jMenuBar1.add(jMenu5);
 
+                jMenu10.setMnemonic('F');
                 jMenu10.setText("Ferramentas");
 
                 importarMenu.setText("Importar");
@@ -628,7 +668,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 jMenu10.add(importarMenu);
                 importarMenu.addActionListener(this);
 
-                destacarMenu.setText("Destacar Relações");
+                destacarMenu.setText("Destacar Elementos Relacionados");
                 destacarMenu.setEnabled(false);
                 jMenu10.add(destacarMenu);
                 destacar.addActionListener(this);
@@ -640,6 +680,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 jMenuBar1.add(jMenu10);
 
+                jMenu3.setMnemonic('j');
                 jMenu3.setText("Ajuda");
 
                 sobreMenu.setText("Sobre");

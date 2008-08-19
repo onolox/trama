@@ -6,6 +6,7 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
+            <Property name="mnemonic" type="int" value="65"/>
             <Property name="text" type="java.lang.String" value="Arquivo"/>
           </Properties>
           <SubComponents>
@@ -76,6 +77,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
+            <Property name="mnemonic" type="int" value="77"/>
             <Property name="text" type="java.lang.String" value="Matriz"/>
           </Properties>
           <SubComponents>
@@ -110,6 +112,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu5">
           <Properties>
+            <Property name="mnemonic" type="int" value="76"/>
             <Property name="text" type="java.lang.String" value="Linha/Coluna"/>
           </Properties>
           <SubComponents>
@@ -161,6 +164,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu10">
           <Properties>
+            <Property name="mnemonic" type="int" value="70"/>
             <Property name="text" type="java.lang.String" value="Ferramentas"/>
           </Properties>
           <SubComponents>
@@ -175,7 +179,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="destacarMenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Destacar Rela&#xe7;&#xf5;es"/>
+                <Property name="text" type="java.lang.String" value="Destacar Elementos Relacionados"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
@@ -195,6 +199,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
+            <Property name="mnemonic" type="int" value="106"/>
             <Property name="text" type="java.lang.String" value="Ajuda"/>
           </Properties>
           <SubComponents>
@@ -294,6 +299,7 @@
                   <Image iconType="3" name="/icons/new window-26.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Novo"/>
+                <Property name="toolTipText" type="java.lang.String" value="Novo Projeto"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="iconTextGap" type="int" value="1"/>
@@ -309,6 +315,7 @@
                   <Image iconType="3" name="/icons/fileopen-26.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Abrir"/>
+                <Property name="toolTipText" type="java.lang.String" value="Abrir Projeto"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="iconTextGap" type="int" value="1"/>
@@ -324,6 +331,7 @@
                   <Image iconType="3" name="/icons/filesave-26.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Salvar"/>
+                <Property name="toolTipText" type="java.lang.String" value="Salvar Projeto"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -362,6 +370,7 @@
                   <Image iconType="3" name="/icons/1day-26 copy.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Novo"/>
+                <Property name="toolTipText" type="java.lang.String" value="Nova Matriz"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -378,6 +387,7 @@
                   <Image iconType="3" name="/icons/agt_action_fail-26.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Excluir"/>
+                <Property name="toolTipText" type="java.lang.String" value="Excluir Matriz Atual"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -414,6 +424,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/icons/delete.gif"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Cancelar Edi&#xe7;&#xe3;o"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -428,6 +439,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/icons/agt_action_success-26.png"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Confirmar Edi&#xe7;&#xe3;o"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -444,6 +456,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="12" style="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Nome da Linha ou Coluna Selecionada"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                     <LineBorder roundedCorners="true">
@@ -471,6 +484,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/icons/1downarrow-24.png"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Mover Para Esquerda/Cima"/>
                 <Property name="alignmentX" type="float" value="0.5"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
@@ -487,6 +501,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/icons/1downarrow1-24.png"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Mover Para Direita/Baxo"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -503,6 +518,7 @@
                   <Image iconType="3" name="/icons/7days-26.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Novo"/>
+                <Property name="toolTipText" type="java.lang.String" value="Nova linha"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -519,6 +535,7 @@
                   <Image iconType="3" name="/icons/button_cancel-26.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Excluir"/>
+                <Property name="toolTipText" type="java.lang.String" value="Excluir Linha/Coluna"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -559,6 +576,7 @@
                   <Image iconType="3" name="/icons/db-26.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ordenar"/>
+                <Property name="toolTipText" type="java.lang.String" value="Ordenar"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -574,6 +592,7 @@
                   <Image iconType="3" name="/icons/inbox-26 copy.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Importar"/>
+                <Property name="toolTipText" type="java.lang.String" value="Importar do Modelo"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -590,6 +609,7 @@
                   <Image iconType="3" name="/icons/reload_all_tabs-26.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Sincronizar"/>
+                <Property name="toolTipText" type="java.lang.String" value="Sincronizar do Modelo"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -618,6 +638,7 @@
                   <Image iconType="3" name="/icons/irkickoff-26.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Destacar"/>
+                <Property name="toolTipText" type="java.lang.String" value="Destacar Elementos Relacionados"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
