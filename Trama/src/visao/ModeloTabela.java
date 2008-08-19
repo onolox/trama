@@ -11,7 +11,9 @@ public class ModeloTabela extends AbstractTableModel {
         public ModeloTabela( Matriz matriz ) {
                 super();
                 this.matriz = matriz;
+                
         }
+        
 
         @Override
         public int getRowCount() {
