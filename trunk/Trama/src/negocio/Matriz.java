@@ -11,8 +11,7 @@ public class Matriz {
                 this.matriz = matriz;
         }
 
-        public void adicionarColuna( String titulo ) { // ------------------------------
-
+        public void adicionarColuna( String titulo ) {
                 matriz.setQColunas( 1 );
                 matriz.getTituloColuna().add( titulo );
 

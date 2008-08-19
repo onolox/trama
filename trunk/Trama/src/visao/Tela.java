@@ -81,6 +81,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 JPanel j = new JPanel( new FlowLayout( 0 ) );
                 j.setName( m.getNomeMatriz() );
                 final JTableCustomizado jT = new JTableCustomizado( m );
+
                 j.add( new JScrollPane( jT ) );
 
                 jT.addMouseListener( new java.awt.event.MouseAdapter() { // Adiciona listener as tabelas
