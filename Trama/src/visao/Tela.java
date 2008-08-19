@@ -95,10 +95,11 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                                                              System.out.println( "Matriz atual: " + jTableCustomizado.getNome() );
                                                      }
                                              }
-
+                                             controle.setLinhaAtual( linha );
+                                             controle.setColunaAtual( coluna );
                                              System.out.println( "Linha=" + ( linha ) + "   coluna= " + coluna );
 
-                                             if ( coluna == 0 ) {// Toda vez que se clicar em um nome de linha
+                                             if ( coluna == 0 ) {// Toda vez que se clicar em um nome de------------------------------------------------------------------ linha -------------
                                                      for ( JTableCustomizado jTableCustomizado : matrizes ) {
                                                              if ( jTableCustomizado.getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ) {
                                                                      setNomeTextField( ( ( ModeloTabela ) jTableCustomizado.getModel() ).getMatriz().getTituloLinha( linha ) );
@@ -131,7 +132,10 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                                                      setImportarDoModeloMenu( true );
                                                      setDestacar( true );
                                                      setDestacarMenu( true );
-                                             } else {
+                                             } else {                                                                                         // Aqui é quando se clica nas células -----------------------------------------
+                                                     novaLinhaColunaMenu.setText( "Nova Linha/Coluna" );
+                                                     excluirLinhaColunaMenu.setText( "Excluir Linha/Coluna" );
+
                                                      setCancelarEdicao( false );
                                                      setOkEdicao( false );
                                                      setNomeTextField( false );
@@ -155,7 +159,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
 
                 header = jT.getTableHeader();
-                header.addMouseListener( new MouseAdapter() { // adiciona listeners aos cabecalhos ----Serve pros nomes de colunas
+                header.addMouseListener( new MouseAdapter() { // adiciona listeners aos cabecalhos ----Serve pros nomes de colunas -----------------------------------------
                                          @Override
                                          public void mouseClicked( MouseEvent e ) {
                                                  int coluna = header.columnAtPoint( e.getPoint() );
@@ -739,7 +743,9 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 } else if ( e.getSource() == deslocar2 ) {
                         
                 } else if ( e.getSource() == novaLinhaColuna || e.getSource() == novaLinhaColunaMenu ) {
-                        
+                        if(controle.getColunaAtual() == 0){
+                                
+                        }
                         
                 } else if ( e.getSource() == excluirLinhaColuna || e.getSource() == excluirLinhaColunaMenu ) {
                         
