@@ -73,6 +73,13 @@
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="imprimirMenu.addActionListener(this);"/>
               </AuxValues>
             </MenuItem>
+            <MenuItem class="javax.swing.JSeparator" name="jSeparator7">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Sair"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
@@ -669,15 +676,12 @@
       </Layout>
       <SubComponents>
         <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="cc" red="cc" type="rgb"/>
-            </Property>
-            <Property name="name" type="java.lang.String" value="Requisitos X UC" noResource="true"/>
-          </Properties>
           <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Requisitos X UC"/>
+            <Property name="AccessibleContext.accessibleName" postCode="excluirLinhaColunaMenu.setText( &quot;Excluir Linha/Coluna&quot; );&#xa;&#xa;                                                        setCancelarEdicao( false );&#xa;                                                        setOkEdicao( false );&#xa;                                                        setNomeTextField( false );&#xa;                                                        setDeslocar1( false );&#xa;                                                        setDeslocar2( false );&#xa;                                                        setNovaLinhaColuna( false );&#xa;                                                        setNovaLinhaColunaMenu( false );&#xa;                                                        setExcluirLinhaColuna( false );&#xa;                                                        setExcluirLinhaColunaMenu( false );&#xa;                                                        setOrdenar( false );&#xa;                                                        setOrdenarMenu( false );&#xa;                                                        setImportar( false );&#xa;                                                        setImportarMenu( false );&#xa;                                                        setImportarDoModeloMenu( false );&#xa;                                                        setDestacar( false );&#xa;                                                        setDestacarMenu( false );&#xa;                                                }&#xa;                                        } );"/>
           </AccessibilityProperties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jTabbedPane1.addChangeListener( new javax.swing.event.ChangeListener() {&#xa;                                                public void stateChanged( javax.swing.event.ChangeEvent evt ) {&#xa;                                                        novaLinhaColunaMenu.setText( &quot;Nova Linha/Coluna&quot; );"/>
+          </AuxValues>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
         </Container>
