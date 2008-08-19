@@ -9,13 +9,13 @@ import java.util.LinkedList;
  * @author Fabio
  */
 public class DadosMatriz {
+	private LinkedList< LinkedList > linha;
+	private String nomeMatriz;
 	private int qColunas = 1;
 	private int qLinhas = 0;
-	private String nomeMatriz;
-	private LinkedList< String > tituloLinha;
 	private LinkedList< String > tituloColuna;
-	private LinkedList< LinkedList > linha;
 	private String tituloColunaArquivo;
+	private LinkedList< String > tituloLinha;
 	private String tituloLinhaArquivo;
 	
 	
@@ -27,8 +27,52 @@ public class DadosMatriz {
 		tituloColuna.add( "" );
 	}
 	
+	public LinkedList< String > getLinha( int linha ) {
+		return this.linha.get( linha );
+	}
+	
+	public LinkedList< LinkedList > getLinhas() {
+		return linha;
+	}
+	
+	public String getNomeMatriz() {
+		return nomeMatriz;
+	}
+	
 	public int getQColunas() {
 		return qColunas;
+	}
+	
+	public int getQLinhas() {
+		return qLinhas;
+	}
+	
+	public LinkedList< String > getTituloColuna() {
+		return tituloColuna;
+	}
+	
+	public String getTituloColuna( int index ) {
+		return tituloColuna.get( index );
+	}
+	
+	public String getTituloColunaArquivo() {
+		return tituloColunaArquivo;
+	}
+	
+	public LinkedList< String > getTituloLinha() {
+		return tituloLinha;
+	}
+	
+	public String getTituloLinhaArquivo() {
+		return tituloLinhaArquivo;
+	}
+	
+	public void setLinha( LinkedList< LinkedList > linha ) {
+		this.linha = linha;
+	}
+	
+	public void setNomeMatriz( String nome ) {
+		this.nomeMatriz = nome;
 	}
 	
 	/**
@@ -40,10 +84,6 @@ public class DadosMatriz {
 		this.qColunas += colunas;
 	}
 	
-	public int getQLinhas() {
-		return qLinhas;
-	}
-	
 	/**
 	 * Numero positivo aumenta, negativo diminui.
 	 * 
@@ -53,52 +93,8 @@ public class DadosMatriz {
 		this.qLinhas += linhas;
 	}
 	
-	public String getNomeMatriz() {
-		return nomeMatriz;
-	}
-	
-	public void setNomeMatriz( String nome ) {
-		this.nomeMatriz = nome;
-	}
-	
-	public String getTituloColuna( int index ) {
-		return tituloColuna.get( index );
-	}
-	
-	public LinkedList< String > getTituloColuna() {
-		return tituloColuna;
-	}
-	
 	public void setTituloColuna( int index, String titulo ) {
 		tituloColuna.set( index, titulo );
-	}
-	
-	public LinkedList< String > getTituloLinha() {
-		return tituloLinha;
-	}
-	
-	public void setTituloLinha( LinkedList< String > tituloLinha ) {
-		this.tituloLinha = tituloLinha;
-	}
-	
-	public LinkedList< LinkedList > getLinhas() {
-		return linha;
-	}
-	
-	public LinkedList< String > getLinha( int linha ) {
-		return this.linha.get( linha );
-	}
-	
-	public void setLinha( LinkedList< LinkedList > linha ) {
-		this.linha = linha;
-	}
-	
-	public String getTituloColunaArquivo() {
-		return tituloColunaArquivo;
-	}
-	
-	public String getTituloLinhaArquivo() {
-		return tituloLinhaArquivo;
 	}
 	
 	/**
@@ -106,6 +102,10 @@ public class DadosMatriz {
 	 */
 	public void setTituloColunaArquivo( String arquivo ) {
 		tituloColunaArquivo = arquivo;
+	}
+	
+	public void setTituloLinha( LinkedList< String > tituloLinha ) {
+		this.tituloLinha = tituloLinha;
 	}
 	
 	/**
