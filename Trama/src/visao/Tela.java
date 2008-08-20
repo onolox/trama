@@ -17,9 +17,13 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.JTableHeader;
 
+import javax.swing.table.TableColumn;
 import negocio.ControleTela;
+import negocio.Matriz;
 
 /**
  *
@@ -53,6 +57,17 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 if ( !s.equalsIgnoreCase( "ok" ) ) {
                         JOptionPane.showMessageDialog( this, s, "Erro", 1 );
                 }
+                for ( JTableCustomizado j : matrizes ) {
+                        final ModeloTabela m = ( ModeloTabela ) j.getModel();
+
+                        m.addTableModelListener( new TableModelListener() {
+                                                 @Override
+                                                 public void tableChanged( TableModelEvent e ) {
+                                                 }
+                                         } );
+
+                }
+
         }
 
         private void adicionarColunasModelo() {
@@ -74,17 +89,15 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
         private void adicionarMatriz() {
                 String s = "";
-
                 s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a matriz", "Adicionar Matriz", JOptionPane.QUESTION_MESSAGE );
 
                 ModeloTabela m = controle.adicionarMatriz( s );
                 JPanel j = new JPanel( new FlowLayout( 0 ) );
                 j.setName( m.getNomeMatriz() );
                 final JTableCustomizado jT = new JTableCustomizado( m );
-
                 j.add( new JScrollPane( jT ) );
 
-                jT.addMouseListener( new java.awt.event.MouseAdapter() { // Adiciona listener as tabelas
+                jT.addMouseListener( new MouseAdapter() { // Adiciona listener as tabelas
                                      @Override
                                      public void mouseClicked( java.awt.event.MouseEvent e ) {
                                              int linha = jT.getSelectedRow();

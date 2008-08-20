@@ -22,7 +22,6 @@ public class JTableCustomizado extends JTable {
         private Enumeration<TableColumn> l;
         private ModeloTabela modelo;
 
-      
         public JTableCustomizado( ModeloTabela modelo ) {
                 cell = new RenderizadorCelula();
                 cell0 = new RenderizadorTituloLinha();
@@ -31,8 +30,8 @@ public class JTableCustomizado extends JTable {
                 setAutoResizeMode( AUTO_RESIZE_OFF );
                 setFont( new Font( "Arial", 0, 12 ) );
 
-                
-               setSelectionMode( 2);
+                setAutoCreateColumnsFromModel( true );
+                setSelectionMode( 2 );
                 setColumnSelectionAllowed( false );
                 setCellSelectionEnabled( true );
 
