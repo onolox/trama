@@ -30,6 +30,7 @@ public class JTableCustomizado extends JTable {
                 setAutoResizeMode( AUTO_RESIZE_OFF );
                 setFont( new Font( "Arial", 0, 12 ) );
 
+                getTableHeader().setReorderingAllowed( false);
                 setAutoCreateColumnsFromModel( true );
                 setSelectionMode( 2 );
                 setColumnSelectionAllowed( false );

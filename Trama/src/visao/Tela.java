@@ -57,7 +57,10 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                                 ModeloTabela mod = ( ModeloTabela ) jt.getModel();
 
                                 JP.get( i ).removeAll();
-                                JP.get( i ).add( new JScrollPane( new JTableCustomizado( mod ) ) );
+                                JTableCustomizado cus = new JTableCustomizado( mod );
+                                adicionarListener( cus);
+                                matrizes.add( i, cus );
+                                JP.get( i ).add( new JScrollPane( cus ) );
                                 JP.get( i ).updateUI();
                                 JP.get( i ).repaint();
                         }
@@ -70,7 +73,6 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
         private void adicionarLinha() {
                 String s = "";
-                System.out.println( "linhaaaaaaaaaaaaaa" );
                 s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a linha", "Adicionar Linha", JOptionPane.QUESTION_MESSAGE );
                 s = controle.adicionarLinha( s );
 
@@ -101,6 +103,80 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 JScrollPane js = new JScrollPane( jT );
                 j.add( js );
 
+               adicionarListener( jT );
+
+                matrizes.add( jT );
+                jTabbedPane1.add( j );
+        }
+
+        private void alterarPosicaoColuna() {
+        }
+
+        private void alterarPosicaoLinha() {
+        }
+
+        private void atualizarColuna() {
+        }
+
+        private void atualizarLinha() {
+        }
+
+        private void criarNovoProjeto() {
+                String s = controle.criarNovoProjeto();
+                if ( !s.equalsIgnoreCase( "ok" ) ) {
+                        JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+                }
+        }
+
+        private void destacarElementos() {
+        }
+
+        private void excluirMatriz() {
+        }
+
+        private void exclulirColuna() {
+        }
+
+        private void exclulirLinha() {
+        }
+
+        private void exportarImagem() {
+        }
+
+        private void exportarPDF() {
+        }
+
+        private void fecharProjeto() {
+        }
+
+        private void imprimir() {
+        }
+
+        private void ordenarColuna() {
+        }
+
+        private void ordenarLinha() {
+        }
+
+        private void posisaoJTable( ActionEvent evt ) {
+        }
+
+        private void resetarDestaque() {
+        }
+
+        private void salvarProjeto() {
+        }
+
+        private void sincronizarColuna() {
+        }
+
+        private void sincronizarLinha() {
+        }
+
+        private void sincronizarMatriz() {
+        }
+
+        private void adicionarListener( final JTableCustomizado jT ) {
                 jT.addMouseListener( new MouseAdapter() { // Adiciona listener as tabelas
                                      @Override
                                      public void mouseClicked( java.awt.event.MouseEvent e ) {
@@ -226,76 +302,6 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                                                  }
                                          }
                                  } );
-
-                matrizes.add( jT );
-                jTabbedPane1.add( j );
-        }
-
-        private void alterarPosicaoColuna() {
-        }
-
-        private void alterarPosicaoLinha() {
-        }
-
-        private void atualizarColuna() {
-        }
-
-        private void atualizarLinha() {
-        }
-
-        private void criarNovoProjeto() {
-                String s = controle.criarNovoProjeto();
-                if ( !s.equalsIgnoreCase( "ok" ) ) {
-                        JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-                }
-        }
-
-        private void destacarElementos() {
-        }
-
-        private void excluirMatriz() {
-        }
-
-        private void exclulirColuna() {
-        }
-
-        private void exclulirLinha() {
-        }
-
-        private void exportarImagem() {
-        }
-
-        private void exportarPDF() {
-        }
-
-        private void fecharProjeto() {
-        }
-
-        private void imprimir() {
-        }
-
-        private void ordenarColuna() {
-        }
-
-        private void ordenarLinha() {
-        }
-
-        private void posisaoJTable( ActionEvent evt ) {
-        }
-
-        private void resetarDestaque() {
-        }
-
-        private void salvarProjeto() {
-        }
-
-        private void sincronizarColuna() {
-        }
-
-        private void sincronizarLinha() {
-        }
-
-        private void sincronizarMatriz() {
         }
 
         /** This method is called from within the constructor to
