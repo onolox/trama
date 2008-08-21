@@ -1,5 +1,6 @@
 package visao;
 
+import java.awt.Button;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,23 +8,17 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import java.util.LinkedList;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JMenuItem;
+import javax.swing.AbstractButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTabbedPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
 import javax.swing.table.JTableHeader;
 
 import javax.swing.table.TableColumn;
 import negocio.ControleTela;
+
 import negocio.Matriz;
+import visao.JTableCustomizado;
 
 /**
  *
@@ -33,12 +28,15 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
         private JTableHeader header;
         private ControleTela controle;
         private LinkedList<JTableCustomizado> matrizes;
+        private LinkedList<JPanel> JP;
 
         public Tela() {
                 initComponents();
                 setLocationRelativeTo( null );
                 controle = new ControleTela( this );
                 matrizes = new LinkedList<JTableCustomizado>();
+
+                JP = new LinkedList<JPanel>();
         }
 
         private void abrirProjeto() {
@@ -46,26 +44,23 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
         private void adicionarColuna() {
                 String s = "";
-
+                System.out.println( "colunaaaaaaaaaaa" );
                 s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a coluna", "Adicionar Coluna", JOptionPane.QUESTION_MESSAGE );
                 s = controle.adicionarColuna( s );
-
-
-                System.out.println( matrizes );
-
 
                 if ( !s.equalsIgnoreCase( "ok" ) ) {
                         JOptionPane.showMessageDialog( this, s, "Erro", 1 );
                 }
-                for ( JTableCustomizado j : matrizes ) {
-                        final ModeloTabela m = ( ModeloTabela ) j.getModel();
+                for ( int i = 0; i < matrizes.size(); i++ ) {
+                        if ( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ) {
+                                JTableCustomizado jt = matrizes.remove( i );
+                                ModeloTabela mod = ( ModeloTabela ) jt.getModel();
 
-                        m.addTableModelListener( new TableModelListener() {
-                                                 @Override
-                                                 public void tableChanged( TableModelEvent e ) {
-                                                 }
-                                         } );
-
+                                JP.get( i ).removeAll();
+                                JP.get( i ).add( new JScrollPane( new JTableCustomizado( mod ) ) );
+                                JP.get( i ).updateUI();
+                                JP.get( i ).repaint();
+                        }
                 }
 
         }
@@ -75,12 +70,19 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
         private void adicionarLinha() {
                 String s = "";
-
+                System.out.println( "linhaaaaaaaaaaaaaa" );
                 s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a linha", "Adicionar Linha", JOptionPane.QUESTION_MESSAGE );
                 s = controle.adicionarLinha( s );
 
                 if ( !s.equalsIgnoreCase( "ok" ) ) {
                         JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+                }
+
+                for ( JTableCustomizado j : matrizes ) {
+                        if ( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ) {
+                                ModeloTabela t = ( ModeloTabela ) j.getModel();
+                                t.fireTableDataChanged();
+                        }
                 }
         }
 
@@ -93,9 +95,11 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
                 ModeloTabela m = controle.adicionarMatriz( s );
                 JPanel j = new JPanel( new FlowLayout( 0 ) );
+                JP.add( j );
                 j.setName( m.getNomeMatriz() );
                 final JTableCustomizado jT = new JTableCustomizado( m );
-                j.add( new JScrollPane( jT ) );
+                JScrollPane js = new JScrollPane( jT );
+                j.add( js );
 
                 jT.addMouseListener( new MouseAdapter() { // Adiciona listener as tabelas
                                      @Override
@@ -176,6 +180,15 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                                          public void mouseClicked( MouseEvent e ) {
                                                  int coluna = header.columnAtPoint( e.getPoint() );
                                                  controle.setLinhaAtual( -1 );
+
+                                                 System.out.println( "Linha=" + ( controle.getLinhaAtual() ) + "   coluna= " + coluna );
+
+                                                 for ( JTableCustomizado jTableCustomizado : matrizes ) {
+                                                         if ( jTableCustomizado.getTableHeader() == e.getSource() ) {
+                                                                 controle.setMatrizAtual( jTableCustomizado.getNome() );
+                                                                 System.out.println( "Matriz atual:::: " + jTableCustomizado.getNome() );
+                                                         }
+                                                 }
 
                                                  if ( coluna > 0 ) {
                                                          for ( JTableCustomizado jTableCustomizado : matrizes ) {
@@ -779,10 +792,12 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 } else if ( e.getSource() == deslocar2 ) {
                         
                 } else if ( e.getSource() == novaLinhaColuna || e.getSource() == novaLinhaColunaMenu ) {
-                        if(controle.getColunaAtual() == 0){
+                        System.out.println( controle.getColunaAtual() );
+                          System.out.println( controle.getLinhaAtual() );
+                                              if(controle.getLinhaAtual() == -1){
+                                 adicionarColuna();
+                        } else if(controle.getColunaAtual() ==0){
                                 adicionarLinha();
-                        } else if(controle.getLinhaAtual() == -1){
-                                adicionarColuna();
                         }
                         
                 } else if ( e.getSource() == excluirLinhaColuna || e.getSource() == excluirLinhaColunaMenu ) {
