@@ -52,9 +52,9 @@ public class ControleTela {
                 ModeloTabela m = controleProjeto.adicionarMatriz( nome );
                 tela.setExcluirMatriz( true );
                 tela.setExcluirMatrizMenu( true );
-                tela.setImprimirMenu( true);
-                tela.setSalvarImagemMenu( true);
-                tela.setSalvarPDFMenu( true);
+                tela.setImprimirMenu( true );
+                tela.setSalvarImagemMenu( true );
+                tela.setSalvarPDFMenu( true );
                 
                 matrizAtual = m.getNomeMatriz();
 
@@ -122,7 +122,7 @@ public class ControleTela {
 
         public String excluirMatriz() {
                 String s = "ok";
-
+                s = controleProjeto.excluirMatriz( matrizAtual );
                 return s;
         }
 
