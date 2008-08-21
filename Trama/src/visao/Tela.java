@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 
 import java.util.LinkedList;
 import javax.swing.AbstractButton;
+import javax.swing.GroupLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -44,8 +45,10 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
         private void adicionarColuna() {
                 String s = "";
-                System.out.println( "colunaaaaaaaaaaa" );
                 s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a coluna", "Adicionar Coluna", JOptionPane.QUESTION_MESSAGE );
+                if ( s.equalsIgnoreCase( "" ) ) {
+                        s = "coluna " + controle.getColunaAtual();
+                }
                 s = controle.adicionarColuna( s );
 
                 if ( !s.equalsIgnoreCase( "ok" ) ) {
@@ -55,14 +58,21 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                         if ( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ) {
                                 JTableCustomizado jt = matrizes.remove( i );
                                 ModeloTabela mod = ( ModeloTabela ) jt.getModel();
-
-                                JP.get( i ).removeAll();
+                                JPanel jpanel = JP.get( i );
+                                jpanel.removeAll();
                                 JTableCustomizado cus = new JTableCustomizado( mod );
-                                adicionarListener( cus);
+                                adicionarListener( cus );
                                 matrizes.add( i, cus );
-                                JP.get( i ).add( new JScrollPane( cus ) );
-                                JP.get( i ).updateUI();
-                                JP.get( i ).repaint();
+                                JScrollPane js = new JScrollPane();
+                                js.setViewportView( cus );
+
+                                GroupLayout jPanelLayout = new GroupLayout( jpanel );
+                                jpanel.setLayout( jPanelLayout );
+                                jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
+                                jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
+                                jpanel.add( js );
+                                jpanel.updateUI();
+                                jpanel.repaint();
                         }
                 }
 
@@ -74,6 +84,9 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
         private void adicionarLinha() {
                 String s = "";
                 s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a linha", "Adicionar Linha", JOptionPane.QUESTION_MESSAGE );
+                if ( s.equalsIgnoreCase( "" ) ) {
+                        s = "linha " + controle.getLinhaAtual();
+                }
                 s = controle.adicionarLinha( s );
 
                 if ( !s.equalsIgnoreCase( "ok" ) ) {
@@ -93,17 +106,38 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
         private void adicionarMatriz() {
                 String s = "";
+                boolean bol = true;
+
                 s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a matriz", "Adicionar Matriz", JOptionPane.QUESTION_MESSAGE );
 
+                while ( bol ) {
+                        bol = false;
+                        if ( s.equalsIgnoreCase( "" ) ) {
+                                s = "Requisitos X UC";
+                        }
+                        for ( JTableCustomizado jtab : matrizes ) {
+                                if ( s.equalsIgnoreCase( jtab.getNome() ) ) {
+                                        bol = true;
+                                        s = JOptionPane.showInputDialog( this, "Nome já existente, insira outro nome", "Adicionar Matriz", JOptionPane.QUESTION_MESSAGE );
+                                }
+                        }
+                }
                 ModeloTabela m = controle.adicionarMatriz( s );
-                JPanel j = new JPanel( new FlowLayout( 0 ) );
+                JPanel j = new JPanel();
+                JScrollPane js = new JScrollPane();
+                GroupLayout jPanelLayout = new GroupLayout( j );
+
+                j.setLayout( jPanelLayout );
+                jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
+                jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
                 JP.add( j );
                 j.setName( m.getNomeMatriz() );
                 final JTableCustomizado jT = new JTableCustomizado( m );
-                JScrollPane js = new JScrollPane( jT );
+
+                js.setViewportView( jT );
                 j.add( js );
 
-               adicionarListener( jT );
+                adicionarListener( jT );
 
                 matrizes.add( jT );
                 jTabbedPane1.add( j );
@@ -126,12 +160,26 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 if ( !s.equalsIgnoreCase( "ok" ) ) {
                         JOptionPane.showMessageDialog( this, s, "Erro", 1 );
                 }
+                adicionarMatriz();
         }
 
         private void destacarElementos() {
         }
 
         private void excluirMatriz() {
+                int ge = JOptionPane.showConfirmDialog( this, "Tem certeza que deseja excluir a matriz " + controle.getMatrizAtual() + " do projeto?", "", 0 );
+                if ( ge == 0 ) {
+                        for ( int i = 0; i < matrizes.size(); i++ ) {
+                                if ( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ) {
+                                        matrizes.remove( i );
+                                        JP.remove( i ).getParent().removeAll();
+                                        String s = controle.excluirMatriz();
+                                        if ( !s.equalsIgnoreCase( "ok" ) ) {
+                                                JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+                                        }
+                                }
+                        }
+                }
         }
 
         private void exclulirColuna() {
@@ -256,6 +304,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                                          public void mouseClicked( MouseEvent e ) {
                                                  int coluna = header.columnAtPoint( e.getPoint() );
                                                  controle.setLinhaAtual( -1 );
+                                                 controle.setColunaAtual( coluna );
 
                                                  System.out.println( "Linha=" + ( controle.getLinhaAtual() ) + "   coluna= " + coluna );
 
@@ -590,6 +639,8 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 destacar.addActionListener(this);
 
                 jPanel1.add(jToolBar5);
+
+                jTabbedPane1.setPreferredSize(new java.awt.Dimension(20, 20));
 
                 javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
                 jPanel2.setLayout(jPanel2Layout);

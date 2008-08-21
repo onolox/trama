@@ -16,7 +16,7 @@ public class ControleProjeto {
         public ControleProjeto() {
                 projeto = new Projeto();
                 persistenciaProjeto = new PersistenciaProjeto();
-                matrizes = new LinkedList< Matriz >();
+                matrizes = new LinkedList<Matriz>();
         }
 
         public void abrirProjeto() {
@@ -27,7 +27,7 @@ public class ControleProjeto {
         }
 
         public String adicionarColuna( String nome, String nomeMatriz ) {
-               String s = "ok";
+                String s = "ok";
 
                 try {
                         for ( Matriz matriz : matrizes ) {
@@ -102,7 +102,20 @@ public class ControleProjeto {
         }
 
         public String excluirMatriz( String nomeMatriz ) {
-                return null;
+                String s = "ok";
+                Matriz m = null;
+                try {
+                        for ( Matriz matriz : matrizes ) {
+                                if ( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ) {
+                                       m = matriz;
+                                }
+                        }
+                         matrizes.remove( m );
+                } catch ( Exception e ) {
+                        e.printStackTrace();
+                        s = "Erro";
+                }
+                return s;
         }
 
         public void exportarImagem() {
@@ -123,7 +136,9 @@ public class ControleProjeto {
         }
 
         public String ordenarColuna( String nomeMatriz ) {
-                return null;
+                String s = "ok";
+
+                return s;
         }
 
         public String ordenarLinha( String nomeMatriz ) {
