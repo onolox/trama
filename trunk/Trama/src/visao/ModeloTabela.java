@@ -2,7 +2,6 @@ package visao;
 
 import javax.swing.table.AbstractTableModel;
 
-import javax.swing.table.DefaultTableModel;
 import negocio.Matriz;
 import visao.renderizador.RenderizadorTituloLinha;
 
@@ -13,6 +12,7 @@ public class ModeloTabela extends AbstractTableModel {
                 super();
                 this.matriz = matriz;
         }
+          
 
         @Override
         public int getRowCount() {
