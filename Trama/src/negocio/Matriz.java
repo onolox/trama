@@ -40,6 +40,9 @@ public class Matriz {
         public void alterarPosicaoLinha( int de, int para ) {
                 LinkedList l = matriz.getLinhas().remove( de );
                 matriz.getLinhas().add( para, l );
+                
+                String g = matriz.getTituloLinha().remove(de);
+                matriz.getTituloLinha().add( para, g);
         }
 
         public LinkedList<String> destacarElementos( String nomeElemento, String tipo ) {
