@@ -70,8 +70,10 @@ public class ControleTela {
                 String s = "ok";
                 if ( para.equalsIgnoreCase( "esq" ) ) {
                         s = controleProjeto.alterarPosicaoColuna( colunaAtual - 1, colunaAtual, matrizAtual );
+                        colunaAtual = colunaAtual -1;
                 } else {
                         s = controleProjeto.alterarPosicaoColuna( colunaAtual + 1, colunaAtual, matrizAtual );
+                             colunaAtual = colunaAtual +1;
                 }
 
                 return s;
@@ -79,10 +81,12 @@ public class ControleTela {
 
         public String alterarPosicaoLinha( String para ) {
                String s = "ok";
-                if ( para.equalsIgnoreCase( "esq" ) ) {
+                if ( para.equalsIgnoreCase( "cima" ) ) {
                         s = controleProjeto.alterarPosicaoLinha( linhaAtual - 1, linhaAtual, matrizAtual );
+                        linhaAtual = linhaAtual -1;
                 } else {
                         s = controleProjeto.alterarPosicaoLinha( linhaAtual + 1, linhaAtual, matrizAtual );
+                         linhaAtual = linhaAtual +1;
                 }
 
                 return s;
