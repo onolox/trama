@@ -71,19 +71,63 @@ public class ControleProjeto {
         }
 
         public String alterarPosicaoColuna( int para, int de, String nomeMatriz ) {
-                return null;
+                String s = "ok";
+                try {
+                        for ( Matriz matriz : matrizes ) {
+                                if ( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ) {
+                                        matriz.alterarPosicaoColuna( de, para );
+                                }
+                        }
+                } catch ( Exception e ) {
+                        e.printStackTrace();
+                        s = "Erro";
+                }
+                return s;
         }
 
         public String alterarPosicaoLinha( int para, int de, String nomeMatriz ) {
-                return null;
+                String s = "ok";
+                try {
+                        for ( Matriz matriz : matrizes ) {
+                                if ( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ) {
+                                        matriz.alterarPosicaoLinha( de, para );
+                                }
+                        }
+                } catch ( Exception e ) {
+                        e.printStackTrace();
+                        s = "Erro";
+                }
+                return s;
         }
 
         public String atualizarColuna( String nomeMatriz, int coluna, String nomeNovo ) {
-                return null;
+                String s = "ok";
+                try {
+                        for ( Matriz matriz : matrizes ) {
+                                if ( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ) {
+                                        matriz.setTituloColuna( coluna, nomeNovo );
+                                }
+                        }
+                } catch ( Exception e ) {
+                        e.printStackTrace();
+                        s = "Erro";
+                }
+                return s;
         }
 
         public String atualizarLinha( String nomeMatriz, int linha, String nomeNovo ) {
-                return null;
+                String s = "ok";
+                try {
+                        for ( Matriz matriz : matrizes ) {
+                                if ( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ) {
+                                        matriz.setTituloLinha( linha, nomeNovo );
+                                }
+                        }
+                } catch ( Exception e ) {
+                        e.printStackTrace();
+                        s = "Erro";
+                }
+                return s;
         }
 
         public void criarNovoProjeto() {
@@ -94,11 +138,41 @@ public class ControleProjeto {
         }
 
         public String excluirColuna( int coluna, String nomeMatriz ) {
-                return null;
+                String s = "ok";
+                try {
+                        for ( Matriz matriz : matrizes ) {
+                                if ( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ) {
+                                        if ( matriz.getQColunas() < 3 ) {
+                                                s = "A matriz não pode ter menos de uma coluna";
+                                        } else {
+                                                matriz.removeColuna( coluna );
+                                        }
+                                }
+                        }
+                } catch ( Exception e ) {
+                        e.printStackTrace();
+                        s = "Erro";
+                }
+                return s;
         }
 
         public String excluirLinha( int linha, String nomeMatriz ) {
-                return null;
+                String s = "ok";
+                try {
+                        for ( Matriz matriz : matrizes ) {
+                                if ( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ) {
+                                        if ( matriz.getQLinhas() < 2 ) {
+                                                s = "A matriz não pode ter menos de uma linha";
+                                        } else {
+                                                matriz.removeLinha( linha );
+                                        }
+                                }
+                        }
+                } catch ( Exception e ) {
+                        e.printStackTrace();
+                        s = "Erro";
+                }
+                return s;
         }
 
         public String excluirMatriz( String nomeMatriz ) {
@@ -107,10 +181,10 @@ public class ControleProjeto {
                 try {
                         for ( Matriz matriz : matrizes ) {
                                 if ( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ) {
-                                       m = matriz;
+                                        m = matriz;
                                 }
                         }
-                         matrizes.remove( m );
+                        matrizes.remove( m );
                 } catch ( Exception e ) {
                         e.printStackTrace();
                         s = "Erro";
