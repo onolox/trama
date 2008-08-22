@@ -113,7 +113,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 			for( JTableCustomizado jtab : matrizes ){
 				if( s.equalsIgnoreCase( jtab.getNome() ) ){
 					bol = true;
-					s = JOptionPane.showInputDialog( this, "Nome j√° existente, insira outro nome", "Adicionar Matriz",
+					s = JOptionPane.showInputDialog( this, "Nome j· existente, insira outro nome", "Adicionar Matriz",
 						JOptionPane.QUESTION_MESSAGE );
 				}
 			}
@@ -187,29 +187,38 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	}
 	
 	private void atualizarColuna() {
-		String s = controle.atualizarColuna( nomeTextField.getText() );
-		if( !s.equalsIgnoreCase( "ok" ) ){
-			JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-		}
-		
-		for( JTableCustomizado j : matrizes ){
-			if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
-				j.getColumnModel().getColumn( controle.getColunaAtual() ).setHeaderValue( nomeTextField.getText() );
-				j.updateUI();
+		if( nomeTextField.getText().equals( "" ) ){
+			JOptionPane.showMessageDialog( this, "O nome n„o pode ser vazio", "Erro no nome", 0 );
+			cancelarEdicao.doClick();
+			
+		} else{
+			String s = controle.atualizarColuna( nomeTextField.getText() );
+			
+			if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+			
+			for( JTableCustomizado j : matrizes ){
+				if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
+					j.getColumnModel().getColumn( controle.getColunaAtual() ).setHeaderValue( nomeTextField.getText() );
+					j.updateUI();
+				}
 			}
 		}
 	}
 	
-	private void atualizarLinha() {
-		String s = controle.atualizarLinha( nomeTextField.getText() );
-		if( !s.equalsIgnoreCase( "ok" ) ){
-			JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-		}
-		
-		for( JTableCustomizado j : matrizes ){
-			if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
-				ModeloTabela t = ( ModeloTabela ) j.getModel();
-				t.fireTableDataChanged();
+	private void atualizarLinha() { 
+		if( nomeTextField.getText().equals( "" ) ){
+			JOptionPane.showMessageDialog( this, "O nome n„o pode ser vazio", "Erro no nome", 0 );
+			cancelarEdicao.doClick();
+			
+		} else{
+			String s = controle.atualizarLinha( nomeTextField.getText() );
+			if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+			
+			for( JTableCustomizado j : matrizes ){
+				if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
+					ModeloTabela t = ( ModeloTabela ) j.getModel();
+					t.fireTableDataChanged();
+				}
 			}
 		}
 	}
@@ -962,12 +971,8 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 			}
 			
 		} else if( e.getSource() == okEdicao || e.getSource() == nomeTextField ){
-			if( controle.getLinhaAtual() == -1 ){
-				atualizarColuna();
-			} else if( controle.getColunaAtual() == 0 ){
-				atualizarLinha();
-			}
-			
+			if( controle.getLinhaAtual() == -1 ) atualizarColuna();
+			else if( controle.getColunaAtual() == 0 ) atualizarLinha();
 		} else if( e.getSource() == deslocar1 ){
 			if( controle.getLinhaAtual() == -1 ){
 				alterarPosicaoColuna( "esq" );
