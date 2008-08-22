@@ -345,7 +345,6 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                                                              controle.setMatrizAtual( jTableCustomizado.getNome() );
                                                              System.out.println( "Matriz atual: " + jTableCustomizado.getNome() );
                                                      }
-
                                              }
                                              controle.setLinhaAtual( linha );
                                              controle.setColunaAtual( coluna );
