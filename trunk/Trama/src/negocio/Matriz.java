@@ -30,11 +30,14 @@ public class Matriz {
         }
 
         public void alterarPosicaoColuna( int de, int para ) {
+                System.out.println( "de " + de + "       para " + para);
                 String s = "";
                 for ( int i = 0; i < matriz.getQLinhas(); i++ ) {
-                        s = ( String ) matriz.getLinha( i ).remove( de );
+                        s = matriz.getLinha( i ).remove( de );
                         matriz.getLinha( i ).add( para, s );
                 }
+                s = matriz.getTituloColuna().remove( de );
+                matriz.getTituloColuna().add( para, s);
         }
 
         public void alterarPosicaoLinha( int de, int para ) {

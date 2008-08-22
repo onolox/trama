@@ -147,13 +147,25 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 String s = "";
                 s = controle.alterarPosicaoColuna( lado );
 
-                if ( !s.equalsIgnoreCase( "ok" ) ) {
-                        JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-                } else {
-                        for ( JTableCustomizado j : matrizes ) {
-                                if ( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ) {
-                                        j.getColumnModel().getColumn( controle.getColunaAtual() ).setHeaderValue( nomeTextField.getText() );
-                                        j.updateUI();
+                if ( !s.equalsIgnoreCase( "fora" ) ) {
+                        for ( int i = 0; i < matrizes.size(); i++ ) {
+                                if ( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ) {
+                                        JTableCustomizado jt = matrizes.remove( i );
+                                        ModeloTabela mod = ( ModeloTabela ) jt.getModel();
+                                        JPanel jpanel = JP.get( i );
+                                        jpanel.removeAll();
+                                        JTableCustomizado cus = new JTableCustomizado( mod );
+                                        adicionarListener( cus );
+                                        matrizes.add( i, cus );
+                                        JScrollPane js = new JScrollPane();
+                                        js.setViewportView( cus );
+
+                                        GroupLayout jPanelLayout = new GroupLayout( jpanel );
+                                        jpanel.setLayout( jPanelLayout );
+                                        jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
+                                        jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
+                                        jpanel.add( js );
+                                        jpanel.updateUI();
                                 }
                         }
                 }
@@ -168,7 +180,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 } else {
                         for ( JTableCustomizado j : matrizes ) {
                                 if ( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ) {
-                                           j.updateUI();
+                                        j.updateUI();
                                 }
                         }
                 }
@@ -179,6 +191,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 if ( !s.equalsIgnoreCase( "ok" ) ) {
                         JOptionPane.showMessageDialog( this, s, "Erro", 1 );
                 }
+
                 for ( JTableCustomizado j : matrizes ) {
                         if ( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ) {
                                 j.getColumnModel().getColumn( controle.getColunaAtual() ).setHeaderValue( nomeTextField.getText() );
@@ -192,6 +205,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 if ( !s.equalsIgnoreCase( "ok" ) ) {
                         JOptionPane.showMessageDialog( this, s, "Erro", 1 );
                 }
+
                 for ( JTableCustomizado j : matrizes ) {
                         if ( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ) {
                                 ModeloTabela t = ( ModeloTabela ) j.getModel();
@@ -214,7 +228,8 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
         private void excluirMatriz() {
                 int ge = JOptionPane.showConfirmDialog( this, "Tem certeza que deseja excluir a matriz " + controle.getMatrizAtual() + " do projeto?", "", 0 );
                 if ( ge == 0 ) {
-                        for ( int i = 0; i < matrizes.size(); i++ ) {
+                        for ( int i = 0; i <
+                                matrizes.size(); i++ ) {
                                 if ( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ) {
                                         matrizes.remove( i );
                                         JP.remove( i ).getParent().removeAll();
@@ -229,19 +244,22 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
         private void exclulirColuna() {
                 String s = "ok";
-                s = controle.excluirColuna();
+                s =
+                        controle.excluirColuna();
 
                 if ( !s.equalsIgnoreCase( "ok" ) ) {
                         JOptionPane.showMessageDialog( this, s, "Erro", 1 );
                 } else {
-                        for ( int i = 0; i < matrizes.size(); i++ ) { //Gambiarra fodástica
+                        for ( int i = 0; i <
+                                matrizes.size(); i++ ) { //Gambiarra fodástica
                                 if ( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ) {
                                         JTableCustomizado jt = matrizes.remove( i );
                                         ModeloTabela mod = ( ModeloTabela ) jt.getModel();
                                         JPanel jpanel = JP.get( i );
                                         jpanel.removeAll();
                                         JTableCustomizado cus = new JTableCustomizado( mod );
-                                        adicionarListener( cus );
+                                        adicionarListener(
+                                                cus );
                                         matrizes.add( i, cus );
                                         JScrollPane js = new JScrollPane();
                                         js.setViewportView( cus );
@@ -253,7 +271,8 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                                         jpanel.add( js );
                                         jpanel.updateUI();
 
-                                        setNomeTextField( mod.getMatriz().getTituloColuna( controle.getColunaAtual() ) );
+                                        setNomeTextField(
+                                                mod.getMatriz().getTituloColuna( controle.getColunaAtual() ) );
                                 }
                         }
                 }
@@ -266,13 +285,13 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 if ( !s.equalsIgnoreCase( "ok" ) ) { // Donde estás? 
                         JOptionPane.showMessageDialog( this, s, "Erro", 1 );
                 } else {
-
                         for ( JTableCustomizado j : matrizes ) {
                                 if ( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ) {
                                         ModeloTabela t = ( ModeloTabela ) j.getModel();
                                         t.fireTableDataChanged();
 
-                                        setNomeTextField( t.getMatriz().getTituloLinha( controle.getLinhaAtual() ) );
+                                        setNomeTextField(
+                                                t.getMatriz().getTituloLinha( controle.getLinhaAtual() ) );
                                 }
                         }
                 }
@@ -326,6 +345,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                                                              controle.setMatrizAtual( jTableCustomizado.getNome() );
                                                              System.out.println( "Matriz atual: " + jTableCustomizado.getNome() );
                                                      }
+
                                              }
                                              controle.setLinhaAtual( linha );
                                              controle.setColunaAtual( coluna );
@@ -336,6 +356,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                                                              if ( jTableCustomizado.getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ) {
                                                                      setNomeTextField( ( ( ModeloTabela ) jTableCustomizado.getModel() ).getMatriz().getTituloLinha( linha ) );
                                                              }
+
                                                      }
                                                      deslocar1.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/1downarrow-24.png" ) ) );
                                                      deslocar1.setToolTipText( "Deslocar Linha Para Baixo" );
@@ -348,52 +369,89 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                                                      excluirLinhaColuna.setToolTipText( "Excluir Linha" );
                                                      excluirLinhaColunaMenu.setText( "Excluir Linha" );
 
-                                                     setCancelarEdicao( true );
-                                                     setOkEdicao( true );
-                                                     setNomeTextField( true );
-                                                     setDeslocar1( true );
-                                                     setDeslocar2( true );
-                                                     setNovaLinhaColuna( true );
-                                                     setNovaLinhaColunaMenu( true );
-                                                     setExcluirLinhaColuna( true );
-                                                     setExcluirLinhaColunaMenu( true );
-                                                     setOrdenar( true );
-                                                     setOrdenarMenu( true );
-                                                     setImportar( true );
-                                                     setImportarMenu( true );
-                                                     setImportarDoModeloMenu( true );
-                                                     setDestacar( true );
-                                                     setDestacarMenu( true );
+                                                     setCancelarEdicao(
+                                                             true );
+                                                     setOkEdicao(
+                                                             true );
+                                                     setNomeTextField(
+                                                             true );
+                                                     setDeslocar1(
+                                                             true );
+                                                     setDeslocar2(
+                                                             true );
+                                                     setNovaLinhaColuna(
+                                                             true );
+                                                     setNovaLinhaColunaMenu(
+                                                             true );
+                                                     setExcluirLinhaColuna(
+                                                             true );
+                                                     setExcluirLinhaColunaMenu(
+                                                             true );
+                                                     setOrdenar(
+                                                             true );
+                                                     setOrdenarMenu(
+                                                             true );
+                                                     setImportar(
+                                                             true );
+                                                     setImportarMenu(
+                                                             true );
+                                                     setImportarDoModeloMenu(
+                                                             true );
+                                                     setDestacar(
+                                                             true );
+                                                     setDestacarMenu(
+                                                             true );
                                              } else {                                                                                         // Aqui é quando se clica nas células -----------------------------------------
                                                      novaLinhaColunaMenu.setText( "Nova Linha/Coluna" );
                                                      excluirLinhaColunaMenu.setText( "Excluir Linha/Coluna" );
 
-                                                     setCancelarEdicao( false );
-                                                     setOkEdicao( false );
-                                                     setNomeTextField( false );
-                                                     setDeslocar1( false );
-                                                     setDeslocar2( false );
-                                                     setNovaLinhaColuna( false );
-                                                     setNovaLinhaColunaMenu( false );
-                                                     setExcluirLinhaColuna( false );
-                                                     setExcluirLinhaColunaMenu( false );
-                                                     setOrdenar( false );
-                                                     setOrdenarMenu( false );
-                                                     setImportar( false );
-                                                     setImportarMenu( false );
-                                                     setImportarDoModeloMenu( false );
-                                                     setDestacar( false );
-                                                     setDestacarMenu( false );
+                                                     setCancelarEdicao(
+                                                             false );
+                                                     setOkEdicao(
+                                                             false );
+                                                     setNomeTextField(
+                                                             false );
+                                                     setDeslocar1(
+                                                             false );
+                                                     setDeslocar2(
+                                                             false );
+                                                     setNovaLinhaColuna(
+                                                             false );
+                                                     setNovaLinhaColunaMenu(
+                                                             false );
+                                                     setExcluirLinhaColuna(
+                                                             false );
+                                                     setExcluirLinhaColunaMenu(
+                                                             false );
+                                                     setOrdenar(
+                                                             false );
+                                                     setOrdenarMenu(
+                                                             false );
+                                                     setImportar(
+                                                             false );
+                                                     setImportarMenu(
+                                                             false );
+                                                     setImportarDoModeloMenu(
+                                                             false );
+                                                     setDestacar(
+                                                             false );
+                                                     setDestacarMenu(
+                                                             false );
                                              }
+
                                      }
                              } );
 
-                header = jT.getTableHeader();
-                header.addMouseListener( new MouseAdapter() { // adiciona listeners aos cabecalhos ----Serve pros nomes de colunas -----------------------------------------
+                header =
+                        jT.getTableHeader();
+                header.addMouseListener( new MouseAdapter() { // adiciona listeners aos cabecalhos ----Serve pros nomes de colunas --------------------------header---------
                                          @Override
                                          public void mouseClicked( MouseEvent e ) {
                                                  int coluna = header.columnAtPoint( e.getPoint() );
                                                  controle.setLinhaAtual( -1 );
+                                                 if ( coluna < 1 ) {
+                                                         coluna = 1;
+                                                 }
                                                  controle.setColunaAtual( coluna );
 
                                                  System.out.println( "Linha=" + ( controle.getLinhaAtual() ) + "   coluna= " + coluna );
@@ -403,6 +461,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                                                                  controle.setMatrizAtual( jTableCustomizado.getNome() );
                                                                  System.out.println( "Matriz atual:::: " + jTableCustomizado.getNome() );
                                                          }
+
                                                  }
 
                                                  if ( coluna > 0 ) {
@@ -410,6 +469,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                                                                  if ( jTableCustomizado.getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ) {
                                                                          setNomeTextField( ( ( ModeloTabela ) jTableCustomizado.getModel() ).getMatriz().getTituloColuna( coluna ) );
                                                                  }
+
                                                          }
                                                          deslocar1.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/1leftarrow-24.png" ) ) );
                                                          deslocar1.setToolTipText( "Deslocar Coluna Para Esquerda" );
@@ -422,23 +482,40 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                                                          excluirLinhaColuna.setToolTipText( "Excluir Coluna" );
                                                          excluirLinhaColunaMenu.setText( "Excluir Coluna" );
 
-                                                         setCancelarEdicao( true );
-                                                         setOkEdicao( true );
-                                                         setNomeTextField( true );
-                                                         setDeslocar1( true );
-                                                         setDeslocar2( true );
-                                                         setNovaLinhaColuna( true );
-                                                         setNovaLinhaColunaMenu( true );
-                                                         setExcluirLinhaColuna( true );
-                                                         setExcluirLinhaColunaMenu( true );
-                                                         setOrdenar( true );
-                                                         setOrdenarMenu( true );
-                                                         setImportar( true );
-                                                         setImportarMenu( true );
-                                                         setImportarDoModeloMenu( true );
-                                                         setDestacar( true );
-                                                         setDestacarMenu( true );
+                                                         setCancelarEdicao(
+                                                                 true );
+                                                         setOkEdicao(
+                                                                 true );
+                                                         setNomeTextField(
+                                                                 true );
+                                                         setDeslocar1(
+                                                                 true );
+                                                         setDeslocar2(
+                                                                 true );
+                                                         setNovaLinhaColuna(
+                                                                 true );
+                                                         setNovaLinhaColunaMenu(
+                                                                 true );
+                                                         setExcluirLinhaColuna(
+                                                                 true );
+                                                         setExcluirLinhaColunaMenu(
+                                                                 true );
+                                                         setOrdenar(
+                                                                 true );
+                                                         setOrdenarMenu(
+                                                                 true );
+                                                         setImportar(
+                                                                 true );
+                                                         setImportarMenu(
+                                                                 true );
+                                                         setImportarDoModeloMenu(
+                                                                 true );
+                                                         setDestacar(
+                                                                 true );
+                                                         setDestacarMenu(
+                                                                 true );
                                                  }
+
                                          }
                                  } );
         }
@@ -909,9 +986,6 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 pack();
         }// </editor-fold>//GEN-END:initComponents
 
-   
-
-
         @Override
         public void actionPerformed( ActionEvent e ) {
                 if ( e.getSource() == novoProjeto || e.getSource() == novoProjetoMenu ) {
@@ -939,16 +1013,17 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                                         } else if ( controle.getColunaAtual() == 0 ) {
                                                 setNomeTextField( mat.getTituloLinha( controle.getLinhaAtual() ) );
                                         }
+
                                 }
                         }
-                        
+
                 } else if ( e.getSource() == okEdicao || e.getSource() == nomeTextField ) {
                         if ( controle.getLinhaAtual() == -1 ) {
                                 atualizarColuna();
                         } else if ( controle.getColunaAtual() == 0 ) {
                                 atualizarLinha();
                         }
-                        
+
                 } else if ( e.getSource() == deslocar1 ) {
                         if ( controle.getLinhaAtual() == -1 ) {
                                 alterarPosicaoColuna( "esq" );
@@ -962,36 +1037,29 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                         } else if ( controle.getColunaAtual() == 0 ) {
                                 alterarPosicaoLinha( "baixo" );
                         }
-                        
+
                 } else if ( e.getSource() == novaLinhaColuna || e.getSource() == novaLinhaColunaMenu ) {
                         if ( controle.getLinhaAtual() == -1 ) {
                                 adicionarColuna();
                         } else if ( controle.getColunaAtual() == 0 ) {
                                 adicionarLinha();
                         }
-                        
+
                 } else if ( e.getSource() == excluirLinhaColuna || e.getSource() == excluirLinhaColunaMenu ) {
-                          if ( controle.getLinhaAtual() == -1 ) {
+                        if ( controle.getLinhaAtual() == -1 ) {
                                 exclulirColuna();
                         } else if ( controle.getColunaAtual() == 0 ) {
                                 exclulirLinha();
                         }
+
                 } else if ( e.getSource() == ordenar || e.getSource() == ordenarMenu ) {
-                        
                 } else if ( e.getSource() == importar || e.getSource() == importarMenu ) {
-                        
                 } else if ( e.getSource() == sincronizar || e.getSource() == sincronizarMenu ) {
-                        
                 } else if ( e.getSource() == destacar || e.getSource() == destacarMenu ) {
-                        
                 } else if ( e.getSource() == resetarCamposNovosMenu ) {
-                        
                 } else if ( e.getSource() == salvarPDFMenu ) {
-                        
                 } else if ( e.getSource() == salvarImagemMenu ) {
-                        
                 } else if ( e.getSource() == imprimirMenu ) {
-                        
                 }
         }
    
@@ -1057,9 +1125,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
         
         
-           
-        
-        public void setExcluirMatriz( boolean estado ) {
+           public void setExcluirMatriz( boolean estado ) {
                 excluirMatriz.setEnabled( estado );
         }
 
