@@ -55,7 +55,7 @@ public class ControleTela {
                 tela.setImprimirMenu( true );
                 tela.setSalvarImagemMenu( true );
                 tela.setSalvarPDFMenu( true );
-                
+
                 matrizAtual = m.getNomeMatriz();
 
                 adicionarLinha( "Linha" );
@@ -68,25 +68,35 @@ public class ControleTela {
          */
         public String alterarPosicaoColuna( String para ) {
                 String s = "ok";
+                if ( para.equalsIgnoreCase( "esq" ) ) {
+                        s = controleProjeto.alterarPosicaoColuna( colunaAtual - 1, colunaAtual, matrizAtual );
+                } else {
+                        s = controleProjeto.alterarPosicaoColuna( colunaAtual + 1, colunaAtual, matrizAtual );
+                }
 
                 return s;
         }
 
         public String alterarPosicaoLinha( String para ) {
-                String s = "ok";
+               String s = "ok";
+                if ( para.equalsIgnoreCase( "esq" ) ) {
+                        s = controleProjeto.alterarPosicaoLinha( linhaAtual - 1, linhaAtual, matrizAtual );
+                } else {
+                        s = controleProjeto.alterarPosicaoLinha( linhaAtual + 1, linhaAtual, matrizAtual );
+                }
 
                 return s;
         }
 
         public String atualizarColuna( String nome ) {
                 String s = "ok";
-
+                s = controleProjeto.atualizarColuna( matrizAtual, colunaAtual, nome );
                 return s;
         }
 
         public String atualizarLinha( String nome ) {
                 String s = "ok";
-
+                s = controleProjeto.atualizarLinha( matrizAtual, linhaAtual, nome );
                 return s;
         }
 
@@ -110,13 +120,15 @@ public class ControleTela {
 
         public String excluirColuna() {
                 String s = "ok";
-
+                if ( colunaAtual > 0 ) {
+                        s = controleProjeto.excluirColuna( colunaAtual, matrizAtual );
+                }
                 return s;
         }
 
         public String excluirLinha() {
                 String s = "ok";
-
+                s = controleProjeto.excluirLinha( linhaAtual, matrizAtual );
                 return s;
         }
 
