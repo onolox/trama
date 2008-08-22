@@ -38,9 +38,7 @@ public class ControleTela {
 
         public String adicionarLinha( String nome ) {
                 String s = "ok";
-
                 s = controleProjeto.adicionarLinha( nome, matrizAtual );
-
                 return s;
         }
 
@@ -70,25 +68,39 @@ public class ControleTela {
                 String s = "ok";
                 if ( para.equalsIgnoreCase( "esq" ) ) {
                         s = controleProjeto.alterarPosicaoColuna( colunaAtual - 1, colunaAtual, matrizAtual );
-                        colunaAtual = colunaAtual -1;
+                        if ( s.equalsIgnoreCase( "fora" ) ) {
+                                return "fora";
+                        } else {
+                                colunaAtual = colunaAtual - 1;
+                        }
                 } else {
                         s = controleProjeto.alterarPosicaoColuna( colunaAtual + 1, colunaAtual, matrizAtual );
-                             colunaAtual = colunaAtual +1;
+                        if ( s.equalsIgnoreCase( "fora" ) ) {
+                                return "fora";
+                        } else {
+                                colunaAtual = colunaAtual + 1;
+                        }
                 }
-
                 return s;
         }
 
         public String alterarPosicaoLinha( String para ) {
-               String s = "ok";
+                String s = "ok";
                 if ( para.equalsIgnoreCase( "cima" ) ) {
                         s = controleProjeto.alterarPosicaoLinha( linhaAtual - 1, linhaAtual, matrizAtual );
-                        linhaAtual = linhaAtual -1;
+                        if ( s.equalsIgnoreCase( "fora" ) ) {
+                                return "ok";
+                        } else {
+                                linhaAtual = linhaAtual - 1;
+                        }
                 } else {
                         s = controleProjeto.alterarPosicaoLinha( linhaAtual + 1, linhaAtual, matrizAtual );
-                         linhaAtual = linhaAtual +1;
+                        if ( s.equalsIgnoreCase( "fora" ) ) {
+                                return "ok";
+                        } else {
+                                linhaAtual = linhaAtual + 1;
+                        }
                 }
-
                 return s;
         }
 

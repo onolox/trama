@@ -72,10 +72,17 @@ public class ControleProjeto {
 
         public String alterarPosicaoColuna( int para, int de, String nomeMatriz ) {
                 String s = "ok";
+                if ( para < 1 ) {
+                        return "fora";
+                }
                 try {
                         for ( Matriz matriz : matrizes ) {
                                 if ( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ) {
-                                        matriz.alterarPosicaoColuna( de, para );
+                                        if ( matriz.getQColunas() <= para ) {
+                                                return "fora";
+                                        } else {
+                                                matriz.alterarPosicaoColuna( de, para );
+                                        }
                                 }
                         }
                 } catch ( Exception e ) {
@@ -87,10 +94,17 @@ public class ControleProjeto {
 
         public String alterarPosicaoLinha( int para, int de, String nomeMatriz ) {
                 String s = "ok";
+                if ( para < 0 ) {
+                        return "fora";
+                }
                 try {
                         for ( Matriz matriz : matrizes ) {
                                 if ( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ) {
-                                        matriz.alterarPosicaoLinha( de, para );
+                                        if ( matriz.getQLinhas() <= para ) {
+                                                return "fora";
+                                        } else {
+                                                matriz.alterarPosicaoLinha( de, para );
+                                        }
                                 }
                         }
                 } catch ( Exception e ) {
