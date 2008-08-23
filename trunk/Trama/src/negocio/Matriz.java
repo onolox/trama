@@ -30,7 +30,7 @@ public class Matriz {
 	}
 	
 	public void alterarPosicaoColuna( int de, int para ) {
-		System.out.println( "de " + de + "       para " + para );
+		// System.out.println( "de " + de + "       para " + para );
 		String s = "";
 		for( int i = 0; i < matriz.getQLinhas(); i++ ){
 			s = matriz.getLinha( i ).remove( de );
@@ -130,38 +130,80 @@ public class Matriz {
 	
 	public void ordenarLinhas() {
 		boolean mak = true;
-		while( mak ){
-			mak = false;
-			for( int i = 0; i < matriz.getQLinhas(); i++ ){
-				int com = matriz.getTituloLinha().get( i ).compareToIgnoreCase( matriz.getTituloLinha().get( i ) + 1 );
-				if( com > 1 ){
-					
-					
-					
-					mak = true;
+		boolean vaibe = true;
+		try{
+			while( mak ){ // Bubble sort do capeta
+				mak = false;
+				for( int i = 0; i < matriz.getQLinhas() - 1; i++ ){
+					int com = matriz.getTituloLinha().get( i ).compareToIgnoreCase( matriz.getTituloLinha().get( i + 1 ) );
+					if( com >= 0 ){
+						alterarPosicaoLinha( i, i + 1 );
+						vaibe = false;
+						mak = true;
+					}
+				}
+			}
+		} catch( Exception e ){
+			e.printStackTrace();
+		}
+		mak = true;
+		if( vaibe ){
+			while( mak ){ // Alfabético - inverso
+				mak = false;
+				for( int i = 0; i < matriz.getQLinhas() - 1; i++ ){
+					int com = matriz.getTituloLinha().get( i ).compareToIgnoreCase( matriz.getTituloLinha().get( i + 1 ) );
+					System.out.println( com );
+					if( com < 0 ){
+						alterarPosicaoLinha( i, i + 1 );
+						mak = true;
+					}
 				}
 			}
 		}
 	}
 	
 	public void ordenarColunas() {
-		// System.out.println( "de " + de + "       para " + para );
-		// String s = "";
-		// for( int i = 0; i < matriz.getQLinhas(); i++ ){
-		// s = matriz.getLinha( i ).remove( de );
-		// matriz.getLinha( i ).add( para, s );
-		// }
-		// s = matriz.getTituloColuna().remove( de );
-		// // matriz.getTituloColuna().add( para, s );
-		// }
-		//
-		//
-		//
-		//
-		//
-		//
-		//
-		//
+		boolean mak = true;
+		boolean vaibe = true;
+		
+		try{
+			while( mak ){
+				mak = false;
+				for( int i = 1; i < matriz.getQColunas() - 1; i++ ){
+					int com = matriz.getTituloColuna( i ).compareToIgnoreCase( matriz.getTituloColuna( i + 1 ) );
+					if( com >= 0 ){
+						alterarPosicaoColuna( i, i + 1 );
+						vaibe = false;
+						mak = true;
+					}
+				}
+			}
+		} catch( Exception e ){
+			e.printStackTrace();
+		}
+		mak = true;
+		if( vaibe ){
+			while( mak ){
+				mak = false;
+				for( int i = 1; i < matriz.getQColunas() - 1; i++ ){
+					int com = matriz.getTituloColuna( i ).compareToIgnoreCase( matriz.getTituloColuna( i + 1 ) );
+					if( com < 0 ){
+						alterarPosicaoColuna( i, i + 1 );
+						mak = true;
+					}
+				}
+			}
+		}
 	}
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
 	
 }
