@@ -222,7 +222,7 @@ public class ControleProjeto {
 			for( Matriz matriz : matrizes ){
 				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
 					for( int i = 1; i < matriz.getQColunas(); i++ ){
-						
+						matriz.ordenarColunas();
 					}
 				}
 			}
@@ -235,7 +235,20 @@ public class ControleProjeto {
 	}
 	
 	public String ordenarLinha( String nomeMatriz ) {
-		return null;
+		String s = "ok";
+		boolean alterou = false;
+		try{
+			for( Matriz matriz : matrizes ){
+				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
+					matriz.ordenarLinhas();
+				}
+			}
+		} catch( Exception e ){
+			e.printStackTrace();
+			s = "Erro";
+		}
+		
+		return s;
 	}
 	
 	public String resetarDestaque( String nomeMatriz ) {

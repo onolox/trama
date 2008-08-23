@@ -127,4 +127,41 @@ public class Matriz {
 	public void setTituloLinha( int index, String titulo ) {
 		matriz.getTituloLinha().set( index, titulo );
 	}
+	
+	public void ordenarLinhas() {
+		boolean mak = true;
+		while( mak ){
+			mak = false;
+			for( int i = 0; i < matriz.getQLinhas(); i++ ){
+				int com = matriz.getTituloLinha().get( i ).compareToIgnoreCase( matriz.getTituloLinha().get( i ) + 1 );
+				if( com > 1 ){
+					
+					
+					
+					mak = true;
+				}
+			}
+		}
+	}
+	
+	public void ordenarColunas() {
+		// System.out.println( "de " + de + "       para " + para );
+		// String s = "";
+		// for( int i = 0; i < matriz.getQLinhas(); i++ ){
+		// s = matriz.getLinha( i ).remove( de );
+		// matriz.getLinha( i ).add( para, s );
+		// }
+		// s = matriz.getTituloColuna().remove( de );
+		// // matriz.getTituloColuna().add( para, s );
+		// }
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+	}
+	
 }
