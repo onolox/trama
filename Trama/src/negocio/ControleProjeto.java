@@ -76,11 +76,9 @@ public class ControleProjeto {
 		try{
 			for( Matriz matriz : matrizes ){
 				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
-					if( matriz.getQColunas() <= para ){
-						return "fora";
-					} else{
-						matriz.alterarPosicaoColuna( de, para );
-					}
+					if( matriz.getQColunas() <= para ) return "fora";
+					
+					matriz.alterarPosicaoColuna( de, para );
 				}
 			}
 		} catch( Exception e ){
@@ -97,11 +95,8 @@ public class ControleProjeto {
 		try{
 			for( Matriz matriz : matrizes ){
 				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
-					if( matriz.getQLinhas() <= para ){
-						return "fora";
-					} else{
-						matriz.alterarPosicaoLinha( de, para );
-					}
+					if( matriz.getQLinhas() <= para ){ return "fora"; }
+					matriz.alterarPosicaoLinha( de, para );
 				}
 			}
 		} catch( Exception e ){

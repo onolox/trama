@@ -316,9 +316,21 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	}
 	
 	private void ordenarColuna() {
+		String s = "ok";
+		s = controle.ordenarColuna();
+		
+		if( !s.equalsIgnoreCase( "ok" ) ){
+			JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+		}
 	}
 	
 	private void ordenarLinha() {
+		String s = "ok";
+		s = controle.ordenarLinha();
+		
+		if( !s.equalsIgnoreCase( "ok" ) ){
+			JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+		}
 	}
 	
 	private void posisaoJTable( ActionEvent evt ) {

@@ -70,16 +70,14 @@ public class ControleTela {
                         s = controleProjeto.alterarPosicaoColuna( colunaAtual - 1, colunaAtual, matrizAtual );
                         if ( s.equalsIgnoreCase( "fora" ) ) {
                                 return "fora";
-                        } else {
-                                colunaAtual = colunaAtual - 1;
                         }
+			colunaAtual = colunaAtual - 1;
                 } else {
                         s = controleProjeto.alterarPosicaoColuna( colunaAtual + 1, colunaAtual, matrizAtual );
                         if ( s.equalsIgnoreCase( "fora" ) ) {
                                 return "fora";
-                        } else {
-                                colunaAtual = colunaAtual + 1;
                         }
+			colunaAtual = colunaAtual + 1;
                 }
                 return s;
         }
@@ -90,16 +88,14 @@ public class ControleTela {
                         s = controleProjeto.alterarPosicaoLinha( linhaAtual - 1, linhaAtual, matrizAtual );
                         if ( s.equalsIgnoreCase( "fora" ) ) {
                                 return "ok";
-                        } else {
-                                linhaAtual = linhaAtual - 1;
                         }
+			linhaAtual = linhaAtual - 1;
                 } else {
                         s = controleProjeto.alterarPosicaoLinha( linhaAtual + 1, linhaAtual, matrizAtual );
                         if ( s.equalsIgnoreCase( "fora" ) ) {
                                 return "ok";
-                        } else {
-                                linhaAtual = linhaAtual + 1;
                         }
+			linhaAtual = linhaAtual + 1;
                 }
                 return s;
         }
@@ -163,13 +159,13 @@ public class ControleTela {
 
         public String ordenarColuna() {
                 String s = "ok";
-
+                s = controleProjeto.ordenarColuna( matrizAtual );
                 return s;
         }
 
         public String ordenarLinha() {
                 String s = "ok";
-
+                s = controleProjeto.ordenarLinha( matrizAtual );
                 return s;
         }
 
