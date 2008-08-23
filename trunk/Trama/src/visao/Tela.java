@@ -308,6 +308,29 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 		
 		if( !s.equalsIgnoreCase( "ok" ) ){
 			JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+		} else{
+			for( int i = 0; i < matrizes.size(); i++ ){ // Gambiarra fodá¡stica
+				if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
+					JTableCustomizado jt = matrizes.remove( i );
+					ModeloTabela mod = ( ModeloTabela ) jt.getModel();
+					JPanel jpanel = JP.get( i );
+					jpanel.removeAll();
+					JTableCustomizado cus = new JTableCustomizado( mod );
+					adicionarListener( cus );
+					matrizes.add( i, cus );
+					JScrollPane js = new JScrollPane();
+					js.setViewportView( cus );
+					
+					GroupLayout jPanelLayout = new GroupLayout( jpanel );
+					jpanel.setLayout( jPanelLayout );
+					jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
+					jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
+					jpanel.add( js );
+					jpanel.updateUI();
+					
+					setNomeTextField( mod.getMatriz().getTituloColuna( controle.getColunaAtual() ) );
+				}
+			}
 		}
 	}
 	
@@ -318,6 +341,13 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 		if( !s.equalsIgnoreCase( "ok" ) ){
 			JOptionPane.showMessageDialog( this, s, "Erro", 1 );
 		}
+		for( JTableCustomizado j : matrizes ){
+			if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
+				ModeloTabela t = ( ModeloTabela ) j.getModel();
+				t.fireTableDataChanged();
+			}
+		}
+		
 	}
 	
 	private void posisaoJTable( ActionEvent evt ) {
