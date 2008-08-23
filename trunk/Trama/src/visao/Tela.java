@@ -205,7 +205,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 		}
 	}
 	
-	private void atualizarLinha() { 
+	private void atualizarLinha() {
 		if( nomeTextField.getText().equals( "" ) ){
 			JOptionPane.showMessageDialog( this, "O nome não pode ser vazio", "Erro no nome", 0 );
 			cancelarEdicao.doClick();
@@ -961,47 +961,33 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 					ModeloTabela t = ( ModeloTabela ) j.getModel();
 					Matriz mat = t.getMatriz();
 					
-					if( controle.getLinhaAtual() == -1 ){
-						setNomeTextField( mat.getTituloColuna( controle.getColunaAtual() ) );
-					} else if( controle.getColunaAtual() == 0 ){
-						setNomeTextField( mat.getTituloLinha( controle.getLinhaAtual() ) );
-					}
-					
+					if( controle.getLinhaAtual() == -1 ) setNomeTextField( mat.getTituloColuna( controle.getColunaAtual() ) );
+					else if( controle.getColunaAtual() == 0 ) setNomeTextField( mat.getTituloLinha( controle.getLinhaAtual() ) );
 				}
 			}
-			
 		} else if( e.getSource() == okEdicao || e.getSource() == nomeTextField ){
 			if( controle.getLinhaAtual() == -1 ) atualizarColuna();
 			else if( controle.getColunaAtual() == 0 ) atualizarLinha();
 		} else if( e.getSource() == deslocar1 ){
-			if( controle.getLinhaAtual() == -1 ){
-				alterarPosicaoColuna( "esq" );
-			} else if( controle.getColunaAtual() == 0 ){
-				alterarPosicaoLinha( "cima" );
-			}
+			if( controle.getLinhaAtual() == -1 ) alterarPosicaoColuna( "esq" );
+			else if( controle.getColunaAtual() == 0 ) alterarPosicaoLinha( "cima" );
 			
 		} else if( e.getSource() == deslocar2 ){
-			if( controle.getLinhaAtual() == -1 ){
-				alterarPosicaoColuna( "dir" );
-			} else if( controle.getColunaAtual() == 0 ){
-				alterarPosicaoLinha( "baixo" );
-			}
+			if( controle.getLinhaAtual() == -1 ) alterarPosicaoColuna( "dir" );
+			else if( controle.getColunaAtual() == 0 ) alterarPosicaoLinha( "baixo" );
 			
 		} else if( e.getSource() == novaLinhaColuna || e.getSource() == novaLinhaColunaMenu ){
-			if( controle.getLinhaAtual() == -1 ){
-				adicionarColuna();
-			} else if( controle.getColunaAtual() == 0 ){
-				adicionarLinha();
-			}
+			if( controle.getLinhaAtual() == -1 ) adicionarColuna();
+			else if( controle.getColunaAtual() == 0 ) adicionarLinha();
 			
 		} else if( e.getSource() == excluirLinhaColuna || e.getSource() == excluirLinhaColunaMenu ){
-			if( controle.getLinhaAtual() == -1 ){
-				exclulirColuna();
-			} else if( controle.getColunaAtual() == 0 ){
-				exclulirLinha();
-			}
+			if( controle.getLinhaAtual() == -1 ) exclulirColuna();
+			else if( controle.getColunaAtual() == 0 ) exclulirLinha();
 			
 		} else if( e.getSource() == ordenar || e.getSource() == ordenarMenu ){
+			if( controle.getLinhaAtual() == -1 ) ordenarColuna();
+			else if( controle.getColunaAtual() == 0 ) ordenarLinha();
+			
 		} else if( e.getSource() == importar || e.getSource() == importarMenu ){
 		} else if( e.getSource() == sincronizar || e.getSource() == sincronizarMenu ){
 		} else if( e.getSource() == destacar || e.getSource() == destacarMenu ){
