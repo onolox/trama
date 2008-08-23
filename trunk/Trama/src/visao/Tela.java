@@ -61,10 +61,8 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 				
 				GroupLayout jPanelLayout = new GroupLayout( jpanel );
 				jpanel.setLayout( jPanelLayout );
-				jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js,
-					GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
-				jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js,
-					GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
+				jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
+				jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
 				jpanel.add( js );
 				jpanel.updateUI();
 				jpanel.repaint();
@@ -113,8 +111,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 			for( JTableCustomizado jtab : matrizes ){
 				if( s.equalsIgnoreCase( jtab.getNome() ) ){
 					bol = true;
-					s = JOptionPane.showInputDialog( this, "Nome já existente, insira outro nome", "Adicionar Matriz",
-						JOptionPane.QUESTION_MESSAGE );
+					s = JOptionPane.showInputDialog( this, "Nome já existente, insira outro nome", "Adicionar Matriz", JOptionPane.QUESTION_MESSAGE );
 				}
 			}
 		}
@@ -124,10 +121,8 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 		GroupLayout jPanelLayout = new GroupLayout( j );
 		
 		j.setLayout( jPanelLayout );
-		jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js,
-			GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
-		jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js,
-			GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
+		jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
+		jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
 		JP.add( j );
 		j.setName( m.getNomeMatriz() );
 		final JTableCustomizado jT = new JTableCustomizado( m );
@@ -160,10 +155,8 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 					
 					GroupLayout jPanelLayout = new GroupLayout( jpanel );
 					jpanel.setLayout( jPanelLayout );
-					jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING )
-						.addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
-					jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING )
-						.addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
+					jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
+					jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
 					jpanel.add( js );
 					jpanel.updateUI();
 				}
@@ -209,7 +202,6 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 		if( nomeTextField.getText().equals( "" ) ){
 			JOptionPane.showMessageDialog( this, "O nome não pode ser vazio", "Erro no nome", 0 );
 			cancelarEdicao.doClick();
-			
 		} else{
 			String s = controle.atualizarLinha( nomeTextField.getText() );
 			if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
@@ -225,9 +217,8 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	
 	private void criarNovoProjeto() {
 		String s = controle.criarNovoProjeto();
-		if( !s.equalsIgnoreCase( "ok" ) ){
-			JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-		}
+		if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+		
 		adicionarMatriz();
 	}
 	
@@ -235,17 +226,15 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	}
 	
 	private void excluirMatriz() {
-		int ge = JOptionPane.showConfirmDialog( this,
-			"Tem certeza que deseja excluir a matriz " + controle.getMatrizAtual() + " do projeto?", "", 0 );
+		int ge = JOptionPane.showConfirmDialog( this, "Tem certeza que deseja excluir a matriz " + controle.getMatrizAtual() + " do projeto?", "", 0 );
 		if( ge == 0 ){
 			for( int i = 0; i < matrizes.size(); i++ ){
 				if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
 					matrizes.remove( i );
 					JP.remove( i ).getParent().removeAll();
 					String s = controle.excluirMatriz();
-					if( !s.equalsIgnoreCase( "ok" ) ){
-						JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-					}
+					if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+					
 				}
 			}
 		}
@@ -258,7 +247,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 		if( !s.equalsIgnoreCase( "ok" ) ){
 			JOptionPane.showMessageDialog( this, s, "Erro", 1 );
 		} else{
-			for( int i = 0; i < matrizes.size(); i++ ){ // Gambiarra fodÃ¡stica
+			for( int i = 0; i < matrizes.size(); i++ ){ // Gambiarra fodá¡stica
 				if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
 					JTableCustomizado jt = matrizes.remove( i );
 					ModeloTabela mod = ( ModeloTabela ) jt.getModel();
@@ -272,10 +261,8 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 					
 					GroupLayout jPanelLayout = new GroupLayout( jpanel );
 					jpanel.setLayout( jPanelLayout );
-					jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING )
-						.addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
-					jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING )
-						.addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
+					jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
+					jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
 					jpanel.add( js );
 					jpanel.updateUI();
 					
@@ -368,21 +355,18 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 					controle.setColunaAtual( coluna );
 					System.out.println( "Linha=" + ( linha ) + "   coluna= " + coluna );
 					
-					if( coluna == 0 ){// Toda vez que se clicar em um nome de------------------------------------------------------------------ linha -------------
+					if( coluna == 0 ){// Toda vez que se clicar em um nome de------------------------------------------------------------------ linha -------
 						for( JTableCustomizado jTableCustomizado : matrizes ){
 							if( jTableCustomizado.getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
-								setNomeTextField( ( ( ModeloTabela ) jTableCustomizado.getModel() ).getMatriz()
-									.getTituloLinha( linha ) );
+								setNomeTextField( ( ( ModeloTabela ) jTableCustomizado.getModel() ).getMatriz().getTituloLinha( linha ) );
 							}
 							
 						}
 						deslocar1.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/1downarrow-24.png" ) ) );
 						deslocar1.setToolTipText( "Deslocar Linha Para Baixo" );
-						deslocar2
-							.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/1downarrow1-24.png" ) ) );
+						deslocar2.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/1downarrow1-24.png" ) ) );
 						deslocar1.setToolTipText( "Deslocar Linha Para Cima" );
-						novaLinhaColuna
-							.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/7days-26.png" ) ) );
+						novaLinhaColuna.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/7days-26.png" ) ) );
 						novaLinhaColuna.setToolTipText( "Nova Linha" );
 						novaLinhaColunaMenu.setText( "Nova Linha" );
 						nomeTextField.setToolTipText( "Nome da Linha Selecionada" );
@@ -405,7 +389,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 						setImportarDoModeloMenu( true );
 						setDestacar( true );
 						setDestacarMenu( true );
-					} else{ // Aqui Ã© quando se clica nas cÃ©lulas -----------------------------------------
+					} else{ // Aqui é quando se clica nas células -----------------------------------------
 						novaLinhaColunaMenu.setText( "Nova Linha/Coluna" );
 						excluirLinhaColunaMenu.setText( "Excluir Linha/Coluna" );
 						
@@ -454,18 +438,15 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 					if( coluna > 0 ){
 						for( JTableCustomizado jTableCustomizado : matrizes ){
 							if( jTableCustomizado.getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
-								setNomeTextField( ( ( ModeloTabela ) jTableCustomizado.getModel() ).getMatriz()
-									.getTituloColuna( coluna ) );
+								setNomeTextField( ( ( ModeloTabela ) jTableCustomizado.getModel() ).getMatriz().getTituloColuna( coluna ) );
 							}
 							
 						}
 						deslocar1.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/1leftarrow-24.png" ) ) );
 						deslocar1.setToolTipText( "Deslocar Coluna Para Esquerda" );
-						deslocar2
-							.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/1rightarrow-24.png" ) ) );
+						deslocar2.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/1rightarrow-24.png" ) ) );
 						deslocar2.setToolTipText( "Deslocar Coluna Para Direita" );
-						novaLinhaColuna
-							.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/coluna 24.png" ) ) );
+						novaLinhaColuna.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/coluna 24.png" ) ) );
 						novaLinhaColuna.setToolTipText( "Nova Coluna" );
 						novaLinhaColunaMenu.setText( "Nova Coluna" );
 						nomeTextField.setToolTipText( "Nome da Coluna Selecionada" );
@@ -783,10 +764,10 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 		
 		javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout( jPanel2 );
 		jPanel2.setLayout( jPanel2Layout );
-		jPanel2Layout.setHorizontalGroup( jPanel2Layout.createParallelGroup( javax.swing.GroupLayout.Alignment.LEADING ).addComponent(
-			jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 787, Short.MAX_VALUE ) );
-		jPanel2Layout.setVerticalGroup( jPanel2Layout.createParallelGroup( javax.swing.GroupLayout.Alignment.LEADING ).addComponent(
-			jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE ) );
+		jPanel2Layout.setHorizontalGroup( jPanel2Layout.createParallelGroup( javax.swing.GroupLayout.Alignment.LEADING ).addComponent( jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 787,
+			Short.MAX_VALUE ) );
+		jPanel2Layout.setVerticalGroup( jPanel2Layout.createParallelGroup( javax.swing.GroupLayout.Alignment.LEADING ).addComponent( jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 470,
+			Short.MAX_VALUE ) );
 		
 		jTabbedPane1.addChangeListener( new javax.swing.event.ChangeListener() {
 			public void stateChanged( javax.swing.event.ChangeEvent evt ) {
@@ -938,15 +919,11 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 		
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout( getContentPane() );
 		getContentPane().setLayout( layout );
-		layout.setHorizontalGroup( layout.createParallelGroup( javax.swing.GroupLayout.Alignment.LEADING ).addComponent( jPanel2,
-			javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-			Short.MAX_VALUE ).addComponent( jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 787, Short.MAX_VALUE ) );
-		layout.setVerticalGroup( layout.createParallelGroup( javax.swing.GroupLayout.Alignment.LEADING )
-			.addGroup(
-				layout.createSequentialGroup().addComponent( jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51,
-					javax.swing.GroupLayout.PREFERRED_SIZE ).addPreferredGap( javax.swing.LayoutStyle.ComponentPlacement.RELATED )
-					.addComponent( jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-						Short.MAX_VALUE ) ) );
+		layout.setHorizontalGroup( layout.createParallelGroup( javax.swing.GroupLayout.Alignment.LEADING ).addComponent( jPanel2, javax.swing.GroupLayout.Alignment.TRAILING,
+			javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE ).addComponent( jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 787, Short.MAX_VALUE ) );
+		layout.setVerticalGroup( layout.createParallelGroup( javax.swing.GroupLayout.Alignment.LEADING ).addGroup(
+			layout.createSequentialGroup().addComponent( jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE ).addPreferredGap(
+				javax.swing.LayoutStyle.ComponentPlacement.RELATED ).addComponent( jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE ) ) );
 		
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
