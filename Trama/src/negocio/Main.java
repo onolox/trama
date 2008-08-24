@@ -2,6 +2,7 @@ package negocio;
 
 
 import javax.swing.UIManager;
+
 import visao.Tela;
 
 
@@ -22,6 +23,7 @@ public class Main {
 	 public static void main( String args[] ) {
         try {
             UIManager.setLookAndFeel( UIManager.getSystemLookAndFeelClassName() );
+            System.out.print( " " );
         } catch ( Exception ex ) {
             ex.printStackTrace();
         }
