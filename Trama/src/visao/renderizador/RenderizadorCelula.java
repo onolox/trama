@@ -27,12 +27,21 @@ public class RenderizadorCelula extends DefaultTableCellRenderer {
 		} else if( value.equals( "2" ) ){
 			label.setText( "X" );
 			label.setBackground( javax.swing.UIManager.getDefaults().getColor( "CheckBox.shadow" ) );
-		} else if( value.equals( "2" ) ){
+		} else if( value.equals( "3" ) ){
 			label.setText( "X" );
-			label.setBackground( javax.swing.UIManager.getDefaults().getColor( "CheckBox.shadow" ) );
-		} else if( value.equals( "2" ) ){
+			label.setBackground( javax.swing.UIManager.getDefaults().getColor( "Button.light" ) );
+		} else if( value.equals( "4" ) ){
 			label.setText( "X" );
+			label.setBackground( javax.swing.UIManager.getDefaults().getColor( "ColorChooser.background" ) );
+		} else if( value.equals( "20" ) ){
+			label.setText( "" );
 			label.setBackground( javax.swing.UIManager.getDefaults().getColor( "CheckBox.shadow" ) );
+		} else if( value.equals( "30" ) ){
+			label.setText( "" );
+			label.setBackground( javax.swing.UIManager.getDefaults().getColor( "Button.light" ) );
+		} else if( value.equals( "40" ) ){
+			label.setText( "" );
+			label.setBackground( javax.swing.UIManager.getDefaults().getColor( "ColorChooser.background" ) );
 		}
 		return label;
 	}

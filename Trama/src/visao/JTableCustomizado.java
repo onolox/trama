@@ -33,7 +33,7 @@ public class JTableCustomizado extends JTable {
 		setAutoCreateColumnsFromModel( true );
 		setSelectionMode( 2 );
 		setColumnSelectionAllowed( false );
-		setCellSelectionEnabled( true );
+		setCellSelectionEnabled( false );
 		
 		setModel( modelo );
 		
