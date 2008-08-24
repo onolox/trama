@@ -181,17 +181,11 @@ public class ControleTela {
 
         public String setDado() {
                 String s = "ok";
-
+                s = controleProjeto.setDado( linhaAtual, colunaAtual, matrizAtual );
                 return s;
         }
 
-        public String setMatrizAtual( String nome, int linha, int coluna ) {
-                String s = "ok";
-
-                return s;
-        }
-
-        public String sincronizarColuna() {
+             public String sincronizarColuna() {
                 String s = "ok";
 
                 return s;

@@ -419,7 +419,11 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 						setImportarDoModeloMenu( true );
 						setDestacar( true );
 						setDestacarMenu( true );
-					} else{ // Aqui é quando se clica nas células -----------------------------------------
+					} else{ // Aqui é quando se clica nas ---------------------------------------------------------células ---------------------
+					
+						controle.setDado();
+						( ( ModeloTabela ) jT.getModel() ).fireTableDataChanged();
+						
 						novaLinhaColunaMenu.setText( "Nova Linha/Coluna" );
 						excluirLinhaColunaMenu.setText( "Excluir Linha/Coluna" );
 						
@@ -439,13 +443,12 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 						setImportarDoModeloMenu( false );
 						setDestacar( false );
 						setDestacarMenu( false );
-					}
-					
+					}// Modafoca
 				}
 			} );
 		
 		header = jT.getTableHeader();
-		header.addMouseListener( new MouseAdapter() { // adiciona listeners aos cabecalhos ----Serve pros nomes de colunas --------------------------header---------
+		header.addMouseListener( new MouseAdapter() { // adiciona listeners aos cabecalhos ----Serve pros nomes de colunas ------------header--
 				@Override
 				public void mouseClicked( MouseEvent e ) {
 					int coluna = header.columnAtPoint( e.getPoint() );
@@ -960,21 +963,14 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	
 	@Override
 	public void actionPerformed( ActionEvent e ) {
-		if( e.getSource() == novoProjeto || e.getSource() == novoProjetoMenu ){
-			criarNovoProjeto();
-		} else if( e.getSource() == abrirProjeto || e.getSource() == abrirProjetoMenu ){
-			abrirProjeto();
-		} else if( e.getSource() == salvarProjeto || e.getSource() == salvarProjetoMenu ){
-			salvarProjeto();
-		} else if( e.getSource() == fecharProjetoMenu ){
-			fecharProjeto();
-		} else if( e.getSource() == novaMatriz || e.getSource() == novaMatrizMenu ){
-			adicionarMatriz();
-		} else if( e.getSource() == excluirMatriz || e.getSource() == excluirMatrizMenu ){
-			excluirMatriz();
-		} else if( e.getSource() == sincronizarMatrizMenu ){
-			sincronizarMatriz();
-		} else if( e.getSource() == cancelarEdicao ){
+		if( e.getSource() == novoProjeto || e.getSource() == novoProjetoMenu ) criarNovoProjeto();
+		else if( e.getSource() == abrirProjeto || e.getSource() == abrirProjetoMenu ) abrirProjeto();
+		else if( e.getSource() == salvarProjeto || e.getSource() == salvarProjetoMenu ) salvarProjeto();
+		else if( e.getSource() == fecharProjetoMenu ) fecharProjeto();
+		else if( e.getSource() == novaMatriz || e.getSource() == novaMatrizMenu ) adicionarMatriz();
+		else if( e.getSource() == excluirMatriz || e.getSource() == excluirMatrizMenu ) excluirMatriz();
+		else if( e.getSource() == sincronizarMatrizMenu ) sincronizarMatriz();
+		else if( e.getSource() == cancelarEdicao ){
 			for( JTableCustomizado j : matrizes ){
 				if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
 					ModeloTabela t = ( ModeloTabela ) j.getModel();

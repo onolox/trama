@@ -236,7 +236,6 @@ public class ControleProjeto {
 	
 	public String ordenarLinha( String nomeMatriz ) {
 		String s = "ok";
-		boolean alterou = false;
 		try{
 			for( Matriz matriz : matrizes ){
 				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
@@ -268,7 +267,21 @@ public class ControleProjeto {
 	}
 	
 	public String setDado( int linha, int coluna, String nomeMatriz ) {
-		return "";
+		String s = "ok";
+		
+		try{
+			for( Matriz matriz : matrizes ){
+				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
+					if( matriz.getDadoMatriz( linha, coluna ).equals( "0" ) ) matriz.setDadoMatriz( 1, linha, coluna );
+					else matriz.setDadoMatriz( 0, linha, coluna );
+				}
+			}
+		} catch( Exception e ){
+			e.printStackTrace();
+			s = "Erro";
+		}
+		
+		return s;
 	}
 	
 	public void sincronizarColuna() {

@@ -106,7 +106,7 @@ public class Matriz {
 	}
 	
 	public void setDadoMatriz( int valor, int linha, int coluna ) {
-		matriz.getLinha( linha - 1 ).set( coluna, valor + "" );
+		matriz.getLinha( linha ).set( coluna, valor + "" );
 	}
 	
 	public String setNomeMatriz( String nome ) {
