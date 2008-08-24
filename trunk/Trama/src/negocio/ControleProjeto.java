@@ -273,14 +273,19 @@ public class ControleProjeto {
 			for( Matriz matriz : matrizes ){
 				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
 					if( matriz.getDadoMatriz( linha, coluna ).equals( "0" ) ) matriz.setDadoMatriz( 1, linha, coluna );
-					else matriz.setDadoMatriz( 0, linha, coluna );
+					else if( matriz.getDadoMatriz( linha, coluna ).equals( "1" ) ) matriz.setDadoMatriz( 0, linha, coluna );
+					else if( matriz.getDadoMatriz( linha, coluna ).equals( "20" ) ) matriz.setDadoMatriz( 2, linha, coluna );
+					else if( matriz.getDadoMatriz( linha, coluna ).equals( "2" ) ) matriz.setDadoMatriz( 20, linha, coluna );
+					else if( matriz.getDadoMatriz( linha, coluna ).equals( "30" ) ) matriz.setDadoMatriz( 3, linha, coluna );
+					else if( matriz.getDadoMatriz( linha, coluna ).equals( "3" ) ) matriz.setDadoMatriz( 30, linha, coluna );
+					else if( matriz.getDadoMatriz( linha, coluna ).equals( "40" ) ) matriz.setDadoMatriz( 4, linha, coluna );
+					else if( matriz.getDadoMatriz( linha, coluna ).equals( "4" ) ) matriz.setDadoMatriz( 40, linha, coluna );
 				}
 			}
 		} catch( Exception e ){
 			e.printStackTrace();
 			s = "Erro";
 		}
-		
 		return s;
 	}
 	

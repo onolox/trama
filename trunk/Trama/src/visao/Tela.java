@@ -185,13 +185,13 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 			cancelarEdicao.doClick();
 			
 		} else{
-			String s = controle.atualizarColuna( nomeTextField.getText() );
+			String s = controle.atualizarColuna( nomeTextField.getText().replace( "|||", "" ) );
 			
 			if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
 			
 			for( JTableCustomizado j : matrizes ){
 				if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
-					j.getColumnModel().getColumn( controle.getColunaAtual() ).setHeaderValue( nomeTextField.getText() );
+					j.getColumnModel().getColumn( controle.getColunaAtual() ).setHeaderValue( nomeTextField.getText().replace( "|||", "" ) );
 					j.updateUI();
 				}
 			}
@@ -203,7 +203,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 			JOptionPane.showMessageDialog( this, "O nome não pode ser vazio", "Erro no nome", 0 );
 			cancelarEdicao.doClick();
 		} else{
-			String s = controle.atualizarLinha( nomeTextField.getText() );
+			String s = controle.atualizarLinha( nomeTextField.getText().replace( "|||", "" ) );
 			if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
 			
 			for( JTableCustomizado j : matrizes ){
@@ -223,6 +223,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	}
 	
 	private void destacarElementos() {
+		controle.destacarElementos();
 	}
 	
 	private void excluirMatriz() {
@@ -234,7 +235,6 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 					JP.remove( i ).getParent().removeAll();
 					String s = controle.excluirMatriz();
 					if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-					
 				}
 			}
 		}
@@ -1004,13 +1004,19 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 			else if( controle.getColunaAtual() == 0 ) ordenarLinha();
 			
 		} else if( e.getSource() == importar || e.getSource() == importarMenu ){
+			if( controle.getLinhaAtual() == -1 ) adicionarColunasModelo();
+			else if( controle.getColunaAtual() == 0 ) adicionarLinhasModelo();
+			
 		} else if( e.getSource() == sincronizar || e.getSource() == sincronizarMenu ){
-		} else if( e.getSource() == destacar || e.getSource() == destacarMenu ){
-		} else if( e.getSource() == resetarCamposNovosMenu ){
-		} else if( e.getSource() == salvarPDFMenu ){
-		} else if( e.getSource() == salvarImagemMenu ){
-		} else if( e.getSource() == imprimirMenu ){
-		}
+			if( controle.getLinhaAtual() == -1 ) sincronizarColuna();
+			else if( controle.getColunaAtual() == 0 ) sincronizarLinha();
+			
+		} else if( e.getSource() == destacar || e.getSource() == destacarMenu ) destacarElementos();
+		else if( e.getSource() == resetarCamposNovosMenu ) resetarDestaque();
+		else if( e.getSource() == salvarPDFMenu ) exportarPDF();
+		else if( e.getSource() == salvarImagemMenu ) exportarImagem();
+		else if( e.getSource() == imprimirMenu ) imprimir();
+		
 	}
 	
 	// Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1138,7 +1144,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	}
 	
 	public void setNomeTextField( String nome ) {
-		nomeTextField.setText( nome );
+		nomeTextField.setText( nome.replace( "|", "" ) );
 	}
 	
 	public void setNovaLinhaColuna( boolean estado ) {
