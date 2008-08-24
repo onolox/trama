@@ -290,6 +290,7 @@ public class ControleProjeto {
 	}
 	
 	public void sincronizarColuna() {
+		
 	}
 	
 	public void sincronizarLinha() {
