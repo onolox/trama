@@ -7,16 +7,12 @@ package persistencia;
 
 import java.util.LinkedList;
 
-/**
- *
- * @author Fabio
- */
 public class Projeto {
-	private LinkedList<DadosMatriz> matrizes;
-	private String nome;
-	public DadosMatriz m_DadosMatriz;
-
-    public LinkedList<DadosMatriz> getMatrizes() {
+	
+	private LinkedList< DadosMatriz > matrizes;
+	private String nome = "";
+	
+	public LinkedList< DadosMatriz > getMatrizes() {
         return matrizes;
     }
 

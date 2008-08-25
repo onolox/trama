@@ -1,31 +1,32 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package persistencia;
 
-/**
- * @author Fabio
- * @version 1.0
- * @updated 05-jun-2008 00:16:52
- */
+import java.io.FileWriter;
+import java.io.IOException;
+
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
+
 public class PersistenciaProjeto {
-    public PersistenciaProjeto() {
-    }
-
-    /**
-     * 
-     * @param nome
-     */
-    public Projeto abrir( String nome ) {
-        return null;
-    }
-
-    /**
-     * 
-     * @param projeto
-     */
-    public String salvar( Projeto projeto ) {
-        return null;
-    }
+	public PersistenciaProjeto() {
+	}
+	
+	public Projeto abrir( String nome ) {
+		Projeto p = null;
+		return p;
+	}
+	
+	public String salvar( Projeto projeto ) {
+		String s = "ok";
+		try{
+			FileWriter file = new FileWriter( "arquivos/" + projeto.getNome() + ".xml" );
+			
+			XStream x = new XStream( new DomDriver() );
+			x.toXML( projeto, file );
+		} catch( IOException e ){
+			e.printStackTrace();
+			s = "erro";
+		}
+		
+		return s;
+	}
 }
