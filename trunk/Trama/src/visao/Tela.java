@@ -357,6 +357,13 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	}
 	
 	private void salvarProjeto() {
+		String s = "";
+		s = controle.salvarProjeto( "vazio" );
+		if( s.equals( "sem nome" ) ){
+			s = JOptionPane.showInputDialog( this, "Insira um nome para o projeto", "Nome do projeto", 0 );
+			
+			s = controle.salvarProjeto( s );
+		}
 	}
 	
 	private void sincronizarColuna() {

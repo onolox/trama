@@ -170,7 +170,7 @@ public class ControleTela {
 	
 	public String salvarProjeto( String nome ) {
 		String s = "ok";
-		
+		s = controleProjeto.salvarProjeto( nome );
 		return s;
 	}
 	

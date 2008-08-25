@@ -62,7 +62,7 @@ public class Matriz {
 	}
 	
 	public DadosMatriz getDadosMatriz() {
-		return null;
+		return matriz;
 	}
 	
 	public String getNomeMatriz() {

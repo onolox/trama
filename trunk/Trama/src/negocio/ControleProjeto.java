@@ -254,8 +254,25 @@ public class ControleProjeto {
 		return "";
 	}
 	
-	public String salvarProjeto() {
-		return null;
+	public String salvarProjeto( String nome ) {
+		String s = "ok";
+		if( nome.equals( "vazio" ) && projeto.getNome().equals( "" ) ) return "sem nome";
+		
+		try{
+			LinkedList< DadosMatriz > lista = new LinkedList< DadosMatriz >();
+			
+			for( Matriz matriz : matrizes ){
+				lista.add( matriz.getDadosMatriz() );
+			}
+			projeto.setNome( nome );
+			projeto.setMatrizes( lista );
+	    	s = persistenciaProjeto.salvar( projeto );
+			
+		} catch( Exception e ){
+			e.printStackTrace();
+			s = "erro";
+		}
+		return s;
 	}
 	
 	public String setArquivoColuna( String nomeArquivo, String nomeMatriz ) {
