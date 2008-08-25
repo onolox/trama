@@ -12,6 +12,8 @@ public class PersistenciaProjeto {
 	
 	public Projeto abrir( String nome ) {
 		Projeto p = null;
+		
+		
 		return p;
 	}
 	
@@ -26,7 +28,6 @@ public class PersistenciaProjeto {
 			e.printStackTrace();
 			s = "erro";
 		}
-		
 		return s;
 	}
 }

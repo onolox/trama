@@ -34,6 +34,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	}
 	
 	private void abrirProjeto() {
+		
 	}
 	
 	private void adicionarColuna() {
@@ -363,6 +364,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 			s = JOptionPane.showInputDialog( this, "Insira um nome para o projeto", "Nome do projeto", 0 );
 			
 			s = controle.salvarProjeto( s );
+			if( s.equals( "sem nome" ) ) salvarProjeto();
 		}
 	}
 	
