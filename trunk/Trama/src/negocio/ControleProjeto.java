@@ -256,7 +256,7 @@ public class ControleProjeto {
 	
 	public String salvarProjeto( String nome ) {
 		String s = "ok";
-		if( nome.equals( "vazio" ) && projeto.getNome().equals( "" ) ) return "sem nome";
+		if( ( nome.equals( "vazio" ) || nome.equals( "" ) ) && projeto.getNome().equals( "" ) ) return "sem nome";
 		
 		try{
 			LinkedList< DadosMatriz > lista = new LinkedList< DadosMatriz >();
@@ -266,7 +266,7 @@ public class ControleProjeto {
 			}
 			projeto.setNome( nome );
 			projeto.setMatrizes( lista );
-	    	s = persistenciaProjeto.salvar( projeto );
+			s = persistenciaProjeto.salvar( projeto );
 			
 		} catch( Exception e ){
 			e.printStackTrace();
