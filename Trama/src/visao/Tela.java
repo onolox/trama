@@ -275,8 +275,8 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 			for( int i = 0; i < matrizes.size(); i++ ){
 				if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
 					matrizes.remove( i );
-					JP.get( i ).getParent().remove( JP.get( i ) );
 					String s = controle.excluirMatriz();
+					jTabbedPane1.remove( i );
 					if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
 				}
 			}
@@ -319,7 +319,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 		String s = "ok";
 		s = controle.excluirLinha();
 		
-		if( !s.equalsIgnoreCase( "ok" ) ){ // Donde estás?
+		if( !s.equalsIgnoreCase( "ok" ) ){ // Donde estas?
 			JOptionPane.showMessageDialog( this, s, "Erro", 1 );
 		} else{
 			for( JTableCustomizado j : matrizes ){
@@ -857,6 +857,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 			public void stateChanged( javax.swing.event.ChangeEvent evt ) {
 				novaLinhaColunaMenu.setText( "Nova Linha/Coluna" );
 				excluirLinhaColunaMenu.setText( "Excluir Linha/Coluna" );
+				controle.setMatrizAtual( jTabbedPane1.getTitleAt( jTabbedPane1.getSelectedIndex() ) );
 				
 				setCancelarEdicao( false );
 				setOkEdicao( false );

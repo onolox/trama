@@ -174,6 +174,7 @@ public class ControleTela {
 	
 	public String excluirMatriz() {
 		String s = "ok";
+		System.out.println( matrizAtual );
 		s = controleProjeto.excluirMatriz( matrizAtual );
 		return s;
 	}
