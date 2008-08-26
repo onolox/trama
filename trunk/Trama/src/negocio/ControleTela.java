@@ -31,6 +31,12 @@ public class ControleTela {
 			String s = "ok";
 			controleProjeto = new ControleProjeto();
 			
+	
+			tela.setExcluirMatriz( true );
+			tela.setExcluirMatrizMenu( true );
+			tela.setImprimirMenu( true );
+			tela.setSalvarImagemMenu( true );
+			tela.setSalvarPDFMenu( true );
 			tela.setSalvarProjeto( true );
 			tela.setNovaMatriz( true );
 			tela.setSalvarProjetoMenu( true );

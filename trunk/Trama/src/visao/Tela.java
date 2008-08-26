@@ -275,7 +275,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 			for( int i = 0; i < matrizes.size(); i++ ){
 				if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
 					matrizes.remove( i );
-					JP.remove( i ).getParent().removeAll();
+					JP.get( i ).getParent().remove( JP.get( i ) );
 					String s = controle.excluirMatriz();
 					if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
 				}
