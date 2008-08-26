@@ -43,7 +43,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 				@Override
 				public boolean accept( File f ) {
 					if( f.getName().endsWith( "xml" ) || f.isDirectory() ) return true;
-					else return false;
+					return false;
 				}
 				
 				@Override
@@ -57,23 +57,24 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 			File fil = ch.getSelectedFile();
 			LinkedList< ModeloTabela > l = controle.abrirProjeto( fil.getName() );
 			matrizes = new LinkedList< JTableCustomizado >();
+			jTabbedPane1.removeAll();
 			
 			for( ModeloTabela modeloTabela : l ){
 				JPanel j = new JPanel();
 				JScrollPane js = new JScrollPane();
+				JTableCustomizado jT = new JTableCustomizado( modeloTabela );
 				GroupLayout jPanelLayout = new GroupLayout( j );
-				
-				j.setLayout( jPanelLayout );
+
 				jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
 				jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
-				JP.add( j );
+				j.setLayout( jPanelLayout );
+			
 				j.setName( modeloTabela.getNomeMatriz() );
-				final JTableCustomizado jT = new JTableCustomizado( modeloTabela );
-				
+				adicionarListener( jT );
 				js.setViewportView( jT );
 				j.add( js );
 				
-				adicionarListener( jT );
+				JP.add( j );
 				matrizes.add( jT );
 				jTabbedPane1.add( j );
 			}
@@ -149,7 +150,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 		if( s != null ){
 			while( bol ){
 				bol = false;
-				if( s.equalsIgnoreCase( "" ) ){
+				if( s != null && s.equalsIgnoreCase( "" ) ){
 					s = "Requisitos X UC";
 				}
 				for( JTableCustomizado jtab : matrizes ){
@@ -857,7 +858,11 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 			public void stateChanged( javax.swing.event.ChangeEvent evt ) {
 				novaLinhaColunaMenu.setText( "Nova Linha/Coluna" );
 				excluirLinhaColunaMenu.setText( "Excluir Linha/Coluna" );
-				controle.setMatrizAtual( jTabbedPane1.getTitleAt( jTabbedPane1.getSelectedIndex() ) );
+				try{
+					controle.setMatrizAtual( jTabbedPane1.getTitleAt( jTabbedPane1.getSelectedIndex() ) );
+				} catch( Exception e ){
+					
+				}
 				
 				setCancelarEdicao( false );
 				setOkEdicao( false );
