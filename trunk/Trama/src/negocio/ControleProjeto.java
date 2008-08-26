@@ -19,11 +19,24 @@ public class ControleProjeto {
 		matrizes = new LinkedList< Matriz >();
 	}
 	
-	public void abrirProjeto() {
-	}
-	
 	public LinkedList< ModeloTabela > abrirProjeto( String nome ) {
-		return null;
+		LinkedList< ModeloTabela > l = new LinkedList< ModeloTabela >();
+		
+		try{
+			projeto = persistenciaProjeto.abrir( nome );
+			LinkedList< DadosMatriz > matri = projeto.getMatrizes();
+			for( DadosMatriz dados : matri ){
+				Matriz m = new Matriz( dados );
+				ModeloTabela mT = new ModeloTabela( m );
+				l.add( mT );
+				matrizes.add( m );
+			}
+		} catch( Exception e ){
+			e.printStackTrace();
+			l = null;
+		}
+		
+		return l;
 	}
 	
 	public String adicionarColuna( String nome, String nomeMatriz ) {
@@ -256,25 +269,36 @@ public class ControleProjeto {
 	
 	public String salvarProjeto( String nome ) {
 		String s = "ok";
-		if( ( nome.equals( "vazio" ) || nome.equals( "" ) ) && projeto.getNome().equals( "" ) ) return "sem nome";
+		LinkedList< DadosMatriz > lista = new LinkedList< DadosMatriz >();
 		
-		try{
-			LinkedList< DadosMatriz > lista = new LinkedList< DadosMatriz >();
-			
-			for( Matriz matriz : matrizes ){
-				lista.add( matriz.getDadosMatriz() );
+		if( ( nome.equals( "vazio" ) || nome.equals( "" ) ) && projeto.getNome().equals( "" ) ) s = "sem nome";
+		else if( !nome.equals( "vazio" ) ){
+			try{
+				for( Matriz matriz : matrizes ){
+					lista.add( matriz.getDadosMatriz() );
+				}
+				projeto.setNome( nome );
+				projeto.setMatrizes( lista );
+				s = persistenciaProjeto.salvar( projeto );
+				
+			} catch( Exception e ){
+				e.printStackTrace();
+				s = "erro";
 			}
-			projeto.setNome( nome );
-			projeto.setMatrizes( lista );
-			s = persistenciaProjeto.salvar( projeto );
-			
-		} catch( Exception e ){
-			e.printStackTrace();
-			s = "erro";
+		} else{
+			try{
+				for( Matriz matriz : matrizes ){
+					lista.add( matriz.getDadosMatriz() );
+				}
+				projeto.setMatrizes( lista );
+				s = persistenciaProjeto.salvar( projeto );
+			} catch( Exception e ){
+				e.printStackTrace();
+				s = "erro";
+			}
 		}
 		return s;
 	}
-	
 	public String setArquivoColuna( String nomeArquivo, String nomeMatriz ) {
 		return null;
 	}
