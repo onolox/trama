@@ -31,7 +31,6 @@ public class ControleTela {
 			String s = "ok";
 			controleProjeto = new ControleProjeto();
 			
-	
 			tela.setExcluirMatriz( true );
 			tela.setExcluirMatrizMenu( true );
 			tela.setImprimirMenu( true );
@@ -45,18 +44,22 @@ public class ControleTela {
 			
 			l = controleProjeto.abrirProjeto( nome );
 		} else{
-			String s = controleProjeto.salvarProjeto( "vazio" );
-			if( s.equals( "sem nome" ) ){
-				s = JOptionPane.showInputDialog( tela, "Insira um nome para o projeto", "Deseja salvar o projeto?", 0 );
-				if( s != null ){
-					s = salvarProjeto( s );
-					if( s.equals( "sem nome" ) ) salvarProjeto( "vazio" );
+			int c = JOptionPane.showConfirmDialog( tela, "Deseja salvar o projeto atual?", "Salvar projeto atual", 0 );
+		
+			if( c == JOptionPane.YES_OPTION ){
+				String s = controleProjeto.salvarProjeto( "vazio" );
+				if( s.equals( "sem nome" ) ){
+					s = JOptionPane.showInputDialog( tela, "Insira um nome para o projeto", "Deseja salvar o projeto?", 0 );
+					if( s != null ){
+						s = salvarProjeto( s );
+						if( s.equals( "sem nome" ) ) salvarProjeto( "vazio" );
+					}
 				}
-				controleProjeto = null;
-				l = abrirProjeto( nome );
 			}
+			controleProjeto = null;
+			l = abrirProjeto( nome );
 		}
-				return l;
+		return l;
 	}
 	
 	public String adicionarColuna( String nome ) {

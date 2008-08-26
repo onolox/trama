@@ -63,14 +63,20 @@
           <string>0</string>
           <string>0</string>
           <string>0</string>
-        </linked-list>
-        <linked-list>
-          <string>0</string>
-          <string>0</string>
           <string>0</string>
           <string>0</string>
         </linked-list>
         <linked-list>
+          <string>0</string>
+          <string>0</string>
+          <string>0</string>
+          <string>0</string>
+          <string>0</string>
+          <string>0</string>
+        </linked-list>
+        <linked-list>
+          <string>0</string>
+          <string>0</string>
           <string>0</string>
           <string>0</string>
           <string>0</string>
@@ -78,13 +84,15 @@
         </linked-list>
       </linha>
       <nomeMatriz>dadadada</nomeMatriz>
-      <qColunas>4</qColunas>
+      <qColunas>6</qColunas>
       <qLinhas>3</qLinhas>
       <tituloColuna>
         <string></string>
         <string>Coluna</string>
         <string>coluna 1</string>
         <string>coluna 2</string>
+        <string>coluna 3</string>
+        <string>coluna 4</string>
       </tituloColuna>
       <tituloLinha>
         <string>Linha</string>
