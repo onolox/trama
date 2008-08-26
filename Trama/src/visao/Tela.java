@@ -4,12 +4,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 import java.util.LinkedList;
 
 import javax.swing.GroupLayout;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.filechooser.FileFilter;
 import javax.swing.table.JTableHeader;
 
 import negocio.ControleTela;
@@ -34,7 +37,47 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	}
 	
 	private void abrirProjeto() {
+		JFileChooser ch = new JFileChooser( "arquivos/" );
+		ch.setDialogTitle( "Abrir projeto" );
+		ch.setFileFilter( new FileFilter() { // Filtro pra xml e diretorios
+				@Override
+				public boolean accept( File f ) {
+					if( f.getName().endsWith( "xml" ) || f.isDirectory() ) return true;
+					else return false;
+				}
+				
+				@Override
+				public String getDescription() {
+					return "Arquivos de projeto";
+				}
+			} );
 		
+		int i = ch.showSaveDialog( this );
+		if( i == JFileChooser.APPROVE_OPTION ){
+			File fil = ch.getSelectedFile();
+			LinkedList< ModeloTabela > l = controle.abrirProjeto( fil.getName() );
+			matrizes = new LinkedList< JTableCustomizado >();
+			
+			for( ModeloTabela modeloTabela : l ){
+				JPanel j = new JPanel();
+				JScrollPane js = new JScrollPane();
+				GroupLayout jPanelLayout = new GroupLayout( j );
+				
+				j.setLayout( jPanelLayout );
+				jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
+				jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
+				JP.add( j );
+				j.setName( modeloTabela.getNomeMatriz() );
+				final JTableCustomizado jT = new JTableCustomizado( modeloTabela );
+				
+				js.setViewportView( jT );
+				j.add( js );
+				
+				adicionarListener( jT );
+				matrizes.add( jT );
+				jTabbedPane1.add( j );
+			}
+		}
 	}
 	
 	private void adicionarColuna() {
@@ -103,38 +146,39 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 		boolean bol = true;
 		
 		s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a matriz", "Adicionar Matriz", JOptionPane.QUESTION_MESSAGE );
-		
-		while( bol ){
-			bol = false;
-			if( s.equalsIgnoreCase( "" ) ){
-				s = "Requisitos X UC";
-			}
-			for( JTableCustomizado jtab : matrizes ){
-				if( s.equalsIgnoreCase( jtab.getNome() ) ){
-					bol = true;
-					s = JOptionPane.showInputDialog( this, "Nome já existente, insira outro nome", "Adicionar Matriz", JOptionPane.QUESTION_MESSAGE );
+		if( s != null ){
+			while( bol ){
+				bol = false;
+				if( s.equalsIgnoreCase( "" ) ){
+					s = "Requisitos X UC";
+				}
+				for( JTableCustomizado jtab : matrizes ){
+					if( s.equalsIgnoreCase( jtab.getNome() ) ){
+						bol = true;
+						s = JOptionPane.showInputDialog( this, "Nome já existente, insira outro nome", "Adicionar Matriz", JOptionPane.QUESTION_MESSAGE );
+					}
 				}
 			}
+			ModeloTabela m = controle.adicionarMatriz( s );
+			JPanel j = new JPanel();
+			JScrollPane js = new JScrollPane();
+			GroupLayout jPanelLayout = new GroupLayout( j );
+			
+			j.setLayout( jPanelLayout );
+			jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
+			jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
+			JP.add( j );
+			j.setName( m.getNomeMatriz() );
+			final JTableCustomizado jT = new JTableCustomizado( m );
+			
+			js.setViewportView( jT );
+			j.add( js );
+			
+			adicionarListener( jT );
+			
+			matrizes.add( jT );
+			jTabbedPane1.add( j );
 		}
-		ModeloTabela m = controle.adicionarMatriz( s );
-		JPanel j = new JPanel();
-		JScrollPane js = new JScrollPane();
-		GroupLayout jPanelLayout = new GroupLayout( j );
-		
-		j.setLayout( jPanelLayout );
-		jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
-		jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
-		JP.add( j );
-		j.setName( m.getNomeMatriz() );
-		final JTableCustomizado jT = new JTableCustomizado( m );
-		
-		js.setViewportView( jT );
-		j.add( js );
-		
-		adicionarListener( jT );
-		
-		matrizes.add( jT );
-		jTabbedPane1.add( j );
 	}
 	
 	private void alterarPosicaoColuna( String lado ) {
@@ -219,8 +263,6 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	private void criarNovoProjeto() {
 		String s = controle.criarNovoProjeto();
 		if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-		
-		adicionarMatriz();
 	}
 	
 	private void destacarElementos() {
@@ -248,7 +290,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 		if( !s.equalsIgnoreCase( "ok" ) ){
 			JOptionPane.showMessageDialog( this, s, "Erro", 1 );
 		} else{
-			for( int i = 0; i < matrizes.size(); i++ ){ // Gambiarra fodá¡stica
+			for( int i = 0; i < matrizes.size(); i++ ){ // Gambiarra fodastica
 				if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
 					JTableCustomizado jt = matrizes.remove( i );
 					ModeloTabela mod = ( ModeloTabela ) jt.getModel();

@@ -1,5 +1,7 @@
 package persistencia;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -12,8 +14,11 @@ public class PersistenciaProjeto {
 	
 	public Projeto abrir( String nome ) {
 		Projeto p = null;
-		
-		
+		try{
+			p = ( Projeto ) new XStream( new DomDriver() ).fromXML( new FileReader( "arquivos/" + nome ) );
+		} catch( FileNotFoundException e ){
+			e.printStackTrace();
+		}
 		return p;
 	}
 	

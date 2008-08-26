@@ -3,6 +3,8 @@ package negocio;
 import java.util.HashMap;
 import java.util.LinkedList;
 
+import javax.swing.JOptionPane;
+
 import negocio.leitor.LeitorDeModelo;
 import visao.ModeloTabela;
 import visao.Tela;
@@ -23,7 +25,32 @@ public class ControleTela {
 	}
 	
 	public LinkedList< ModeloTabela > abrirProjeto( String nome ) {
-		return null;
+		LinkedList< ModeloTabela > l = new LinkedList< ModeloTabela >();
+		
+		if( controleProjeto == null ){
+			String s = "ok";
+			controleProjeto = new ControleProjeto();
+			
+			tela.setSalvarProjeto( true );
+			tela.setNovaMatriz( true );
+			tela.setSalvarProjetoMenu( true );
+			tela.setNovaMatrizMenu( true );
+			tela.setFecharProjetoMenu( true );
+			
+			l = controleProjeto.abrirProjeto( nome );
+		} else{
+			String s = controleProjeto.salvarProjeto( "vazio" );
+			if( s.equals( "sem nome" ) ){
+				s = JOptionPane.showInputDialog( tela, "Insira um nome para o projeto", "Deseja salvar o projeto?", 0 );
+				if( s != null ){
+					s = salvarProjeto( s );
+					if( s.equals( "sem nome" ) ) salvarProjeto( "vazio" );
+				}
+				controleProjeto = null;
+				l = abrirProjeto( nome );
+			}
+		}
+				return l;
 	}
 	
 	public String adicionarColuna( String nome ) {
