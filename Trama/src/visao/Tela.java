@@ -378,6 +378,9 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	}
 	
 	private void fecharProjeto() {
+		matrizes = new LinkedList< JTableCustomizado >();
+		jTabbedPane1.removeAll();
+		controle.fecharProjeto();
 	}
 	
 	private void imprimir() {
