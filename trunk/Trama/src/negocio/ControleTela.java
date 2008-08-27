@@ -44,14 +44,14 @@ public class ControleTela {
 			l = controleProjeto.abrirProjeto( nome );
 		} else{
 			int c = JOptionPane.showConfirmDialog( tela, "Deseja salvar o projeto atual?", "Salvar projeto atual", 0 );
-		
+			
 			if( c == JOptionPane.YES_OPTION ){
 				String s = controleProjeto.salvarProjeto( "vazio" );
 				if( s.equals( "sem nome" ) ){
 					s = JOptionPane.showInputDialog( tela, "Insira um nome para o projeto", "Deseja salvar o projeto?", 0 );
 					if( s != null ){
-						s = salvarProjeto( s );
-						if( s.equals( "sem nome" ) ) salvarProjeto( "vazio" );
+						s = controleProjeto.salvarProjeto( s );
+						if( s.equals( "sem nome" ) ) controleProjeto.salvarProjeto( "vazio" );
 					}
 				}
 			}
@@ -182,6 +182,26 @@ public class ControleTela {
 	}
 	
 	public void fecharProjeto() {
+		int c = JOptionPane.showConfirmDialog( tela, "Deseja salvar o projeto atual?", "Salvar projeto atual", 0 );
+		
+		if( c == JOptionPane.YES_OPTION ){
+			String s = controleProjeto.salvarProjeto( "vazio" );
+			if( s.equals( "sem nome" ) ){
+				s = JOptionPane.showInputDialog( tela, "Insira um nome para o projeto", "Deseja salvar o projeto?", 0 );
+				if( s != null ) s = controleProjeto.salvarProjeto( s );
+			}
+		}
+		controleProjeto = null;
+		tela.setFecharProjetoMenu( false );
+		tela.setNovaMatriz( false );
+		tela.setNovaMatrizMenu( false );
+		tela.setExcluirMatriz( false );
+		tela.setExcluirMatrizMenu( false );
+		tela.setSalvarProjetoMenu( false );
+		tela.setSalvarProjeto( false );
+		tela.setSalvarImagemMenu( false );
+		tela.setSalvarPDFMenu( false );
+		tela.setImprimirMenu( false );
 	}
 	
 	public HashMap< String, LinkedList< String >> getNomeExtensoes() {
