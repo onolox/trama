@@ -28,7 +28,6 @@ public class ControleTela {
 		LinkedList< ModeloTabela > l = new LinkedList< ModeloTabela >();
 		
 		if( controleProjeto == null ){
-			String s = "ok";
 			controleProjeto = new ControleProjeto();
 			
 			tela.setExcluirMatriz( true );

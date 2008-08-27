@@ -37,81 +37,91 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	}
 	
 	private void abrirProjeto() {
-		JFileChooser ch = new JFileChooser( "arquivos/" );
-		ch.setDialogTitle( "Abrir projeto" );
-		ch.setFileFilter( new FileFilter() { // Filtro pra xml e diretorios
-				@Override
-				public boolean accept( File f ) {
-					if( f.getName().endsWith( "xml" ) || f.isDirectory() ) return true;
-					return false;
-				}
-				
-				@Override
-				public String getDescription() {
-					return "Arquivos de projeto";
-				}
-			} );
-		
-		int i = ch.showSaveDialog( this );
-		if( i == JFileChooser.APPROVE_OPTION ){
-			File fil = ch.getSelectedFile();
-			LinkedList< ModeloTabela > l = controle.abrirProjeto( fil.getName() );
-			matrizes = new LinkedList< JTableCustomizado >();
-			jTabbedPane1.removeAll();
+		try{
+			JFileChooser ch = new JFileChooser( "arquivos/" );
+			ch.setDialogTitle( "Abrir projeto" );
+			ch.setFileFilter( new FileFilter() { // Filtro pra xml e diretorios
+					@Override
+					public boolean accept( File f ) {
+						if( f.getName().endsWith( "xml" ) || f.isDirectory() ) return true;
+						return false;
+					}
+					
+					@Override
+					public String getDescription() {
+						return "Arquivos de projeto";
+					}
+				} );
 			
-			for( ModeloTabela modeloTabela : l ){
-				JPanel j = new JPanel();
-				JScrollPane js = new JScrollPane();
-				JTableCustomizado jT = new JTableCustomizado( modeloTabela );
-				GroupLayout jPanelLayout = new GroupLayout( j );
-
-				jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
-				jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
-				j.setLayout( jPanelLayout );
-			
-				j.setName( modeloTabela.getNomeMatriz() );
-				adicionarListener( jT );
-				js.setViewportView( jT );
-				j.add( js );
+			int i = ch.showSaveDialog( this );
+			if( i == JFileChooser.APPROVE_OPTION ){
+				File fil = ch.getSelectedFile();
+				LinkedList< ModeloTabela > l = controle.abrirProjeto( fil.getName() );
 				
-				JP.add( j );
-				matrizes.add( jT );
-				jTabbedPane1.add( j );
+				matrizes = new LinkedList< JTableCustomizado >();
+				jTabbedPane1.removeAll();
+				
+				for( ModeloTabela modeloTabela : l ){
+					JPanel j = new JPanel();
+					JScrollPane js = new JScrollPane();
+					JTableCustomizado jT = new JTableCustomizado( modeloTabela );
+					GroupLayout jPanelLayout = new GroupLayout( j );
+					
+					jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
+					jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
+					j.setLayout( jPanelLayout );
+					
+					j.setName( modeloTabela.getNomeMatriz() );
+					adicionarListener( jT );
+					js.setViewportView( jT );
+					j.add( js );
+					
+					JP.add( j );
+					matrizes.add( jT );
+					jTabbedPane1.add( j );
+				}
+			jTabbedPane1.repaint();
+			jTabbedPane1.revalidate();
 			}
+		} catch( Exception e ){
+			e.printStackTrace();
 		}
 	}
 	
 	private void adicionarColuna() {
 		String s = "";
-		s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a coluna", "Adicionar Coluna", JOptionPane.QUESTION_MESSAGE );
-		if( s.equalsIgnoreCase( "" ) ){
-			s = "coluna " + controle.getColunaAtual();
-		}
-		s = controle.adicionarColuna( s );
-		
-		if( !s.equalsIgnoreCase( "ok" ) ){
-			JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-		}
-		for( int i = 0; i < matrizes.size(); i++ ){
-			if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
-				JTableCustomizado jt = matrizes.remove( i );
-				ModeloTabela mod = ( ModeloTabela ) jt.getModel();
-				JPanel jpanel = JP.get( i );
-				jpanel.removeAll();
-				JTableCustomizado cus = new JTableCustomizado( mod );
-				adicionarListener( cus );
-				matrizes.add( i, cus );
-				JScrollPane js = new JScrollPane();
-				js.setViewportView( cus );
-				
-				GroupLayout jPanelLayout = new GroupLayout( jpanel );
-				jpanel.setLayout( jPanelLayout );
-				jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
-				jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
-				jpanel.add( js );
-				jpanel.updateUI();
-				jpanel.repaint();
+		try{
+			s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a coluna", "Adicionar Coluna", JOptionPane.QUESTION_MESSAGE );
+			if( s.equalsIgnoreCase( "" ) ) s = "coluna " + controle.getColunaAtual();
+			
+			s = controle.adicionarColuna( s );
+			
+			if( !s.equalsIgnoreCase( "ok" ) ){
+				JOptionPane.showMessageDialog( this, s, "Erro", 1 );
 			}
+			for( int i = 0; i < matrizes.size(); i++ ){
+				if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
+					JTableCustomizado jt = matrizes.remove( i );
+					ModeloTabela mod = ( ModeloTabela ) jt.getModel();
+					JPanel jpanel = JP.get( i );
+					jpanel.removeAll();
+					JTableCustomizado cus = new JTableCustomizado( mod );
+					adicionarListener( cus );
+					matrizes.add( i, cus );
+					JScrollPane js = new JScrollPane();
+					js.setViewportView( cus );
+					
+					GroupLayout jPanelLayout = new GroupLayout( jpanel );
+					jpanel.setLayout( jPanelLayout );
+					jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
+					jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
+					jpanel.add( js );
+					jpanel.updateUI();
+					jpanel.repaint();
+				}
+			}
+		} catch( Exception e ){
+			e.printStackTrace();
 		}
 		
 	}
@@ -121,21 +131,25 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	
 	private void adicionarLinha() {
 		String s = "";
-		s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a linha", "Adicionar Linha", JOptionPane.QUESTION_MESSAGE );
-		if( s.equalsIgnoreCase( "" ) ){
-			s = "linha " + controle.getLinhaAtual();
-		}
-		s = controle.adicionarLinha( s );
-		
-		if( !s.equalsIgnoreCase( "ok" ) ){
-			JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-		}
-		
-		for( JTableCustomizado j : matrizes ){
-			if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
-				ModeloTabela t = ( ModeloTabela ) j.getModel();
-				t.fireTableDataChanged();
+		try{
+			s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a linha", "Adicionar Linha", JOptionPane.QUESTION_MESSAGE );
+			if( s.equalsIgnoreCase( "" ) ){
+				s = "linha " + controle.getLinhaAtual();
 			}
+			s = controle.adicionarLinha( s );
+			
+			if( !s.equalsIgnoreCase( "ok" ) ){
+				JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+			}
+			
+			for( JTableCustomizado j : matrizes ){
+				if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
+					ModeloTabela t = ( ModeloTabela ) j.getModel();
+					t.fireTableDataChanged();
+				}
+			}
+		} catch( Exception e ){
+			e.printStackTrace();
 		}
 	}
 	
@@ -212,52 +226,63 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	
 	private void alterarPosicaoLinha( String lado ) {
 		String s = "";
-		s = controle.alterarPosicaoLinha( lado );
-		
-		if( !s.equalsIgnoreCase( "ok" ) ){
-			JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-		} else{
-			for( JTableCustomizado j : matrizes ){
-				if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
-					j.updateUI();
+		try{
+			s = controle.alterarPosicaoLinha( lado );
+			if( !s.equalsIgnoreCase( "ok" ) ){
+				JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+			} else{
+				for( JTableCustomizado j : matrizes ){
+					if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
+						j.updateUI();
+					}
 				}
 			}
+		} catch( Exception e ){
+			e.printStackTrace();
 		}
 	}
 	
 	private void atualizarColuna() {
-		if( nomeTextField.getText().equals( "" ) ){
-			JOptionPane.showMessageDialog( this, "O nome não pode ser vazio", "Erro no nome", 0 );
-			cancelarEdicao.doClick();
-			
-		} else{
-			String s = controle.atualizarColuna( nomeTextField.getText().replace( "|||", "" ) );
-			
-			if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-			
-			for( JTableCustomizado j : matrizes ){
-				if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
-					j.getColumnModel().getColumn( controle.getColunaAtual() ).setHeaderValue( nomeTextField.getText().replace( "|||", "" ) );
-					j.updateUI();
+		try{
+			if( nomeTextField.getText().equals( "" ) ){
+				JOptionPane.showMessageDialog( this, "O nome não pode ser vazio", "Erro no nome", 0 );
+				cancelarEdicao.doClick();
+				
+			} else{
+				String s = controle.atualizarColuna( nomeTextField.getText().replace( "|||", "" ) );
+				
+				if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+				
+				for( JTableCustomizado j : matrizes ){
+					if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
+						j.getColumnModel().getColumn( controle.getColunaAtual() ).setHeaderValue( nomeTextField.getText().replace( "|||", "" ) );
+						j.updateUI();
+					}
 				}
 			}
+		} catch( Exception e ){
+			e.printStackTrace();
 		}
 	}
 	
 	private void atualizarLinha() {
-		if( nomeTextField.getText().equals( "" ) ){
-			JOptionPane.showMessageDialog( this, "O nome não pode ser vazio", "Erro no nome", 0 );
-			cancelarEdicao.doClick();
-		} else{
-			String s = controle.atualizarLinha( nomeTextField.getText().replace( "|||", "" ) );
-			if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-			
-			for( JTableCustomizado j : matrizes ){
-				if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
-					ModeloTabela t = ( ModeloTabela ) j.getModel();
-					t.fireTableDataChanged();
+		try{
+			if( nomeTextField.getText().equals( "" ) ){
+				JOptionPane.showMessageDialog( this, "O nome não pode ser vazio", "Erro no nome", 0 );
+				cancelarEdicao.doClick();
+			} else{
+				String s = controle.atualizarLinha( nomeTextField.getText().replace( "|||", "" ) );
+				if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+				
+				for( JTableCustomizado j : matrizes ){
+					if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
+						ModeloTabela t = ( ModeloTabela ) j.getModel();
+						t.fireTableDataChanged();
+					}
 				}
 			}
+		} catch( Exception e ){
+			e.printStackTrace();
 		}
 	}
 	
@@ -271,66 +296,78 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	}
 	
 	private void excluirMatriz() {
-		int ge = JOptionPane.showConfirmDialog( this, "Tem certeza que deseja excluir a matriz " + controle.getMatrizAtual() + " do projeto?", "", 0 );
-		if( ge == 0 ){
-			for( int i = 0; i < matrizes.size(); i++ ){
-				if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
-					matrizes.remove( i );
-					String s = controle.excluirMatriz();
-					jTabbedPane1.remove( i );
-					if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+		try{
+			int ge = JOptionPane.showConfirmDialog( this, "Tem certeza que deseja excluir a matriz " + controle.getMatrizAtual() + " do projeto?", "", 0 );
+			if( ge == 0 ){
+				for( int i = 0; i < matrizes.size(); i++ ){
+					if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
+						matrizes.remove( i );
+						String s = controle.excluirMatriz();
+						jTabbedPane1.remove( i );
+						if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+					}
 				}
 			}
+		} catch( Exception e ){
+			e.printStackTrace();
 		}
 	}
 	
 	private void exclulirColuna() {
 		String s = "ok";
-		s = controle.excluirColuna();
-		
-		if( !s.equalsIgnoreCase( "ok" ) ){
-			JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-		} else{
-			for( int i = 0; i < matrizes.size(); i++ ){ // Gambiarra fodastica
-				if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
-					JTableCustomizado jt = matrizes.remove( i );
-					ModeloTabela mod = ( ModeloTabela ) jt.getModel();
-					JPanel jpanel = JP.get( i );
-					jpanel.removeAll();
-					JTableCustomizado cus = new JTableCustomizado( mod );
-					adicionarListener( cus );
-					matrizes.add( i, cus );
-					JScrollPane js = new JScrollPane();
-					js.setViewportView( cus );
-					
-					GroupLayout jPanelLayout = new GroupLayout( jpanel );
-					jpanel.setLayout( jPanelLayout );
-					jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
-					jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
-					jpanel.add( js );
-					jpanel.updateUI();
-					
-					setNomeTextField( mod.getMatriz().getTituloColuna( controle.getColunaAtual() ) );
+		try{
+			s = controle.excluirColuna();
+			
+			if( !s.equalsIgnoreCase( "ok" ) ){
+				JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+			} else{
+				for( int i = 0; i < matrizes.size(); i++ ){ // Gambiarra fodastica
+					if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
+						JTableCustomizado jt = matrizes.remove( i );
+						ModeloTabela mod = ( ModeloTabela ) jt.getModel();
+						JPanel jpanel = JP.get( i );
+						jpanel.removeAll();
+						JTableCustomizado cus = new JTableCustomizado( mod );
+						adicionarListener( cus );
+						matrizes.add( i, cus );
+						JScrollPane js = new JScrollPane();
+						js.setViewportView( cus );
+						
+						GroupLayout jPanelLayout = new GroupLayout( jpanel );
+						jpanel.setLayout( jPanelLayout );
+						jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
+						jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
+						jpanel.add( js );
+						jpanel.updateUI();
+						
+						setNomeTextField( mod.getMatriz().getTituloColuna( controle.getColunaAtual() ) );
+					}
 				}
 			}
+		} catch( Exception e ){
+			e.printStackTrace();
 		}
 	}
 	
 	private void exclulirLinha() {
 		String s = "ok";
-		s = controle.excluirLinha();
-		
-		if( !s.equalsIgnoreCase( "ok" ) ){ // Donde estas?
-			JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-		} else{
-			for( JTableCustomizado j : matrizes ){
-				if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
-					ModeloTabela t = ( ModeloTabela ) j.getModel();
-					t.fireTableDataChanged();
-					
-					setNomeTextField( t.getMatriz().getTituloLinha( controle.getLinhaAtual() ) );
+		try{
+			s = controle.excluirLinha();
+			
+			if( !s.equalsIgnoreCase( "ok" ) ){ // Donde estas?
+				JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+			} else{
+				for( JTableCustomizado j : matrizes ){
+					if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
+						ModeloTabela t = ( ModeloTabela ) j.getModel();
+						t.fireTableDataChanged();
+						
+						setNomeTextField( t.getMatriz().getTituloLinha( controle.getLinhaAtual() ) );
+					}
 				}
 			}
+		} catch( Exception e ){
+			e.printStackTrace();
 		}
 	}
 	
@@ -348,53 +385,58 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	
 	private void ordenarColuna() {
 		String s = "ok";
-		s = controle.ordenarColuna();
-		
-		if( !s.equalsIgnoreCase( "ok" ) ){
-			JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-		} else{
-			for( int i = 0; i < matrizes.size(); i++ ){ // Gambiarra fodá¡stica
-				if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
-					JTableCustomizado jt = matrizes.remove( i );
-					ModeloTabela mod = ( ModeloTabela ) jt.getModel();
-					JPanel jpanel = JP.get( i );
-					jpanel.removeAll();
-					JTableCustomizado cus = new JTableCustomizado( mod );
-					adicionarListener( cus );
-					matrizes.add( i, cus );
-					JScrollPane js = new JScrollPane();
-					js.setViewportView( cus );
-					
-					GroupLayout jPanelLayout = new GroupLayout( jpanel );
-					jpanel.setLayout( jPanelLayout );
-					jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
-					jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
-					jpanel.add( js );
-					jpanel.updateUI();
-					
-					setNomeTextField( mod.getMatriz().getTituloColuna( controle.getColunaAtual() ) );
+		try{
+			s = controle.ordenarColuna();
+			
+			if( !s.equalsIgnoreCase( "ok" ) ){
+				JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+			} else{
+				for( int i = 0; i < matrizes.size(); i++ ){ // Gambiarra fodastica
+					if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
+						JTableCustomizado jt = matrizes.remove( i );
+						ModeloTabela mod = ( ModeloTabela ) jt.getModel();
+						JPanel jpanel = JP.get( i );
+						jpanel.removeAll();
+						JTableCustomizado cus = new JTableCustomizado( mod );
+						adicionarListener( cus );
+						matrizes.add( i, cus );
+						JScrollPane js = new JScrollPane();
+						js.setViewportView( cus );
+						
+						GroupLayout jPanelLayout = new GroupLayout( jpanel );
+						jpanel.setLayout( jPanelLayout );
+						jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
+						jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
+						jpanel.add( js );
+						jpanel.updateUI();
+						
+						setNomeTextField( mod.getMatriz().getTituloColuna( controle.getColunaAtual() ) );
+					}
 				}
 			}
+		} catch( Exception e ){
+			e.printStackTrace();
 		}
 	}
 	
 	private void ordenarLinha() {
 		String s = "ok";
-		s = controle.ordenarLinha();
-		
-		if( !s.equalsIgnoreCase( "ok" ) ){
-			JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-		}
-		for( JTableCustomizado j : matrizes ){
-			if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
-				ModeloTabela t = ( ModeloTabela ) j.getModel();
-				t.fireTableDataChanged();
+		try{
+			s = controle.ordenarLinha();
+			
+			if( !s.equalsIgnoreCase( "ok" ) ){
+				JOptionPane.showMessageDialog( this, s, "Erro", 1 );
 			}
+			for( JTableCustomizado j : matrizes ){
+				if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
+					ModeloTabela t = ( ModeloTabela ) j.getModel();
+					t.fireTableDataChanged();
+				}
+			}
+		} catch( Exception e ){
+			e.printStackTrace();
 		}
 		
-	}
-	
-	private void posisaoJTable( ActionEvent evt ) {
 	}
 	
 	private void resetarDestaque() {
@@ -423,137 +465,145 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	private void adicionarListener( final JTableCustomizado jT ) {
 		jT.addMouseListener( new MouseAdapter() { // Adiciona listener as tabelas
 				@Override
-				public void mouseClicked( java.awt.event.MouseEvent e ) {
-					int linha = jT.getSelectedRow();
-					int coluna = jT.getSelectedColumn();
-					
-					for( JTableCustomizado jTableCustomizado : matrizes ){
-						if( jTableCustomizado == e.getSource() ){
-							controle.setMatrizAtual( jTableCustomizado.getNome() );
-							System.out.println( "Matriz atual: " + jTableCustomizado.getNome() );
-						}
-					}
-					controle.setLinhaAtual( linha );
-					controle.setColunaAtual( coluna );
-					System.out.println( "Linha=" + ( linha ) + "   coluna= " + coluna );
-					
-					if( coluna == 0 ){// Toda vez que se clicar em um nome de------------------------------------------------------------------ linha -------
+				public void mouseClicked( MouseEvent e ) {
+					try{
+						int linha = jT.getSelectedRow();
+						int coluna = jT.getSelectedColumn();
+						
 						for( JTableCustomizado jTableCustomizado : matrizes ){
-							if( jTableCustomizado.getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
-								setNomeTextField( ( ( ModeloTabela ) jTableCustomizado.getModel() ).getMatriz().getTituloLinha( linha ) );
+							if( jTableCustomizado == e.getSource() ){
+								controle.setMatrizAtual( jTableCustomizado.getNome() );
+								System.out.println( "Matriz atual: " + jTableCustomizado.getNome() );
 							}
-							
 						}
-						deslocar1.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/1downarrow-24.png" ) ) );
-						deslocar1.setToolTipText( "Deslocar Linha Para Baixo" );
-						deslocar2.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/1downarrow1-24.png" ) ) );
-						deslocar1.setToolTipText( "Deslocar Linha Para Cima" );
-						novaLinhaColuna.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/7days-26.png" ) ) );
-						novaLinhaColuna.setToolTipText( "Nova Linha" );
-						novaLinhaColunaMenu.setText( "Nova Linha" );
-						nomeTextField.setToolTipText( "Nome da Linha Selecionada" );
-						excluirLinhaColuna.setToolTipText( "Excluir Linha" );
-						excluirLinhaColunaMenu.setText( "Excluir Linha" );
+						controle.setLinhaAtual( linha );
+						controle.setColunaAtual( coluna );
+						System.out.println( "Linha=" + ( linha ) + "   coluna= " + coluna );
 						
-						setCancelarEdicao( true );
-						setOkEdicao( true );
-						setNomeTextField( true );
-						setDeslocar1( true );
-						setDeslocar2( true );
-						setNovaLinhaColuna( true );
-						setNovaLinhaColunaMenu( true );
-						setExcluirLinhaColuna( true );
-						setExcluirLinhaColunaMenu( true );
-						setOrdenar( true );
-						setOrdenarMenu( true );
-						setImportar( true );
-						setImportarMenu( true );
-						setImportarDoModeloMenu( true );
-						setDestacar( true );
-						setDestacarMenu( true );
-					} else{ // Aqui é quando se clica nas ---------------------------------------------------------células ---------------------
-					
-						controle.setDado();
-						( ( ModeloTabela ) jT.getModel() ).fireTableDataChanged();
+						if( coluna == 0 ){// Toda vez que se clicar em um nome de------------------------------------------------------------------ linha -------
+							for( JTableCustomizado jTableCustomizado : matrizes ){
+								if( jTableCustomizado.getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
+									setNomeTextField( ( ( ModeloTabela ) jTableCustomizado.getModel() ).getMatriz().getTituloLinha( linha ) );
+								}
+								
+							}
+							deslocar1.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/1downarrow-24.png" ) ) );
+							deslocar1.setToolTipText( "Deslocar Linha Para Baixo" );
+							deslocar2.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/1downarrow1-24.png" ) ) );
+							deslocar1.setToolTipText( "Deslocar Linha Para Cima" );
+							novaLinhaColuna.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/7days-26.png" ) ) );
+							novaLinhaColuna.setToolTipText( "Nova Linha" );
+							novaLinhaColunaMenu.setText( "Nova Linha" );
+							nomeTextField.setToolTipText( "Nome da Linha Selecionada" );
+							excluirLinhaColuna.setToolTipText( "Excluir Linha" );
+							excluirLinhaColunaMenu.setText( "Excluir Linha" );
+							
+							setCancelarEdicao( true );
+							setOkEdicao( true );
+							setNomeTextField( true );
+							setDeslocar1( true );
+							setDeslocar2( true );
+							setNovaLinhaColuna( true );
+							setNovaLinhaColunaMenu( true );
+							setExcluirLinhaColuna( true );
+							setExcluirLinhaColunaMenu( true );
+							setOrdenar( true );
+							setOrdenarMenu( true );
+							setImportar( true );
+							setImportarMenu( true );
+							setImportarDoModeloMenu( true );
+							setDestacar( true );
+							setDestacarMenu( true );
+						} else{ // Aqui é quando se clica nas ---------------------------------------------------------células ---------------------
 						
-						novaLinhaColunaMenu.setText( "Nova Linha/Coluna" );
-						excluirLinhaColunaMenu.setText( "Excluir Linha/Coluna" );
-						
-						setCancelarEdicao( false );
-						setOkEdicao( false );
-						setNomeTextField( false );
-						setDeslocar1( false );
-						setDeslocar2( false );
-						setNovaLinhaColuna( false );
-						setNovaLinhaColunaMenu( false );
-						setExcluirLinhaColuna( false );
-						setExcluirLinhaColunaMenu( false );
-						setOrdenar( false );
-						setOrdenarMenu( false );
-						setImportar( false );
-						setImportarMenu( false );
-						setImportarDoModeloMenu( false );
-						setDestacar( false );
-						setDestacarMenu( false );
-					}// Modafoca
+							controle.setDado();
+							( ( ModeloTabela ) jT.getModel() ).fireTableDataChanged();
+							
+							novaLinhaColunaMenu.setText( "Nova Linha/Coluna" );
+							excluirLinhaColunaMenu.setText( "Excluir Linha/Coluna" );
+							
+							setCancelarEdicao( false );
+							setOkEdicao( false );
+							setNomeTextField( false );
+							setDeslocar1( false );
+							setDeslocar2( false );
+							setNovaLinhaColuna( false );
+							setNovaLinhaColunaMenu( false );
+							setExcluirLinhaColuna( false );
+							setExcluirLinhaColunaMenu( false );
+							setOrdenar( false );
+							setOrdenarMenu( false );
+							setImportar( false );
+							setImportarMenu( false );
+							setImportarDoModeloMenu( false );
+							setDestacar( false );
+							setDestacarMenu( false );
+						}// Modafoca
+					} catch( Exception e1 ){
+						e1.printStackTrace();
+					}
 				}
 			} );
 		
-		header = jT.getTableHeader();
-		header.addMouseListener( new MouseAdapter() { // adiciona listeners aos cabecalhos ----Serve pros nomes de colunas ------------header--
+			header = jT.getTableHeader();
+			header.addMouseListener( new MouseAdapter() { // adiciona listeners aos cabecalhos ----Serve pros nomes de colunas ------------header--
 				@Override
 				public void mouseClicked( MouseEvent e ) {
-					int coluna = header.columnAtPoint( e.getPoint() );
-					controle.setLinhaAtual( -1 );
-					if( coluna < 1 ){
-						coluna = 1;
-					}
-					controle.setColunaAtual( coluna );
-					
-					System.out.println( "Linha=" + ( controle.getLinhaAtual() ) + "   coluna= " + coluna );
-					
-					for( JTableCustomizado jTableCustomizado : matrizes ){
-						if( jTableCustomizado.getTableHeader() == e.getSource() ){
-							controle.setMatrizAtual( jTableCustomizado.getNome() );
-							System.out.println( "Matriz atual:::: " + jTableCustomizado.getNome() );
+					try{
+						int coluna = header.columnAtPoint( e.getPoint() );
+						controle.setLinhaAtual( -1 );
+						if( coluna < 1 ){
+							coluna = 1;
 						}
+						controle.setColunaAtual( coluna );
 						
-					}
-					
-					if( coluna > 0 ){
+						System.out.println( "Linha=" + ( controle.getLinhaAtual() ) + "   coluna= " + coluna );
+						
 						for( JTableCustomizado jTableCustomizado : matrizes ){
-							if( jTableCustomizado.getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
-								setNomeTextField( ( ( ModeloTabela ) jTableCustomizado.getModel() ).getMatriz().getTituloColuna( coluna ) );
+							if( jTableCustomizado.getTableHeader() == e.getSource() ){
+								controle.setMatrizAtual( jTableCustomizado.getNome() );
+								System.out.println( "Matriz atual:::: " + jTableCustomizado.getNome() );
 							}
 							
 						}
-						deslocar1.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/1leftarrow-24.png" ) ) );
-						deslocar1.setToolTipText( "Deslocar Coluna Para Esquerda" );
-						deslocar2.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/1rightarrow-24.png" ) ) );
-						deslocar2.setToolTipText( "Deslocar Coluna Para Direita" );
-						novaLinhaColuna.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/coluna 24.png" ) ) );
-						novaLinhaColuna.setToolTipText( "Nova Coluna" );
-						novaLinhaColunaMenu.setText( "Nova Coluna" );
-						nomeTextField.setToolTipText( "Nome da Coluna Selecionada" );
-						excluirLinhaColuna.setToolTipText( "Excluir Coluna" );
-						excluirLinhaColunaMenu.setText( "Excluir Coluna" );
 						
-						setCancelarEdicao( true );
-						setOkEdicao( true );
-						setNomeTextField( true );
-						setDeslocar1( true );
-						setDeslocar2( true );
-						setNovaLinhaColuna( true );
-						setNovaLinhaColunaMenu( true );
-						setExcluirLinhaColuna( true );
-						setExcluirLinhaColunaMenu( true );
-						setOrdenar( true );
-						setOrdenarMenu( true );
-						setImportar( true );
-						setImportarMenu( true );
-						setImportarDoModeloMenu( true );
-						setDestacar( true );
-						setDestacarMenu( true );
+						if( coluna > 0 ){
+							for( JTableCustomizado jTableCustomizado : matrizes ){
+								if( jTableCustomizado.getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
+									setNomeTextField( ( ( ModeloTabela ) jTableCustomizado.getModel() ).getMatriz().getTituloColuna( coluna ) );
+								}
+								
+							}
+							deslocar1.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/1leftarrow-24.png" ) ) );
+							deslocar1.setToolTipText( "Deslocar Coluna Para Esquerda" );
+							deslocar2.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/1rightarrow-24.png" ) ) );
+							deslocar2.setToolTipText( "Deslocar Coluna Para Direita" );
+							novaLinhaColuna.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/coluna 24.png" ) ) );
+							novaLinhaColuna.setToolTipText( "Nova Coluna" );
+							novaLinhaColunaMenu.setText( "Nova Coluna" );
+							nomeTextField.setToolTipText( "Nome da Coluna Selecionada" );
+							excluirLinhaColuna.setToolTipText( "Excluir Coluna" );
+							excluirLinhaColunaMenu.setText( "Excluir Coluna" );
+							
+							setCancelarEdicao( true );
+							setOkEdicao( true );
+							setNomeTextField( true );
+							setDeslocar1( true );
+							setDeslocar2( true );
+							setNovaLinhaColuna( true );
+							setNovaLinhaColunaMenu( true );
+							setExcluirLinhaColuna( true );
+							setExcluirLinhaColunaMenu( true );
+							setOrdenar( true );
+							setOrdenarMenu( true );
+							setImportar( true );
+							setImportarMenu( true );
+							setImportarDoModeloMenu( true );
+							setDestacar( true );
+							setDestacarMenu( true );
+						}
+					} catch( Exception e1 ){
+						e1.printStackTrace();
 					}
 					
 				}
