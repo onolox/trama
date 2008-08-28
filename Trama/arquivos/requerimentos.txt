@@ -1,18 +1,35 @@
-aaaaaaa
+Requisitos funcionais
 
-+Requisito 01
-+Requisito 02
-aaaaaaaaaaaaaaa
-+Requisito 03
-aaaaaaaaaaaaaaaaaa
-+Requisito 04
-aaaaaaaaaaaaaaaaaa
-+Requisito 05
-aaaa
-aaa
-aaa
++Criar novo projeto
 
-aa
++Fechar projeto
 
-a
-aa
++Salvar projeto
+
++Abrir Projeto
+
++Adicionar linha ou coluna
+
++Atualizar linha ou coluna
+
++Excluir linha ou coluna
+
++Ler arquivo do Netbeans
+
++Ler arquivo de texto simples
+
++Adicionar linhas ou colunas do modelo
+
++Sincronizar linhas ou colunas do modelo
+
++Sincronizar matriz dos modelos
++Adicionar Matriz
++Excluir Matriz
++Ordenar linhas ou colunas
++Ordenar Manualmente Linha ou coluna
++Destacar novos elementos
++Exportar como imagem
++Exportar como PDF
++Imprimir matriz
++Destacar elementos relacionados
++Manter um relacionamento

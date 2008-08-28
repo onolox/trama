@@ -141,15 +141,28 @@ public class ControleTela {
 	
 	public String criarNovoProjeto() {
 		String s = "ok";
-		controleProjeto = new ControleProjeto();
 		
-		tela.setSalvarProjeto( true );
-		tela.setNovaMatriz( true );
-		
-		tela.setSalvarProjetoMenu( true );
-		tela.setNovaMatrizMenu( true );
-		tela.setFecharProjetoMenu( true );
-		
+		if( controleProjeto == null ){
+			controleProjeto = new ControleProjeto();
+			
+			tela.setSalvarProjeto( true );
+			tela.setNovaMatriz( true );
+			
+			tela.setSalvarProjetoMenu( true );
+			tela.setNovaMatrizMenu( true );
+			tela.setFecharProjetoMenu( true );
+		} else{
+			int c = JOptionPane.showConfirmDialog( tela, "Deseja salvar o projeto atual?", "Salvar projeto atual", 0 );
+			
+			if( c == JOptionPane.YES_OPTION ){
+				s = controleProjeto.salvarProjeto( "vazio" );
+				if( s.equals( "sem nome" ) ){
+					s = JOptionPane.showInputDialog( tela, "Insira um nome para o projeto", "Deseja salvar o projeto?", 0 );
+					if( s != null ) s = controleProjeto.salvarProjeto( s );
+				}
+			}
+			controleProjeto = null;
+		}
 		return s;
 	}
 	
