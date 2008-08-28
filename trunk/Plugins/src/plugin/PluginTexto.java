@@ -30,7 +30,7 @@ public class PluginTexto implements PluginInterface {
 			while( scan.hasNext() ){
 				String s = scan.nextLine();
 				if( s.startsWith( "+" ) ){
-					l.add( s );
+					l.add( s.replace( "+", "" ) );
 				}
 			}
 		} catch( Exception e ){
