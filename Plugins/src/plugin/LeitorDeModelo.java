@@ -1,9 +1,7 @@
 package plugin;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.JarURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.Enumeration;
@@ -26,27 +24,30 @@ public class LeitorDeModelo {
 			PluginInterface cla = getClasseJar( li );
 			nE.put( cla.getNome(), cla.getExtensoes() );
 		}
-		
 		return nE;
 	}
 	
 	public LinkedList< String > getObjetos( String arquivo ) {
-		lista = new LinkedList< String >();
-		
-		lista = getClasseJar( arquivo ).getObjetos( arquivo );
-		
+		LinkedList< String > lista = new LinkedList< String >();
+		lista = getJars();
+		for( String li : lista ){
+			PluginInterface cla = getClasseJar( li );
+			LinkedList< String > l = cla.getExtensoes();
+			for( String s : l ){
+				if( arquivo.endsWith( s ) ){
+					lista = cla.getObjetos( arquivo );
+				}
+			}
+		}
 		return lista;
 	}
 	
-	public LinkedList< String > getJars() { // retorna uma lista de jars no diretorio
+	private LinkedList< String > getJars() { // retorna uma lista de jars no diretorio
 		LinkedList< String > l = new LinkedList< String >();
 		File f = new File( DIRBASE );
 		for( File fi : f.listFiles() ){
 			String s = fi.toString();
-			if( s.endsWith( ".jar" ) ){
-				l.add( s.replace( "\\", "/" ) );
-				// System.out.println( "Jar: " + s );
-			}
+			if( s.endsWith( ".jar" ) ) l.add( s.replace( "\\", "/" ) );
 		}
 		return l;
 	}
@@ -57,7 +58,7 @@ public class LeitorDeModelo {
 	 * @param arquivo jar a ser procurado.
 	 * @return uma instância da classe do jar.
 	 */
-	public PluginInterface getClasseJar( String arquivo ) {
+	private PluginInterface getClasseJar( String arquivo ) {
 		PluginInterface pl = null;
 		URLClassLoader load;
 		Class cl = null;
@@ -88,14 +89,9 @@ public class LeitorDeModelo {
 					}
 				}
 			}
-		} catch( MalformedURLException e ){
+		} catch( Exception e ){
 			e.printStackTrace();
-		} catch( IOException e ){
-			e.printStackTrace();
-		} catch( InstantiationException e ){
-			e.printStackTrace();
-		} catch( IllegalAccessException e ){
-			e.printStackTrace();
+			pl = null;
 		}
 		return pl;
 	}
