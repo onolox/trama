@@ -14,7 +14,7 @@ public class PluginNetbeans implements PluginInterface {
 	
 	@Override
 	public String getNome() {
-		return null;
+		return "Arquivos do Netbeans";
 	}
 	
 	@Override
