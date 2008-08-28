@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import Interface.PluginInterface;
 
 public class PluginNetbeans implements PluginInterface {
+	private String DIRBASE = "arquivos/";
 	
 	@Override
 	public LinkedList< String > getExtensoes() {
