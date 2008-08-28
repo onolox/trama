@@ -7,7 +7,9 @@ public class main {
 	 */
 	public static void main( String[] args ) {
 		LeitorDeModelo l = new LeitorDeModelo();
-		l.getClasseJar( "PluginTexto.jar" );
+		// System.out.println( l.getJars() );
+		System.out.println( l.getNomesExtensoes() );
+	// l.getClasseJar( "PluginTexto.jar" );
 	}
 	
 }

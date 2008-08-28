@@ -16,27 +16,36 @@ public class LeitorDeModelo {
 	private final String DIRBASE = "plugins/";
 	private LinkedList< String > lista;
 	
+	/**
+	 * @return
+	 */
 	public HashMap< String, LinkedList< String >> getNomesExtensoes() {
 		HashMap< String, LinkedList< String >> nE = new HashMap< String, LinkedList< String >>();
 		lista = getJars();
+		for( String li : lista ){
+			PluginInterface cla = getClasseJar( li );
+			nE.put( cla.getNome(), cla.getExtensoes() );
+		}
 		
 		return nE;
 	}
 	
 	public LinkedList< String > getObjetos( String arquivo ) {
-		lista = getJars();
+		lista = new LinkedList< String >();
 		
-		return null;
+		lista = getClasseJar( arquivo ).getObjetos( arquivo );
+		
+		return lista;
 	}
 	
-	private LinkedList< String > getJars() { // retorna uma lista de jars no diretorio
+	public LinkedList< String > getJars() { // retorna uma lista de jars no diretorio
 		LinkedList< String > l = new LinkedList< String >();
 		File f = new File( DIRBASE );
 		for( File fi : f.listFiles() ){
 			String s = fi.toString();
 			if( s.endsWith( ".jar" ) ){
-				l.add( s );
-				System.out.println( "Jar: " + s );
+				l.add( s.replace( "\\", "/" ) );
+				// System.out.println( "Jar: " + s );
 			}
 		}
 		return l;
@@ -53,7 +62,7 @@ public class LeitorDeModelo {
 		URLClassLoader load;
 		Class cl = null;
 		try{
-			URL url = new URL( "jar", "", "file:" + DIRBASE + arquivo + "!/" );
+			URL url = new URL( "jar", "", "file:" + arquivo + "!/" );
 			
 			JarURLConnection jar = ( JarURLConnection ) url.openConnection(); // abro o url pro jar
 			Enumeration arq = jar.getJarFile().entries(); // pego os arquivos que estao no jar
@@ -64,17 +73,19 @@ public class LeitorDeModelo {
 				String nome = object.toString();
 				
 				if( nome.endsWith( ".class" ) && !nome.contains( "PluginInterface.class" ) ){
+					
+					try{
+						cl = load.loadClass( nome.replace( ".class", "" ).replace( "/", "." ) );
+					} catch( ClassNotFoundException e ){
+						e.printStackTrace();
+					}
+					
 					Class cla[] = cl.getInterfaces();
-					for( int i = 0; i < cla.length; i++ ){
-						if( cla[ i ].getName().contains( "PluginInterface" ) ){
-							try{
-								cl = load.loadClass( nome.replace( ".class", "" ).replace( "/", "." ) );
-							} catch( ClassNotFoundException e ){
-								e.printStackTrace();
-							}
+					for( int j = 0; j < cla.length; j++ ){
+						if( cla[ j ].getName().contains( "PluginInterface" ) ){
+							pl = ( PluginInterface ) cl.newInstance();
 						}
 					}
-					pl = ( PluginInterface ) cl.newInstance();
 				}
 			}
 		} catch( MalformedURLException e ){
