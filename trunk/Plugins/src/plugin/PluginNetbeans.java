@@ -10,7 +10,8 @@ import java.util.regex.Pattern;
 import Interface.PluginInterface;
 
 /**
- * Classe utilizada para extrair os nomes dos objetos dos arquivos gerados pelo plugin UML do Netbeans 6.1.
+ * Classe utilizada para extrair os nomes dos objetos dos arquivos gerados pelo plugin UML do Netbeans 6.1. <br>
+ * Aviso importante: <b>É necessário o arquivo de projeto do Netbeans (extensão .etd) junto com os de diagrama (extensão .etlp).</b>
  * 
  * @author Fabio Marmitt
  */
