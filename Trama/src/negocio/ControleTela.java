@@ -76,7 +76,7 @@ public class ControleTela {
 		JFileChooser ch = new JFileChooser( "arquivos/" );
 		
 		try{
-			ch.setDialogTitle( "Importar Colunas" ); 
+			ch.setDialogTitle( "Importar Colunas" );
 			
 			for( final String str : nE.keySet() ){
 				ch.setFileFilter( new FileFilter() { // Filtro pra arquivos e diretorios
@@ -103,6 +103,7 @@ public class ControleTela {
 				
 				for( String str : lista )
 					controleProjeto.adicionarColuna( str, matrizAtual );
+				controleProjeto.setArquivoColuna( nomeArquivo, matrizAtual );
 			}
 		} catch( Exception e ){
 			e.printStackTrace();
@@ -155,6 +156,7 @@ public class ControleTela {
 				
 				for( String str : lista )
 					controleProjeto.adicionarLinha( str, matrizAtual );
+				controleProjeto.setArquivoLinha( nomeArquivo, matrizAtual );
 			}
 		} catch( Exception e ){
 			e.printStackTrace();
