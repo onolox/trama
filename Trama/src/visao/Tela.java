@@ -158,6 +158,12 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 		String s = "";
 		
 		controle.adicionarLinhasModelo();
+		for( JTableCustomizado j : matrizes ){
+			if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
+				ModeloTabela t = ( ModeloTabela ) j.getModel();
+				t.fireTableDataChanged();
+			}
+		}
 	}
 	
 	private void adicionarMatriz() {

@@ -8,8 +8,6 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-import negocio.leitor.Interface.PluginInterface;
-
 public class LeitorDeModelo {
 	private final String DIRBASE = "plugins/";
 	private LinkedList< String > lista;
@@ -21,25 +19,36 @@ public class LeitorDeModelo {
 		HashMap< String, LinkedList< String >> nE = new HashMap< String, LinkedList< String >>();
 		lista = getJars();
 		for( String li : lista ){
-			PluginInterface cla = getClasseJar( li );
-			nE.put( cla.getNome(), cla.getExtensoes() );
+			try{
+				Class cl = getClasseJar( li );
+				String nome = ( String ) cl.getMethod( "getNome", new Class[] {} ).invoke( cl.newInstance(), null );
+				LinkedList< String > ext = ( LinkedList< String > ) cl.getMethod( "getExtensoes", new Class[] {} ).invoke( cl.newInstance(), null );
+				nE.put( nome, ext );
+			} catch( Exception e ){
+				e.printStackTrace();
+			}
 		}
 		return nE;
 	}
 	
 	public LinkedList< String > getObjetos( String arquivo ) {
-		LinkedList< String > lista = new LinkedList< String >();
+		LinkedList< String > lista = null;
+		LinkedList< String > lista2 = null;
 		lista = getJars();
-		for( String li : lista ){
-			PluginInterface cla = getClasseJar( li );
-			LinkedList< String > l = cla.getExtensoes();
-			for( String s : l ){
-				if( arquivo.endsWith( s ) ){
-					lista = cla.getObjetos( arquivo );
+		try{
+			for( String li : lista ){
+				Class cl = getClasseJar( li );
+				LinkedList< String > l = ( LinkedList< String > ) cl.getMethod( "getExtensoes", new Class[] {} ).invoke( cl.newInstance(), null );
+				for( String s : l ){
+					if( arquivo.endsWith( s ) ){
+						lista2 = ( LinkedList< String > ) cl.getMethod( "getObjetos", new Class[] { String.class } ).invoke( cl.newInstance(), arquivo );
+					}
 				}
 			}
+		} catch( Exception e ){
+			e.printStackTrace();
 		}
-		return lista;
+		return lista2;
 	}
 	
 	private LinkedList< String > getJars() { // retorna uma lista de jars no diretorio
@@ -58,8 +67,7 @@ public class LeitorDeModelo {
 	 * @param arquivo jar a ser procurado.
 	 * @return uma instância da classe do jar.
 	 */
-	private PluginInterface getClasseJar( String arquivo ) {
-		PluginInterface pl = null;
+	private Class getClasseJar( String arquivo ) {
 		URLClassLoader load;
 		Class cl = null;
 		try{
@@ -77,22 +85,20 @@ public class LeitorDeModelo {
 					
 					try{
 						cl = load.loadClass( nome.replace( ".class", "" ).replace( "/", "." ) );
+						
 					} catch( ClassNotFoundException e ){
 						e.printStackTrace();
 					}
 					
 					Class cla[] = cl.getInterfaces();
-					for( int j = 0; j < cla.length; j++ ){
-						if( cla[ j ].getName().contains( "PluginInterface" ) ){
-							pl = ( PluginInterface ) cl.newInstance();
-						}
-					}
+					for( int j = 0; j < cla.length; j++ )
+						if( cla[ j ].getName().contains( "PluginInterface" ) ) return cl;
 				}
 			}
 		} catch( Exception e ){
 			e.printStackTrace();
-			pl = null;
+			cl = null;
 		}
-		return pl;
+		return cl;
 	}
 }

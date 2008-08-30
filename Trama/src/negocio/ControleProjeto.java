@@ -57,6 +57,13 @@ public class ControleProjeto {
 	public void adicionarColunasModelo() {
 	}
 	
+	/**
+	 * Método usado para inserir uma linha em uma matriz.
+	 * 
+	 * @param nome Nome da linha
+	 * @param nomeMatriz Nome da matriz
+	 * @return Estado da transação
+	 */
 	public String adicionarLinha( String nome, String nomeMatriz ) {
 		String s = "ok";
 		
@@ -341,6 +348,38 @@ public class ControleProjeto {
 	}
 	
 	public LinkedList< String > triagemObjetos( String nomeMatriz, LinkedList< String > lista ) {
-		return null;
+		LinkedList< String > l = ( LinkedList< String > ) lista.clone();
+		
+		try{
+			for( Matriz matriz : matrizes ){
+				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
+					for( String nom : lista ){
+						for( int i = 0; i < matriz.getQLinhas(); i++ ){
+							if( matriz.getTituloLinha( i ).equals( nom ) ) l.remove( nom );
+						}
+					}
+				}
+			}
+		} catch( Exception e ){
+			e.printStackTrace();
+			l = null;
+		}
+		return l;
 	}
 }
+// //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
