@@ -58,11 +58,11 @@ public class ControleProjeto {
 	}
 	
 	/**
-	 * Método usado para inserir uma linha em uma matriz.
+	 * Mï¿½todo usado para inserir uma linha em uma matriz.
 	 * 
 	 * @param nome Nome da linha
 	 * @param nomeMatriz Nome da matriz
-	 * @return Estado da transação
+	 * @return Estado da transaï¿½ï¿½o
 	 */
 	public String adicionarLinha( String nome, String nomeMatriz ) {
 		String s = "ok";
@@ -169,7 +169,7 @@ public class ControleProjeto {
 			for( Matriz matriz : matrizes ){
 				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
 					if( matriz.getQColunas() < 3 ){
-						s = "A matriz não pode ter menos de uma coluna";
+						s = "A matriz nï¿½o pode ter menos de uma coluna";
 					} else{
 						matriz.removeColuna( coluna );
 					}
@@ -250,7 +250,6 @@ public class ControleProjeto {
 			e.printStackTrace();
 			s = "Erro";
 		}
-		
 		return s;
 	}
 	
@@ -266,7 +265,6 @@ public class ControleProjeto {
 			e.printStackTrace();
 			s = "Erro";
 		}
-		
 		return s;
 	}
 	
@@ -347,15 +345,21 @@ public class ControleProjeto {
 	public void sincronizarMatriz() {
 	}
 	
-	public LinkedList< String > triagemObjetos( String nomeMatriz, LinkedList< String > lista ) {
+	public LinkedList< String > triagemObjetos( String nomeMatriz, String tipo, LinkedList< String > lista ) {
 		LinkedList< String > l = ( LinkedList< String > ) lista.clone();
 		
 		try{
 			for( Matriz matriz : matrizes ){
 				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
 					for( String nom : lista ){
-						for( int i = 0; i < matriz.getQLinhas(); i++ ){
-							if( matriz.getTituloLinha( i ).equals( nom ) ) l.remove( nom );
+						if( tipo.equals( "linha" ) ){
+							for( int i = 0; i < matriz.getQLinhas(); i++ ){
+								if( matriz.getTituloLinha( i ).equals( nom ) ) l.remove( nom );
+							}
+						} else{
+							for( int i = 0; i < matriz.getQColunas(); i++ ){
+								if( matriz.getTituloColuna( i ).equals( nom ) ) l.remove( nom );
+							}
 						}
 					}
 				}
@@ -367,19 +371,3 @@ public class ControleProjeto {
 		return l;
 	}
 }
-// //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//

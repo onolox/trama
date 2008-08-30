@@ -27,9 +27,6 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	private LinkedList< JTableCustomizado > matrizes;
 	private LinkedList< JPanel > JP;
 	
-	/**
-	 * áéãõç
-	 */
 	public Tela() {
 		initComponents();
 		setLocationRelativeTo( null );
@@ -130,7 +127,28 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	}
 	
 	private void adicionarColunasModelo() {
-		
+		controle.adicionarColunasModelo();
+		for( int i = 0; i < matrizes.size(); i++ ){
+			if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
+				JTableCustomizado jt = matrizes.remove( i );
+				ModeloTabela mod = ( ModeloTabela ) jt.getModel();
+				JPanel jpanel = JP.get( i );
+				jpanel.removeAll();
+				JTableCustomizado cus = new JTableCustomizado( mod );
+				adicionarListener( cus );
+				matrizes.add( i, cus );
+				JScrollPane js = new JScrollPane();
+				js.setViewportView( cus );
+				
+				GroupLayout jPanelLayout = new GroupLayout( jpanel );
+				jpanel.setLayout( jPanelLayout );
+				jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
+				jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
+				jpanel.add( js );
+				jpanel.updateUI();
+				jpanel.repaint();
+			}
+		}
 	}
 	
 	private void adicionarLinha() {
@@ -158,9 +176,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	}
 	
 	private void adicionarLinhasModelo() {
-		String s = "";
-		
-		controle.adicionarLinhasModelo();
+			controle.adicionarLinhasModelo();
 		for( JTableCustomizado j : matrizes ){
 			if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
 				ModeloTabela t = ( ModeloTabela ) j.getModel();
@@ -258,7 +274,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	private void atualizarColuna() {
 		try{
 			if( nomeTextField.getText().equals( "" ) ){
-				JOptionPane.showMessageDialog( this, "O nome n�o pode ser vazio", "Erro no nome", 0 );
+				JOptionPane.showMessageDialog( this, "O nome não pode ser vazio", "Erro no nome", 0 );
 				cancelarEdicao.doClick();
 				
 			} else{
@@ -281,7 +297,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	private void atualizarLinha() {
 		try{
 			if( nomeTextField.getText().equals( "" ) ){
-				JOptionPane.showMessageDialog( this, "O nome n�o pode ser vazio", "Erro no nome", 0 );
+				JOptionPane.showMessageDialog( this, "O nome não pode ser vazio", "Erro no nome", 0 );
 				cancelarEdicao.doClick();
 			} else{
 				String s = controle.atualizarLinha( nomeTextField.getText().replace( "|||", "" ) );
