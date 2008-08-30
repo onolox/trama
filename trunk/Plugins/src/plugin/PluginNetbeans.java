@@ -11,7 +11,7 @@ import Interface.PluginInterface;
 
 /**
  * Classe utilizada para extrair os nomes dos objetos dos arquivos gerados pelo plugin UML do Netbeans 6.1. <br>
- * Aviso importante: <b>… necess·rio o arquivo de projeto do Netbeans (extens„o .etd) junto com os de diagrama (extens„o .etlp).</b>
+ * Aviso importante: <b>√â necess√°rio o arquivo de projeto do Netbeans (extens√£o .etd) junto com os de diagrama (extens√£o .etlp).</b>
  * 
  * @author Fabio Marmitt
  */
@@ -19,9 +19,9 @@ public class PluginNetbeans implements PluginInterface {
 	private String DIRBASE = "arquivos/";
 	
 	/**
-	 * MÈtodo utilizado para buscar os nomes das extensıes que este plugin pode trabalhar utilizadas pelo Netbeans.
+	 * M√©todo utilizado para buscar os nomes das extensÔøΩes que este plugin pode trabalhar utilizadas pelo Netbeans.
 	 * 
-	 * @return a lista com os nomes das extensıes.
+	 * @return a lista com os nomes das extens√µes.
 	 */
 	@Override
 	public LinkedList< String > getExtensoes() {
@@ -31,7 +31,7 @@ public class PluginNetbeans implements PluginInterface {
 	}
 	
 	/**
-	 * MÈtodo usado para se conhecer o nome dos arquivos que este plugin pode trabalhar.
+	 * M√©todo usado para se conhecer o nome dos arquivos que este plugin pode trabalhar.
 	 * 
 	 * @return o nome.
 	 */
@@ -41,9 +41,9 @@ public class PluginNetbeans implements PluginInterface {
 	}
 	
 	/**
-	 * Metodo usado para extrair os objetos dos arquivos do Netbeans.
+	 * M√©todo usado para extrair os objetos dos arquivos do Netbeans.
 	 * 
-	 * @return lista de objetos extraÌdos.
+	 * @return lista de objetos extra√≠dos.
 	 */
 	@Override
 	public LinkedList< String > getObjetos( String arquivo ) {

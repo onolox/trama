@@ -15,9 +15,9 @@ public class PluginTexto implements PluginInterface {
 	private String DIRBASE = "arquivos/";
 	
 	/**
-	 * MÈtodo utilizado para buscar os nomes das extensıes que este plugin pode trabalhar.
+	 * M√©todo utilizado para buscar os nomes das extens√µes que este plugin pode trabalhar.
 	 * 
-	 * @return a lista com os nomes das extensıes.
+	 * @return a lista com os nomes das extens√µes.
 	 */
 	@Override
 	public LinkedList< String > getExtensoes() {
@@ -27,7 +27,7 @@ public class PluginTexto implements PluginInterface {
 	}
 	
 	/**
-	 * MÈtodo usado para se conhecer o nome dos arquivos que este plugin pode trabalhar.
+	 * M√©todo usado para se conhecer o nome dos arquivos que este plugin pode trabalhar.
 	 * 
 	 * @return o nome.
 	 */
@@ -37,9 +37,9 @@ public class PluginTexto implements PluginInterface {
 	}
 	
 	/**
-	 * Metodo usado para extrair os objetos dos arquivos de texto.
+	 * M√©todo usado para extrair os objetos dos arquivos de texto.
 	 * 
-	 * @return lista de objetos extraÌdos.
+	 * @return lista de objetos extra√≠dos.
 	 */
 	@Override
 	public LinkedList< String > getObjetos( String arquivo ) {

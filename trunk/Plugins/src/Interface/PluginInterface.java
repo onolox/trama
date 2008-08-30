@@ -3,29 +3,29 @@ package Interface;
 import java.util.LinkedList;
 
 /**
- * Interface necessária para qualquer plugin que deseje funcionar com o aplicativo Trama.
+ * Interface necessÃ¡ria para qualquer plugin que deseje funcionar com o aplicativo Trama.
  * 
  * @author Fabio Marmitt
  */
 public interface PluginInterface {
 	/**
-	 * Método utilizado para buscar os nomes das extensões que o plugin pode trabalhar.
+	 * MÃ©todo utilizado para buscar os nomes das extensï¿½es que o plugin pode trabalhar.
 	 * 
-	 * @return a lista com os nomes das extensões.
+	 * @return a lista com os nomes das extensï¿½es.
 	 */
 	public String getNome();
 	
 	/**
-	 * Método usado para se conhecer o nome dos arquivos que o plugin pode trabalhar.
+	 * MÃ©todo usado para se conhecer o nome dos arquivos que o plugin pode trabalhar.
 	 * 
 	 * @return o nome.
 	 */
 	public LinkedList< String > getExtensoes();
 	
 	/**
-	 * Metodo usado para extrair os objetos dos arquivos.
+	 * MÃ©todo usado para extrair os objetos dos arquivos.
 	 * 
-	 * @return lista de objetos extraídos.
+	 * @return lista de objetos extraÃ­dos.
 	 */
 	public LinkedList< String > getObjetos( String arquivo );
 }
