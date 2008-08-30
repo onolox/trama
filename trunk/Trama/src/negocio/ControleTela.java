@@ -74,6 +74,12 @@ public class ControleTela {
 		return null;
 	}
 	
+	/**
+	 * Método usado para inserir uma linha na matriz atual.
+	 * 
+	 * @param nome nome da linha a adicionar
+	 * @return o estado da transação
+	 */
 	public String adicionarLinha( String nome ) {
 		String s = "ok";
 		s = controleProjeto.adicionarLinha( nome, matrizAtual );
@@ -103,6 +109,17 @@ public class ControleTela {
 						}
 					} );
 			}
+			
+			int i = ch.showSaveDialog( tela );
+			if( i == JFileChooser.APPROVE_OPTION ){
+				File fil = ch.getSelectedFile();
+				String nomeArquivo = fil.getName();
+				lista = leitorDeModelo.getObjetos( nomeArquivo );
+			    lista = controleProjeto.triagemObjetos( matrizAtual, lista );
+				
+			    for( String str : lista )
+					controleProjeto.adicionarLinha( str, matrizAtual );
+			}
 		} catch( Exception e ){
 			e.printStackTrace();
 		}
@@ -123,10 +140,7 @@ public class ControleTela {
 		return m;
 	}
 	
-	/**
-	 * @param para para
-	 */
-	public String alterarPosicaoColuna( String para ) {
+		public String alterarPosicaoColuna( String para ) {
 		String s = "ok";
 		if( para.equalsIgnoreCase( "esq" ) ){
 			s = controleProjeto.alterarPosicaoColuna( colunaAtual - 1, colunaAtual, matrizAtual );
