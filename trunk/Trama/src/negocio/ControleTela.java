@@ -70,15 +70,51 @@ public class ControleTela {
 		return s;
 	}
 	
-	public LinkedList< String > adicionarColunasModelo( String nome ) {
-		return null;
+	public LinkedList< String > adicionarColunasModelo() {
+		LinkedList< String > lista = null;
+		final HashMap< String, LinkedList< String >> nE = leitorDeModelo.getNomesExtensoes();
+		JFileChooser ch = new JFileChooser( "arquivos/" );
+		
+		try{
+			ch.setDialogTitle( "Importar Colunas" );
+			
+			for( final String str : nE.keySet() ){
+				ch.setFileFilter( new FileFilter() { // Filtro pra arquivos e diretorios
+						@Override
+						public boolean accept( File f ) {
+							for( String s : nE.get( str ) ){
+								if( f.getName().endsWith( s ) ) return true;
+							}
+							return false;
+						}
+						@Override
+						public String getDescription() {
+							return str;
+						}
+					} );
+			}
+			
+			int i = ch.showSaveDialog( tela );
+			if( i == JFileChooser.APPROVE_OPTION ){
+				File fil = ch.getSelectedFile();
+				String nomeArquivo = fil.getName();
+				lista = leitorDeModelo.getObjetos( nomeArquivo );
+				lista = controleProjeto.triagemObjetos( matrizAtual, "coluna", lista );
+				
+				for( String str : lista )
+					controleProjeto.adicionarColuna( str, matrizAtual );
+			}
+		} catch( Exception e ){
+			e.printStackTrace();
+		}
+		return lista;
 	}
 	
 	/**
-	 * Método usado para inserir uma linha na matriz atual.
+	 * MÃ©todo usado para inserir uma linha na matriz atual.
 	 * 
 	 * @param nome nome da linha a adicionar
-	 * @return o estado da transação
+	 * @return o estado da transaÃ§Ã£o
 	 */
 	public String adicionarLinha( String nome ) {
 		String s = "ok";
@@ -115,9 +151,9 @@ public class ControleTela {
 				File fil = ch.getSelectedFile();
 				String nomeArquivo = fil.getName();
 				lista = leitorDeModelo.getObjetos( nomeArquivo );
-			    lista = controleProjeto.triagemObjetos( matrizAtual, lista );
+				lista = controleProjeto.triagemObjetos( matrizAtual, "linha", lista );
 				
-			    for( String str : lista )
+				for( String str : lista )
 					controleProjeto.adicionarLinha( str, matrizAtual );
 			}
 		} catch( Exception e ){
@@ -140,7 +176,7 @@ public class ControleTela {
 		return m;
 	}
 	
-		public String alterarPosicaoColuna( String para ) {
+	public String alterarPosicaoColuna( String para ) {
 		String s = "ok";
 		if( para.equalsIgnoreCase( "esq" ) ){
 			s = controleProjeto.alterarPosicaoColuna( colunaAtual - 1, colunaAtual, matrizAtual );
