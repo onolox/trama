@@ -556,6 +556,9 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                                          setImportarDoModeloMenu( true );
                                          setDestacar( true );
                                          setDestacarMenu( true );
+                                         setSincronizar( true );
+                                         setSincronizarMatrizMenu( true );
+                                         setSincronizarMenu( true );
                                      } else { // Aqui é quando se clica nas ---------------------------------------------------------células ---------------------
 
                                          controle.setDado();
@@ -579,6 +582,9 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                                          setImportarDoModeloMenu( false );
                                          setDestacar( false );
                                          setDestacarMenu( false );
+                                         setSincronizar( false );
+                                         setSincronizarMatrizMenu( false );
+                                         setSincronizarMenu( false );
                                      }// Modafoca
                                  } catch ( Exception e1 ) {
                                      e1.printStackTrace();
@@ -640,6 +646,9 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                                              setImportarDoModeloMenu( true );
                                              setDestacar( true );
                                              setDestacarMenu( true );
+                                             setSincronizar( false );
+                                             setSincronizarMatrizMenu( false );
+                                             setSincronizarMenu( false );
                                          }
                                      } catch ( Exception e1 ) {
                                          e1.printStackTrace();
