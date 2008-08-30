@@ -1,0 +1,35 @@
+Requisitos funcionais
+
++Criar novo projeto
+
++Fechar projeto
+
++Salvar projeto
+
++Abrir Projeto
+
++Adicionar linha ou coluna
+
++Atualizar linha ou coluna
+
++Excluir linha ou coluna
+
++Ler arquivo do Netbeans
+
++Ler arquivo de texto simples
+
++Adicionar linhas ou colunas do modelo
+
++Sincronizar linhas ou colunas do modelo
+
++Sincronizar matriz dos modelos
++Adicionar Matriz
++Excluir Matriz
++Ordenar linhas ou colunas
++Ordenar Manualmente Linha ou coluna
++Destacar novos elementos
++Exportar como imagem
++Exportar como PDF
++Imprimir matriz
++Destacar elementos relacionados
++Manter um relacionamento
