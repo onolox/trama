@@ -76,7 +76,7 @@ public class ControleTela {
 		JFileChooser ch = new JFileChooser( "arquivos/" );
 		
 		try{
-			ch.setDialogTitle( "Importar Colunas" );
+			ch.setDialogTitle( "Importar Colunas" ); 
 			
 			for( final String str : nE.keySet() ){
 				ch.setFileFilter( new FileFilter() { // Filtro pra arquivos e diretorios
