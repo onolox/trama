@@ -1,9 +1,12 @@
 package negocio;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.LinkedList;
 
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileFilter;
 
 import negocio.leitor.LeitorDeModelo;
 import visao.ModeloTabela;
@@ -77,10 +80,34 @@ public class ControleTela {
 		return s;
 	}
 	
-	public LinkedList< String > adicionarLinhasModelo( String nome ) {
-		return null;
+	public LinkedList< String > adicionarLinhasModelo() {
+		LinkedList< String > lista = null;
+		final HashMap< String, LinkedList< String >> nE = leitorDeModelo.getNomesExtensoes();
+		JFileChooser ch = new JFileChooser( "arquivos/" );
+		
+		try{
+			ch.setDialogTitle( "Importar Linhas" );
+			
+			for( final String str : nE.keySet() ){
+				ch.setFileFilter( new FileFilter() { // Filtro pra arquivos e diretorios
+						@Override
+						public boolean accept( File f ) {
+							for( String s : nE.get( str ) ){
+								if( f.getName().endsWith( s ) ) return true;
+							}
+							return false;
+						}
+						@Override
+						public String getDescription() {
+							return str;
+						}
+					} );
+			}
+		} catch( Exception e ){
+			e.printStackTrace();
+		}
+		return lista;
 	}
-	
 	public ModeloTabela adicionarMatriz( String nome ) {
 		ModeloTabela m = controleProjeto.adicionarMatriz( nome );
 		tela.setExcluirMatriz( true );

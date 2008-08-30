@@ -127,6 +127,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	}
 	
 	private void adicionarColunasModelo() {
+		
 	}
 	
 	private void adicionarLinha() {
@@ -154,6 +155,9 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	}
 	
 	private void adicionarLinhasModelo() {
+		String s = "";
+		
+		controle.adicionarLinhasModelo();
 	}
 	
 	private void adicionarMatriz() {
