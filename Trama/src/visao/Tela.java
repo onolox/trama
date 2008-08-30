@@ -27,6 +27,9 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	private LinkedList< JTableCustomizado > matrizes;
 	private LinkedList< JPanel > JP;
 	
+	/**
+	 * Ã¡Ã©Ã£ÃµÃ§
+	 */
 	public Tela() {
 		initComponents();
 		setLocationRelativeTo( null );
@@ -180,7 +183,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 				for( JTableCustomizado jtab : matrizes ){
 					if( s.equalsIgnoreCase( jtab.getNome() ) ){
 						bol = true;
-						s = JOptionPane.showInputDialog( this, "Nome já existente, insira outro nome", "Adicionar Matriz", JOptionPane.QUESTION_MESSAGE );
+						s = JOptionPane.showInputDialog( this, "Nome jï¿½ existente, insira outro nome", "Adicionar Matriz", JOptionPane.QUESTION_MESSAGE );
 					}
 				}
 			}
@@ -255,7 +258,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	private void atualizarColuna() {
 		try{
 			if( nomeTextField.getText().equals( "" ) ){
-				JOptionPane.showMessageDialog( this, "O nome não pode ser vazio", "Erro no nome", 0 );
+				JOptionPane.showMessageDialog( this, "O nome nï¿½o pode ser vazio", "Erro no nome", 0 );
 				cancelarEdicao.doClick();
 				
 			} else{
@@ -278,7 +281,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	private void atualizarLinha() {
 		try{
 			if( nomeTextField.getText().equals( "" ) ){
-				JOptionPane.showMessageDialog( this, "O nome não pode ser vazio", "Erro no nome", 0 );
+				JOptionPane.showMessageDialog( this, "O nome nï¿½o pode ser vazio", "Erro no nome", 0 );
 				cancelarEdicao.doClick();
 			} else{
 				String s = controle.atualizarLinha( nomeTextField.getText().replace( "|||", "" ) );
@@ -527,7 +530,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 							setImportarDoModeloMenu( true );
 							setDestacar( true );
 							setDestacarMenu( true );
-						} else{ // Aqui é quando se clica nas ---------------------------------------------------------células ---------------------
+						} else{ // Aqui ï¿½ quando se clica nas ---------------------------------------------------------cï¿½lulas ---------------------
 						
 							controle.setDado();
 							( ( ModeloTabela ) jT.getModel() ).fireTableDataChanged();
@@ -775,7 +778,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 		jToolBar2.add( jSeparator4 );
 		
 		cancelarEdicao.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/delete.gif" ) ) ); // NOI18N
-		cancelarEdicao.setToolTipText( "Cancelar Edição" );
+		cancelarEdicao.setToolTipText( "Cancelar EdiÃ§Ã£o" );
 		cancelarEdicao.setEnabled( false );
 		cancelarEdicao.setFocusable( false );
 		cancelarEdicao.setHorizontalTextPosition( javax.swing.SwingConstants.CENTER );
@@ -784,7 +787,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 		cancelarEdicao.addActionListener( this );
 		
 		okEdicao.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/agt_action_success-26.png" ) ) ); // NOI18N
-		okEdicao.setToolTipText( "Confirmar Edição" );
+		okEdicao.setToolTipText( "Confirmar EdiÃ§Ã£o" );
 		okEdicao.setEnabled( false );
 		okEdicao.setFocusable( false );
 		okEdicao.setHorizontalTextPosition( javax.swing.SwingConstants.CENTER );
