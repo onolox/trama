@@ -43,10 +43,8 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
             ch.setFileFilter( new FileFilter() { // Filtro pra xml e diretorios
                               @Override
                               public boolean accept( File f ) {
-                                  if ( f.getName().endsWith( "xml" ) || f.isDirectory() ) {
-                                      return true;
-                                  }
-                                  return false;
+                                  if ( f.getName().endsWith( "xml" ) || f.isDirectory() )    return true;
+                          return false;
                               }
 
                               @Override
@@ -94,9 +92,8 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
         String s = "";
         try {
             s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a coluna", "Adicionar Coluna", JOptionPane.QUESTION_MESSAGE );
-            if ( s.equalsIgnoreCase( "" ) ) {
+            if ( s.equalsIgnoreCase( "" ) ) 
                 s = "coluna " + controle.getColunaAtual();
-            }
             s = controle.adicionarColuna( s );
 
             if ( !s.equalsIgnoreCase( "ok" ) ) {
@@ -126,8 +123,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
         } catch ( Exception e ) {
             e.printStackTrace();
         }
-
-    }
+   }
 
     private void adicionarColunasModelo() {
         controle.adicionarColunasModelo();
@@ -264,9 +260,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                 JOptionPane.showMessageDialog( this, s, "Erro", 1 );
             } else {
                 for ( JTableCustomizado j : matrizes ) {
-                    if ( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ) {
-                        j.updateUI();
-                    }
+                    if ( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) )          j.updateUI();
                 }
             }
         } catch ( Exception e ) {
@@ -322,10 +316,8 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 
     private void criarNovoProjeto() {
         String s = controle.criarNovoProjeto();
-        if ( !s.equalsIgnoreCase( "ok" ) ) {
-            JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-        }
-    }
+        if ( !s.equalsIgnoreCase( "ok" ) )             JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+            }
 
     private void destacarElementos() {
         controle.destacarElementos();
@@ -340,9 +332,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
                         matrizes.remove( i );
                         String s = controle.excluirMatriz();
                         jTabbedPane1.remove( i );
-                        if ( !s.equalsIgnoreCase( "ok" ) ) {
-                            JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-                        }
+                        if ( !s.equalsIgnoreCase( "ok" ) )                             JOptionPane.showMessageDialog( this, s, "Erro", 1 );
                     }
                 }
             }
@@ -490,10 +480,8 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
             s = JOptionPane.showInputDialog( this, "Insira um nome para o projeto", "Nome do projeto", 0 );
 
             s = controle.salvarProjeto( s );
-            if ( s.equals( "sem nome" ) ) {
-                salvarProjeto();
-            }
-        }
+            if ( s.equals( "sem nome" ) )               salvarProjeto();
+                    }
     }
 
     private void sincronizarColuna() {
