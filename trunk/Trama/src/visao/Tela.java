@@ -80,8 +80,8 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 					matrizes.add( jT );
 					jTabbedPane1.add( j );
 				}
-			jTabbedPane1.repaint();
-			jTabbedPane1.revalidate();
+				jTabbedPane1.repaint();
+				jTabbedPane1.revalidate();
 			}
 		} catch( Exception e ){
 			e.printStackTrace();
@@ -558,8 +558,8 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 				}
 			} );
 		
-			header = jT.getTableHeader();
-			header.addMouseListener( new MouseAdapter() { // adiciona listeners aos cabecalhos ----Serve pros nomes de colunas ------------header--
+		header = jT.getTableHeader();
+		header.addMouseListener( new MouseAdapter() { // adiciona listeners aos cabecalhos ----Serve pros nomes de colunas ------------header--
 				@Override
 				public void mouseClicked( MouseEvent e ) {
 					try{
@@ -668,7 +668,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 		salvarImagemMenu = new javax.swing.JMenuItem();
 		imprimirMenu = new javax.swing.JMenuItem();
 		jSeparator7 = new javax.swing.JSeparator();
-		jMenuItem1 = new javax.swing.JMenuItem();
+		sairMenu = new javax.swing.JMenuItem();
 		jMenu2 = new javax.swing.JMenu();
 		novaMatrizMenu = new javax.swing.JMenuItem();
 		sincronizarMatrizMenu = new javax.swing.JMenuItem();
@@ -775,7 +775,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 		jToolBar2.add( jSeparator4 );
 		
 		cancelarEdicao.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/delete.gif" ) ) ); // NOI18N
-		cancelarEdicao.setToolTipText( "Cancelar EdiÃ§Ã£o" );
+		cancelarEdicao.setToolTipText( "Cancelar Edição" );
 		cancelarEdicao.setEnabled( false );
 		cancelarEdicao.setFocusable( false );
 		cancelarEdicao.setHorizontalTextPosition( javax.swing.SwingConstants.CENTER );
@@ -784,7 +784,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 		cancelarEdicao.addActionListener( this );
 		
 		okEdicao.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/agt_action_success-26.png" ) ) ); // NOI18N
-		okEdicao.setToolTipText( "Confirmar EdiÃ§Ã£o" );
+		okEdicao.setToolTipText( "Confirmar Edição" );
 		okEdicao.setEnabled( false );
 		okEdicao.setFocusable( false );
 		okEdicao.setHorizontalTextPosition( javax.swing.SwingConstants.CENTER );
@@ -984,8 +984,13 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 		imprimirMenu.addActionListener( this );
 		jMenu1.add( jSeparator7 );
 		
-		jMenuItem1.setText( "Sair" );
-		jMenu1.add( jMenuItem1 );
+		sairMenu.setText( "Sair" );
+		sairMenu.addActionListener( new ActionListener() {
+			public void actionPerformed( ActionEvent e ) {
+				System.exit( 0 );
+			}
+		} );
+		jMenu1.add( sairMenu );
 		
 		jMenuBar1.add( jMenu1 );
 		
@@ -1162,7 +1167,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	private javax.swing.JMenu jMenu3;
 	private javax.swing.JMenu jMenu5;
 	private javax.swing.JMenuBar jMenuBar1;
-	private javax.swing.JMenuItem jMenuItem1;
+	private javax.swing.JMenuItem sairMenu;
 	private javax.swing.JPanel jPanel1;
 	private javax.swing.JPanel jPanel2;
 	private javax.swing.JToolBar.Separator jSeparator1;
