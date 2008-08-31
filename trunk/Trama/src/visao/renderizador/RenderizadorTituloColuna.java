@@ -27,15 +27,12 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 	public Component getTableCellRendererComponent( JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column ) {
 		
 		JLabel label = new JLabel();
+		label.setOpaque( true );
 		
 		if( !value.toString().startsWith( "|||" ) ){
-			label.setHorizontalAlignment( CENTER );
-			label.setOpaque( true );
 			label.setBackground( UIManager.getDefaults().getColor( "Button.light" ) );
 			label.setBorder( new javax.swing.border.SoftBevelBorder( BevelBorder.RAISED ) );
 		} else{
-			label.setHorizontalAlignment( CENTER );
-			label.setOpaque( true );
 			label.setBackground( new Color( 244, 103, 84 ) );
 			label.setBorder( new SoftBevelBorder( BevelBorder.RAISED ) );
 		}
