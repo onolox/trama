@@ -499,6 +499,13 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 	}
 	
 	private void resetarDestaque() {
+		controle.resetarDestaque();
+		for( JTableCustomizado j : matrizes ){
+			if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
+				ModeloTabela t = ( ModeloTabela ) j.getModel();
+				t.fireTableDataChanged();
+			}
+		}
 	}
 	
 	private void salvarProjeto() {
@@ -583,6 +590,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 							setSincronizar( true );
 							setSincronizarMatrizMenu( true );
 							setSincronizarMenu( true );
+							setResetarCamposNovosMenu( true );
 						} else{ // Aqui é quando se clica nas ---------------------------------------------------------células ---------------------
 						
 							controle.setDado();
@@ -609,6 +617,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 							setSincronizar( false );
 							setSincronizarMatrizMenu( false );
 							setSincronizarMenu( false );
+							setResetarCamposNovosMenu( false );
 						}// Modafoca
 					} catch( Exception e1 ){
 						e1.printStackTrace();
@@ -670,9 +679,10 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 							setImportarDoModeloMenu( true );
 							setDestacar( true );
 							setDestacarMenu( true );
-							setSincronizar( false );
-							setSincronizarMatrizMenu( false );
-							setSincronizarMenu( false );
+							setSincronizar( true );
+							setSincronizarMatrizMenu( true );
+							setSincronizarMenu( true );
+							setResetarCamposNovosMenu( true );
 						}
 					} catch( Exception e1 ){
 						e1.printStackTrace();
