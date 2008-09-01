@@ -487,7 +487,7 @@ public class Tela extends javax.swing.JFrame implements ActionListener {
 				JOptionPane.showMessageDialog( this, s, "Erro", 1 );
 			}
 			for( JTableCustomizado j : matrizes ){
-				if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
+				if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){ 
 					ModeloTabela t = ( ModeloTabela ) j.getModel();
 					t.fireTableDataChanged();
 				}
