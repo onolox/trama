@@ -16,7 +16,26 @@ public class Matriz {
 		matriz.getTituloColuna().add( titulo );
 		
 		for( int i = 0; i < matriz.getQLinhas(); i++ ){
-			matriz.getLinha( i ).add( "0" );
+			matriz.getLinha( i ).add( "40" );
+		}
+		
+		for( int j = 1; j < getQColunas() - 1; j++ ){
+			for( int i = 0; i < getQLinhas(); i++ ){
+				String dado = getDadoMatriz( i, j );
+				if( dado.equals( "20" ) ){
+					setDadoMatriz( 0, i, j );
+				} else if( dado.equals( "2" ) ){
+					setDadoMatriz( 1, i, j );
+				} else if( dado.equals( "30" ) ){
+					setDadoMatriz( 20, i, j );
+				} else if( dado.equals( "3" ) ){
+					setDadoMatriz( 2, i, j );
+				} else if( dado.equals( "40" ) ){
+					setDadoMatriz( 30, i, j );
+				} else if( dado.equals( "4" ) ){
+					setDadoMatriz( 3, i, j );
+				}
+			}
 		}
 	}
 	
@@ -25,10 +44,28 @@ public class Matriz {
 		matriz.getTituloLinha().add( titulo );
 		matriz.getLinhas().add( new LinkedList< String >() );
 		for( int l = 0; l < matriz.getQColunas(); l++ ){
-			matriz.getLinhas().getLast().add( "0" );
+			matriz.getLinhas().getLast().add( "40" );
+		}
+		
+		for( int i = 0; i < getQLinhas() - 1; i++ ){
+			for( int j = 1; j < getQColunas(); j++ ){
+				String dado = getDadoMatriz( i, j );
+				if( dado.equals( "20" ) ){
+					setDadoMatriz( 0, i, j );
+				} else if( dado.equals( "2" ) ){
+					setDadoMatriz( 1, i, j );
+				} else if( dado.equals( "30" ) ){
+					setDadoMatriz( 20, i, j );
+				} else if( dado.equals( "3" ) ){
+					setDadoMatriz( 2, i, j );
+				} else if( dado.equals( "40" ) ){
+					setDadoMatriz( 30, i, j );
+				} else if( dado.equals( "4" ) ){
+					setDadoMatriz( 3, i, j );
+				}
+			}
 		}
 	}
-	
 	public void alterarPosicaoColuna( int de, int para ) {
 		// System.out.println( "de " + de + "       para " + para );
 		String s = "";
@@ -148,7 +185,7 @@ public class Matriz {
 		}
 		mak = true;
 		if( vaibe ){
-			while( mak ){ // Alfabético - inverso
+			while( mak ){ // Alfabï¿½tico - inverso
 				mak = false;
 				for( int i = 0; i < matriz.getQLinhas() - 1; i++ ){
 					int com = matriz.getTituloLinha().get( i ).compareToIgnoreCase( matriz.getTituloLinha().get( i + 1 ) );

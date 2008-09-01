@@ -35,7 +35,6 @@ public class ControleProjeto {
 			e.printStackTrace();
 			l = null;
 		}
-		
 		return l;
 	}
 	
@@ -44,9 +43,7 @@ public class ControleProjeto {
 		
 		try{
 			for( Matriz matriz : matrizes ){
-				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
-					matriz.adicionarColuna( nome );
-				}
+				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ) matriz.adicionarColuna( nome );
 			}
 		} catch( Exception e ){
 			s = "Erro";
@@ -54,32 +51,24 @@ public class ControleProjeto {
 		return s;
 	}
 	
-	public void adicionarColunasModelo() {
-	}
-	
 	/**
-	 * M�todo usado para inserir uma linha em uma matriz.
+	 * Método usado para inserir uma linha em uma matriz.
 	 * 
 	 * @param nome Nome da linha
 	 * @param nomeMatriz Nome da matriz
-	 * @return Estado da transa��o
+	 * @return Estado da transação
 	 */
 	public String adicionarLinha( String nome, String nomeMatriz ) {
 		String s = "ok";
 		
 		try{
 			for( Matriz matriz : matrizes ){
-				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
-					matriz.adicionarLinha( nome );
-				}
+				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ) matriz.adicionarLinha( nome );
 			}
 		} catch( Exception e ){
 			s = "Erro";
 		}
 		return s;
-	}
-	
-	public void adicionarLinhasModelo() {
 	}
 	
 	public ModeloTabela adicionarMatriz( String nomeMatriz ) {
@@ -154,9 +143,6 @@ public class ControleProjeto {
 			s = "Erro";
 		}
 		return s;
-	}
-	
-	public void criarNovoProjeto() {
 	}
 	
 	public HashMap< String, LinkedList< String >> destacarElementos( int elemento, String tipo, String nomeMatriz ) {
@@ -269,7 +255,36 @@ public class ControleProjeto {
 	}
 	
 	public String resetarDestaque( String nomeMatriz ) {
-		return "";
+		String s = "ok";
+		
+		try{
+			for( Matriz matriz : matrizes ){
+				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
+					for( int j = 1; j < matriz.getQColunas(); j++ ){
+						for( int i = 0; i < matriz.getQLinhas(); i++ ){
+							String dado = matriz.getDadoMatriz( i, j );
+							if( dado.equals( "20" ) ){
+								matriz.setDadoMatriz( 0, i, j );
+							} else if( dado.equals( "2" ) ){
+								matriz.setDadoMatriz( 1, i, j );
+							} else if( dado.equals( "30" ) ){
+								matriz.setDadoMatriz( 0, i, j );
+							} else if( dado.equals( "3" ) ){
+								matriz.setDadoMatriz( 1, i, j );
+							} else if( dado.equals( "40" ) ){
+								matriz.setDadoMatriz( 0, i, j );
+							} else if( dado.equals( "4" ) ){
+								matriz.setDadoMatriz( 1, i, j );
+							}
+						}
+					}
+				}
+			}
+		} catch( Exception e ){
+			e.printStackTrace();
+			s = "Erro";
+		}
+		return s;
 	}
 	
 	public String salvarProjeto( String nome ) {
@@ -285,7 +300,6 @@ public class ControleProjeto {
 				projeto.setNome( nome );
 				projeto.setMatrizes( lista );
 				s = persistenciaProjeto.salvar( projeto );
-				
 			} catch( Exception e ){
 				e.printStackTrace();
 				s = "erro";
@@ -304,12 +318,34 @@ public class ControleProjeto {
 		}
 		return s;
 	}
-	public String setArquivoColuna( String nomeArquivo, String nomeMatriz ) {
-		return null;
-	}
 	
+	public String setArquivoColuna( String nomeArquivo, String nomeMatriz ) {
+		String s = "ok";
+		try{
+			for( Matriz matriz : matrizes ){
+				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
+					matriz.getDadosMatriz().setTituloColunaArquivo( nomeArquivo );
+				}
+			}
+		} catch( Exception e ){
+			e.printStackTrace();
+			s = "Erro";
+		}
+		return s;
+	}
 	public String setArquivoLinha( String nomeArquivo, String nomeMatriz ) {
-		return null;
+		String s = "ok";
+		try{
+			for( Matriz matriz : matrizes ){
+				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
+					matriz.getDadosMatriz().setTituloLinhaArquivo( nomeArquivo );
+				}
+			}
+		} catch( Exception e ){
+			e.printStackTrace();
+			s = "Erro";
+		}
+		return s;
 	}
 	
 	public String setDado( int linha, int coluna, String nomeMatriz ) {

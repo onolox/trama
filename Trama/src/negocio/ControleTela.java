@@ -101,8 +101,9 @@ public class ControleTela {
 				lista = leitorDeModelo.getObjetos( nomeArquivo );
 				lista = controleProjeto.triagemObjetos( matrizAtual, "coluna", lista );
 				
-				for( String str : lista )
+				for( String str : lista ){
 					controleProjeto.adicionarColuna( str, matrizAtual );
+				}
 				controleProjeto.setArquivoColuna( nomeArquivo, matrizAtual );
 			}
 		} catch( Exception e ){
@@ -313,7 +314,9 @@ public class ControleTela {
 	}
 	
 	public String resetarDestaque() {
-		return "";
+		String s = "ok";
+		s = controleProjeto.resetarDestaque( matrizAtual );
+		return s;
 	}
 	
 	public String salvarProjeto( String nome ) {
