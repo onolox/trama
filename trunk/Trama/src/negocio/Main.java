@@ -1,5 +1,6 @@
 package negocio;
 
+import java.awt.EventQueue;
 
 import javax.swing.UIManager;
 
@@ -27,7 +28,7 @@ public class Main {
         } catch ( Exception ex ) {
             ex.printStackTrace();
         }
-        java.awt.EventQueue.invokeLater( new Runnable() {
+        EventQueue.invokeLater( new Runnable() {
                                      public void run() {
                                          new Tela().setVisible( true );
                                      }

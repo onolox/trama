@@ -600,8 +600,10 @@ public class Tela extends JFrame implements ActionListener {
 	}
 	
 	private void adicionarListener( final JTableCustomizado jT ) {
+		final JPopupMenu menu = new JPopupMenu();
+		final JPopupMenu menu2 = new JPopupMenu();
+		
 		jT.addMouseListener( new MouseAdapter() { // Adiciona listener as tabelas
-				final JPopupMenu menu = new JPopupMenu();
 				{
 					JMenuItem item1 = new JMenuItem( "Nova Linha" );
 					JMenuItem item2 = new JMenuItem( "Ordenar Linha" );
@@ -642,6 +644,8 @@ public class Tela extends JFrame implements ActionListener {
 					try{
 						int linha = jT.rowAtPoint( e.getPoint() );
 						int coluna = jT.getSelectedColumn();
+						menu.setVisible( false );
+						menu2.setVisible( false );
 						
 						for( JTableCustomizado jTableCustomizado : matrizes ){
 							if( jTableCustomizado == e.getSource() ){
@@ -734,7 +738,7 @@ public class Tela extends JFrame implements ActionListener {
 		header = jT.getTableHeader();
 		header.setPreferredSize( new Dimension( 20, 200 ) );
 		header.addMouseListener( new MouseAdapter() { // adiciona listeners aos cabecalhos ----Serve pros nomes de colunas ------------header--
-				final JPopupMenu menu2 = new JPopupMenu();
+			
 				{
 					JMenuItem item1 = new JMenuItem( "Nova Coluna" );
 					JMenuItem item2 = new JMenuItem( "Ordenar Coluna" );
@@ -787,6 +791,7 @@ public class Tela extends JFrame implements ActionListener {
 							menu2.setLocation( e.getLocationOnScreen() );
 							menu2.setVisible( true );
 						} else menu2.setVisible( false );
+						menu.setVisible( false );
 						
 						System.out.println( "Linha=" + ( controle.getLinhaAtual() ) + "   coluna= " + coluna );
 						
