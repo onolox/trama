@@ -22,6 +22,7 @@ public class RenderizadorTituloLinha extends DefaultTableCellRenderer {
 		label.setOpaque( true );
 		label.setBorder( new SoftBevelBorder( BevelBorder.RAISED ) );
 		if( value.toString().length() > 30 ) label.setToolTipText( value.toString() );
+		else label.setToolTipText( null );
 		label.setFont( getFont().deriveFont( 12f ) );
 			
 		if( !value.toString().startsWith( "|||" ) ){
