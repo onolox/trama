@@ -65,7 +65,7 @@ public class LeitorDeModelo {
 	 * Busca e instancia a classe "principal" do jar.
 	 * 
 	 * @param arquivo jar a ser procurado.
-	 * @return uma inst‚ncia da classe do jar.
+	 * @return uma inst√¢ncia da classe do jar.
 	 */
 	private Class getClasseJar( String arquivo ) {
 		URLClassLoader load;
