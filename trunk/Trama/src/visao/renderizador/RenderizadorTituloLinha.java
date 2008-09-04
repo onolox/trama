@@ -21,9 +21,9 @@ public class RenderizadorTituloLinha extends DefaultTableCellRenderer {
 		label.setHorizontalAlignment( RIGHT );
 		label.setOpaque( true );
 		label.setBorder( new SoftBevelBorder( BevelBorder.RAISED ) );
+		if( value.toString().length() > 30 ) label.setToolTipText( value.toString() );
 		label.setFont( getFont().deriveFont( 12f ) );
-		// label.setFont( new Font( "Verdana", Font.PLAIN, 12 ) );
-		
+			
 		if( !value.toString().startsWith( "|||" ) ){
 			label.setBackground( UIManager.getDefaults().getColor( "Button.light" ) );
 		} else{

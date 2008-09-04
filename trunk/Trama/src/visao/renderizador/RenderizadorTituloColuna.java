@@ -25,10 +25,11 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 	
 	@Override
 	public Component getTableCellRendererComponent( JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column ) {
-		
+		Icon icon = null;
 		JLabel label = new JLabel();
 		label.setOpaque( true );
-		// label.setFont( new Font( "Verdana", Font.PLAIN, 12 ) );
+		label.setHorizontalAlignment( CENTER );
+		label.setVerticalAlignment( JLabel.BOTTOM );
 		label.setFont( getFont().deriveFont( 12f ) );
 		
 		if( !value.toString().startsWith( "|||" ) ){
@@ -38,12 +39,14 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 			label.setBackground( new Color( 244, 103, 84 ) );
 			label.setBorder( new SoftBevelBorder( BevelBorder.RAISED ) );
 		}
-		Icon icon = getVerticalCaption( label, value.toString().replace( "|||", "" ), true );
+		if( value.toString().length() > 30 ){
+			label.setToolTipText( value.toString().replace( "|||", "" ) );
+			icon = getVerticalCaption( label, value.toString().replace( "|||", "" ).substring( 0, 29 ) + "...", true );
+		} else icon = getVerticalCaption( label, value.toString().replace( "|||", "" ), true );
 		label.setIcon( icon );
 		
 		return label;
 	}
-	
 	/**
 	 * @param componente
 	 * @param texto
