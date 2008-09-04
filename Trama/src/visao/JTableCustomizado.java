@@ -39,7 +39,7 @@ public class JTableCustomizado extends JTable {
 		this.modelo = modelo;
 		
 		setAutoResizeMode( AUTO_RESIZE_OFF );
-		setFont( new Font( "Arial", 0, 12 ) );
+		setFont( new Font( "Verdana", Font.PLAIN, 12 ) );
 		
 		getTableHeader().setReorderingAllowed( false );
 		setAutoCreateColumnsFromModel( true );
@@ -60,7 +60,7 @@ public class JTableCustomizado extends JTable {
 			tc.setResizable( false );
 			tc.setPreferredWidth( 20 );
 			if( ( ( String ) tc.getHeaderValue() ).equalsIgnoreCase( "" ) ){
-				tc.setPreferredWidth( 100 );
+				tc.setPreferredWidth( 200 );
 			}
 			tc.setHeaderRenderer( new RenderizadorTituloColuna() );
 		}

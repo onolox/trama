@@ -1,5 +1,6 @@
 package visao;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -10,8 +11,10 @@ import java.util.LinkedList;
 import javax.swing.GroupLayout;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.table.JTableHeader;
@@ -583,7 +586,7 @@ public class Tela extends JFrame implements ActionListener {
 				@Override
 				public void mouseClicked( MouseEvent e ) {
 					try{
-						int linha = jT.getSelectedRow();
+						int linha = jT.rowAtPoint( e.getPoint() );
 						int coluna = jT.getSelectedColumn();
 						
 						for( JTableCustomizado jTableCustomizado : matrizes ){
@@ -602,6 +605,19 @@ public class Tela extends JFrame implements ActionListener {
 									setNomeTextField( ( ( ModeloTabela ) jTableCustomizado.getModel() ).getMatriz().getTituloLinha( linha ) );
 								}
 							}
+							
+							if( e.isPopupTrigger() ){
+								JPopupMenu menu = new JPopupMenu( "Opções" );
+							    menu.add( new JMenuItem( "Nova Linha" ) );
+								menu.add( new JMenuItem( "" ) );
+								menu.add( new JMenuItem( "" ) );
+								menu.add( new JMenuItem( "" ) );
+								menu.add( new JMenuItem( "" ) );
+								menu.add( new JMenuItem( "" ) );
+								menu.setVisible( true );
+								
+							}
+							
 							deslocar1.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/1downarrow-24.png" ) ) );
 							deslocar1.setToolTipText( "Deslocar Linha Para Baixo" );
 							deslocar2.setIcon( new javax.swing.ImageIcon( getClass().getResource( "/icons/1downarrow1-24.png" ) ) );
@@ -634,7 +650,7 @@ public class Tela extends JFrame implements ActionListener {
 							setResetarCamposNovosMenu( true );
 						} else{ // Aqui é quando se clica nas ---------------------------------------------------------células ---------------------
 						
-							controle.setDado();
+							if( controle.getLinhaAtual() >= 0 && controle.getColunaAtual() > 0 ) controle.setDado();
 							( ( ModeloTabela ) jT.getModel() ).fireTableDataChanged();
 							
 							novaLinhaColunaMenu.setText( "Nova Linha/Coluna" );
@@ -667,6 +683,7 @@ public class Tela extends JFrame implements ActionListener {
 			} );
 		
 		header = jT.getTableHeader();
+		header.setPreferredSize( new Dimension( 20, 200 ) );
 		header.addMouseListener( new MouseAdapter() { // adiciona listeners aos cabecalhos ----Serve pros nomes de colunas ------------header--
 				@SuppressWarnings( "synthetic-access" )
 				@Override
@@ -1026,6 +1043,7 @@ public class Tela extends JFrame implements ActionListener {
 			Short.MAX_VALUE ) );
 		
 		jTabbedPane1.addChangeListener( new javax.swing.event.ChangeListener() {
+			@SuppressWarnings( "synthetic-access" )
 			public void stateChanged( javax.swing.event.ChangeEvent evt ) {
 				novaLinhaColunaMenu.setText( "Nova Linha/Coluna" );
 				excluirLinhaColunaMenu.setText( "Excluir Linha/Coluna" );
