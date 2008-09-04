@@ -25,7 +25,7 @@ public class PersistenciaProjeto {
 	public String salvar( Projeto projeto ) {
 		String s = "ok";
 		try{
-			FileWriter file = new FileWriter( "arquivos/" + projeto.getNome() + ".xml" );
+			FileWriter file = new FileWriter( "arquivos/" + projeto.getNome() + ".trama" );
 			
 			XStream x = new XStream( new DomDriver() );
 			x.toXML( projeto, file );

@@ -18,17 +18,16 @@ public class RenderizadorTituloLinha extends DefaultTableCellRenderer {
 	public Component getTableCellRendererComponent( JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column ) {
 		
 		JLabel label = ( JLabel ) super.getTableCellRendererComponent( table, value, isSelected, hasFocus, row, column );
+		label.setHorizontalAlignment( RIGHT );
+		label.setOpaque( true );
+		label.setBorder( new SoftBevelBorder( BevelBorder.RAISED ) );
+		label.setFont( getFont().deriveFont( 12f ) );
+		// label.setFont( new Font( "Verdana", Font.PLAIN, 12 ) );
 		
 		if( !value.toString().startsWith( "|||" ) ){
-			label.setHorizontalAlignment( RIGHT );
-			label.setOpaque( true );
 			label.setBackground( UIManager.getDefaults().getColor( "Button.light" ) );
-			label.setBorder( new SoftBevelBorder( BevelBorder.RAISED ) );
 		} else{
-			label.setHorizontalAlignment( RIGHT );
-			label.setOpaque( true );
 			label.setBackground( new java.awt.Color( 244, 103, 84 ) );
-			label.setBorder( new SoftBevelBorder( BevelBorder.RAISED ) );
 		}
 		return label;
 	}
