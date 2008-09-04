@@ -15,8 +15,9 @@
         <string>Coluna</string>
       </tituloColuna>
       <tituloLinha>
-        <string>Linha</string>
+        <string>lista</string>
       </tituloLinha>
+      <tituloLinhaArquivo>Class Diagram 1_1219955468531.etlp</tituloLinhaArquivo>
     </persistencia.DadosMatriz>
     <persistencia.DadosMatriz>
       <linha>

@@ -155,7 +155,7 @@ public class ControleProjeto {
 			for( Matriz matriz : matrizes ){
 				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
 					if( matriz.getQColunas() < 3 ){
-						s = "A matriz n�o pode ter menos de uma coluna";
+						s = "A matriz não pode ter menos de uma coluna";
 					} else{
 						matriz.removeColuna( coluna );
 					}
@@ -192,9 +192,7 @@ public class ControleProjeto {
 		Matriz m = null;
 		try{
 			for( Matriz matriz : matrizes ){
-				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
-					m = matriz;
-				}
+				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ) m = matriz;
 			}
 			matrizes.remove( m );
 		} catch( Exception e ){
@@ -203,22 +201,51 @@ public class ControleProjeto {
 		}
 		return s;
 	}
-	
-	public void exportarImagem() {
-	}
-	
-	public void fecharProjeto() {
+	public LinkedList< String > getNomes( String nomeMatriz, String tipo ) {
+		LinkedList< String > l = new LinkedList< String >();
+		for( Matriz matriz : matrizes ){
+			if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
+				if( tipo.equals( "linha" ) ){
+					for( int i = 0; i < matriz.getQLinhas(); i++ )
+						l.add( matriz.getTituloLinha( i ) );
+				} else{
+					for( int i = 0; i < matriz.getQLinhas(); i++ )
+						l.add( matriz.getTituloColuna( i ) );
+				}
+			}
+		}
+		
+		return l;
 	}
 	
 	public String getTituloColunaArquivo( String nome ) {
-		return "";
+		String s = "ok";
+		try{
+			for( Matriz matriz : matrizes ){
+				if( matriz.getNomeMatriz().equalsIgnoreCase( nome ) ){
+					s = matriz.getDadosMatriz().getTituloColunaArquivo();
+				}
+			}
+		} catch( Exception e ){
+			e.printStackTrace();
+			s = "Erro";
+		}
+		return s;
 	}
 	
 	public String getTituloLinhaArquivo( String nome ) {
-		return "";
-	}
-	
-	public void imprimir() {
+		String s = "ok";
+		try{
+			for( Matriz matriz : matrizes ){
+				if( matriz.getNomeMatriz().equalsIgnoreCase( nome ) ){
+					s = matriz.getDadosMatriz().getTituloLinhaArquivo();
+				}
+			}
+		} catch( Exception e ){
+			e.printStackTrace();
+			s = "Erro";
+		}
+		return s;
 	}
 	
 	public String ordenarColuna( String nomeMatriz ) {
@@ -382,9 +409,9 @@ public class ControleProjeto {
 	}
 	
 	public LinkedList< String > triagemObjetos( String nomeMatriz, String tipo, LinkedList< String > lista ) {
-		LinkedList< String > l = ( LinkedList< String > ) lista.clone();
-		
+		LinkedList< String > l = null;
 		try{
+			l = ( LinkedList< String > ) lista.clone();
 			for( Matriz matriz : matrizes ){
 				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
 					for( String nom : lista ){

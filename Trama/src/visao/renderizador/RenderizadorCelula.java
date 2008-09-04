@@ -6,6 +6,8 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
+import com.lowagie.text.Font;
+
 public class RenderizadorCelula extends DefaultTableCellRenderer {
 	public RenderizadorCelula() {
 		super();
@@ -19,7 +21,7 @@ public class RenderizadorCelula extends DefaultTableCellRenderer {
 		label.setHorizontalAlignment( JLabel.CENTER );
 		label.setBackground( javax.swing.UIManager.getDefaults().getColor( "Button.highlight" ) );
 		label.setOpaque( true );
-		
+		label.setFont( getFont().deriveFont( Font.BOLD, 14f ) );
 		if( value.equals( "0" ) ){
 			label.setText( "" );
 		} else if( value.equals( "1" ) ){

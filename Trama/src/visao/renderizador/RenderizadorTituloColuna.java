@@ -28,6 +28,8 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 		
 		JLabel label = new JLabel();
 		label.setOpaque( true );
+		// label.setFont( new Font( "Verdana", Font.PLAIN, 12 ) );
+		label.setFont( getFont().deriveFont( 12f ) );
 		
 		if( !value.toString().startsWith( "|||" ) ){
 			label.setBackground( UIManager.getDefaults().getColor( "Button.light" ) );
@@ -52,7 +54,7 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 		FontMetrics fm = componente.getFontMetrics( f );
 		int captionHeight = fm.getHeight();
 		int captionWidth = fm.stringWidth( texto );
-		BufferedImage bi = new BufferedImage( captionHeight + 4, captionWidth + 4, BufferedImage.TYPE_INT_ARGB );
+		BufferedImage bi = new BufferedImage( captionHeight + 5, captionWidth + 4, BufferedImage.TYPE_INT_ARGB );
 		Graphics2D g = ( Graphics2D ) bi.getGraphics();
 		
 		g.setColor( new Color( 0, 0, 0, 0 ) ); // transparent
@@ -61,7 +63,7 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 		
 		g.setColor( componente.getForeground() );
 		g.setFont( f );
-		g.setRenderingHint( RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON );
+		g.setRenderingHint( RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_LCD_VRGB );
 		
 		if( sentido ){
 			g.rotate( Math.PI / 2 );
