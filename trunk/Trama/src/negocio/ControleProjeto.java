@@ -134,9 +134,7 @@ public class ControleProjeto {
 		String s = "ok";
 		try{
 			for( Matriz matriz : matrizes ){
-				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
-					matriz.setTituloLinha( linha, nomeNovo );
-				}
+				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ) matriz.setTituloLinha( linha, nomeNovo );
 			}
 		} catch( Exception e ){
 			e.printStackTrace();
@@ -146,7 +144,25 @@ public class ControleProjeto {
 	}
 	
 	public HashMap< String, LinkedList< String >> destacarElementos( int elemento, String tipo, String nomeMatriz ) {
-		return null;
+		HashMap< String, LinkedList< String >> m = new HashMap< String, LinkedList< String > >();
+		LinkedList< String > l = null;
+		try{
+			for( Matriz matriz : matrizes ){
+				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
+					l = matriz.destacarElementos( elemento, tipo );
+					System.out.println( "ssssssss " + l.size() );
+					if( l.size() != 0 ){
+						;
+					}
+				}
+			}
+			
+		} catch( Exception e ){
+			e.printStackTrace();
+			m = null;
+		}
+		
+		return m;
 	}
 	
 	public String excluirColuna( int coluna, String nomeMatriz ) {
@@ -360,6 +376,7 @@ public class ControleProjeto {
 		}
 		return s;
 	}
+	
 	public String setArquivoLinha( String nomeArquivo, String nomeMatriz ) {
 		String s = "ok";
 		try{
@@ -396,16 +413,6 @@ public class ControleProjeto {
 			s = "Erro";
 		}
 		return s;
-	}
-	
-	public void sincronizarColuna() {
-		
-	}
-	
-	public void sincronizarLinha() {
-	}
-	
-	public void sincronizarMatriz() {
 	}
 	
 	public LinkedList< String > triagemObjetos( String nomeMatriz, String tipo, LinkedList< String > lista ) {

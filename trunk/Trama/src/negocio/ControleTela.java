@@ -253,6 +253,7 @@ public class ControleTela {
 	
 	public HashMap< String, LinkedList< String >> destacarElementos() {
 		HashMap< String, LinkedList< String >> map = new HashMap< String, LinkedList< String > >();
+		
 		if( linhaAtual == -1 ) map = controleProjeto.destacarElementos( colunaAtual, "coluna", matrizAtual );
 		else if( colunaAtual == 0 ) map = controleProjeto.destacarElementos( linhaAtual, "linha", matrizAtual );
 		return map;
