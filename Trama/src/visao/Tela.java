@@ -23,9 +23,6 @@ import javax.swing.table.JTableHeader;
 import negocio.ControleTela;
 import negocio.Matriz;
 
-/**
- * @author Fabio
- */
 public class Tela extends JFrame implements ActionListener {
 	private JTableHeader header;
 	private ControleTela controle;
@@ -420,31 +417,41 @@ public class Tela extends JFrame implements ActionListener {
 	private void exportarImagem() {
 		for( JTableCustomizado j : matrizes ){
 			if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
-				j.exportarImagem();
-				setTitle( "Trama  ---->  Imagem Exportada Com Sucesso" );
-				try{
-					Thread.sleep( 3000 );
-				} catch( InterruptedException e ){
-					e.printStackTrace();
+				String s = JOptionPane.showInputDialog( this, "Insira um nome para a Imagem", "Matriz " + j.getNome() );
+				
+				if( s == null )
+				;
+				else if( s.equalsIgnoreCase( "" ) ) s = "Matriz " + j.getNome();
+				else{
+					j.exportarImagem( s.replace( "/", "" ).replace( "\\", "" ) );
+					setTitle( "Trama  ---->  Imagem Exportada Com Sucesso" );
+					try{
+						Thread.sleep( 3000 );
+					} catch( InterruptedException e ){
+						e.printStackTrace();
+					}
+					setTitle( "Trama" );
 				}
-				setTitle( "Trama" );
 			}
-			
 		}
-		
 	}
-	
 	private void exportarPDF() {
 		for( JTableCustomizado j : matrizes ){
 			if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
-				j.exportarPDF();
-				setTitle( "Trama  ---->  PDF Exportado Com Sucesso" );
-				try{
-					Thread.sleep( 3000 );
-				} catch( InterruptedException e ){
-					e.printStackTrace();
+				String s = JOptionPane.showInputDialog( this, "Insira um nome para o PDF", "Matriz " + j.getNome() );
+				if( s == null )
+				;
+				else if( s.equalsIgnoreCase( "" ) ) s = "Matriz " + j.getNome();
+				else{
+					j.exportarPDF( s.replace( "/", "" ).replace( "\\", "" ) );
+					setTitle( "Trama  ---->  PDF Exportado Com Sucesso" );
+					try{
+						Thread.sleep( 3000 );
+					} catch( InterruptedException e ){
+						e.printStackTrace();
+					}
+					setTitle( "Trama" );
 				}
-				setTitle( "Trama" );
 			}
 		}
 	}
@@ -603,42 +610,79 @@ public class Tela extends JFrame implements ActionListener {
 		final JPopupMenu menu = new JPopupMenu();
 		final JPopupMenu menu2 = new JPopupMenu();
 		
-		jT.addMouseListener( new MouseAdapter() { // Adiciona listener as tabelas
-				{
-					JMenuItem item1 = new JMenuItem( "Nova Linha" );
-					JMenuItem item2 = new JMenuItem( "Ordenar Linha" );
-					JMenuItem item3 = new JMenuItem( "Importar do Modelo" );
-					JMenuItem item4 = new JMenuItem( "Sincronizar do Modelo" );
-					item1.addActionListener( new ActionListener() {
-						public void actionPerformed( ActionEvent e ) {
-							menu.setVisible( false );
-							adicionarLinha();
-						}
-					} );
-					item2.addActionListener( new ActionListener() {
-						public void actionPerformed( ActionEvent e ) {
-							menu.setVisible( false );
-							ordenarLinha();
-						}
-					} );
-					item3.addActionListener( new ActionListener() {
-						public void actionPerformed( ActionEvent e ) {
-							menu.setVisible( false );
-							adicionarLinhasModelo();
-						}
-					} );
-					item4.addActionListener( new ActionListener() {
-						public void actionPerformed( ActionEvent e ) {
-							menu.setVisible( false );
-							sincronizarLinha();
-						}
-					} );
-					menu.add( item1 );
-					menu.add( item2 );
-					menu.add( item3 );
-					menu.add( item4 );
+		{
+			JMenuItem item1 = new JMenuItem( "Nova Linha" );
+			JMenuItem item2 = new JMenuItem( "Ordenar Linha" );
+			JMenuItem item3 = new JMenuItem( "Importar do Modelo" );
+			JMenuItem item4 = new JMenuItem( "Sincronizar do Modelo" );
+			item1.addActionListener( new ActionListener() {
+				public void actionPerformed( ActionEvent e ) {
+					menu.setVisible( false );
+					adicionarLinha();
 				}
-				
+			} );
+			item2.addActionListener( new ActionListener() {
+				public void actionPerformed( ActionEvent e ) {
+					menu.setVisible( false );
+					ordenarLinha();
+				}
+			} );
+			item3.addActionListener( new ActionListener() {
+				public void actionPerformed( ActionEvent e ) {
+					menu.setVisible( false );
+					adicionarLinhasModelo();
+				}
+			} );
+			item4.addActionListener( new ActionListener() {
+				public void actionPerformed( ActionEvent e ) {
+					menu.setVisible( false );
+					sincronizarLinha();
+				}
+			} );
+			menu.add( item1 );
+			menu.add( item2 );
+			menu.add( item3 );
+			menu.add( item4 );
+		}
+		
+		{
+			JMenuItem item1 = new JMenuItem( "Nova Coluna" );
+			JMenuItem item2 = new JMenuItem( "Ordenar Coluna" );
+			JMenuItem item3 = new JMenuItem( "Importar do Modelo" );
+			JMenuItem item4 = new JMenuItem( "Sincronizar do Modelo" );
+			item1.addActionListener( new ActionListener() {
+				public void actionPerformed( ActionEvent e ) {
+					menu2.setVisible( false );
+					adicionarColuna();
+				}
+			} );
+			item2.addActionListener( new ActionListener() {
+				public void actionPerformed( ActionEvent e ) {
+					menu2.setVisible( false );
+					ordenarColuna();
+				}
+			} );
+			item3.addActionListener( new ActionListener() {
+				@SuppressWarnings( "synthetic-access" )
+				public void actionPerformed( @SuppressWarnings( "unused" ) ActionEvent e ) {
+					menu2.setVisible( false );
+					adicionarColunasModelo();
+				}
+			} );
+			item4.addActionListener( new ActionListener() {
+				@SuppressWarnings( "synthetic-access" )
+				public void actionPerformed( ActionEvent e ) {
+					menu2.setVisible( false );
+					sincronizarColuna();
+				}
+			} );
+			menu2.add( item1 );
+			menu2.add( item2 );
+			menu2.add( item3 );
+			menu2.add( item4 );
+		}
+		
+		jT.addMouseListener( new MouseAdapter() { // Adiciona listener as tabelas
 				@SuppressWarnings( "synthetic-access" )
 				public void mouseClicked( MouseEvent e ) {
 					try{
@@ -737,45 +781,8 @@ public class Tela extends JFrame implements ActionListener {
 		
 		header = jT.getTableHeader();
 		header.setPreferredSize( new Dimension( 20, 200 ) );
+		header.setComponentPopupMenu( menu2 );
 		header.addMouseListener( new MouseAdapter() { // adiciona listeners aos cabecalhos ----Serve pros nomes de colunas ------------header--
-			
-				{
-					JMenuItem item1 = new JMenuItem( "Nova Coluna" );
-					JMenuItem item2 = new JMenuItem( "Ordenar Coluna" );
-					JMenuItem item3 = new JMenuItem( "Importar do Modelo" );
-					JMenuItem item4 = new JMenuItem( "Sincronizar do Modelo" );
-					item1.addActionListener( new ActionListener() {
-						public void actionPerformed( ActionEvent e ) {
-							menu2.setVisible( false );
-							adicionarColuna();
-						}
-					} );
-					item2.addActionListener( new ActionListener() {
-						public void actionPerformed( ActionEvent e ) {
-							menu2.setVisible( false );
-							ordenarColuna();
-						}
-					} );
-					item3.addActionListener( new ActionListener() {
-						@SuppressWarnings( "synthetic-access" )
-						public void actionPerformed( @SuppressWarnings( "unused" ) ActionEvent e ) {
-							menu2.setVisible( false );
-							adicionarColunasModelo();
-						}
-					} );
-					item4.addActionListener( new ActionListener() {
-						@SuppressWarnings( "synthetic-access" )
-						public void actionPerformed( ActionEvent e ) {
-							menu2.setVisible( false );
-							sincronizarColuna();
-						}
-					} );
-					menu2.add( item1 );
-					menu2.add( item2 );
-					menu2.add( item3 );
-					menu2.add( item4 );
-				}
-				
 				@SuppressWarnings( "synthetic-access" )
 				@Override
 				public void mouseClicked( MouseEvent e ) {

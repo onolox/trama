@@ -173,7 +173,7 @@ public class Matriz {
 				mak = false;
 				for( int i = 0; i < matriz.getQLinhas() - 1; i++ ){
 					int com = matriz.getTituloLinha().get( i ).compareToIgnoreCase( matriz.getTituloLinha().get( i + 1 ) );
-					if( com >= 0 ){
+					if( com > 0 ){
 						alterarPosicaoLinha( i, i + 1 );
 						vaibe = false;
 						mak = true;
@@ -185,7 +185,7 @@ public class Matriz {
 		}
 		mak = true;
 		if( vaibe ){
-			while( mak ){ // Alfab�tico - inverso
+			while( mak ){ // Alfabético - inverso
 				mak = false;
 				for( int i = 0; i < matriz.getQLinhas() - 1; i++ ){
 					int com = matriz.getTituloLinha().get( i ).compareToIgnoreCase( matriz.getTituloLinha().get( i + 1 ) );
@@ -204,11 +204,11 @@ public class Matriz {
 		boolean vaibe = true;
 		
 		try{
-			while( mak ){
+			while( mak ){// Bubblesort do capeta II a Missão
 				mak = false;
 				for( int i = 1; i < matriz.getQColunas() - 1; i++ ){
 					int com = matriz.getTituloColuna( i ).compareToIgnoreCase( matriz.getTituloColuna( i + 1 ) );
-					if( com >= 0 ){
+					if( com > 0 ){
 						alterarPosicaoColuna( i, i + 1 );
 						vaibe = false;
 						mak = true;
