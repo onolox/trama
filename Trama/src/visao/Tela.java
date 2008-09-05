@@ -324,7 +324,7 @@ public class Tela extends JFrame implements ActionListener {
 		}
 	}
 	
-	private void criarNovoProjeto() {
+	private void criarNovoProjeto() { 
 		String s = controle.criarNovoProjeto();
 		if( !s.equalsIgnoreCase( "ok" ) ){
 			JOptionPane.showMessageDialog( this, s, "Erro", 1 );
@@ -332,7 +332,34 @@ public class Tela extends JFrame implements ActionListener {
 	}
 	
 	private void destacarElementos() {
-		controle.destacarElementos();
+		System.out.println( "----------------------------" );
+		if( controle.destacarElementos() == null ) JOptionPane.showInternalMessageDialog( this, "Erro fatal" );
+		else{
+			try{
+				for( int i = 0; i < matrizes.size(); i++ ){
+					JTableCustomizado jt = matrizes.remove( i );
+					ModeloTabela mod = ( ModeloTabela ) jt.getModel();
+					JPanel jpanel = JP.get( i );
+					jpanel.removeAll();
+					JTableCustomizado cus = new JTableCustomizado( mod );
+					adicionarListener( cus );
+					matrizes.add( i, cus );
+					JScrollPane js = new JScrollPane();
+					js.setViewportView( cus );
+					
+					GroupLayout jPanelLayout = new GroupLayout( jpanel );
+					jpanel.setLayout( jPanelLayout );
+					jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
+					jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
+					jpanel.add( js );
+					jpanel.updateUI();
+					
+					setNomeTextField( mod.getMatriz().getTituloColuna( controle.getColunaAtual() ) );
+				}
+			} catch( Exception e ){
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	private void excluirMatriz() {
@@ -434,6 +461,7 @@ public class Tela extends JFrame implements ActionListener {
 			}
 		}
 	}
+	
 	private void exportarPDF() {
 		for( JTableCustomizado j : matrizes ){
 			if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){

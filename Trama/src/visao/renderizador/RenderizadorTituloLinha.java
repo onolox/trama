@@ -24,11 +24,12 @@ public class RenderizadorTituloLinha extends DefaultTableCellRenderer {
 		if( value.toString().length() > 30 ) label.setToolTipText( value.toString() );
 		else label.setToolTipText( null );
 		label.setFont( getFont().deriveFont( 12f ) );
-			
+		
 		if( !value.toString().startsWith( "|||" ) ){
 			label.setBackground( UIManager.getDefaults().getColor( "Button.light" ) );
 		} else{
 			label.setBackground( new java.awt.Color( 244, 103, 84 ) );
+			label.setText( value.toString().replace( "|||", "" ) );
 		}
 		return label;
 	}

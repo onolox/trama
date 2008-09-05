@@ -85,10 +85,48 @@ public class Matriz {
 		matriz.getTituloLinha().add( para, g );
 	}
 	
-	public LinkedList< String > destacarElementos( String nomeElemento, String tipo ) {
-		return null;
+	public LinkedList< String > destacarElementos( int elemento, String tipo ) {
+		LinkedList< String > l = new LinkedList< String >();
+		try{
+			if( tipo.equalsIgnoreCase( "linha" ) && !getTituloLinha( elemento ).startsWith( "|||" ) ){
+				setTituloLinha( elemento, "|||" + getTituloLinha( elemento ) );
+				
+				for( int i = 1; i < getQColunas(); i++ ){
+					int da = Integer.parseInt( getDadoMatriz( elemento, i ) );
+					if( da == 1 || da == 2 || da == 3 || da == 4 ){
+						l.add( i + "" );
+						setTituloColuna( i, "|||" + getTituloColuna( i ) );
+					}
+				}
+				
+			} else if( tipo.equalsIgnoreCase( "coluna" ) && !getTituloColuna( elemento ).startsWith( "|||" ) ){// --------------------------coluna
+				setTituloColuna( elemento, "|||" + getTituloColuna( elemento ) );
+				
+				for( int i = 0; i < getQLinhas(); i++ ){
+					int da = Integer.parseInt( getDadoMatriz( i, elemento ) );
+					if( da == 1 || da == 2 || da == 3 || da == 4 ){
+						l.add( i + "" );
+						setTituloLinha( i, "|||" + getTituloLinha( i ) );
+					}
+				}
+				
+			} else if( tipo.equalsIgnoreCase( "linha" ) && getTituloLinha( elemento ).startsWith( "|||" ) ){ // ---------Linha já ligada
+				setTituloLinha( elemento, getTituloLinha( elemento ).replace( "|||", "" ) );
+				
+				for( int i = 1; i < getQColunas(); i++ ){
+					setTituloColuna( i, getTituloColuna( i ).replace( "|||", "" ) );
+				}
+			} else if( getTituloColuna( elemento ).startsWith( "|||" ) ){
+				setTituloColuna( elemento, getTituloColuna( elemento ).replace( "|||", "" ) );
+				for( int i = 1; i < getQLinhas(); i++ ){
+					setTituloLinha( i, getTituloLinha( i ).replace( "|||", "" ) );
+				}
+			}
+		} catch( Exception e ){
+			e.printStackTrace();
+		}
+		return l;
 	}
-	
 	public String getDadoMatriz( int linha, int coluna ) {
 		switch( coluna ) {
 			case 0:
