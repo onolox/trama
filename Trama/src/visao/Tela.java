@@ -1,6 +1,5 @@
 package visao;
 
-import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -780,7 +779,6 @@ public class Tela extends JFrame implements ActionListener {
 			} );
 		
 		header = jT.getTableHeader();
-		header.setPreferredSize( new Dimension( 20, 200 ) );
 		header.setComponentPopupMenu( menu2 );
 		header.addMouseListener( new MouseAdapter() { // adiciona listeners aos cabecalhos ----Serve pros nomes de colunas ------------header--
 				@SuppressWarnings( "synthetic-access" )

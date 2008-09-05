@@ -57,7 +57,7 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 		FontMetrics fm = componente.getFontMetrics( f );
 		int captionHeight = fm.getHeight();
 		int captionWidth = fm.stringWidth( texto );
-		BufferedImage bi = new BufferedImage( captionHeight + 5, captionWidth + 4, BufferedImage.TYPE_INT_ARGB );
+		BufferedImage bi = new BufferedImage( captionHeight + 5, captionWidth + 3, BufferedImage.TYPE_INT_ARGB );
 		Graphics2D g = ( Graphics2D ) bi.getGraphics();
 		
 		g.setColor( new Color( 0, 0, 0, 0 ) ); // transparent
@@ -67,6 +67,8 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 		g.setColor( componente.getForeground() );
 		g.setFont( f );
 		g.setRenderingHint( RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_LCD_VRGB );
+		g.setRenderingHint( RenderingHints.KEY_TEXT_LCD_CONTRAST, 100 );
+		g.setRenderingHint( RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY );
 		
 		if( sentido ){
 			g.rotate( Math.PI / 2 );
