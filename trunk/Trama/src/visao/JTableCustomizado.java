@@ -2,6 +2,7 @@ package visao;
 
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.awt.print.PrinterException;
 import java.io.File;
@@ -20,7 +21,7 @@ import visao.renderizador.RenderizadorTituloColuna;
 import visao.renderizador.RenderizadorTituloLinha;
 
 import com.lowagie.text.Document;
-import com.lowagie.text.PageSize;
+import com.lowagie.text.RectangleReadOnly;
 import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfWriter;
 
@@ -74,8 +75,9 @@ public class JTableCustomizado extends JTable {
 			Graphics2D g2 = image.createGraphics();
 			getTableHeader().print( g2 );
 			g2.translate( 0, getTableHeader().getHeight() );
+			g2.setRenderingHint( RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY );
 			print( g2 );
-					
+			
 			ImageIO.write( image, "png", new File( "arquivos/" + arquivo + ".png" ) );
 			g2.dispose();
 		} catch( IOException e ){
@@ -87,17 +89,19 @@ public class JTableCustomizado extends JTable {
 	
 	public String exportarPDF( String arquivo ) {
 		String s = "ok";
-		Document document = new Document( PageSize.B0.rotate() );
+		Document document = new Document( new RectangleReadOnly( getWidth() + 50, getHeight() + 80 + getTableHeader().getHeight() ) );
 		try{
 			PdfWriter w = PdfWriter.getInstance( document, new FileOutputStream( "arquivos/" + arquivo + ".pdf" ) );
 			document.open();
 			PdfContentByte cb = w.getDirectContent();
 			
 			cb.saveState();
-			Graphics2D g2 = cb.createGraphicsShapes( getWidth(), getHeight() + getTableHeader().getHeight() );
+			Graphics2D g2 = cb.createGraphicsShapes( getWidth() + 40, getHeight() + getTableHeader().getHeight() + 40 );
+			
+			g2.translate( 20, 0 );
 			getTableHeader().print( g2 );
-		
 			g2.translate( 0, getTableHeader().getHeight() );
+			
 			print( g2 );
 			
 			g2.dispose();
