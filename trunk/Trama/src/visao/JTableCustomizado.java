@@ -66,7 +66,7 @@ public class JTableCustomizado extends JTable {
 		}
 	}
 	
-	public String exportarImagem() {
+	public String exportarImagem( String arquivo ) {
 		String s = "ok";
 		
 		try{
@@ -75,9 +75,9 @@ public class JTableCustomizado extends JTable {
 			getTableHeader().print( g2 );
 			g2.translate( 0, getTableHeader().getHeight() );
 			print( g2 );
+					
+			ImageIO.write( image, "png", new File( "arquivos/" + arquivo + ".png" ) );
 			g2.dispose();
-			
-			ImageIO.write( image, "png", new File( "arquivos/ImagemTabela-" + getNome() + ".png" ) );
 		} catch( IOException e ){
 			e.printStackTrace();
 			s = "erro";
@@ -85,20 +85,21 @@ public class JTableCustomizado extends JTable {
 		return s;
 	}
 	
-	public String exportarPDF() {
+	public String exportarPDF( String arquivo ) {
 		String s = "ok";
-		Document document = new Document( PageSize.A4.rotate(), 10.0f, 10.0f, 10.0f, 10.7f );
+		Document document = new Document( PageSize.B0.rotate() );
 		try{
-			PdfWriter w = PdfWriter.getInstance( document, new FileOutputStream( "arquivos/Tabela-" + getNome() + ".pdf" ) );
+			PdfWriter w = PdfWriter.getInstance( document, new FileOutputStream( "arquivos/" + arquivo + ".pdf" ) );
 			document.open();
 			PdfContentByte cb = w.getDirectContent();
 			
 			cb.saveState();
 			Graphics2D g2 = cb.createGraphicsShapes( getWidth(), getHeight() + getTableHeader().getHeight() );
 			getTableHeader().print( g2 );
-			
+		
 			g2.translate( 0, getTableHeader().getHeight() );
 			print( g2 );
+			
 			g2.dispose();
 			
 			cb.restoreState();
