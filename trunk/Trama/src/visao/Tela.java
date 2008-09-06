@@ -8,7 +8,9 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.util.LinkedList;
 
+import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -722,10 +724,10 @@ public class Tela extends JFrame implements ActionListener {
 		final JPopupMenu menu2 = new JPopupMenu();
 		
 		{
-			JMenuItem item1 = new JMenuItem( "Nova Linha" );
-			JMenuItem item2 = new JMenuItem( "Ordenar Linha" );
-			JMenuItem item3 = new JMenuItem( "Importar do Modelo" );
-			JMenuItem item4 = new JMenuItem( "Sincronizar do Modelo" );
+			JMenuItem item1 = new JMenuItem( "Nova Linha", new ImageIcon( getClass().getResource( "/icons/7days-26.png" ) ) );
+			JMenuItem item2 = new JMenuItem( "Ordenar Linha", new ImageIcon( getClass().getResource( "/icons/db-26.png" ) ) );
+			JMenuItem item3 = new JMenuItem( "Importar do Modelo", new ImageIcon( getClass().getResource( "/icons/inbox-26 copy.png" ) ) );
+			JMenuItem item4 = new JMenuItem( "Sincronizar do Modelo", new ImageIcon( getClass().getResource( "/icons/reload_all_tabs-26.png" ) ) );
 			item1.addActionListener( new ActionListener() {
 				public void actionPerformed( ActionEvent e ) {
 					menu.setVisible( false );
@@ -750,6 +752,7 @@ public class Tela extends JFrame implements ActionListener {
 					sincronizarLinha();
 				}
 			} );
+			menu.setBorder( BorderFactory.createTitledBorder( "" ) );
 			menu.add( item1 );
 			menu.add( item2 );
 			menu.add( item3 );
@@ -757,10 +760,10 @@ public class Tela extends JFrame implements ActionListener {
 		}
 		
 		{
-			JMenuItem item1 = new JMenuItem( "Nova Coluna" );
-			JMenuItem item2 = new JMenuItem( "Ordenar Coluna" );
-			JMenuItem item3 = new JMenuItem( "Importar do Modelo" );
-			JMenuItem item4 = new JMenuItem( "Sincronizar do Modelo" );
+			JMenuItem item1 = new JMenuItem( "Nova Coluna", new ImageIcon( getClass().getResource( "/icons/coluna 24.png" ) ) );
+			JMenuItem item2 = new JMenuItem( "Ordenar Coluna", new ImageIcon( getClass().getResource( "/icons/db-26.png" ) ) );
+			JMenuItem item3 = new JMenuItem( "Importar do Modelo", new ImageIcon( getClass().getResource( "/icons/inbox-26 copy.png" ) ) );
+			JMenuItem item4 = new JMenuItem( "Sincronizar do Modelo", new ImageIcon( getClass().getResource( "/icons/reload_all_tabs-26.png" ) ) );
 			item1.addActionListener( new ActionListener() {
 				public void actionPerformed( ActionEvent e ) {
 					menu2.setVisible( false );
@@ -787,6 +790,7 @@ public class Tela extends JFrame implements ActionListener {
 					sincronizarColuna();
 				}
 			} );
+			menu2.setBorder( BorderFactory.createTitledBorder( "" ) );
 			menu2.add( item1 );
 			menu2.add( item2 );
 			menu2.add( item3 );
