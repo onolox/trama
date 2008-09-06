@@ -47,9 +47,7 @@ public class JTableCustomizado extends JTable {
 		setSelectionMode( 2 );
 		setColumnSelectionAllowed( false );
 		setCellSelectionEnabled( false );
-		
 		setModel( modelo );
-		
 		setDefaultRenderer( String.class, cell );
 		setDefaultRenderer( RenderizadorTituloLinha.class, cell0 );
 		

@@ -42,7 +42,14 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 		if( value.toString().length() > 30 ){
 			label.setToolTipText( value.toString().replace( "|||", "" ) );
 			icon = getVerticalCaption( label, value.toString().replace( "|||", "" ).substring( 0, 29 ) + "...", true );
-		} else icon = getVerticalCaption( label, value.toString().replace( "|||", "" ), true );
+		} else{
+			
+			String ss = value.toString().replace( "|||", "" );
+			for( int i = 0; i < 30; i++ ){
+				if( ss.length() < 30 ) ss = " " + ss;
+			}
+			icon = getVerticalCaption( label, ss, true );
+		}
 		label.setIcon( icon );
 		
 		return label;
@@ -67,7 +74,6 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 		g.setColor( componente.getForeground() );
 		g.setFont( f );
 		g.setRenderingHint( RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_LCD_VRGB );
-		g.setRenderingHint( RenderingHints.KEY_TEXT_LCD_CONTRAST, 100 );
 		g.setRenderingHint( RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY );
 		
 		if( sentido ){

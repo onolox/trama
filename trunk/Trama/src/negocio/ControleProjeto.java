@@ -12,6 +12,7 @@ public class ControleProjeto {
 	private LinkedList< Matriz > matrizes;
 	private PersistenciaProjeto persistenciaProjeto;
 	private Projeto projeto;
+	private boolean estado = true;
 	
 	public ControleProjeto() {
 		projeto = new Projeto();
@@ -145,18 +146,43 @@ public class ControleProjeto {
 	
 	public HashMap< String, LinkedList< String >> destacarElementos( int elemento, String tipo, String nomeMatriz ) {
 		HashMap< String, LinkedList< String >> m = new HashMap< String, LinkedList< String > >();
+		if( estado ){
+			for( Matriz matriz : matrizes )
+				matriz.resetarDestaque();
+			estado = false;
+			return m;
+		}
+		
 		LinkedList< String > l = null;
+		LinkedList< String > l2 = null;
+		String mauElemento;
+		String toq1 = nomeMatriz.split( " X " )[ 1 ];
+		if( tipo.equalsIgnoreCase( "linha" ) ) toq1 = nomeMatriz.split( " X " )[ 0 ];
+		
 		try{
 			for( Matriz matriz : matrizes ){
 				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
-					l = matriz.destacarElementos( elemento, tipo );
-					System.out.println( "ssssssss " + l.size() );
-					if( l.size() != 0 ){
-						;
-					}
+					if( tipo.equalsIgnoreCase( "linha" ) ) mauElemento = matriz.getTituloLinha( elemento );
+					else mauElemento = matriz.getTituloLinha( elemento );
 				}
 			}
 			
+			for( Matriz matriz : matrizes ){
+				String t1 = matriz.getNomeMatriz().split( " X " )[ 0 ];
+				String t2 = matriz.getNomeMatriz().split( " X " )[ 1 ];
+				if( t1.equals( toq1 ) ){
+					for( int i = 0; i < matriz.getQLinhas(); i++ ){
+						if( matriz.getTituloLinha( i ).equals( t1 ) ){
+							l = matriz.destacarElementos( i, "linha" );
+							for( int j = 0; j < l.size(); j++ ){
+						
+							}
+						}
+					}
+				} else if( t2.equals( toq1 ) ){
+					l = matriz.destacarElementos( elemento, "coluna" );
+				}
+			}
 		} catch( Exception e ){
 			e.printStackTrace();
 			m = null;

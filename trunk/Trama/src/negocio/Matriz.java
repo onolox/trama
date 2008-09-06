@@ -94,7 +94,7 @@ public class Matriz {
 				for( int i = 1; i < getQColunas(); i++ ){
 					int da = Integer.parseInt( getDadoMatriz( elemento, i ) );
 					if( da == 1 || da == 2 || da == 3 || da == 4 ){
-						l.add( i + "" );
+						l.add( getTituloColuna( i ) );
 						setTituloColuna( i, "|||" + getTituloColuna( i ) );
 					}
 				}
@@ -105,21 +105,9 @@ public class Matriz {
 				for( int i = 0; i < getQLinhas(); i++ ){
 					int da = Integer.parseInt( getDadoMatriz( i, elemento ) );
 					if( da == 1 || da == 2 || da == 3 || da == 4 ){
-						l.add( i + "" );
+						l.add( getTituloLinha( i ) );
 						setTituloLinha( i, "|||" + getTituloLinha( i ) );
 					}
-				}
-				
-			} else if( tipo.equalsIgnoreCase( "linha" ) && getTituloLinha( elemento ).startsWith( "|||" ) ){ // ---------Linha já ligada
-				setTituloLinha( elemento, getTituloLinha( elemento ).replace( "|||", "" ) );
-				
-				for( int i = 1; i < getQColunas(); i++ ){
-					setTituloColuna( i, getTituloColuna( i ).replace( "|||", "" ) );
-				}
-			} else if( getTituloColuna( elemento ).startsWith( "|||" ) ){
-				setTituloColuna( elemento, getTituloColuna( elemento ).replace( "|||", "" ) );
-				for( int i = 1; i < getQLinhas(); i++ ){
-					setTituloLinha( i, getTituloLinha( i ).replace( "|||", "" ) );
 				}
 			}
 		} catch( Exception e ){
@@ -178,6 +166,15 @@ public class Matriz {
 		matriz.setQLinhas( -1 );
 		matriz.getLinhas().remove( index );
 		matriz.getTituloLinha().remove( index );
+	}
+	
+	public void resetarDestaque() {
+		for( int i = 0; i < getQLinhas(); i++ ){
+			if( getTituloLinha( i ).startsWith( "|||" ) ) getTituloLinha( i ).replace( "|||", "" );
+		}
+		for( int i = 0; i < getQColunas(); i++ ){
+			if( getTituloColuna( i ).startsWith( "|||" ) ) getTituloColuna( i ).replace( "|||", "" );
+		}
 	}
 	
 	public void setDadoMatriz( int valor, int linha, int coluna ) {
