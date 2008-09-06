@@ -417,7 +417,6 @@ public class Tela extends JFrame implements ActionListener {
 	}
 	
 	private void destacarElementos() {
-		System.out.println( "----------------------------" );
 		if( controle.destacarElementos() == null ) JOptionPane.showInternalMessageDialog( this, "Erro fatal" );
 		else{
 			try{
@@ -800,7 +799,7 @@ public class Tela extends JFrame implements ActionListener {
 					try{
 						int linha = jT.rowAtPoint( e.getPoint() );
 						int coluna = jT.getSelectedColumn();
-						if( coluna == -1 ) coluna = 0;
+						if( coluna == -1 && linha == -1 ) coluna = 0;
 						
 						menu.setVisible( false );
 						menu2.setVisible( false );
@@ -901,10 +900,10 @@ public class Tela extends JFrame implements ActionListener {
 				public void mouseClicked( MouseEvent e ) {
 					try{
 						int coluna = header.columnAtPoint( e.getPoint() );
+						
 						controle.setLinhaAtual( -1 );
-						if( coluna < 1 ){
-							coluna = 1;
-						}
+						if( coluna < 1 ) coluna = 1;
+						
 						controle.setColunaAtual( coluna );
 						
 						if( e.getButton() == 3 ){
