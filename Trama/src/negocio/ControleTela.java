@@ -169,6 +169,7 @@ public class ControleTela {
 		}
 		return lista;
 	}
+	
 	public ModeloTabela adicionarMatriz( String nome ) {
 		ModeloTabela m = controleProjeto.adicionarMatriz( nome );
 		tela.setExcluirMatriz( true );
@@ -301,10 +302,6 @@ public class ControleTela {
 		tela.setSalvarImagemMenu( false );
 		tela.setSalvarPDFMenu( false );
 		tela.setImprimirMenu( false );
-	}
-	
-	public HashMap< String, LinkedList< String >> getNomeExtensoes() {
-		return null;
 	}
 	
 	public String ordenarColuna() {

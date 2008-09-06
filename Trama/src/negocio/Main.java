@@ -15,6 +15,9 @@ public class Main {
 	public static void main( String args[] ) {
 		try{
 			UIManager.setLookAndFeel( UIManager.getSystemLookAndFeelClassName() );
+			UIManager.put( "OptionPane.cancelButtonText", "Cancelar" );
+			UIManager.put( "OptionPane.noButtonText", "Não" );
+			UIManager.put( "OptionPane.yesButtonText", "Sim" );
 			System.out.print( " " );
 		} catch( Exception ex ){
 			ex.printStackTrace();
