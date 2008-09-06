@@ -169,11 +169,16 @@ public class Matriz {
 	}
 	
 	public void resetarDestaque() {
-		for( int i = 0; i < getQLinhas(); i++ ){
-			if( getTituloLinha( i ).startsWith( "|||" ) ) getTituloLinha( i ).replace( "|||", "" );
-		}
-		for( int i = 0; i < getQColunas(); i++ ){
-			if( getTituloColuna( i ).startsWith( "|||" ) ) getTituloColuna( i ).replace( "|||", "" );
+		
+		try{
+			for( int i = 0; i < getQLinhas(); i++ ){
+				if( getTituloLinha( i ).startsWith( "|||" ) ) setTituloLinha( i, getTituloLinha( i ).replace( "|||", "" ) );
+			}
+			for( int i = 1; i < getQColunas(); i++ ){
+				if( getTituloColuna( i ).startsWith( "|||" ) ) setTituloColuna( i, getTituloColuna( i ).replace( "|||", "" ) );
+			}
+		} catch( Exception e ){
+			e.printStackTrace();
 		}
 	}
 	
@@ -224,7 +229,6 @@ public class Matriz {
 				mak = false;
 				for( int i = 0; i < matriz.getQLinhas() - 1; i++ ){
 					int com = matriz.getTituloLinha().get( i ).compareToIgnoreCase( matriz.getTituloLinha().get( i + 1 ) );
-					System.out.println( com );
 					if( com < 0 ){
 						alterarPosicaoLinha( i, i + 1 );
 						mak = true;
