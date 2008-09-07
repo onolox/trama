@@ -183,8 +183,7 @@ public class ControleProjeto {
 			for( Matriz matriz : matrizes ){
 				String t1 = matriz.getNomeMatriz().split( " X " )[ 0 ];
 				String t2 = matriz.getNomeMatriz().split( " X " )[ 1 ];
-			// System.out.println( "t1= " + t1 + "         t2= " + t2 );
-				
+						
 				if( t1.equals( toq ) ){
 					System.out.println( t1 + "   t1 igual a toq  na linha    " + toq );
 					for( int i = 0; i < matriz.getQLinhas(); i++ ){
