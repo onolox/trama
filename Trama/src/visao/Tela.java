@@ -194,11 +194,14 @@ public class Tela extends JFrame implements ActionListener {
 	}
 	
 	private void adicionarMatriz() {
-		JDialog diag = new JDialog( this ) {
+		JDialog diag = new JDialog( this, true ) {
 			boolean bol = true;
 			String s = "";
 			{
 				initComponents();
+				setVisible( true );
+				setResizable( false );
+				setLocation( getParent().getLocationOnScreen() );
 			}
 			
 			/**
@@ -216,9 +219,7 @@ public class Tela extends JFrame implements ActionListener {
 				jLabel4 = new javax.swing.JLabel();
 				
 				setDefaultCloseOperation( javax.swing.WindowConstants.DISPOSE_ON_CLOSE );
-				setVisible( true );
-				setLocation( getParent().getLocationOnScreen() );
-				
+								
 				jLabel1.setHorizontalAlignment( javax.swing.SwingConstants.CENTER );
 				jLabel1.setText( "Insira o nome da matriz" );
 				
