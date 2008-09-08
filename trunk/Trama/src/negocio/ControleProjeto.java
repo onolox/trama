@@ -165,7 +165,6 @@ public class ControleProjeto {
 					else mauElemento = matriz.getTituloColuna( elemento );
 				}
 			}
-			// System.out.println( "mauelemento= " + mauElemento + "       toq1" + toq );
 			recursivo( mauElemento, toq );
 		} catch( Exception e ){
 			e.printStackTrace();
@@ -178,12 +177,12 @@ public class ControleProjeto {
 	private void recursivo( String nome, String toq ) {
 		LinkedList< String > l = null;
 		
-		 System.out.println( nome + " ------ " + toq );
+		System.out.println( nome + " ------ " + toq );
 		try{
 			for( Matriz matriz : matrizes ){
 				String t1 = matriz.getNomeMatriz().split( " X " )[ 0 ];
 				String t2 = matriz.getNomeMatriz().split( " X " )[ 1 ];
-						
+				
 				if( t1.equals( toq ) ){
 					System.out.println( t1 + "   t1 igual a toq  na linha    " + toq );
 					for( int i = 0; i < matriz.getQLinhas(); i++ ){
@@ -313,14 +312,10 @@ public class ControleProjeto {
 	
 	public String ordenarColuna( String nomeMatriz ) {
 		String s = "ok";
-		boolean alterou = false;
+	
 		try{
 			for( Matriz matriz : matrizes ){
-				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
-					for( int i = 1; i < matriz.getQColunas(); i++ ){
-						matriz.ordenarColunas();
-					}
-				}
+				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ) matriz.ordenarColunas();
 			}
 		} catch( Exception e ){
 			e.printStackTrace();
@@ -333,9 +328,7 @@ public class ControleProjeto {
 		String s = "ok";
 		try{
 			for( Matriz matriz : matrizes ){
-				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
-					matriz.ordenarLinhas();
-				}
+				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ) matriz.ordenarLinhas();
 			}
 		} catch( Exception e ){
 			e.printStackTrace();

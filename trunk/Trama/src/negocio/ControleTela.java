@@ -248,6 +248,7 @@ public class ControleTela {
 				}
 			}
 			controleProjeto = null;
+			criarNovoProjeto();
 		}
 		return s;
 	}

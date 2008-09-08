@@ -1,5 +1,6 @@
 package visao.renderizador;
 
+import java.awt.Color;
 import java.awt.Component;
 
 import javax.swing.JLabel;
@@ -24,6 +25,7 @@ public class RenderizadorCelula extends DefaultTableCellRenderer {
 			label.setText( "" );
 		} else if( value.equals( "1" ) ){
 			label.setText( "X" );
+			label.setBackground( new Color( 150, 150, 150 ) );
 		} else if( value.equals( "2" ) ){
 			label.setText( "X" );
 			label.setBackground( javax.swing.UIManager.getDefaults().getColor( "ColorChooser.background" ) );
@@ -43,6 +45,6 @@ public class RenderizadorCelula extends DefaultTableCellRenderer {
 			label.setText( "" );
 			label.setBackground( javax.swing.UIManager.getDefaults().getColor( "CheckBox.shadow" ) );
 		}
-		return label;
+				return label;
 	}
 }
