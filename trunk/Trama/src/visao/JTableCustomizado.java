@@ -50,6 +50,7 @@ public class JTableCustomizado extends JTable {
 		setModel( modelo );
 		setDefaultRenderer( String.class, cell );
 		setDefaultRenderer( RenderizadorTituloLinha.class, cell0 );
+		setRowHeight( 20 );
 		
 		TableColumnModel modelocoluna = getColumnModel();
 		l = modelocoluna.getColumns();
