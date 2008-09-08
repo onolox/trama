@@ -11,7 +11,8 @@ import Interface.PluginInterface;
 
 /**
  * Classe utilizada para extrair os nomes dos objetos dos arquivos gerados pelo plugin UML do Netbeans 6.1. <br>
- * Aviso importante: <b>É necessário o arquivo de projeto do Netbeans (extensão .etd) junto com os de diagrama (extensão .etlp).</b>
+ * Aviso importante: <b>É necessário o arquivo de projeto do Netbeans (extensão .etd) junto com os de diagrama (extensão .etlp).</b><br>
+ * Somente os caracteres +-_: são aceitos em nomes de objetos.
  * 
  * @author Fabio Marmitt
  */
@@ -66,13 +67,28 @@ public class PluginNetbeans implements PluginInterface {
 						sb.append( scan.nextLine() + "\n" );
 					
 					Matcher mat = pat.matcher( sb.toString() );
+					sb = new StringBuilder( 50 );
 					while( mat.find() ){
-						String s = mat.group();
-						
-						Matcher mat2 = Pattern.compile( "(?<=name=\")\\p{Alnum}+(?=\")" ).matcher( s );
-						if( mat2.find() ){
-							s = mat2.group();
-							if( sb2.toString().contains( s ) ) l.add( s );
+						sb.append( mat.group() + "\n" );
+					}
+					// System.out.println( sb.toString() );
+					
+					Matcher mat3 = Pattern.compile( "(?<=name=\"2\" MEID=\")[\\p{Alnum}\\p{Punct}_+-: ]+(?=\">)" ).matcher( sb2.toString() );
+					sb2 = new StringBuilder( 50 );
+					while( mat3.find() ){
+						sb2.append( mat3.group() + "\n" );
+					}
+				// System.out.println( sb2.toString() );
+					Matcher mat2 = Pattern.compile( "(?<=value=\")[\\p{Alnum}_+-:]+(?=\")" ).matcher( sb2.toString() );
+					
+					if( mat2.find() && sb.toString().contains( mat2.group() ) ){
+						if( !mat2.group().equals( "Attributes" ) && !mat2.group().equals( "Operations" ) ) l.add( mat2.group() );
+						while( mat2.find() ){
+							String s2 = mat2.group();
+							for( String str : l ){
+								if( str.equalsIgnoreCase( s2 ) ) s2 = "Attributes";
+							}
+							if( !s2.equals( "Attributes" ) && !s2.equals( "Operations" ) ) l.add( s2 );
 						}
 					}
 				}
