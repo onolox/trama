@@ -874,6 +874,8 @@ public class Tela extends JFrame implements ActionListener {
 							setSincronizarMatrizMenu( true );
 							setSincronizarMenu( true );
 							setResetarCamposNovosMenu( true );
+							jT.repaint();
+							jT.getTableHeader().repaint();
 						} else{ // Aqui é quando se clica nas ---------------------------------------------------------células ---------------------
 						
 							if( controle.getLinhaAtual() >= 0 && controle.getColunaAtual() > 0 ){
@@ -980,6 +982,8 @@ public class Tela extends JFrame implements ActionListener {
 							setSincronizarMatrizMenu( true );
 							setSincronizarMenu( true );
 							setResetarCamposNovosMenu( true );
+							jT.repaint();
+							header.repaint();
 						}
 					} catch( Exception e1 ){
 						e1.printStackTrace();
@@ -1290,7 +1294,13 @@ public class Tela extends JFrame implements ActionListener {
 				try{
 					controle.setMatrizAtual( jTabbedPane1.getTitleAt( jTabbedPane1.getSelectedIndex() ) );
 				} catch( Exception e ){
-					
+				}
+				
+				for( JTableCustomizado jtc : matrizes ){
+					jtc.setLinhaAtual( -1 );
+					jtc.setColunaAtual( -1 );
+					jtc.setLinhaSelecionada( -1 );
+					jtc.setColunaSelecionada( -1 );
 				}
 				
 				setCancelarEdicao( false );

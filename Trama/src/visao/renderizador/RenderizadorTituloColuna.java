@@ -40,14 +40,13 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 	 
 		
 		if( !value.toString().startsWith( "|||" ) ){
-			if( tab.getColunaAtual() == column && tab.getLinhaAtual() >= 0 ) label.setBorder( new SoftBevelBorder( BevelBorder.LOWERED ) );
+			if( ( tab.getColunaAtual() == column && tab.getLinhaAtual() >= 0 ) || tab.getColunaSelecionada() == column ) label.setBorder( new SoftBevelBorder( BevelBorder.LOWERED ) );
 			label.setBackground( UIManager.getDefaults().getColor( "Button.light" ) );
 		} else{
-			if( tab.getColunaAtual() == column && tab.getLinhaAtual() >= 0 ) label.setBorder( new SoftBevelBorder( BevelBorder.LOWERED ) );
+			if( ( tab.getColunaAtual() == column && tab.getLinhaAtual() >= 0 ) || tab.getColunaSelecionada() == column ) label.setBorder( new SoftBevelBorder( BevelBorder.LOWERED ) );
 			label.setBackground( new Color( 244, 103, 84 ) );
 		}
-		if( tab.getLinhaAtual() == -2 ) label.setBorder( new SoftBevelBorder( BevelBorder.RAISED ) );
-		
+	
 		if( value.toString().length() > 30 ){
 			label.setToolTipText( value.toString().replace( "|||", "" ) );
 			icon = getVerticalCaption( label, value.toString().replace( "|||", "" ).substring( 0, 29 ) + "...", true );
@@ -61,7 +60,7 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 		}
 		label.setIcon( icon );
 		
-		if( column == 0 ) label.setBorder( new SoftBevelBorder( BevelBorder.RAISED ) );
+	 if( column == 0 ) label.setBorder( new SoftBevelBorder( BevelBorder.RAISED ) );
 		return label;
 	}
 	/**

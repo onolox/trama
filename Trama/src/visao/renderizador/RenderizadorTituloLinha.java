@@ -32,10 +32,10 @@ public class RenderizadorTituloLinha extends DefaultTableCellRenderer {
 		label.setFont( getFont().deriveFont( 12f ) );
 		
 		if( !value.toString().startsWith( "|||" ) ){
-			if( ( tab.getColunaAtual() > 0 && tab.getLinhaAtual() == row ) || ( hasFocus && isSelected ) ) label.setBorder( new SoftBevelBorder( BevelBorder.LOWERED ) );
+			if( ( tab.getColunaAtual() > 0 && tab.getLinhaAtual() == row ) || ( tab.getLinhaSelecionada() == row ) ) label.setBorder( new SoftBevelBorder( BevelBorder.LOWERED ) );
 			label.setBackground( UIManager.getDefaults().getColor( "Button.light" ) );
 		} else{
-			if( ( tab.getColunaAtual() > 0 && tab.getLinhaAtual() == row ) || ( hasFocus && isSelected ) ) label.setBorder( new SoftBevelBorder( BevelBorder.LOWERED ) );
+			if( ( tab.getColunaAtual() > 0 && tab.getLinhaAtual() == row ) || ( tab.getLinhaSelecionada() == row ) ) label.setBorder( new SoftBevelBorder( BevelBorder.LOWERED ) );
 			label.setBackground( new java.awt.Color( 244, 103, 84 ) );
 			label.setText( value.toString().replace( "|||", "" ) );
 		}
