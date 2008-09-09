@@ -18,6 +18,8 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 
+import visao.JTableCustomizado;
+
 public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 	public RenderizadorTituloColuna() {
 		super();
@@ -25,20 +27,27 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 	
 	@Override
 	public Component getTableCellRendererComponent( JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column ) {
+		JTableCustomizado tab = ( JTableCustomizado ) table;
 		Icon icon = null;
 		JLabel label = new JLabel();
 		label.setOpaque( true );
 		label.setHorizontalAlignment( CENTER );
 		label.setVerticalAlignment( JLabel.BOTTOM );
 		label.setFont( getFont().deriveFont( 12f ) );
+		label.setBorder( new SoftBevelBorder( BevelBorder.RAISED ) );
+		label.setForeground( new Color( 0, 0, 0 ) );
+	// System.out.println( row + " ---- " + column + "   " + hasFocus );
+	 
 		
 		if( !value.toString().startsWith( "|||" ) ){
+			if( tab.getColunaAtual() == column && tab.getLinhaAtual() >= 0 ) label.setBorder( new SoftBevelBorder( BevelBorder.LOWERED ) );
 			label.setBackground( UIManager.getDefaults().getColor( "Button.light" ) );
-			label.setBorder( new javax.swing.border.SoftBevelBorder( BevelBorder.RAISED ) );
 		} else{
+			if( tab.getColunaAtual() == column && tab.getLinhaAtual() >= 0 ) label.setBorder( new SoftBevelBorder( BevelBorder.LOWERED ) );
 			label.setBackground( new Color( 244, 103, 84 ) );
-			label.setBorder( new SoftBevelBorder( BevelBorder.RAISED ) );
 		}
+		if( tab.getLinhaAtual() == -2 ) label.setBorder( new SoftBevelBorder( BevelBorder.RAISED ) );
+		
 		if( value.toString().length() > 30 ){
 			label.setToolTipText( value.toString().replace( "|||", "" ) );
 			icon = getVerticalCaption( label, value.toString().replace( "|||", "" ).substring( 0, 29 ) + "...", true );
@@ -52,6 +61,7 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 		}
 		label.setIcon( icon );
 		
+		if( column == 0 ) label.setBorder( new SoftBevelBorder( BevelBorder.RAISED ) );
 		return label;
 	}
 	/**
