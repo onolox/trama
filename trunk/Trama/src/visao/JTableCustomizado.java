@@ -94,7 +94,7 @@ public class JTableCustomizado extends JTable {
 		addMouseListener( new MouseAdapter() {
 			public void mouseExited( MouseEvent e ) {
 				linhaAtual = -2;
-				colunaAtual = -1;
+				colunaAtual = -2;
 				JTableCustomizado tab = ( JTableCustomizado ) e.getSource();
 				tab.repaint();
 				tab.getTableHeader().repaint();
