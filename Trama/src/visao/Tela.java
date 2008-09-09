@@ -908,6 +908,8 @@ public class Tela extends JFrame implements ActionListener {
 							setSincronizarMatrizMenu( false );
 							setSincronizarMenu( false );
 							setResetarCamposNovosMenu( false );
+							jT.repaint();
+							jT.getTableHeader().repaint();
 						}// Modafoca
 					} catch( Exception e1 ){
 						e1.printStackTrace();
@@ -1692,10 +1694,11 @@ public class Tela extends JFrame implements ActionListener {
 	
 	public void setNomeTextField( boolean estado ) {
 		nomeTextField.setEnabled( estado );
+		if( !estado ) setNomeTextField( "" ); 
 	}
 	
 	public void setNomeTextField( String nome ) {
-		nomeTextField.setText( nome.replace( "|", "" ) );
+		nomeTextField.setText( nome.replace( "|||", "" ) );
 	}
 	
 	public void setNovaLinhaColuna( boolean estado ) {
