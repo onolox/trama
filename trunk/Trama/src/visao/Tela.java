@@ -820,17 +820,14 @@ public class Tela extends JFrame implements ActionListener {
 						menu2.setVisible( false );
 						
 						for( JTableCustomizado jTableCustomizado : matrizes ){
-							if( jTableCustomizado == e.getSource() ){
-								controle.setMatrizAtual( jTableCustomizado.getNome() );
-								System.out.println( "Matriz atual: " + jTableCustomizado.getNome() );
-							}
+							if( jTableCustomizado == e.getSource() ) controle.setMatrizAtual( jTableCustomizado.getNome() );
 						}
 						controle.setLinhaAtual( linha );
 						controle.setColunaAtual( coluna );
 						
 						jT.setLinhaSelecionada( linha );
 						jT.setColunaSelecionada( -1 );
-						System.out.println( "Linha=" + ( linha ) + "   coluna= " + coluna );
+						System.out.println( "Linha=" + ( linha ) + "   coluna= " + coluna + "     Matriz atual:::" + jT.getNome() );
 						
 						if( coluna <= 0 ){// Toda vez que se clicar em um nome de------------------------------------------------------------------ linha -------
 							for( JTableCustomizado jTableCustomizado : matrizes ){
@@ -939,15 +936,10 @@ public class Tela extends JFrame implements ActionListener {
 						} else menu2.setVisible( false );
 						menu.setVisible( false );
 						
-						System.out.println( "Linha=" + ( controle.getLinhaAtual() ) + "   coluna= " + coluna );
-						
 						for( JTableCustomizado jTableCustomizado : matrizes ){
-							if( jTableCustomizado.getTableHeader() == e.getSource() ){
-								controle.setMatrizAtual( jTableCustomizado.getNome() );
-								System.out.println( "Matriz atual:::: " + jTableCustomizado.getNome() );
-							}
+							if( jTableCustomizado.getTableHeader() == e.getSource() ) controle.setMatrizAtual( jTableCustomizado.getNome() );
 						}
-						
+						System.out.println( "Linha=" + ( controle.getLinhaAtual() ) + "   coluna= " + coluna + "   Matriz atual:::: " + jT.getNome() );
 						if( coluna > 0 ){
 							for( JTableCustomizado jTableCustomizado : matrizes ){
 								if( jTableCustomizado.getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
@@ -1694,7 +1686,7 @@ public class Tela extends JFrame implements ActionListener {
 	
 	public void setNomeTextField( boolean estado ) {
 		nomeTextField.setEnabled( estado );
-		if( !estado ) setNomeTextField( "" ); 
+		if( !estado ) setNomeTextField( "" );
 	}
 	
 	public void setNomeTextField( String nome ) {
