@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 public class LeitorDeModelo {
-	private final String DIRBASE = "plugins/";
+	private static final String DIRBASE = "plugins/";
 	private LinkedList< String > lista;
 	
 	/**
