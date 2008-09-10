@@ -13,7 +13,6 @@ import javax.swing.table.DefaultTableCellRenderer;
 import visao.JTableCustomizado;
 
 public class RenderizadorTituloLinha extends DefaultTableCellRenderer {
-	boolean bol = true;
 	public RenderizadorTituloLinha() {
 		super();
 	}

@@ -29,10 +29,12 @@ public class PersistenciaProjeto {
 			
 			XStream x = new XStream( new DomDriver() );
 			x.toXML( projeto, file );
+            file.close();
 		} catch( IOException e ){
 			e.printStackTrace();
 			s = "erro";
 		}
+        
 		return s;
 	}
 }

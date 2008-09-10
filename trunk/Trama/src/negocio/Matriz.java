@@ -120,7 +120,7 @@ public class Matriz {
 			case 0:
 				return getTituloLinha( linha );
 			default:
-				return matriz.getLinha( linha ).get( coluna ).toString();
+				return matriz.getLinha( linha ).get( coluna );
 		}
 	}
 	
