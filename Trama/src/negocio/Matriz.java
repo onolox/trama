@@ -116,12 +116,9 @@ public class Matriz {
 		return l;
 	}
 	public String getDadoMatriz( int linha, int coluna ) {
-		switch( coluna ) {
-			case 0:
-				return getTituloLinha( linha );
-			default:
-				return matriz.getLinha( linha ).get( coluna );
-		}
+	if(coluna == 0)				return getTituloLinha( linha );
+							return matriz.getLinha( linha ).get( coluna );
+		
 	}
 	
 	public DadosMatriz getDadosMatriz() {

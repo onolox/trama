@@ -21,47 +21,52 @@ import javax.swing.table.DefaultTableCellRenderer;
 import visao.JTableCustomizado;
 
 public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
+     SoftBevelBorder raized;
+       SoftBevelBorder low ;
+       Color color;
+       	Icon icon = null;
 	public RenderizadorTituloColuna() {
 		super();
+        setOpaque( true );
+		setHorizontalAlignment( CENTER );
+		setVerticalAlignment( JLabel.BOTTOM );
+		setFont( getFont().deriveFont( 12f ) );
+        setForeground( new Color( 0, 0, 0 ) );
+        
+        color = new Color( 244, 103, 84 );
+         raized = new SoftBevelBorder( BevelBorder.RAISED );
+         low = new SoftBevelBorder( BevelBorder.LOWERED );
 	}
 	
 	@Override
 	public Component getTableCellRendererComponent( JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column ) {
 		JTableCustomizado tab = ( JTableCustomizado ) table;
-		Icon icon = null;
-		JLabel label = new JLabel();
-		label.setOpaque( true );
-		label.setHorizontalAlignment( CENTER );
-		label.setVerticalAlignment( JLabel.BOTTOM );
-		label.setFont( getFont().deriveFont( 12f ) );
-		label.setBorder( new SoftBevelBorder( BevelBorder.RAISED ) );
-		label.setForeground( new Color( 0, 0, 0 ) );
-	// System.out.println( row + " ---- " + column + "   " + hasFocus );
-	 
+		setBorder( raized );
+         String v = value.toString();
 		
-		if( !value.toString().startsWith( "|||" ) ){
-			if( ( tab.getColunaAtual() == column && tab.getLinhaAtual() >= 0 ) || tab.getColunaSelecionada() == column ) label.setBorder( new SoftBevelBorder( BevelBorder.LOWERED ) );
-			label.setBackground( UIManager.getDefaults().getColor( "Button.light" ) );
+		if( !v.startsWith( "|||" ) ){
+			if( ( tab.getColunaAtual() == column && tab.getLinhaAtual() >= 0 ) || tab.getColunaSelecionada() == column ) setBorder( low );
+			setBackground( UIManager.getDefaults().getColor( "Button.light" ) );
 		} else{
-			if( ( tab.getColunaAtual() == column && tab.getLinhaAtual() >= 0 ) || tab.getColunaSelecionada() == column ) label.setBorder( new SoftBevelBorder( BevelBorder.LOWERED ) );
-			label.setBackground( new Color( 244, 103, 84 ) );
+			if( ( tab.getColunaAtual() == column && tab.getLinhaAtual() >= 0 ) || tab.getColunaSelecionada() == column ) setBorder(low );
+			setBackground( color );
 		}
 	
-		if( value.toString().length() > 30 ){
-			label.setToolTipText( value.toString().replace( "|||", "" ) );
-			icon = getVerticalCaption( label, value.toString().replace( "|||", "" ).substring( 0, 29 ) + "...", true );
+		if( v.length() > 30 ){
+			setToolTipText( v.replace( "|||", "" ) );
+			icon = getVerticalCaption(this, v.replace( "|||", "" ).substring( 0, 29 ) + "...", true );
 		} else{
 			
-			String ss = value.toString().replace( "|||", "" );
+			String ss = v.replace( "|||", "" );
 			for( int i = 0; i < 30; i++ ){
 				if( ss.length() < 30 ) ss = " " + ss;
-			}
-			icon = getVerticalCaption( label, ss, true );
+		    }
+			icon = getVerticalCaption( this, ss, true );
 		}
-		label.setIcon( icon );
+		setIcon( icon );
 		
-	 if( column == 0 ) label.setBorder( new SoftBevelBorder( BevelBorder.RAISED ) );
-		return label;
+	 if( column == 0 ) setBorder( raized );
+		return this;
 	}
 	/**
 	 * @param componente
