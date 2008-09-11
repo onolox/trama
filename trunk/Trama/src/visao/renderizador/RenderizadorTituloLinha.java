@@ -50,6 +50,6 @@ public class RenderizadorTituloLinha extends DefaultTableCellRenderer {
 			( ( JLabel ) this ).setText( v.replace( "|||", "" ) );
 		}
 		
-		return ( JLabel ) this;
+		return this;
 	}
 }

@@ -154,6 +154,7 @@ public class Tela extends JFrame implements ActionListener {
 				jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
 				jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
 				jpanel.add( js );
+				resetarDestaque();
 				jpanel.updateUI();
 				jpanel.repaint();
 			}
@@ -192,6 +193,7 @@ public class Tela extends JFrame implements ActionListener {
 				t.fireTableDataChanged();
 			}
 		}
+		resetarDestaque();
 	}
 	
 	private void adicionarMatriz() {
@@ -445,8 +447,6 @@ public class Tela extends JFrame implements ActionListener {
 					jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
 					jpanel.add( js );
 					jpanel.updateUI();
-					
-					setNomeTextField( mod.getMatriz().getTituloColuna( controle.getColunaAtual() ) );
 				}
 			} catch( Exception e ){
 				e.printStackTrace();
@@ -524,7 +524,7 @@ public class Tela extends JFrame implements ActionListener {
 						ModeloTabela t = ( ModeloTabela ) j.getModel();
 						t.fireTableDataChanged();
 						int linh = controle.getLinhaAtual();
-						if( linh < 1 ) linh = 1;
+						if( linh < 1 ) linh = 0;
 						else linh--;
 						controle.setLinhaAtual( linh );
 						setNomeTextField( t.getMatriz().getTituloLinha( linh ) );
@@ -665,29 +665,28 @@ public class Tela extends JFrame implements ActionListener {
 		s = controle.salvarProjeto( "vazio" );
 		if( s.equals( "sem nome" ) ){
 			s = JOptionPane.showInputDialog( this, "Insira um nome para o projeto", "Nome do projeto", 0 );
-			
-			s = controle.salvarProjeto( s );
-			if( s.equals( "sem nome" ) ){
-				salvarProjeto();
+			if( s != null ){
+				s = controle.salvarProjeto( s );
+				if( s.equals( "sem nome" ) ){
+					salvarProjeto();
+				}
+				setTitle( "Trama  ---->  Projeto Salvo Com Sucesso" );
+				try{
+					Thread.sleep( 3000 );
+				} catch( InterruptedException e ){
+					e.printStackTrace();
+				}
+				setTitle( "Trama" );
 			}
 		}
-		
-		setTitle( "Trama  ---->  Projeto Salvo Com Sucesso" );
-		try{
-			Thread.sleep( 3000 );
-		} catch( InterruptedException e ){
-			e.printStackTrace();
-		}
-		setTitle( "Trama" );
 	}
 	
 	private void sincronizarColuna() {
 		String s = "ok";
 		try{
 			s = controle.sincronizarColuna();
-			if( s == null || !s.equalsIgnoreCase( "ok" ) ){
-				JOptionPane.showMessageDialog( this, "Houve um erro", "Erro", 1 );
-			}
+			if( s == null || !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, "Houve um erro", "Erro", 1 );
+			
 			for( int i = 0; i < matrizes.size(); i++ ){
 				if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
 					JTableCustomizado jt = matrizes.remove( i );
@@ -713,6 +712,7 @@ public class Tela extends JFrame implements ActionListener {
 			e.printStackTrace();
 		}
 	}
+	
 	
 	private void sincronizarLinha() {
 		String s = "ok";
@@ -929,7 +929,7 @@ public class Tela extends JFrame implements ActionListener {
 				@Override
 				public void mouseClicked( MouseEvent e ) {
 					try{
-						int coluna = header.columnAtPoint( e.getPoint() );
+						int coluna = jT.columnAtPoint( e.getPoint() );
 						controle.setLinhaAtual( -1 );
 						if( coluna < 1 ) coluna = 1;
 						controle.setColunaAtual( coluna );
