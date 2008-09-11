@@ -31,22 +31,15 @@ public class ModeloTabela extends AbstractTableModel {
 
         @Override
         public Class getColumnClass( int columnIndex ) {
-                switch ( columnIndex ) {
-                        case 0:
-                                return RenderizadorTituloLinha.class;
-                        default:
-                                return String.class;
-                }
+                if(columnIndex != 0)                                 return String.class; 
+                return  RenderizadorTituloLinha.class;
+                
         }
 
         @Override
         public String getColumnName( int columnIndex ) {
-                switch ( columnIndex ) {
-                        case 0:
-                                return "";
-                        default:
-                                return matriz.getTituloColuna( columnIndex );
-                }
+              if(columnIndex != 0)    return matriz.getTituloColuna( columnIndex );
+              return "";
         }
 
         public String getNomeMatriz() {
