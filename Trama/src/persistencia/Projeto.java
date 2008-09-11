@@ -1,6 +1,5 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * To change this template, choose Tools | Templates and open the template in the editor.
  */
 
 package persistencia;
@@ -13,20 +12,19 @@ public class Projeto {
 	private String nome = "";
 	
 	public LinkedList< DadosMatriz > getMatrizes() {
-        return matrizes;
-    }
-
-    public void setMatrizes( LinkedList<DadosMatriz> matrizes ) {
-        this.matrizes = matrizes;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome( String nome ) {
-        this.nome = nome;
-    }
-
-
+		return matrizes;
+	}
+	
+	public void setMatrizes( LinkedList< DadosMatriz > matrizes ) {
+		this.matrizes = matrizes;
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	public void setNome( String nome ) {
+		this.nome = nome;
+	}
+	
 }
