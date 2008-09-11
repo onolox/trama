@@ -25,7 +25,7 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 	private SoftBevelBorder low;
 	private Color color, color2;
 	private Icon icon = null;
-	private String nam;
+	
 	public RenderizadorTituloColuna() {
 		super();
 		setOpaque( true );
@@ -38,7 +38,6 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 		color2 = UIManager.getDefaults().getColor( "Button.light" );
 		raized = new SoftBevelBorder( BevelBorder.RAISED );
 		low = new SoftBevelBorder( BevelBorder.LOWERED );
-		nam = "";
 	}
 	
 	@Override
@@ -54,9 +53,8 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 			if( ( tab.getColunaAtual() == column && tab.getLinhaAtual() >= 0 ) || tab.getColunaSelecionada() == column ) setBorder( low );
 			setBackground( color );
 		}
-		if( !v.equals( nam ) ){
-			System.out.println( v + " -- " + nam + " - " + v.equals( nam ) );
-			nam = v;
+		if( !v.equals( getName() ) ){
+			setName( v );
 			if( v.length() > 30 ){
 				String rr = v.replace( "|||", "" );
 				setToolTipText( rr );
@@ -70,7 +68,6 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 				for( int i = 0; i < 30; i++ ){
 					if( ss.length() < 30 ) ss = " " + ss;
 				}
-				// nam = ss;
 				icon = getVerticalCaption( this, ss, true );
 			}
 			setIcon( icon );

@@ -3,7 +3,6 @@ package visao;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.image.BufferedImage;
@@ -87,16 +86,6 @@ public class JTableCustomizado extends JTable {
 			}
 		} );
 		
-		addMouseListener( new MouseAdapter() {
-			public void mouseExited( MouseEvent e ) {
-				linhaAtual = -2;
-				colunaAtual = -2;
-				JTableCustomizado tab = ( JTableCustomizado ) e.getSource();
-				tab.repaint();
-				tab.getTableHeader().repaint();
-			}
-		} );
-		
 		getTableHeader().addMouseMotionListener( new MouseMotionAdapter() {// Pro header
 				public void mouseMoved( MouseEvent e ) {
 					JTableHeader head = ( JTableHeader ) e.getSource();
@@ -111,14 +100,6 @@ public class JTableCustomizado extends JTable {
 					}
 				}
 			} );
-		
-		getTableHeader().addMouseListener( new MouseAdapter() {
-			public void mouseExited( MouseEvent e ) {
-				linhaAtual = -2;
-				colunaAtual = -2;
-				( ( JTableHeader ) e.getSource() ).repaint();
-			}
-		} );
 	}
 	
 	public String exportarImagem( String arquivo ) {

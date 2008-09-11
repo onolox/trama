@@ -912,6 +912,15 @@ public class Tela extends JFrame implements ActionListener {
 						e1.printStackTrace();
 					}
 				}
+				
+				public void mouseExited( MouseEvent e ) {
+					jT.setLinhaAtual( -2 );
+					jT.setColunaAtual( -2 );
+					// menu.setVisible( false );
+					menu2.setVisible( false );
+					jT.repaint();
+					jT.getTableHeader().repaint();
+				}
 			} );
 		
 		header = jT.getTableHeader();
@@ -981,7 +990,18 @@ public class Tela extends JFrame implements ActionListener {
 						e1.printStackTrace();
 					}
 				}
-			} );
+				public void mouseExited( MouseEvent e ) {
+					jT.setLinhaAtual( -2 );
+					jT.setColunaAtual( -2 );
+					header.repaint();
+					jT.repaint();
+					menu.setVisible( false );
+					// menu2.setVisible( false );
+				}
+			}
+
+			);
+		
 	}
 	
 	/**
