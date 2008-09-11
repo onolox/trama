@@ -15,7 +15,7 @@ import visao.JTableCustomizado;
 public class RenderizadorTituloLinha extends DefaultTableCellRenderer {
     SoftBevelBorder raized;
        SoftBevelBorder low ;
-       Color color;
+       Color color, color2;
        
 	public RenderizadorTituloLinha() {
 		super();
@@ -26,27 +26,30 @@ public class RenderizadorTituloLinha extends DefaultTableCellRenderer {
         raized = new SoftBevelBorder( BevelBorder.RAISED );
          low = new SoftBevelBorder( BevelBorder.LOWERED );
          color = new Color( 244, 103, 84 );
+         color2 = UIManager.getDefaults().getColor( "Button.light" );
 	}
 	
 	@Override
 	public Component getTableCellRendererComponent( JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column ) {
-		JTableCustomizado tab = ( JTableCustomizado ) table;
-        String v = value.toString();
-        
-        	setBorder( raized );
+		  String v = value.toString();
+   
+        JTableCustomizado tab = ( JTableCustomizado ) table;
+      
+       	setBorder( raized );
         	 	
 		if( v.length() > 30 ) setToolTipText( v );
 		else setToolTipText( null );
 			
 		if( !v.startsWith( "|||" ) ){
 			if( ( tab.getColunaAtual() > 0 && tab.getLinhaAtual() == row ) || ( tab.getLinhaSelecionada() == row ) ) setBorder( low );
-			setBackground( UIManager.getDefaults().getColor( "Button.light" ) );
+			setBackground( color2 );
             ((JLabel)this).setText( v );
 		} else{
 			if( ( tab.getColunaAtual() > 0 && tab.getLinhaAtual() == row ) || ( tab.getLinhaSelecionada() == row ) ) setBorder( low );
 			setBackground( color );
 			((JLabel)this).setText( v.replace( "|||", "" ) );
 		}
+
 		return(JLabel) this;
 	}
 }

@@ -10,49 +10,47 @@ import javax.swing.table.DefaultTableCellRenderer;
 import visao.JTableCustomizado;
 
 public class RenderizadorCelula extends DefaultTableCellRenderer {
+    private Color color1, color2,  color3, color4, color5, color6, color7;
 	public RenderizadorCelula() {
 		super();
+        setHorizontalAlignment( JLabel.CENTER );
+		setBackground( new Color( 245, 245, 245 ) );
+		setOpaque( true );
+		setFont( getFont().deriveFont( 16f ) );
+		setForeground( new Color( 0, 0, 0 ) );
 	}
 	
 	@Override
 	public Component getTableCellRendererComponent( JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column ) {
-		
-		JLabel label = ( JLabel ) super.getTableCellRendererComponent( table, value, isSelected, hasFocus, row, column );
-		
-		label.setHorizontalAlignment( JLabel.CENTER );
-		label.setBackground( new Color( 245, 245, 245 ) );
-		label.setOpaque( true );
-		label.setFont( getFont().deriveFont( 16f ) );
-		label.setForeground( new Color( 0, 0, 0 ) );
-	
 		JTableCustomizado tab = ( JTableCustomizado ) table;
-		if( column == tab.getColunaAtual() && row < tab.getLinhaAtual() ) this.setBackground( new Color( 200, 210, 255 ) );
-		else if( row == tab.getLinhaAtual() && column < tab.getColunaAtual() ) this.setBackground( new Color( 200, 210, 255 ) );
-		else this.setBackground( new Color( 245, 245, 245 ) );
 		
-		if( value.equals( "0" ) ) label.setText( "" );
+        if( column == tab.getColunaAtual() && row < tab.getLinhaAtual() ) setBackground( new Color( 200, 210, 255 ) );
+		else if( row == tab.getLinhaAtual() && column < tab.getColunaAtual() ) setBackground( new Color( 200, 210, 255 ) );
+		else setBackground( Color.BLACK );
+		
+		if( value.equals( "0" ) ) setText( "" );
 		else if( value.equals( "1" ) ){
-			label.setText( "X" );
-			label.setBackground( new Color( 150, 150, 150 ) );
+		    setText( "X" );
+			setBackground( new Color( 150, 150, 150 ) );
 		} else if( value.equals( "2" ) ){
-			label.setText( "X" );
-			label.setBackground( new Color( 230, 230, 230 ) );
+			setText( "X" );
+			setBackground( new Color( 230, 230, 230 ) );
 		} else if( value.equals( "3" ) ){
-			label.setText( "X" );
-			label.setBackground( new Color( 210, 210, 210 ) );
+			setText( "X" );
+			setBackground( new Color( 210, 210, 210 ) );
 		} else if( value.equals( "4" ) ){
-			label.setText( "X" );
-			label.setBackground( new Color( 190, 190, 190 ) );
+			setText( "X" );
+			setBackground( new Color( 190, 190, 190 ) );
 		} else if( value.equals( "20" ) ){
-			label.setText( "" );
-			label.setBackground( new Color( 230, 230, 230 ) );
+		setText( "" );
+			setBackground( new Color( 230, 230, 230 ) );
 		} else if( value.equals( "30" ) ){
-			label.setText( "" );
-			label.setBackground( new Color( 210, 210, 210 ) );
+			setText( "" );
+			setBackground( new Color( 210, 210, 210 ) );
 		} else if( value.equals( "40" ) ){
-			label.setText( "" );
-			label.setBackground( new Color( 190, 190, 190 ) );
+			setText( "" );
+			setBackground( new Color( 190, 190, 190 ) );
 		}
-		return label;
+		return this;
 	}
 }
