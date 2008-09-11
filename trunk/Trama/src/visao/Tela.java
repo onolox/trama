@@ -1068,7 +1068,7 @@ public class Tela extends JFrame implements ActionListener {
         jMenuItem1 = new javax.swing.JMenuItem();
         sobreMenu = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Trama");
         setIconImage( Toolkit.getDefaultToolkit().getImage( java.net.URLClassLoader.getSystemResource( "icons/Teia 2.png" ) ));
         setMinimumSize(new java.awt.Dimension(800, 550));
