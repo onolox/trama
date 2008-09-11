@@ -23,8 +23,9 @@ import visao.JTableCustomizado;
 public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
      SoftBevelBorder raized;
        SoftBevelBorder low ;
-       Color color;
+       Color color, color2;
        	Icon icon = null;
+        String nam;
 	public RenderizadorTituloColuna() {
 		super();
         setOpaque( true );
@@ -34,8 +35,10 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
         setForeground( new Color( 0, 0, 0 ) );
         
         color = new Color( 244, 103, 84 );
+        color2  = UIManager.getDefaults().getColor( "Button.light" );
          raized = new SoftBevelBorder( BevelBorder.RAISED );
          low = new SoftBevelBorder( BevelBorder.LOWERED );
+         nam = "";
 	}
 	
 	@Override
@@ -43,29 +46,38 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 		JTableCustomizado tab = ( JTableCustomizado ) table;
 		setBorder( raized );
          String v = value.toString();
+      
 		
 		if( !v.startsWith( "|||" ) ){
 			if( ( tab.getColunaAtual() == column && tab.getLinhaAtual() >= 0 ) || tab.getColunaSelecionada() == column ) setBorder( low );
-			setBackground( UIManager.getDefaults().getColor( "Button.light" ) );
+			setBackground( color2 );
 		} else{
 			if( ( tab.getColunaAtual() == column && tab.getLinhaAtual() >= 0 ) || tab.getColunaSelecionada() == column ) setBorder(low );
 			setBackground( color );
 		}
-	
+	if( !v.equals(nam) ){
+       System.out.println( v + " -- "+ nam +" - "+ v.equals( nam ));
+    nam = v;
 		if( v.length() > 30 ){
-			setToolTipText( v.replace( "|||", "" ) );
-			icon = getVerticalCaption(this, v.replace( "|||", "" ).substring( 0, 29 ) + "...", true );
+            String rr = v.replace( "|||", "" );
+			setToolTipText(rr  ); 
+            
+            rr = rr.substring( 0, 29 ) + "...";
+          
+			icon = getVerticalCaption(this, rr, true );
 		} else{
 			
 			String ss = v.replace( "|||", "" );
 			for( int i = 0; i < 30; i++ ){
 				if( ss.length() < 30 ) ss = " " + ss;
 		    }
+     //    nam = ss;
 			icon = getVerticalCaption( this, ss, true );
 		}
 		setIcon( icon );
-		
-	 if( column == 0 ) setBorder( raized );
+    }
+	     if( column == 0 ) setBorder( raized );
+        
 		return this;
 	}
 	/**
