@@ -21,11 +21,11 @@ import javax.swing.table.DefaultTableCellRenderer;
 import visao.JTableCustomizado;
 
 public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
-     SoftBevelBorder raized;
-       SoftBevelBorder low ;
-       Color color, color2;
-       	Icon icon = null;
-        String nam;
+     private SoftBevelBorder raized;
+     private   SoftBevelBorder low ;
+       private Color color, color2;
+     private   	Icon icon = null;
+     private    String nam;
 	public RenderizadorTituloColuna() {
 		super();
         setOpaque( true );
