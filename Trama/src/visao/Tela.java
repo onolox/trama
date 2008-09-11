@@ -1383,9 +1383,11 @@ public class Tela extends JFrame implements ActionListener {
         jMenu1.add(sairMenu);
         sairMenu.addActionListener( new ActionListener() {
             public void actionPerformed( ActionEvent e ) {
-                int s1 = JOptionPane.showConfirmDialog( null, "Deseja salvar o projeto atual?" );
-                if( s1 == JOptionPane.YES_OPTION && salvarProjeto.isEnabled() ) salvarProjeto();
-                else if( s1 == JOptionPane.NO_OPTION ) System.exit( 0 );
+                if( salvarProjeto.isEnabled() ){
+                    int s1 = JOptionPane.showConfirmDialog( null, "Deseja salvar o projeto atual?" );
+                    if( s1 == JOptionPane.YES_OPTION ) salvarProjeto();
+                    else if( s1 == JOptionPane.NO_OPTION ) System.exit( 0 );
+                }else  System.exit( 0 );
             }
         } );
 

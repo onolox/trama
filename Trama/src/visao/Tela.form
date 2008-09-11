@@ -80,7 +80,7 @@
                 <Property name="text" type="java.lang.String" value="Sair"/>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="sairMenu.addActionListener( new ActionListener() {&#xa;&#x9;public void actionPerformed( ActionEvent e ) {&#xa;&#x9;&#x9;&#x9;&#x9;int s1 = JOptionPane.showConfirmDialog( null, &quot;Deseja salvar o projeto atual?&quot; );&#xa;&#x9;&#x9;&#x9;&#x9;if( s1 == JOptionPane.YES_OPTION &amp;&amp; salvarProjeto.isEnabled() ) salvarProjeto();&#xa;&#x9;&#x9;&#x9;&#x9;else if( s1 == JOptionPane.NO_OPTION ) System.exit( 0 );&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;} );"/>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="sairMenu.addActionListener( new ActionListener() {&#xa;&#x9;public void actionPerformed( ActionEvent e ) {&#xa;        if( salvarProjeto.isEnabled() ){&#xa;&#x9;&#x9;&#x9;&#x9;int s1 = JOptionPane.showConfirmDialog( null, &quot;Deseja salvar o projeto atual?&quot; );&#xa;&#x9;&#x9;&#x9;&#x9;if( s1 == JOptionPane.YES_OPTION ) salvarProjeto();&#xa;&#x9;&#x9;&#x9;&#x9;else if( s1 == JOptionPane.NO_OPTION ) System.exit( 0 );&#xa;&#x9;&#x9;}else  System.exit( 0 );&#xa;    }&#xa;} );"/>
               </AuxValues>
             </MenuItem>
           </SubComponents>
