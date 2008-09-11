@@ -21,63 +21,62 @@ import javax.swing.table.DefaultTableCellRenderer;
 import visao.JTableCustomizado;
 
 public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
-     private SoftBevelBorder raized;
-     private   SoftBevelBorder low ;
-       private Color color, color2;
-     private   	Icon icon = null;
-     private    String nam;
+	private SoftBevelBorder raized;
+	private SoftBevelBorder low;
+	private Color color, color2;
+	private Icon icon = null;
+	private String nam;
 	public RenderizadorTituloColuna() {
 		super();
-        setOpaque( true );
+		setOpaque( true );
 		setHorizontalAlignment( CENTER );
 		setVerticalAlignment( JLabel.BOTTOM );
 		setFont( getFont().deriveFont( 12f ) );
-        setForeground( new Color( 0, 0, 0 ) );
-        
-        color = new Color( 244, 103, 84 );
-        color2  = UIManager.getDefaults().getColor( "Button.light" );
-         raized = new SoftBevelBorder( BevelBorder.RAISED );
-         low = new SoftBevelBorder( BevelBorder.LOWERED );
-         nam = "";
+		setForeground( new Color( 0, 0, 0 ) );
+		
+		color = new Color( 244, 103, 84 );
+		color2 = UIManager.getDefaults().getColor( "Button.light" );
+		raized = new SoftBevelBorder( BevelBorder.RAISED );
+		low = new SoftBevelBorder( BevelBorder.LOWERED );
+		nam = "";
 	}
 	
 	@Override
 	public Component getTableCellRendererComponent( JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column ) {
 		JTableCustomizado tab = ( JTableCustomizado ) table;
 		setBorder( raized );
-         String v = value.toString();
-      
+		String v = value.toString();
 		
 		if( !v.startsWith( "|||" ) ){
 			if( ( tab.getColunaAtual() == column && tab.getLinhaAtual() >= 0 ) || tab.getColunaSelecionada() == column ) setBorder( low );
 			setBackground( color2 );
 		} else{
-			if( ( tab.getColunaAtual() == column && tab.getLinhaAtual() >= 0 ) || tab.getColunaSelecionada() == column ) setBorder(low );
+			if( ( tab.getColunaAtual() == column && tab.getLinhaAtual() >= 0 ) || tab.getColunaSelecionada() == column ) setBorder( low );
 			setBackground( color );
 		}
-	if( !v.equals(nam) ){
-       System.out.println( v + " -- "+ nam +" - "+ v.equals( nam ));
-    nam = v;
-		if( v.length() > 30 ){
-            String rr = v.replace( "|||", "" );
-			setToolTipText(rr  ); 
-            
-            rr = rr.substring( 0, 29 ) + "...";
-          
-			icon = getVerticalCaption(this, rr, true );
-		} else{
-			
-			String ss = v.replace( "|||", "" );
-			for( int i = 0; i < 30; i++ ){
-				if( ss.length() < 30 ) ss = " " + ss;
-		    }
-     //    nam = ss;
-			icon = getVerticalCaption( this, ss, true );
+		if( !v.equals( nam ) ){
+			System.out.println( v + " -- " + nam + " - " + v.equals( nam ) );
+			nam = v;
+			if( v.length() > 30 ){
+				String rr = v.replace( "|||", "" );
+				setToolTipText( rr );
+				
+				rr = rr.substring( 0, 29 ) + "...";
+				
+				icon = getVerticalCaption( this, rr, true );
+			} else{
+				
+				String ss = v.replace( "|||", "" );
+				for( int i = 0; i < 30; i++ ){
+					if( ss.length() < 30 ) ss = " " + ss;
+				}
+				// nam = ss;
+				icon = getVerticalCaption( this, ss, true );
+			}
+			setIcon( icon );
 		}
-		setIcon( icon );
-    }
-	     if( column == 0 ) setBorder( raized );
-        
+		if( column == 0 ) setBorder( raized );
+		
 		return this;
 	}
 	/**

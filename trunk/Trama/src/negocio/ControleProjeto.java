@@ -312,7 +312,7 @@ public class ControleProjeto {
 	
 	public String ordenarColuna( String nomeMatriz ) {
 		String s = "ok";
-	
+		
 		try{
 			for( Matriz matriz : matrizes ){
 				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ) matriz.ordenarColunas();
