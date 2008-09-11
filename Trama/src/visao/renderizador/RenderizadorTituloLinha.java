@@ -13,9 +13,9 @@ import javax.swing.table.DefaultTableCellRenderer;
 import visao.JTableCustomizado;
 
 public class RenderizadorTituloLinha extends DefaultTableCellRenderer {
-    SoftBevelBorder raized;
-       SoftBevelBorder low ;
-       Color color, color2;
+ private    SoftBevelBorder raized;
+    private    SoftBevelBorder low ;
+   private     Color color, color2;
        
 	public RenderizadorTituloLinha() {
 		super();
