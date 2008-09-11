@@ -20,9 +20,9 @@ public class RenderizadorCelula extends DefaultTableCellRenderer {
 		setForeground( new Color( 0, 0, 0 ) );
 		color1 = new Color( 200, 210, 255 );
 		color2 = new Color( 150, 150, 150 );
-		color3 = new Color( 230, 230, 230 );
-		color4 = new Color( 210, 210, 210 );
-		color5 = new Color( 190, 190, 190 );
+		color3 = new Color( 240, 240, 240 );
+		color4 = new Color( 230, 230, 230 );
+		color5 = new Color( 220, 220, 220 );
 	}
 	
 	@Override
