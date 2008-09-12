@@ -233,7 +233,6 @@ public class ControleTela {
 			
 			tela.setSalvarProjeto( true );
 			tela.setNovaMatriz( true );
-			
 			tela.setSalvarProjetoMenu( true );
 			tela.setNovaMatrizMenu( true );
 			tela.setFecharProjetoMenu( true );
