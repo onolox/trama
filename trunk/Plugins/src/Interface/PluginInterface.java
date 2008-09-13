@@ -8,15 +8,16 @@ import java.util.LinkedList;
  * @author Fabio Marmitt
  */
 public interface PluginInterface {
+	
 	/**
-	 * Método utilizado para buscar os nomes das extens�es que o plugin pode trabalhar.
+	 * Método utilizado para buscar os nomes das extensões que o plugin pode trabalhar.< br /> Como por exemplo: Arquivos do Netbeans, Arquivo Texto, etc.
 	 * 
-	 * @return a lista com os nomes das extens�es.
+	 * @return a lista com os nomes das extensões.
 	 */
 	public String getNome();
 	
 	/**
-	 * Método usado para se conhecer o nome dos arquivos que o plugin pode trabalhar.
+	 * Método usado para se conhecer o nome das extensões dos arquivos que o plugin pode trabalhar.<br /> Como por exemplo .txt, .etd, .xml, etc.
 	 * 
 	 * @return o nome.
 	 */
