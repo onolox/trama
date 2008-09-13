@@ -263,6 +263,7 @@ public class ControleProjeto {
 		}
 		return s;
 	}
+	
 	public LinkedList< String > getNomes( String nomeMatriz, String tipo ) {
 		LinkedList< String > l = new LinkedList< String >();
 		for( Matriz matriz : matrizes ){

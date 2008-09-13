@@ -107,36 +107,32 @@ public class Tela extends JFrame implements ActionListener {
 		String s = "";
 		try{
 			s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a coluna", "Adicionar Coluna", JOptionPane.QUESTION_MESSAGE );
-			if( s == null )
-			;
-			else if( s.equalsIgnoreCase( "" ) ){
-				s = "coluna " + controle.getColunaAtual();
-				
-				s = controle.adicionarColuna( s );
-				
-				if( !s.equalsIgnoreCase( "ok" ) ){
-					JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-				}
-				for( int i = 0; i < matrizes.size(); i++ ){
-					if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
-						JTableCustomizado jt = matrizes.remove( i );
-						ModeloTabela mod = ( ModeloTabela ) jt.getModel();
-						JPanel jpanel = JP.get( i );
-						jpanel.removeAll();
-						JTableCustomizado cus = new JTableCustomizado( mod );
-						adicionarListener( cus );
-						matrizes.add( i, cus );
-						JScrollPane js = new JScrollPane();
-						js.setViewportView( cus );
-						
-						GroupLayout jPanelLayout = new GroupLayout( jpanel );
-						jpanel.setLayout( jPanelLayout );
-						jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
-						jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
-						jpanel.add( js );
-						jpanel.updateUI();
-						jpanel.repaint();
-					}
+			
+			if( s == null || s.equalsIgnoreCase( "" ) ) s = "coluna " + controle.getColunaAtual();
+			s = controle.adicionarColuna( s );
+			
+			if( !s.equalsIgnoreCase( "ok" ) ){
+				JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+			}
+			for( int i = 0; i < matrizes.size(); i++ ){
+				if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
+					JTableCustomizado jt = matrizes.remove( i );
+					ModeloTabela mod = ( ModeloTabela ) jt.getModel();
+					JPanel jpanel = JP.get( i );
+					jpanel.removeAll();
+					JTableCustomizado cus = new JTableCustomizado( mod );
+					adicionarListener( cus );
+					matrizes.add( i, cus );
+					JScrollPane js = new JScrollPane();
+					js.setViewportView( cus );
+					
+					GroupLayout jPanelLayout = new GroupLayout( jpanel );
+					jpanel.setLayout( jPanelLayout );
+					jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
+					jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
+					jpanel.add( js );
+					jpanel.updateUI();
+					jpanel.repaint();
 				}
 			}
 		} catch( Exception e ){
@@ -174,26 +170,22 @@ public class Tela extends JFrame implements ActionListener {
 		String s = "";
 		try{
 			s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a linha", "Adicionar Linha", JOptionPane.QUESTION_MESSAGE );
-			if( s == null )
-			;
-			else if( s.equalsIgnoreCase( "" ) ){
-				s = "linha " + controle.getLinhaAtual();
-				s = controle.adicionarLinha( s );
-				
-				if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-				
-				for( JTableCustomizado j : matrizes ){
-					if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
-						ModeloTabela t = ( ModeloTabela ) j.getModel();
-						t.fireTableDataChanged();
-					}
+			
+			if( s == null || s.equalsIgnoreCase( "" ) ) s = "linha " + controle.getLinhaAtual();
+			s = controle.adicionarLinha( s );
+			
+			if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+			
+			for( JTableCustomizado j : matrizes ){
+				if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
+					ModeloTabela t = ( ModeloTabela ) j.getModel();
+					t.fireTableDataChanged();
 				}
 			}
 		} catch( Exception e ){
 			e.printStackTrace();
 		}
 	}
-	
 	private void adicionarLinhasModelo() {
 		controle.adicionarLinhasModelo();
 		for( JTableCustomizado j : matrizes ){
