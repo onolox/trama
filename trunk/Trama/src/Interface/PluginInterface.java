@@ -1,4 +1,4 @@
-package negocio.leitor.Interface;
+package Interface;
 
 import java.util.LinkedList;
 
