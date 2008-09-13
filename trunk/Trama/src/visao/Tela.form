@@ -207,10 +207,13 @@
             <Property name="text" type="java.lang.String" value="Ajuda"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="ajudaMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ajuda"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="ajudaMenu.addActionListener( new ActionListener() {&#xa;            public void actionPerformed( ActionEvent e ) {&#xa;                try {&#xa;                    Desktop.getDesktop().open( new File( &quot;doc/Manual Trama.pdf&quot; ) );&#xa;                } catch ( IOException ex ) {&#xa;                    System.out.println( &quot;Erro de abertura do manual&quot; );&#xa;                }&#xa;            }&#xa;        });"/>
+              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="sobreMenu">
               <Properties>
