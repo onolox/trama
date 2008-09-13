@@ -231,7 +231,7 @@ public class Tela extends JFrame implements ActionListener {
 				okButton.addActionListener( new ActionListener() {
 					@SuppressWarnings( "synthetic-access" )
 					public void actionPerformed( @SuppressWarnings( "unused" ) ActionEvent e ) {
-						if( !linha.getText().isEmpty() || !coluna.getText().isEmpty() ){
+						if( !linha.getText().isEmpty() && !coluna.getText().isEmpty() ){
 							s = linha.getText() + " X " + coluna.getText();
 							
 							while( bol ){
