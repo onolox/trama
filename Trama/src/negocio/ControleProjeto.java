@@ -170,32 +170,27 @@ public class ControleProjeto {
 			e.printStackTrace();
 			m = null;
 		}
-		
 		return m;
 	}
 	
 	private void recursivo( String nome, String toq ) {
 		LinkedList< String > l = null;
 		
-		// System.out.println( nome + " ------ " + toq );
 		try{
 			for( Matriz matriz : matrizes ){
 				String t1 = matriz.getNomeMatriz().split( " X " )[ 0 ];
 				String t2 = matriz.getNomeMatriz().split( " X " )[ 1 ];
 				
 				if( t1.equals( toq ) ){
-					// System.out.println( t1 + "   t1 igual a toq  na linha    " + toq );
 					for( int i = 0; i < matriz.getQLinhas(); i++ ){
 						if( matriz.getTituloLinha( i ).equals( nome ) ){
 							l = matriz.destacarElementos( i, "linha" );
 							for( int j = 0; j < l.size(); j++ ){
-								// System.out.println( l.get( j ) + "          " + t1 );
 								recursivo( l.get( j ), t2 );
 							}
 						}
 					}
 				} else if( t2.equals( toq ) ){
-					// System.out.println( t2 + "   t2 igual a toq  na coluna    " + toq );
 					for( int i = 1; i < matriz.getQColunas(); i++ ){
 						if( matriz.getTituloColuna( i ).equals( nome ) ){
 							l = matriz.destacarElementos( i, "coluna" );
