@@ -17,6 +17,11 @@ import negocio.leitor.LeitorDeModelo;
 import visao.ModeloTabela;
 import visao.Tela;
 
+/**
+ * Esta classe gerencia as regras de negócio do aplicativo e interage com a GUI.
+ * 
+ * @author Fabio Marmitt
+ */
 public class ControleTela {
 	private ControleProjeto controleProjeto;
 	private Tela tela;
@@ -24,6 +29,9 @@ public class ControleTela {
 	private int colunaAtual, linhaAtual;
 	private String matrizAtual;
 	
+	/**
+	 * @param tela
+	 */
 	public ControleTela( Tela tela ) {
 		this.tela = tela;
 		leitorDeModelo = new LeitorDeModelo();
