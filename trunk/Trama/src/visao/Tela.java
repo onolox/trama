@@ -1654,6 +1654,7 @@ public class Tela extends JFrame implements ActionListener {
 	}// </editor-fold>//GEN-END:initComponents
 	
 	/** {@inheritDoc} */
+	@Override
 	public void actionPerformed( ActionEvent e ) {
 		if( e.getSource() == novoProjeto || e.getSource() == novoProjetoMenu ) criarNovoProjeto();
 		else if( e.getSource() == abrirProjeto || e.getSource() == abrirProjetoMenu ) abrirProjeto();
