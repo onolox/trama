@@ -5,13 +5,19 @@ import javax.swing.UIManager;
 import visao.Tela;
 
 /**
+ * Classe que dá partida no aplicativo.
+ * 
  * @author Fabio
  * @version 1.0
- * @created 22-mai-2008 19:52:54
  */
 public class Main {
 	public Tela m_Tela;
 	
+	/**
+	 * Método que da partida na interface gráfica.
+	 * 
+	 * @param args argumentos
+	 */
 	public static void main( String args[] ) {
 		try{
 			UIManager.setLookAndFeel( UIManager.getSystemLookAndFeelClassName() );

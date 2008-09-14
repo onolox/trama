@@ -129,14 +129,19 @@ public class Matriz {
 		return matriz.getNomeMatriz();
 	}
 	
+	/**
+	 * Método usado para buscar a quantidade de colunas que a matriz possui.
+	 * 
+	 * @return a quantidade de colunas.
+	 */
 	public int getQColunas() {
 		return matriz.getQColunas();
 	}
 	
 	/**
-	 * Numero positivo aumenta, negativo diminui.
+	 * Método usado para buscar a quantidade de linhas que a matriz possui.
 	 * 
-	 * @param colunas Quantidade para aumentar ou diminuir.
+	 * @return a quantidade de linhas.
 	 */
 	public int getQLinhas() {
 		return matriz.getQLinhas();

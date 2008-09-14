@@ -12,9 +12,7 @@ public class LeitorDeModelo {
 	private static final String DIRBASE = "plugins/";
 	private LinkedList< String > lista;
 	
-	/**
-	 * @return
-	 */
+	
 	public HashMap< String, LinkedList< String >> getNomesExtensoes() {
 		HashMap< String, LinkedList< String >> nE = new HashMap< String, LinkedList< String >>();
 		lista = getJars();
