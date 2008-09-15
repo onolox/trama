@@ -8,6 +8,9 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.LinkedList;
 
+/**
+ * @author Fabio Marmitt
+ */
 public class LeitorDeModelo {
 	private static final String DIRBASE = "plugins/";
 	private LinkedList< String > lista;
