@@ -12,11 +12,17 @@ import javax.swing.table.DefaultTableCellRenderer;
 
 import visao.JTableCustomizado;
 
+/**
+ * Classe utilizada para renderizar os títulos das linhas da matriz.
+ * 
+ * @author Fabio Marmitt
+ */
 public class RenderizadorTituloLinha extends DefaultTableCellRenderer {
 	private SoftBevelBorder raized;
 	private SoftBevelBorder low;
 	private Color color, color2;
 	
+	/** Construtor Padrão. */
 	public RenderizadorTituloLinha() {
 		super();
 		setHorizontalAlignment( RIGHT );
@@ -29,6 +35,7 @@ public class RenderizadorTituloLinha extends DefaultTableCellRenderer {
 		color2 = UIManager.getDefaults().getColor( "Button.light" );
 	}
 	
+	/** Método sobreescrito para renderizar o componente de acorco com as necessidades do projeto. */
 	@Override
 	public Component getTableCellRendererComponent( JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column ) {
 		String v = value.toString();

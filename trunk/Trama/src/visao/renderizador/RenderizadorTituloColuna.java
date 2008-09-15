@@ -20,12 +20,18 @@ import javax.swing.table.DefaultTableCellRenderer;
 
 import visao.JTableCustomizado;
 
+/**
+ * Classe utilizada para renderizar os títulos das colunas da matriz.
+ * 
+ * @author Fabio Marmitt
+ */
 public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 	private SoftBevelBorder raized;
 	private SoftBevelBorder low;
 	private Color color, color2;
 	private Icon icon = null;
 	
+	/** Construtor Padrão. */
 	public RenderizadorTituloColuna() {
 		super();
 		setOpaque( true );
@@ -40,6 +46,7 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 		low = new SoftBevelBorder( BevelBorder.LOWERED );
 	}
 	
+	/** Método sobreescrito para renderizar o componente de acorco com as necessidades do projeto. */
 	@Override
 	public Component getTableCellRendererComponent( JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column ) {
 		JTableCustomizado tab = ( JTableCustomizado ) table;
@@ -77,9 +84,11 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 		return this;
 	}
 	/**
-	 * @param componente
-	 * @param texto
-	 * @param sentido
+	 *Método que gera um ícone baseando-se em um texto.
+	 * 
+	 * @param componente o componente que vai receber o ícone
+	 * @param texto o texto que deverá ser inserido na imagem
+	 * @param sentido sentodo horário ou anti-horário
 	 */
 	private Icon getVerticalCaption( JComponent componente, String texto, boolean sentido ) {
 		Font f = componente.getFont();
