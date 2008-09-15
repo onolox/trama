@@ -30,6 +30,8 @@ import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
+ *Classe que extende JTable e foi customizada para representar uma matriz.
+ * 
  * @author Fabio
  */
 public class JTableCustomizado extends JTable {
@@ -42,6 +44,11 @@ public class JTableCustomizado extends JTable {
 	private int linhaSelecionada = -1;
 	private int colunaSelecionada = -1;
 	
+	/**
+	 * Construtor padrão.
+	 * 
+	 * @param modelo ModeloTabela para a JTable.
+	 */
 	public JTableCustomizado( ModeloTabela modelo ) {
 		cell = new RenderizadorCelula();
 		cell0 = new RenderizadorTituloLinha();
@@ -73,6 +80,8 @@ public class JTableCustomizado extends JTable {
 		}
 		
 		addMouseMotionListener( new MouseMotionAdapter() {
+			/** {@inheritDoc} */
+			@SuppressWarnings( "synthetic-access" )
 			public void mouseMoved( MouseEvent e ) {
 				JTable aTable = ( JTable ) e.getSource();
 				int lin = aTable.rowAtPoint( e.getPoint() );
@@ -87,6 +96,8 @@ public class JTableCustomizado extends JTable {
 		} );
 		
 		getTableHeader().addMouseMotionListener( new MouseMotionAdapter() {// Pro header
+				/** {@inheritDoc} */
+				@SuppressWarnings( "synthetic-access" )
 				public void mouseMoved( MouseEvent e ) {
 					JTableHeader head = ( JTableHeader ) e.getSource();
 					int col = head.columnAtPoint( e.getPoint() );
@@ -102,6 +113,12 @@ public class JTableCustomizado extends JTable {
 			} );
 	}
 	
+	/**
+	 * Usado para exportar uma imagem da matriz atual.
+	 * 
+	 * @param arquivo nome do arquivo
+	 * @return estatus da operação
+	 */
 	public String exportarImagem( String arquivo ) {
 		String s = "ok";
 		
@@ -122,6 +139,12 @@ public class JTableCustomizado extends JTable {
 		return s;
 	}
 	
+	/**
+	 * Usado para exportar um PDF da matriz atual.
+	 * 
+	 * @param arquivo nome do arquivo
+	 * @return estatus da operação
+	 */
 	public String exportarPDF( String arquivo ) {
 		String s = "ok";
 		Document document = new Document( new RectangleReadOnly( getWidth() + 50, getHeight() + 80 + getTableHeader().getHeight() ) );
@@ -144,11 +167,17 @@ public class JTableCustomizado extends JTable {
 			cb.restoreState();
 		} catch( Exception e ){
 			e.printStackTrace();
+			s = "erro";
 		}
 		document.close();
-		return "";
+		return s;
 	}
 	
+	/**
+	 * Usado para imprimir a matriz.
+	 * 
+	 * @return estatus da operação
+	 */
 	public String imprimir() {
 		String s = "ok";
 		try{
@@ -160,6 +189,9 @@ public class JTableCustomizado extends JTable {
 		return s;
 	}
 	
+	/**
+	 * @return nome da matriz
+	 */
 	public String getNome() {
 		return modelo.getNomeMatriz();
 	}

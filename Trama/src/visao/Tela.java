@@ -1653,7 +1653,11 @@ public class Tela extends JFrame implements ActionListener {
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
 	
-	/** {@inheritDoc} */
+	/**
+	 * Método de sobrescreve actionPerformed
+	 * 
+	 * @param e ActionEvent
+	 */
 	@Override
 	public void actionPerformed( ActionEvent e ) {
 		if( e.getSource() == novoProjeto || e.getSource() == novoProjetoMenu ) criarNovoProjeto();
@@ -1772,131 +1776,291 @@ public class Tela extends JFrame implements ActionListener {
 	private javax.swing.JMenuItem sobreMenu;
 	// End of variables declaration//GEN-END:variables
 	
+	/**
+	 * Seta o estado visível de excluirMatriz.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setExcluirMatriz( boolean estado ) {
 		excluirMatriz.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de cancelarEdicao.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setCancelarEdicao( boolean estado ) {
 		this.cancelarEdicao.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de deslocar1.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setDeslocar1( boolean estado ) {
 		this.deslocar1.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de deslocar2.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setDeslocar2( boolean estado ) {
 		this.deslocar2.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de destacar.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setDestacar( boolean estado ) {
 		this.destacar.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de destacarMenu.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setDestacarMenu( boolean estado ) {
 		this.destacarMenu.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de excluirLinhaColuna.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setExcluirLinhaColuna( boolean estado ) {
 		this.excluirLinhaColuna.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de excluirLinhaColunaMenu.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setExcluirLinhaColunaMenu( boolean estado ) {
 		this.excluirLinhaColunaMenu.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de excluirMatrizMenu.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setExcluirMatrizMenu( boolean estado ) {
 		this.excluirMatrizMenu.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de fecharProjetoMenu.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setFecharProjetoMenu( boolean estado ) {
 		this.fecharProjetoMenu.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de header.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setHeader( boolean estado ) {
 		this.header.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de importar.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setImportar( boolean estado ) {
 		this.importar.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de importarDoModeloMenu.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setImportarDoModeloMenu( boolean estado ) {
 		this.importarDoModeloMenu.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de imprimirMenu.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setImprimirMenu( boolean estado ) {
 		this.imprimirMenu.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de nomeTextField.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setNomeTextField( boolean estado ) {
 		nomeTextField.setEnabled( estado );
 		if( !estado ) setNomeTextField( "" );
 	}
 	
+	/**
+	 * Seta o estado texto de nomeTextField.
+	 * 
+	 * @param nome texto a ser exibido
+	 */
 	public void setNomeTextField( String nome ) {
 		nomeTextField.setText( nome.replace( "|||", "" ) );
 	}
 	
+	/**
+	 * Seta o estado visível de novaLinhaColuna.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setNovaLinhaColuna( boolean estado ) {
 		this.novaLinhaColuna.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de novaLinhaColunaMenu.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setNovaLinhaColunaMenu( boolean estado ) {
 		this.novaLinhaColunaMenu.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de novaMatriz.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setNovaMatriz( boolean estado ) {
 		this.novaMatriz.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de novaMatrizMenu.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setNovaMatrizMenu( boolean estado ) {
 		this.novaMatrizMenu.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de okEdicao.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setOkEdicao( boolean estado ) {
 		this.okEdicao.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de ordenar.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setOrdenar( boolean estado ) {
 		this.ordenar.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de ordenarMenu.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setOrdenarMenu( boolean estado ) {
 		this.ordenarMenu.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de resetarCamposNovosMenu.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setResetarCamposNovosMenu( boolean estado ) {
 		this.resetarCamposNovosMenu.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de salvarImagemMenu.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setSalvarImagemMenu( boolean estado ) {
 		this.salvarImagemMenu.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de salvarPDFMenu.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setSalvarPDFMenu( boolean estado ) {
 		this.salvarPDFMenu.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de salvarProjeto.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setSalvarProjeto( boolean estado ) {
 		this.salvarProjeto.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de salvarProjetoMenu.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setSalvarProjetoMenu( boolean estado ) {
 		this.salvarProjetoMenu.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de sincronizar.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setSincronizar( boolean estado ) {
 		this.sincronizar.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de sincronizarMatrizMenu.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setSincronizarMatrizMenu( boolean estado ) {
 		this.sincronizarMatrizMenu.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de sincronizarMenu.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setSincronizarMenu( boolean estado ) {
 		this.sincronizarMenu.setEnabled( estado );
 	}
 	
+	/**
+	 * Seta o estado visível de sobreMenu.
+	 * 
+	 * @param estado boolean
+	 */
 	public void setSobreMenu( boolean estado ) {
 		this.sobreMenu.setEnabled( estado );
 	}
