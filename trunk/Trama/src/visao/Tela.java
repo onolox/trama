@@ -1657,11 +1657,7 @@ public class Tela extends JFrame implements ActionListener {
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
 	
-	/**
-	 * Método de sobrescreve actionPerformed
-	 * 
-	 * @param e ActionEvent
-	 */
+	/** {@inheritDoc } */
 	@Override
 	public void actionPerformed( ActionEvent e ) {
 		if( e.getSource() == novoProjeto || e.getSource() == novoProjetoMenu ) criarNovoProjeto();
