@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -50,7 +51,8 @@ public class Tela extends JFrame implements ActionListener {
 		initComponents();
 		setLocationRelativeTo( null );
 		addWindowListener( new WindowAdapter() {
-			public void windowClosing( java.awt.event.WindowEvent evt ) {
+			/** {@inheritDoc} */
+			public void windowClosing( WindowEvent evt ) {
 				if( salvarProjeto.isEnabled() ){
 					int s1 = JOptionPane.showConfirmDialog( null, "Deseja salvar o projeto atual?" );
 					if( s1 == JOptionPane.YES_OPTION ) salvarProjeto();
@@ -72,12 +74,14 @@ public class Tela extends JFrame implements ActionListener {
 			ch.setDialogType( JFileChooser.OPEN_DIALOG );
 			ch.setDialogTitle( "Abrir projeto" );
 			ch.setFileFilter( new FileFilter() { // Filtro pra xml e diretorios
+					/** {@inheritDoc} */
 					@Override
 					public boolean accept( File f ) {
 						if( f.getName().endsWith( "trama" ) || f.isDirectory() ){ return true; }
 						return false;
 					}
 					
+					/** {@inheritDoc} */
 					@Override
 					public String getDescription() {
 						return "Arquivos de projeto";

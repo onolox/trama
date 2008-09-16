@@ -4,13 +4,28 @@ import java.util.LinkedList;
 
 import persistencia.DadosMatriz;
 
+/**
+ * Classe que é uma fachada para acesso aos dados de uma matriz.
+ * 
+ * @author Fabio Marmitt
+ */
 public class Matriz {
 	private DadosMatriz matriz;
 	
+	/**
+	 * Construtor padrão.
+	 * 
+	 * @param matriz DadosMatriz que esta classe vai usar
+	 */
 	public Matriz( DadosMatriz matriz ) {
 		this.matriz = matriz;
 	}
 	
+	/**
+	 * Usado pra adicionar uma nova coluna.
+	 * 
+	 * @param titulo nome
+	 */
 	public void adicionarColuna( String titulo ) {
 		matriz.setQColunas( 1 );
 		matriz.getTituloColuna().add( titulo );
@@ -39,6 +54,11 @@ public class Matriz {
 		}
 	}
 	
+	/**
+	 * Usado pra adicionar uma nova linha.
+	 * 
+	 * @param titulo nome
+	 */
 	public void adicionarLinha( String titulo ) {
 		matriz.setQLinhas( 1 );
 		matriz.getTituloLinha().add( titulo );
@@ -66,6 +86,13 @@ public class Matriz {
 			}
 		}
 	}
+	
+	/**
+	 * Usado para alterar a posição de uma coluna.
+	 * 
+	 * @param de índice
+	 * @param para índice
+	 */
 	public void alterarPosicaoColuna( int de, int para ) {
 		// System.out.println( "de " + de + "       para " + para );
 		String s = "";
@@ -77,6 +104,12 @@ public class Matriz {
 		matriz.getTituloColuna().add( para, s );
 	}
 	
+	/**
+	 * Usado para alterar a posição de uma linha.
+	 * 
+	 * @param de índice
+	 * @param para índice
+	 */
 	public void alterarPosicaoLinha( int de, int para ) {
 		LinkedList l = matriz.getLinhas().remove( de );
 		matriz.getLinhas().add( para, l );
@@ -85,6 +118,13 @@ public class Matriz {
 		matriz.getTituloLinha().add( para, g );
 	}
 	
+	/**
+	 * Usado para destacar os elementos que tenham relação com o objeto selecionado atualmente.
+	 * 
+	 * @param elemento índice
+	 * @param tipo se é linha ou coluna
+	 * @returnlista de elementos
+	 */
 	public LinkedList< String > destacarElementos( int elemento, String tipo ) {
 		LinkedList< String > l = new LinkedList< String >();
 		try{
@@ -115,16 +155,32 @@ public class Matriz {
 		}
 		return l;
 	}
+	
+	/**
+	 * @param linha índice
+	 * @param coluna índice
+	 * @return dado da matriz
+	 */
 	public String getDadoMatriz( int linha, int coluna ) {
 		if( coluna == 0 ) return getTituloLinha( linha );
 		return matriz.getLinha( linha ).get( coluna );
 		
 	}
 	
+	/**
+	 * Retorna o DadoMatriz.
+	 * 
+	 * @return DadoMatriz desta matriz
+	 */
 	public DadosMatriz getDadosMatriz() {
 		return matriz;
 	}
 	
+	/**
+	 * Retorna o nome da matriz.
+	 * 
+	 * @return nome
+	 */
 	public String getNomeMatriz() {
 		return matriz.getNomeMatriz();
 	}
@@ -147,14 +203,31 @@ public class Matriz {
 		return matriz.getQLinhas();
 	}
 	
+	/**
+	 * Retorna o título de uma coluna.
+	 * 
+	 * @param index índice
+	 * @return título
+	 */
 	public String getTituloColuna( int index ) {
 		return matriz.getTituloColuna( index );
 	}
 	
+	/**
+	 * Retorna o título de uma linha
+	 * 
+	 * @param index índice
+	 * @return título
+	 */
 	public String getTituloLinha( int index ) {
 		return matriz.getTituloLinha().get( index );
 	}
 	
+	/**
+	 * Remove uma coluna.
+	 * 
+	 * @param index índice
+	 */
 	public void removeColuna( int index ) {
 		matriz.setQColunas( -1 );
 		matriz.getTituloColuna().remove( index );
@@ -164,12 +237,20 @@ public class Matriz {
 		}
 	}
 	
+	/**
+	 * Usado para remover uma linha.
+	 * 
+	 * @param index índice
+	 */
 	public void removeLinha( int index ) {
 		matriz.setQLinhas( -1 );
 		matriz.getLinhas().remove( index );
 		matriz.getTituloLinha().remove( index );
 	}
 	
+	/**
+	 * Usado para resetar o destaque da matriz.
+	 */
 	public void resetarDestaque() {
 		
 		try{
@@ -184,10 +265,23 @@ public class Matriz {
 		}
 	}
 	
+	/**
+	 * Usado para setar um dado em uma matriz.
+	 * 
+	 * @param valor valor a ser colocado
+	 * @param linha índice
+	 * @param coluna índice
+	 */
 	public void setDadoMatriz( int valor, int linha, int coluna ) {
 		matriz.getLinha( linha ).set( coluna, valor + "" );
 	}
 	
+	/**
+	 * Usado para setar o nome da matriz.
+	 * 
+	 * @param nome nome da matriz
+	 * @return estatus da operação
+	 */
 	public String setNomeMatriz( String nome ) {
 		String s = "ok";
 		try{
@@ -198,15 +292,30 @@ public class Matriz {
 		return s;
 	}
 	
+	/**
+	 * Usado pra setar o título de uma coluna.
+	 * 
+	 * @param index índice
+	 * @param titulo nome
+	 */
 	public void setTituloColuna( int index, String titulo ) {
 		matriz.setTituloColuna( index, titulo );
 		
 	}
 	
+	/**
+	 * Usado pra colocar o título de uma coluna.
+	 * 
+	 * @param index índice
+	 * @param titulo nome
+	 */
 	public void setTituloLinha( int index, String titulo ) {
 		matriz.getTituloLinha().set( index, titulo );
 	}
 	
+	/**
+	 * Ordena linhas em ordem alfabética ou alfabético-inverso.
+	 */
 	public void ordenarLinhas() {
 		boolean mak = true;
 		boolean vaibe = true;
@@ -240,6 +349,9 @@ public class Matriz {
 		}
 	}
 	
+	/**
+	 * Ordena colunas em ordem alfabética ou alfabético-inverso.
+	 */
 	public void ordenarColunas() {
 		boolean mak = true;
 		boolean vaibe = true;

@@ -8,10 +8,15 @@ import java.io.IOException;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
+/**
+ * @author Fabio Marmitt
+ */
 public class PersistenciaProjeto {
-	public PersistenciaProjeto() {
-	}
 	
+	/**
+	 * @param nome
+	 * @return
+	 */
 	public Projeto abrir( String nome ) {
 		Projeto p = null;
 		try{
@@ -22,6 +27,10 @@ public class PersistenciaProjeto {
 		return p;
 	}
 	
+	/**
+	 * @param projeto
+	 * @return
+	 */
 	public String salvar( Projeto projeto ) {
 		String s = "ok";
 		try{

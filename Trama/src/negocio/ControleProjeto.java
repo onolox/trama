@@ -8,18 +8,33 @@ import persistencia.PersistenciaProjeto;
 import persistencia.Projeto;
 import visao.ModeloTabela;
 
+/**
+ * Classe usada para processar dados referentes ao sistema.
+ * 
+ * @author Fabio Marmitt
+ */
 public class ControleProjeto {
+	/** Lista de matrizes do projeto */
 	private LinkedList< Matriz > matrizes;
 	private PersistenciaProjeto persistenciaProjeto;
 	private Projeto projeto;
 	private boolean estado = false;
 	
+	/**
+	 * Construtor padrão da classe.
+	 */
 	public ControleProjeto() {
 		projeto = new Projeto();
 		persistenciaProjeto = new PersistenciaProjeto();
 		matrizes = new LinkedList< Matriz >();
 	}
 	
+	/**
+	 * Usado para abrir um novo projeto.
+	 * 
+	 * @param nome nome do projeto
+	 * @return lista de ModeloTabelas
+	 */
 	public LinkedList< ModeloTabela > abrirProjeto( String nome ) {
 		LinkedList< ModeloTabela > l = new LinkedList< ModeloTabela >();
 		
@@ -39,6 +54,13 @@ public class ControleProjeto {
 		return l;
 	}
 	
+	/**
+	 * Usado pra adicionar uma nova coluna em uma matriz.
+	 * 
+	 * @param nome nome da coluna
+	 * @param nomeMatriz nome da matriz que se deseja alterar
+	 * @return estatus da operação
+	 */
 	public String adicionarColuna( String nome, String nomeMatriz ) {
 		String s = "ok";
 		
@@ -72,6 +94,12 @@ public class ControleProjeto {
 		return s;
 	}
 	
+	/**
+	 * Usado para adicionar uma nova matriz ao projeto.
+	 * 
+	 * @param nomeMatriz nome da matriz que se deseja alterar
+	 * @return ModeloTabela
+	 */
 	public ModeloTabela adicionarMatriz( String nomeMatriz ) {
 		Matriz m = new Matriz( new DadosMatriz( nomeMatriz ) );
 		ModeloTabela mT = new ModeloTabela( m );
@@ -80,6 +108,14 @@ public class ControleProjeto {
 		return mT;
 	}
 	
+	/**
+	 * Usado para alterar a posição de uma coluna.
+	 * 
+	 * @param para posição
+	 * @param de posição
+	 * @param nomeMatriz nome da matriz que se deseja alterar
+	 * @return estatus da operação
+	 */
 	public String alterarPosicaoColuna( int para, int de, String nomeMatriz ) {
 		String s = "ok";
 		if( para < 1 ){ return "fora"; }
@@ -98,6 +134,14 @@ public class ControleProjeto {
 		return s;
 	}
 	
+	/**
+	 * Usado para alterar a posição de uma linha.
+	 * 
+	 * @param para posição
+	 * @param de posição
+	 * @param nomeMatriz nome da matriz que se deseja alterar
+	 * @return estatus da operação
+	 */
 	public String alterarPosicaoLinha( int para, int de, String nomeMatriz ) {
 		String s = "ok";
 		if( para < 0 ) return "fora";
@@ -116,6 +160,14 @@ public class ControleProjeto {
 		return s;
 	}
 	
+	/**
+	 * Usado para atualizar o nome de uma coluna em uma matriz.
+	 * 
+	 * @param nomeMatriz nome da matriz que se deseja alterar
+	 * @param coluna indice da coluna
+	 * @param nomeNovo nome novo
+	 * @return estatus da operação
+	 */
 	public String atualizarColuna( String nomeMatriz, int coluna, String nomeNovo ) {
 		String s = "ok";
 		try{
@@ -131,6 +183,14 @@ public class ControleProjeto {
 		return s;
 	}
 	
+	/**
+	 * Usado para atualizar o nome de uma linha em uma matriz.
+	 * 
+	 * @param nomeMatriz nome da matriz que se deseja alterar
+	 * @param linha índice
+	 * @param nomeNovo novo nome para a linha
+	 * @return estatus da operação
+	 */
 	public String atualizarLinha( String nomeMatriz, int linha, String nomeNovo ) {
 		String s = "ok";
 		try{
@@ -144,6 +204,14 @@ public class ControleProjeto {
 		return s;
 	}
 	
+	/**
+	 * Usado para destacar os elementos que tenham relação com o objeto selecionado atualmente.
+	 * 
+	 * @param elemento íncide da linha ou coluna
+	 * @param tipo se é linha ou coluna
+	 * @param nomeMatriz nome da matriz que se deseja alterar
+	 * @return lista de nomes com suas respectivas matrizes
+	 */
 	public HashMap< String, LinkedList< String >> destacarElementos( int elemento, String tipo, String nomeMatriz ) {
 		HashMap< String, LinkedList< String >> m = new HashMap< String, LinkedList< String > >();
 		if( estado ){
@@ -173,6 +241,12 @@ public class ControleProjeto {
 		return m;
 	}
 	
+	/**
+	 * Usado para destacar elementos. Método recursivo.
+	 * 
+	 * @param nome da linha ou coluna
+	 * @param toq metade do nome da matriz
+	 */
 	private void recursivo( String nome, String toq ) {
 		LinkedList< String > l = null;
 		
@@ -206,6 +280,13 @@ public class ControleProjeto {
 		}
 	}
 	
+	/**
+	 * Usado para excluir uma coluna de uma matriz.
+	 * 
+	 * @param coluna índice da coluna
+	 * @param nomeMatriz nome da matriz que se deseja alterar
+	 * @return estatus da operação
+	 */
 	public String excluirColuna( int coluna, String nomeMatriz ) {
 		String s = "ok";
 		try{
@@ -225,6 +306,13 @@ public class ControleProjeto {
 		return s;
 	}
 	
+	/**
+	 * Usado para excluir uma linha de uma matriz.
+	 * 
+	 * @param linha indice da linha
+	 * @param nomeMatriz nome da matriz que se deseja alterar
+	 * @return estatus da operação
+	 */
 	public String excluirLinha( int linha, String nomeMatriz ) {
 		String s = "ok";
 		try{
@@ -244,6 +332,12 @@ public class ControleProjeto {
 		return s;
 	}
 	
+	/**
+	 * Usado para excluir uma matriz do projeto.
+	 * 
+	 * @param nomeMatriz nome da matriz que se deseja alterar
+	 * @return estatus da operação
+	 */
 	public String excluirMatriz( String nomeMatriz ) {
 		String s = "ok";
 		Matriz m = null;
@@ -259,6 +353,13 @@ public class ControleProjeto {
 		return s;
 	}
 	
+	/**
+	 * Busca a lista de nomes das linhas ou colunas de uma matriz.
+	 * 
+	 * @param nomeMatriz nome da matriz que se deseja alterar
+	 * @param tipo se é linha ou coluna
+	 * @return lista de nomes
+	 */
 	public LinkedList< String > getNomes( String nomeMatriz, String tipo ) {
 		LinkedList< String > l = new LinkedList< String >();
 		for( Matriz matriz : matrizes ){
@@ -276,6 +377,12 @@ public class ControleProjeto {
 		return l;
 	}
 	
+	/**
+	 * Busca o nome do arquivo que foi usado para importar os nomes.
+	 * 
+	 * @param nome nome da matriz que se deseja alterar
+	 * @return estatus da operação
+	 */
 	public String getTituloColunaArquivo( String nome ) {
 		String s = "ok";
 		try{
@@ -291,6 +398,12 @@ public class ControleProjeto {
 		return s;
 	}
 	
+	/**
+	 * Busca o nome do arquivo que foi usado para importar os nomes.
+	 * 
+	 * @param nome nome da matriz que se deseja alterar
+	 * @return estatus da operação
+	 */
 	public String getTituloLinhaArquivo( String nome ) {
 		String s = "ok";
 		try{
@@ -306,6 +419,12 @@ public class ControleProjeto {
 		return s;
 	}
 	
+	/**
+	 * Usado para ordenar as colunas da matriz atual.
+	 * 
+	 * @param nomeMatriz nome da matriz que se deseja alterar
+	 * @return estatus da operação
+	 */
 	public String ordenarColuna( String nomeMatriz ) {
 		String s = "ok";
 		
@@ -320,6 +439,12 @@ public class ControleProjeto {
 		return s;
 	}
 	
+	/**
+	 * Usado para ordenar as linhas da matriz atual.
+	 * 
+	 * @param nomeMatriz nome da matriz que se deseja alterar
+	 * @return estatus da operação
+	 */
 	public String ordenarLinha( String nomeMatriz ) {
 		String s = "ok";
 		try{
@@ -333,6 +458,12 @@ public class ControleProjeto {
 		return s;
 	}
 	
+	/**
+	 * Usado para resetar o destaque que a matriz possa ter.
+	 * 
+	 * @param nomeMatriz nome da matriz que se deseja alterar
+	 * @return estatus da operação
+	 */
 	public String resetarDestaque( String nomeMatriz ) {
 		String s = "ok";
 		
@@ -366,6 +497,12 @@ public class ControleProjeto {
 		return s;
 	}
 	
+	/**
+	 * Usado para salvar o projeto atual.
+	 * 
+	 * @param nome nome do projeto
+	 * @return estatus da operação
+	 */
 	public String salvarProjeto( String nome ) {
 		String s = "ok";
 		LinkedList< DadosMatriz > lista = new LinkedList< DadosMatriz >();
@@ -398,6 +535,13 @@ public class ControleProjeto {
 		return s;
 	}
 	
+	/**
+	 * Seta o nome do arquivo que foi usado pra importar nomes das colunas de uma matriz.
+	 * 
+	 * @param nomeArquivo nome do arquivo
+	 * @param nomeMatriz nome da matriz que se deseja alterar
+	 * @return estatus da operação
+	 */
 	public String setArquivoColuna( String nomeArquivo, String nomeMatriz ) {
 		String s = "ok";
 		try{
@@ -413,6 +557,13 @@ public class ControleProjeto {
 		return s;
 	}
 	
+	/**
+	 * Seta o nome do arquivo que foi usado pra importar nomes das linhas de uma matriz.
+	 * 
+	 * @param nomeArquivo nome do arquivo
+	 * @param nomeMatriz nome da matriz que se deseja alterar
+	 * @return estatus da operação
+	 */
 	public String setArquivoLinha( String nomeArquivo, String nomeMatriz ) {
 		String s = "ok";
 		try{
@@ -428,6 +579,14 @@ public class ControleProjeto {
 		return s;
 	}
 	
+	/**
+	 * Usado para setar um dado nas células de uma matriz.
+	 * 
+	 * @param linha índice da linha
+	 * @param coluna índice da coluna
+	 * @param nomeMatriz nome da matriz que se deseja setar o dado
+	 * @return estatus da operação
+	 */
 	public String setDado( int linha, int coluna, String nomeMatriz ) {
 		String s = "ok";
 		
@@ -451,6 +610,14 @@ public class ControleProjeto {
 		return s;
 	}
 	
+	/**
+	 * Faz a triagem de objetos que não existem em determinadas linhas ou colunas de uma matriz.
+	 * 
+	 * @param nomeMatriz o nome da matriz que se deseja consultar
+	 * @param tipo se é linha ou coluna
+	 * @param lista a lista de nomes importados de um arquivo
+	 * @return lista de nomes
+	 */
 	public LinkedList< String > triagemObjetos( String nomeMatriz, String tipo, LinkedList< String > lista ) {
 		LinkedList< String > l = null;
 		try{
