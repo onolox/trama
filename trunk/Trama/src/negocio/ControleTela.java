@@ -27,10 +27,13 @@ public class ControleTela {
 	private Tela tela;
 	private LeitorDeModelo leitorDeModelo;
 	private int colunaAtual, linhaAtual;
+	/** Matriz atualmente selecionada */
 	private String matrizAtual;
 	
 	/**
-	 * @param tela
+	 * Construtor padrão da classe.
+	 * 
+	 * @param tela instância da classe Tela
 	 */
 	public ControleTela( Tela tela ) {
 		this.tela = tela;
@@ -40,6 +43,12 @@ public class ControleTela {
 		matrizAtual = null;
 	}
 	
+	/**
+	 * Usado para abrir um novo projeto.
+	 * 
+	 * @param nome do projeto à ser aberto
+	 * @return lista de ModeloTabela
+	 */
 	public LinkedList< ModeloTabela > abrirProjeto( String nome ) {
 		LinkedList< ModeloTabela > l = new LinkedList< ModeloTabela >();
 		
@@ -77,12 +86,23 @@ public class ControleTela {
 		return l;
 	}
 	
+	/**
+	 * Usado pra adicionar uma nova coluna.
+	 * 
+	 * @param nome da nova coluna
+	 * @return estatus da operação
+	 */
 	public String adicionarColuna( String nome ) {
 		String s = "ok";
 		s = controleProjeto.adicionarColuna( nome, matrizAtual );
 		return s;
 	}
 	
+	/**
+	 * Usado para adicionar colunas provindas de um arquivo que deverá ser selecionado pelo usuário.
+	 * 
+	 * @return lista de colunas
+	 */
 	public LinkedList< String > adicionarColunasModelo() {
 		LinkedList< String > lista = null;
 		final HashMap< String, LinkedList< String >> nE = leitorDeModelo.getNomesExtensoes();
@@ -93,6 +113,7 @@ public class ControleTela {
 			
 			for( final String str : nE.keySet() ){
 				ch.setFileFilter( new FileFilter() { // Filtro pra arquivos e diretorios
+						/** {@inheritDoc} */
 						@Override
 						public boolean accept( File f ) {
 							for( String s : nE.get( str ) ){
@@ -100,6 +121,7 @@ public class ControleTela {
 							}
 							return false;
 						}
+						/** {@inheritDoc} */
 						@Override
 						public String getDescription() {
 							return str;
@@ -137,6 +159,11 @@ public class ControleTela {
 		return s;
 	}
 	
+	/**
+	 * Usado para adicionar linhas provindas de um arquivo que deverá ser selecionado pelo usuário.
+	 * 
+	 * @return lista de linhas
+	 */
 	public LinkedList< String > adicionarLinhasModelo() {
 		LinkedList< String > lista = null;
 		final HashMap< String, LinkedList< String >> nE = leitorDeModelo.getNomesExtensoes();
@@ -147,6 +174,7 @@ public class ControleTela {
 			
 			for( final String str : nE.keySet() ){
 				ch.setFileFilter( new FileFilter() { // Filtro pra arquivos e diretorios
+						/** {@inheritDoc} */
 						@Override
 						public boolean accept( File f ) {
 							for( String s : nE.get( str ) ){
@@ -154,6 +182,8 @@ public class ControleTela {
 							}
 							return false;
 						}
+						
+						/** {@inheritDoc} */
 						@Override
 						public String getDescription() {
 							return str;
@@ -178,6 +208,12 @@ public class ControleTela {
 		return lista;
 	}
 	
+	/**
+	 * Usado para adicionar uma nova matriz ao projeto.
+	 * 
+	 * @param nome nome da nova matriz
+	 * @return o ModeloTabela novo
+	 */
 	public ModeloTabela adicionarMatriz( String nome ) {
 		ModeloTabela m = controleProjeto.adicionarMatriz( nome );
 		tela.setExcluirMatriz( true );
@@ -193,6 +229,12 @@ public class ControleTela {
 		return m;
 	}
 	
+	/**
+	 * Usado para alterar a posição de uma coluna.
+	 * 
+	 * @param para para o lado que deve mover a coluna
+	 * @return estatus da operação
+	 */
 	public String alterarPosicaoColuna( String para ) {
 		String s = "ok";
 		if( para.equalsIgnoreCase( "esq" ) ){
@@ -207,6 +249,12 @@ public class ControleTela {
 		return s;
 	}
 	
+	/**
+	 * Usado para alterar a posição de uma linha.
+	 * 
+	 * @param para o lado que deve mover a linha
+	 * @return estatus da operação
+	 */
 	public String alterarPosicaoLinha( String para ) {
 		String s = "ok";
 		if( para.equalsIgnoreCase( "cima" ) ){
@@ -221,18 +269,35 @@ public class ControleTela {
 		return s;
 	}
 	
+	/**
+	 * Usado para atualizar o nome de uma coluna.
+	 * 
+	 * @param nome novo para a coluna
+	 * @return estatus da operação
+	 */
 	public String atualizarColuna( String nome ) {
 		String s = "ok";
 		s = controleProjeto.atualizarColuna( matrizAtual, colunaAtual, nome );
 		return s;
 	}
 	
+	/**
+	 * Usado para atualizar o nome de uma linha.
+	 * 
+	 * @param nome novo para a linha
+	 * @return estatus da operação
+	 */
 	public String atualizarLinha( String nome ) {
 		String s = "ok";
 		s = controleProjeto.atualizarLinha( matrizAtual, linhaAtual, nome );
 		return s;
 	}
 	
+	/**
+	 * Usado para criar um novo projeto.
+	 * 
+	 * @return estatus da operação
+	 */
 	public String criarNovoProjeto() {
 		String s = "ok";
 		
@@ -260,6 +325,11 @@ public class ControleTela {
 		return s;
 	}
 	
+	/**
+	 * Usado para destacar os elementos que tenham relação com o objeto selecionado atualmente.
+	 * 
+	 * @return lista de elementos
+	 */
 	public HashMap< String, LinkedList< String >> destacarElementos() {
 		HashMap< String, LinkedList< String >> map = new HashMap< String, LinkedList< String > >();
 		
@@ -268,6 +338,11 @@ public class ControleTela {
 		return map;
 	}
 	
+	/**
+	 * Usado para excluir uma coluna da matriz atual.
+	 * 
+	 * @return estatus da operação
+	 */
 	public String excluirColuna() {
 		String s = "ok";
 		if( colunaAtual > 0 ){
@@ -276,12 +351,22 @@ public class ControleTela {
 		return s;
 	}
 	
+	/**
+	 * Usado para excluir uma linha da matriz atual.
+	 * 
+	 * @return estatus da operação
+	 */
 	public String excluirLinha() {
 		String s = "ok";
 		s = controleProjeto.excluirLinha( linhaAtual, matrizAtual );
 		return s;
 	}
 	
+	/**
+	 * Usado para excluir uma matriz do projeto.
+	 * 
+	 * @return estatus da operação
+	 */
 	public String excluirMatriz() {
 		String s = "ok";
 		System.out.println( matrizAtual );
@@ -289,6 +374,9 @@ public class ControleTela {
 		return s;
 	}
 	
+	/**
+	 * Usado para fechar o projeto atualmente aberto.
+	 */
 	public void fecharProjeto() {
 		int c = JOptionPane.showConfirmDialog( tela, "Deseja salvar o projeto atual?", "Salvar projeto atual", 0 );
 		
@@ -312,36 +400,67 @@ public class ControleTela {
 		tela.setImprimirMenu( false );
 	}
 	
+	/**
+	 * Usado para ordenar as colunas da matriz atual.
+	 * 
+	 * @return estatus da operação
+	 */
 	public String ordenarColuna() {
 		String s = "ok";
 		s = controleProjeto.ordenarColuna( matrizAtual );
 		return s;
 	}
 	
+	/**
+	 * Usado para ordenar as linhas da matriz atual.
+	 * 
+	 * @return estatus da operação
+	 */
 	public String ordenarLinha() {
 		String s = "ok";
 		s = controleProjeto.ordenarLinha( matrizAtual );
 		return s;
 	}
 	
+	/**
+	 * Usado para resetar o destaque que a matriz possa ter.
+	 * 
+	 * @return estatus da operação
+	 */
 	public String resetarDestaque() {
 		String s = "ok";
 		s = controleProjeto.resetarDestaque( matrizAtual );
 		return s;
 	}
 	
+	/**
+	 * Usado para salvar o projeto atual.
+	 * 
+	 * @param nome nome do projeto
+	 * @return estatus da operação
+	 */
 	public String salvarProjeto( String nome ) {
 		String s = "ok";
 		s = controleProjeto.salvarProjeto( nome );
 		return s;
 	}
 	
+	/**
+	 * Usado para setar um dado nas células da matriz atual.
+	 * 
+	 * @return estatus da operação
+	 */
 	public String setDado() {
 		String s = "ok";
 		s = controleProjeto.setDado( linhaAtual, colunaAtual, matrizAtual );
 		return s;
 	}
 	
+	/**
+	 * Usado para sincronizar as colunas com um arquivo.
+	 * 
+	 * @return estatus da operação
+	 */
 	public String sincronizarColuna() {
 		String s = "ok";
 		String s2 = "ok";
@@ -404,6 +523,7 @@ public class ControleTela {
 							
 							adicionar.setText( "Adicionar >>" );// ------------------------------Listeners
 							adicionar.addActionListener( new ActionListener() {
+								/** {@inheritDoc} */
 								public void actionPerformed( ActionEvent e ) {
 									Object[] obj = listaNova.getSelectedValues();
 									for( int i = 0; i < obj.length; i++ ){
@@ -416,6 +536,7 @@ public class ControleTela {
 							
 							atualizar.setText( "Atualizar >>" );
 							atualizar.addActionListener( new ActionListener() {
+								/** {@inheritDoc} */
 								public void actionPerformed( ActionEvent e ) {
 									controleProjeto.atualizarColuna( matrizAtual, listaAtual.getSelectedIndex(), listaNova.getSelectedValue().toString() );
 									( ( DefaultListModel ) listaAtual.getModel() ).add( listaAtual.getSelectedIndex(), listaNova.getSelectedValue() );
@@ -426,6 +547,7 @@ public class ControleTela {
 							
 							fechar.setText( "Fechar" );
 							fechar.addActionListener( new ActionListener() {
+								/** {@inheritDoc} */
 								public void actionPerformed( ActionEvent e ) {
 									setVisible( false );
 								}
@@ -504,6 +626,11 @@ public class ControleTela {
 		return s2;
 	}
 	
+	/**
+	 * Usado para sincronizar as linhas com um arquivo.
+	 * 
+	 * @return estatus da operação
+	 */
 	public String sincronizarLinha() {
 		String s = "ok";
 		String s2 = "ok";
@@ -669,6 +796,8 @@ public class ControleTela {
 	}
 	
 	/**
+	 * Busca a coluna atual.
+	 * 
 	 * @return the colunaAtual
 	 */
 	public int getColunaAtual() {
@@ -676,6 +805,8 @@ public class ControleTela {
 	}
 	
 	/**
+	 * Seta a coluna atual.
+	 * 
 	 * @param colunaAtual the colunaAtual to set
 	 */
 	public void setColunaAtual( int colunaAtual ) {
@@ -683,6 +814,8 @@ public class ControleTela {
 	}
 	
 	/**
+	 * Busca a linha atual.
+	 * 
 	 * @return the linhaAtual
 	 */
 	public int getLinhaAtual() {
@@ -690,6 +823,8 @@ public class ControleTela {
 	}
 	
 	/**
+	 * Seta a linha atual.
+	 * 
 	 * @param linhaAtual the linhaAtual to set
 	 */
 	public void setLinhaAtual( int linhaAtual ) {
@@ -697,6 +832,8 @@ public class ControleTela {
 	}
 	
 	/**
+	 * Busca a matriz atualmente selecionada.
+	 * 
 	 * @return the matrizAtual
 	 */
 	public String getMatrizAtual() {
@@ -704,6 +841,8 @@ public class ControleTela {
 	}
 	
 	/**
+	 * Seta uma nova matriz atualmente selecionada.
+	 * 
 	 * @param matrizAtual the matrizAtual to set
 	 */
 	public void setMatrizAtual( String matrizAtual ) {

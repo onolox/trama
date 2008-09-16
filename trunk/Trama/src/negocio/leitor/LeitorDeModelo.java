@@ -9,13 +9,20 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 /**
+ *Classe que contém o sistema de plugins do aplicativo.
+ * 
  * @author Fabio Marmitt
  */
 public class LeitorDeModelo {
+	/** Endereço base do diretório de plugins */
 	private static final String DIRBASE = "plugins/";
 	private LinkedList< String > lista;
 	
-	
+	/**
+	 *Método que busca os nomes e extensões de arquivos que os plugins que estão na pasta plugins podem trabalhar.
+	 * 
+	 * @return a lista com nomes e as extensões
+	 */
 	public HashMap< String, LinkedList< String >> getNomesExtensoes() {
 		HashMap< String, LinkedList< String >> nE = new HashMap< String, LinkedList< String >>();
 		lista = getJars();
@@ -32,6 +39,12 @@ public class LeitorDeModelo {
 		return nE;
 	}
 	
+	/**
+	 * Usado para buscar os nomes de um arquivo.
+	 * 
+	 * @param arquivo nome do arquivo com extensão à ter os nomes buscados
+	 * @return lista de nomes
+	 */
 	public LinkedList< String > getObjetos( String arquivo ) {
 		LinkedList< String > lista = null;
 		LinkedList< String > lista2 = null;
@@ -52,6 +65,11 @@ public class LeitorDeModelo {
 		return lista2;
 	}
 	
+	/**
+	 * Usado para buscar os jars que estão no diretório base.
+	 * 
+	 * @return lista de jars
+	 */
 	private LinkedList< String > getJars() { // retorna uma lista de jars no diretorio
 		LinkedList< String > l = new LinkedList< String >();
 		File f = new File( DIRBASE );
@@ -63,7 +81,7 @@ public class LeitorDeModelo {
 	}
 	
 	/**
-	 * Busca e instancia a classe "principal" do jar.
+	 * Busca e instância a classe que implementa PluginInterface do jar.
 	 * 
 	 * @param arquivo jar a ser procurado.
 	 * @return uma instância da classe do jar.
