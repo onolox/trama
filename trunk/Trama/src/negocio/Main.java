@@ -27,7 +27,7 @@ public class Main {
 			UIManager.put( "FileChooser.saveButtonText", "Salvar" );
 			UIManager.put( "FileChooser.cancelButtonText", "Cancelar" );
 			UIManager.put( "FileChooser.openButtonText", "Abrir" );
-			System.out.print( " " );
+			// System.out.print( " " );
 		} catch( Exception ex ){
 			ex.printStackTrace();
 		}
