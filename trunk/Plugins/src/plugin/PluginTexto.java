@@ -39,6 +39,7 @@ public class PluginTexto implements PluginInterface {
 	/**
 	 * Método usado para extrair os objetos dos arquivos de texto.
 	 * 
+	 * @param arquivo arquivo caminho e nome do arquivo à ser aberto
 	 * @return lista de objetos extraídos.
 	 */
 	@Override
