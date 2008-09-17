@@ -6,8 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -50,16 +48,10 @@ public class Tela extends JFrame implements ActionListener {
 	public Tela() {
 		initComponents();
 		setLocationRelativeTo( null );
-		addWindowListener( new WindowAdapter() {
-			/** {@inheritDoc} */
-			public void windowClosing( WindowEvent evt ) {
-				if( salvarProjeto.isEnabled() ){
-					int s1 = JOptionPane.showConfirmDialog( null, "Deseja salvar o projeto atual?" );
-					if( s1 == JOptionPane.YES_OPTION ) salvarProjeto();
-					else if( s1 == JOptionPane.NO_OPTION ) System.exit( 0 );
-				} else System.exit( 0 );
-			}
-		} );
+	/*
+		 * addWindowListener( new WindowAdapter() { / {@inheritDoc} public void windowClosing( WindowEvent evt ) { if( salvarProjeto.isEnabled() ){ int s1 = JOptionPane.showConfirmDialog( null,
+		 * "Deseja salvar o projeto atual?" ); if( s1 == JOptionPane.YES_OPTION ) salvarProjeto(); else if( s1 == JOptionPane.NO_OPTION ) System.exit( 0 ); } else System.exit( 0 ); } } );
+		 */
 		controle = new ControleTela( this );
 		matrizes = new LinkedList< JTableCustomizado >();
 		JP = new LinkedList< JPanel >();
@@ -71,7 +63,6 @@ public class Tela extends JFrame implements ActionListener {
 	private void abrirProjeto() {
 		try{
 			JFileChooser ch = new JFileChooser( "arquivos/" );
-			ch.setDialogType( JFileChooser.OPEN_DIALOG );
 			ch.setDialogTitle( "Abrir projeto" );
 			ch.setFileFilter( new FileFilter() { // Filtro pra xml e diretorios
 					/** {@inheritDoc} */
@@ -88,7 +79,7 @@ public class Tela extends JFrame implements ActionListener {
 					}
 				} );
 			
-			int i = ch.showSaveDialog( this );
+			int i = ch.showOpenDialog( this );
 			if( i == JFileChooser.APPROVE_OPTION ){
 				File fil = ch.getSelectedFile();
 				LinkedList< ModeloTabela > l = controle.abrirProjeto( fil.getName() );
@@ -610,20 +601,46 @@ public class Tela extends JFrame implements ActionListener {
 	private void exportarImagem() {
 		for( JTableCustomizado j : matrizes ){
 			if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
-				String s = JOptionPane.showInputDialog( this, "Insira um nome para a Imagem", "Matriz " + j.getNome() );
+				String s = "";
+				JFileChooser ch = new JFileChooser( "arquivos/" );
 				
-				if( s == null )
-				;
-				else if( s.equalsIgnoreCase( "" ) ) s = "Matriz " + j.getNome();
-				else{
-					j.exportarImagem( s.replace( "/", "" ).replace( "\\", "" ) );
-					setTitle( "Trama  ---->  Imagem Exportada Com Sucesso" );
-					try{
-						Thread.sleep( 3000 );
-					} catch( InterruptedException e ){
-						e.printStackTrace();
+				try{
+					ch.setDialogTitle( "Salvar Imagem" );
+					ch.setSelectedFile( new File( "Matriz " + j.getNome() ) );
+					
+					ch.setFileFilter( new FileFilter() { // Filtro pra arquivos e diretorios
+							/** {@inheritDoc} */
+							public boolean accept( File f ) {
+								if( f.getName().endsWith( ".png" ) || f.isDirectory() ) return true;
+								return false;
+							}
+							/** {@inheritDoc} */
+							public String getDescription() {
+								return "Arquivos de imagem PNG";
+							}
+						} );
+					
+					int i = ch.showSaveDialog( this );
+					if( i == JFileChooser.APPROVE_OPTION ){
+						File fil = ch.getSelectedFile();
+						s = fil.getAbsolutePath();
+						if( s.endsWith( ".png" ) ) s = s.replace( ".png", "" );
+						
+						int sn = 0;
+						if( new File( s + ".png" ).exists() ) sn = JOptionPane.showConfirmDialog( this, "Arquivo já existente, deseja sobreescrever?", "Atenção", JOptionPane.WARNING_MESSAGE );
+						if( sn == JOptionPane.YES_OPTION ){
+							j.exportarImagem( s );
+							setTitle( "Trama  ---->  Imagem Exportada Com Sucesso" );
+							try{
+								Thread.sleep( 3000 );
+							} catch( InterruptedException e ){
+								e.printStackTrace();
+							}
+							setTitle( "Trama" );
+						}
 					}
-					setTitle( "Trama" );
+				} catch( Exception e ){
+					e.printStackTrace();
 				}
 			}
 		}
@@ -635,19 +652,47 @@ public class Tela extends JFrame implements ActionListener {
 	private void exportarPDF() {
 		for( JTableCustomizado j : matrizes ){
 			if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
-				String s = JOptionPane.showInputDialog( this, "Insira um nome para o PDF", "Matriz " + j.getNome() );
-				if( s == null )
-				;
-				else if( s.equalsIgnoreCase( "" ) ) s = "Matriz " + j.getNome();
-				else{
-					j.exportarPDF( s.replace( "/", "" ).replace( "\\", "" ) );
-					setTitle( "Trama  ---->  PDF Exportado Com Sucesso" );
-					try{
-						Thread.sleep( 3000 );
-					} catch( InterruptedException e ){
-						e.printStackTrace();
+				String s = "";
+				JFileChooser ch = new JFileChooser( "arquivos/" );
+				
+				try{
+					ch.setDialogTitle( "Salvar PDF" );
+					ch.setSelectedFile( new File( "Matriz " + j.getNome() ) );
+					
+					ch.setFileFilter( new FileFilter() { // Filtro pra arquivos e diretorios
+							/** {@inheritDoc} */
+							public boolean accept( File f ) {
+								if( f.getName().endsWith( ".pdf" ) || f.isDirectory() ) return true;
+								return false;
+							}
+							/** {@inheritDoc} */
+							public String getDescription() {
+								return "Arquivos PDF";
+							}
+						} );
+					
+					int i = ch.showSaveDialog( this );
+					if( i == JFileChooser.APPROVE_OPTION ){
+						File fil = ch.getSelectedFile();
+						s = fil.getAbsolutePath();
+						if( s.endsWith( ".pdf" ) ) s = s.replace( ".pdf", "" );
+						
+						int sn = 0;
+						if( new File( s + ".pdf" ).exists() ) sn = JOptionPane.showConfirmDialog( this, "Arquivo já existente, deseja sobreescrever?", "Atenção", JOptionPane.WARNING_MESSAGE );
+						System.out.println( sn );
+						if( sn == JOptionPane.YES_OPTION ){
+							j.exportarPDF( s );
+							setTitle( "Trama  ---->  PDF Exportado Com Sucesso" );
+							try{
+								Thread.sleep( 3000 );
+							} catch( InterruptedException e ){
+								e.printStackTrace();
+							}
+							setTitle( "Trama" );
+						}
 					}
-					setTitle( "Trama" );
+				} catch( Exception e ){
+					e.printStackTrace();
 				}
 			}
 		}
@@ -941,7 +986,7 @@ public class Tela extends JFrame implements ActionListener {
 						
 						jT.setLinhaSelecionada( linha );
 						jT.setColunaSelecionada( -1 );
-						System.out.println( "Linha=" + ( linha ) + "   coluna= " + coluna + "     Matriz atual:::" + jT.getNome() );
+						// System.out.println( "Linha=" + ( linha ) + "   coluna= " + coluna + "     Matriz atual:::" + jT.getNome() );
 						
 						if( coluna <= 0 ){// Toda vez que se clicar em um nome de------------------------------------------------------------------ linha -------
 							for( JTableCustomizado jTableCustomizado : matrizes ){
@@ -1062,7 +1107,7 @@ public class Tela extends JFrame implements ActionListener {
 						for( JTableCustomizado jTableCustomizado : matrizes ){
 							if( jTableCustomizado.getTableHeader() == e.getSource() ) controle.setMatrizAtual( jTableCustomizado.getNome() );
 						}
-						System.out.println( "Linha=" + ( controle.getLinhaAtual() ) + "   coluna= " + coluna + "   Matriz atual:::: " + jT.getNome() );
+						// System.out.println( "Linha=" + ( controle.getLinhaAtual() ) + "   coluna= " + coluna + "   Matriz atual:::: " + jT.getNome() );
 						if( coluna > 0 ){
 							for( JTableCustomizado jTableCustomizado : matrizes ){
 								if( jTableCustomizado.getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){

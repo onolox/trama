@@ -110,7 +110,7 @@ public class ControleTela {
 		
 		try{
 			ch.setDialogTitle( "Importar Colunas" );
-			
+		
 			for( final String str : nE.keySet() ){
 				ch.setFileFilter( new FileFilter() { // Filtro pra arquivos e diretorios
 						/** {@inheritDoc} */
@@ -129,7 +129,7 @@ public class ControleTela {
 					} );
 			}
 			
-			int i = ch.showSaveDialog( tela );
+			int i = ch.showOpenDialog( tela );
 			if( i == JFileChooser.APPROVE_OPTION ){
 				File fil = ch.getSelectedFile();
 				String nomeArquivo = fil.getName();
