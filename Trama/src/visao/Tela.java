@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -48,10 +50,18 @@ public class Tela extends JFrame implements ActionListener {
 	public Tela() {
 		initComponents();
 		setLocationRelativeTo( null );
-	/*
-		 * addWindowListener( new WindowAdapter() { / {@inheritDoc} public void windowClosing( WindowEvent evt ) { if( salvarProjeto.isEnabled() ){ int s1 = JOptionPane.showConfirmDialog( null,
-		 * "Deseja salvar o projeto atual?" ); if( s1 == JOptionPane.YES_OPTION ) salvarProjeto(); else if( s1 == JOptionPane.NO_OPTION ) System.exit( 0 ); } else System.exit( 0 ); } } );
-		 */
+		
+		addWindowListener( new WindowAdapter() {
+			/** {@inheritDoc} */
+			public void windowClosing( WindowEvent evt ) {
+				if( salvarProjeto.isEnabled() && false ){
+					int s1 = JOptionPane.showConfirmDialog( null, "Deseja salvar o projeto atual?" );
+					if( s1 == JOptionPane.YES_OPTION ) salvarProjeto();
+					else if( s1 == JOptionPane.NO_OPTION ) System.exit( 0 );
+				} else System.exit( 0 );
+			}
+		} );
+		
 		controle = new ControleTela( this );
 		matrizes = new LinkedList< JTableCustomizado >();
 		JP = new LinkedList< JPanel >();
@@ -232,7 +242,7 @@ public class Tela extends JFrame implements ActionListener {
 				initComponents();
 				setVisible( true );
 				setResizable( false );
-				setLocation( getParent().getLocationOnScreen() );
+				
 			}
 			
 			/**
@@ -250,6 +260,7 @@ public class Tela extends JFrame implements ActionListener {
 				jLabel4 = new javax.swing.JLabel();
 				
 				setDefaultCloseOperation( javax.swing.WindowConstants.DISPOSE_ON_CLOSE );
+				setLocation( getOwner().getLocationOnScreen() );
 				
 				jLabel1.setHorizontalAlignment( javax.swing.SwingConstants.CENTER );
 				jLabel1.setText( "Insira o nome da matriz" );
@@ -291,8 +302,7 @@ public class Tela extends JFrame implements ActionListener {
 							matrizes.add( jT );
 							jTabbedPane1.add( j );
 						}
-						dispose();
-					}
+										}
 				} );
 				
 				cancelarButton.setText( "Cancelar" );
@@ -349,7 +359,7 @@ public class Tela extends JFrame implements ActionListener {
 			// End of variables declaration
 			
 		};
-	}
+		}
 	
 	/**
 	 * Usado para alterar a posição de uma coluna.

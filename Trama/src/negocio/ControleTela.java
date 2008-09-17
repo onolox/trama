@@ -110,7 +110,7 @@ public class ControleTela {
 		
 		try{
 			ch.setDialogTitle( "Importar Colunas" );
-		
+			
 			for( final String str : nE.keySet() ){
 				ch.setFileFilter( new FileFilter() { // Filtro pra arquivos e diretorios
 						/** {@inheritDoc} */
@@ -132,14 +132,13 @@ public class ControleTela {
 			int i = ch.showOpenDialog( tela );
 			if( i == JFileChooser.APPROVE_OPTION ){
 				File fil = ch.getSelectedFile();
-				String nomeArquivo = fil.getName();
-				lista = leitorDeModelo.getObjetos( nomeArquivo );
+				lista = leitorDeModelo.getObjetos( fil.getAbsolutePath() );
 				lista = controleProjeto.triagemObjetos( matrizAtual, "coluna", lista );
 				
 				for( String str : lista ){
 					controleProjeto.adicionarColuna( str, matrizAtual );
 				}
-				controleProjeto.setArquivoColuna( nomeArquivo, matrizAtual );
+				controleProjeto.setArquivoColuna( fil.getName(), matrizAtual );
 			}
 		} catch( Exception e ){
 			e.printStackTrace();
@@ -194,13 +193,12 @@ public class ControleTela {
 			int i = ch.showSaveDialog( tela );
 			if( i == JFileChooser.APPROVE_OPTION ){
 				File fil = ch.getSelectedFile();
-				String nomeArquivo = fil.getName();
-				lista = leitorDeModelo.getObjetos( nomeArquivo );
+						lista = leitorDeModelo.getObjetos( fil.getAbsolutePath() );
 				lista = controleProjeto.triagemObjetos( matrizAtual, "linha", lista );
 				
 				for( String str : lista )
 					controleProjeto.adicionarLinha( str, matrizAtual );
-				controleProjeto.setArquivoLinha( nomeArquivo, matrizAtual );
+				controleProjeto.setArquivoLinha( fil.getName(), matrizAtual );
 			}
 		} catch( Exception e ){
 			e.printStackTrace();

@@ -46,9 +46,9 @@ public class LeitorDeModelo {
 	 * @return lista de nomes
 	 */
 	public LinkedList< String > getObjetos( String arquivo ) {
-		LinkedList< String > lista = null;
+	    lista = getJars();
 		LinkedList< String > lista2 = null;
-		lista = getJars();
+	
 		try{
 			for( String li : lista ){
 				Class cl = getClasseJar( li );
