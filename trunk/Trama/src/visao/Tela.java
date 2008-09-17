@@ -1668,7 +1668,7 @@ public class Tela extends JFrame implements ActionListener {
                         jLabel2 = new javax.swing.JLabel();
 
                         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-                        setLocation( ( (JMenuItem)e.getSource()).getX() + 300, ( (JMenuItem)e.getSource() ).getY() +200);
+                        setLocation( ( (JMenuItem)e.getSource()).getX(), ( (JMenuItem)e.getSource() ).getY() );
                         setModal(true);
                         setResizable(false);
 
