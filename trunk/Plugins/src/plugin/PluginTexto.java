@@ -12,7 +12,7 @@ import Interface.PluginInterface;
  * @author Fabio Marmitt
  */
 public class PluginTexto implements PluginInterface {
-	private String DIRBASE = "arquivos/";
+	
 	
 	/**
 	 * Método utilizado para buscar os nomes das extensões que este plugin pode trabalhar.
@@ -46,13 +46,14 @@ public class PluginTexto implements PluginInterface {
 		LinkedList< String > l = new LinkedList< String >();
 		Scanner scan = null;
 		try{
-			scan = new Scanner( new File( DIRBASE + arquivo ) );
+			scan = new Scanner( new File( arquivo ) );
 			while( scan.hasNext() ){
 				String s = scan.nextLine();
 				if( s.startsWith( "+" ) ){
 					l.add( s.replace( "+", "" ) );
 				}
 			}
+			scan.close();
 		} catch( Exception e ){
 			e.printStackTrace();
 			l = null;

@@ -17,7 +17,6 @@ import Interface.PluginInterface;
  * @author Fabio Marmitt
  */
 public class PluginNetbeans implements PluginInterface {
-	private String DIRBASE = "arquivos/";
 	
 	/**
 	 * Método utilizado para buscar os nomes das extens�es que este plugin pode trabalhar utilizadas pelo Netbeans.
@@ -44,6 +43,7 @@ public class PluginNetbeans implements PluginInterface {
 	/**
 	 * Método usado para extrair os objetos dos arquivos do Netbeans.
 	 * 
+	 * @param arquivo caminho e nome do arquivo à ser aberto
 	 * @return lista de objetos extraídos.
 	 */
 	@Override
@@ -51,16 +51,17 @@ public class PluginNetbeans implements PluginInterface {
 		LinkedList< String > l = new LinkedList< String >();
 		Pattern pat = Pattern.compile( "<UML:.*name=.*<UML:Element.presentation>" );
 		Scanner scan;
-		File file = new File( DIRBASE );
+		File file = new File( arquivo );
+		file = new File( arquivo.replace( file.getName(), "" ) );
 		StringBuilder sb2 = new StringBuilder( 500 );
 		
 		try{
-			scan = new Scanner( new FileReader( DIRBASE + arquivo ) );
+			scan = new Scanner( new FileReader( arquivo ) );
 			while( scan.hasNext() )
 				sb2.append( scan.nextLine() + "\n" );
 			
 			for( File fi : file.listFiles() ){
-				if( fi.toString().endsWith( "etd" ) ){
+				if( fi.toString().endsWith( ".etd" ) ){
 					scan = new Scanner( new FileReader( fi.toString() ) );
 					StringBuilder sb = new StringBuilder( 500 );
 					while( scan.hasNext() )
@@ -78,7 +79,7 @@ public class PluginNetbeans implements PluginInterface {
 					while( mat3.find() ){
 						sb2.append( mat3.group() + "\n" );
 					}
-				// System.out.println( sb2.toString() );
+					// System.out.println( sb2.toString() );
 					Matcher mat2 = Pattern.compile( "(?<=value=\")[\\p{Alnum}_+-:]+(?=\")" ).matcher( sb2.toString() );
 					
 					if( mat2.find() && sb.toString().contains( mat2.group() ) ){
@@ -93,6 +94,7 @@ public class PluginNetbeans implements PluginInterface {
 					}
 				}
 			}
+			scan.close();
 		} catch( Exception e ){
 			e.printStackTrace();
 		}
