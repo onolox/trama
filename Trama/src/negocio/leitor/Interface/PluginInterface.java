@@ -26,6 +26,7 @@ public interface PluginInterface {
 	/**
 	 * Método usado para extrair os objetos dos arquivos.
 	 * 
+	 * @param arquivo arquivo caminho e nome do arquivo à ser abertos
 	 * @return lista de objetos extraídos.
 	 */
 	public LinkedList< String > getObjetos( String arquivo );

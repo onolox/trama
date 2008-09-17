@@ -26,6 +26,7 @@ import visao.renderizador.RenderizadorTituloLinha;
 
 import com.lowagie.text.Document;
 import com.lowagie.text.RectangleReadOnly;
+import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfWriter;
 
@@ -130,7 +131,7 @@ public class JTableCustomizado extends JTable {
 			g2.setRenderingHint( RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY );
 			print( g2 );
 			
-			ImageIO.write( image, "png", new File( "arquivos/" + arquivo + ".png" ) );
+			ImageIO.write( image, "png", new File( arquivo + ".png" ) );
 			g2.dispose();
 		} catch( IOException e ){
 			e.printStackTrace();
@@ -149,7 +150,7 @@ public class JTableCustomizado extends JTable {
 		String s = "ok";
 		Document document = new Document( new RectangleReadOnly( getWidth() + 50, getHeight() + 80 + getTableHeader().getHeight() ) );
 		try{
-			PdfWriter w = PdfWriter.getInstance( document, new FileOutputStream( "arquivos/" + arquivo + ".pdf" ) );
+			PdfWriter w = PdfWriter.getInstance( document, new FileOutputStream( arquivo + ".pdf" ) );
 			document.open();
 			PdfContentByte cb = w.getDirectContent();
 			
@@ -161,7 +162,11 @@ public class JTableCustomizado extends JTable {
 			g2.translate( 0, getTableHeader().getHeight() );
 			
 			print( g2 );
-			
+			cb.beginText();
+			BaseFont bf = BaseFont.createFont( BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED );
+			cb.setFontAndSize( bf, 12 );
+			cb.setTextMatrix( 10, 10 );
+			cb.showText( getNome() );
 			g2.dispose();
 			
 			cb.restoreState();

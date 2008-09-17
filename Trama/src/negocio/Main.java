@@ -24,8 +24,9 @@ public class Main {
 			UIManager.put( "OptionPane.cancelButtonText", "Cancelar" );
 			UIManager.put( "OptionPane.noButtonText", "Não" );
 			UIManager.put( "OptionPane.yesButtonText", "Sim" );
-			UIManager.put( "FileChooser.saveButtonText", "Abrir" );
+			UIManager.put( "FileChooser.saveButtonText", "Salvar" );
 			UIManager.put( "FileChooser.cancelButtonText", "Cancelar" );
+			UIManager.put( "FileChooser.openButtonText", "Abrir" );
 			System.out.print( " " );
 		} catch( Exception ex ){
 			ex.printStackTrace();
