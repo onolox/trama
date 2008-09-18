@@ -1,6 +1,5 @@
 package negocio;
 
-import java.util.HashMap;
 import java.util.LinkedList;
 
 import persistencia.DadosMatriz;
@@ -210,35 +209,31 @@ public class ControleProjeto {
 	 * @param elemento íncide da linha ou coluna
 	 * @param tipo se é linha ou coluna
 	 * @param nomeMatriz nome da matriz que se deseja alterar
-	 * @return lista de nomes com suas respectivas matrizes
 	 */
-	public HashMap< String, LinkedList< String >> destacarElementos( int elemento, String tipo, String nomeMatriz ) {
-		HashMap< String, LinkedList< String >> m = new HashMap< String, LinkedList< String > >();
+	public void destacarElementos( int elemento, String tipo, String nomeMatriz ) {
 		if( estado ){
 			for( Matriz matriz : matrizes )
 				matriz.resetarDestaque();
 			estado = false;
-			return m;
-		}
-		estado = true;
-		
-		String mauElemento = "";
-		String toq = nomeMatriz.split( " X " )[ 1 ];
-		if( tipo.equalsIgnoreCase( "linha" ) ) toq = nomeMatriz.split( " X " )[ 0 ];
-		
-		try{
-			for( Matriz matriz : matrizes ){
-				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
-					if( tipo.equalsIgnoreCase( "linha" ) ) mauElemento = matriz.getTituloLinha( elemento );
-					else mauElemento = matriz.getTituloColuna( elemento );
+		} else{
+			estado = true;
+			
+			String mauElemento = "";
+			String toq = nomeMatriz.split( " X " )[ 1 ];
+			if( tipo.equalsIgnoreCase( "linha" ) ) toq = nomeMatriz.split( " X " )[ 0 ];
+			
+			try{
+				for( Matriz matriz : matrizes ){
+					if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
+						if( tipo.equalsIgnoreCase( "linha" ) ) mauElemento = matriz.getTituloLinha( elemento );
+						else mauElemento = matriz.getTituloColuna( elemento );
+					}
 				}
+				recursivo( mauElemento, toq );
+			} catch( Exception e ){
+				e.printStackTrace();
 			}
-			recursivo( mauElemento, toq );
-		} catch( Exception e ){
-			e.printStackTrace();
-			m = null;
 		}
-		return m;
 	}
 	
 	/**

@@ -193,7 +193,7 @@ public class ControleTela {
 			int i = ch.showSaveDialog( tela );
 			if( i == JFileChooser.APPROVE_OPTION ){
 				File fil = ch.getSelectedFile();
-						lista = leitorDeModelo.getObjetos( fil.getAbsolutePath() );
+				lista = leitorDeModelo.getObjetos( fil.getAbsolutePath() );
 				lista = controleProjeto.triagemObjetos( matrizAtual, "linha", lista );
 				
 				for( String str : lista )
@@ -326,14 +326,10 @@ public class ControleTela {
 	/**
 	 * Usado para destacar os elementos que tenham relação com o objeto selecionado atualmente.
 	 * 
-	 * @return lista de elementos
 	 */
-	public HashMap< String, LinkedList< String >> destacarElementos() {
-		HashMap< String, LinkedList< String >> map = new HashMap< String, LinkedList< String > >();
-		
-		if( linhaAtual == -1 ) map = controleProjeto.destacarElementos( colunaAtual, "coluna", matrizAtual );
-		else if( colunaAtual == 0 ) map = controleProjeto.destacarElementos( linhaAtual, "linha", matrizAtual );
-		return map;
+	public void destacarElementos() {
+		if( linhaAtual == -1 ) controleProjeto.destacarElementos( colunaAtual, "coluna", matrizAtual );
+		else if( colunaAtual == 0 ) controleProjeto.destacarElementos( linhaAtual, "linha", matrizAtual );
 	}
 	
 	/**
