@@ -488,30 +488,41 @@ public class Tela extends JFrame implements ActionListener {
 	 * Usado para destacar os elementos que tenham relação com o objeto selecionado atualmente.
 	 */
 	private void destacarElementos() {
-		if( controle.destacarElementos() == null ) JOptionPane.showInternalMessageDialog( this, "Erro fatal" );
-		else{
-			try{
-				for( int i = 0; i < matrizes.size(); i++ ){
-					JTableCustomizado jt = matrizes.remove( i );
-					ModeloTabela mod = ( ModeloTabela ) jt.getModel();
-					JPanel jpanel = JP.get( i );
-					jpanel.removeAll();
-					JTableCustomizado cus = new JTableCustomizado( mod );
-					adicionarListener( cus );
-					matrizes.add( i, cus );
-					JScrollPane js = new JScrollPane();
-					js.setViewportView( cus );
-					
-					GroupLayout jPanelLayout = new GroupLayout( jpanel );
-					jpanel.setLayout( jPanelLayout );
-					jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
-					jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
-					jpanel.add( js );
-					jpanel.updateUI();
+		int linhaAtual = 0, colunaAtual = 0, linhaSelecionada = 0, ColunaSelecionada = 0;
+		try{
+			controle.destacarElementos();
+			for( int i = 0; i < matrizes.size(); i++ ){
+				JTableCustomizado jt = matrizes.remove( i );
+				if( jt.getNome().equals( controle.getMatrizAtual() ) ){
+					linhaAtual = jt.getLinhaAtual();
+					colunaAtual = jt.getColunaAtual();
+					linhaSelecionada = jt.getLinhaSelecionada();
+					ColunaSelecionada = jt.getColunaSelecionada();
 				}
-			} catch( Exception e ){
-				e.printStackTrace();
+				ModeloTabela mod = ( ModeloTabela ) jt.getModel();
+				JPanel jpanel = JP.get( i );
+				jpanel.removeAll();
+				JTableCustomizado cus = new JTableCustomizado( mod );
+				adicionarListener( cus );
+				matrizes.add( i, cus );
+				JScrollPane js = new JScrollPane();
+				js.setViewportView( cus );
+				if( cus.getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
+					cus.setLinhaAtual( linhaAtual );
+					cus.setColunaAtual( colunaAtual );
+					cus.setLinhaSelecionada( linhaSelecionada );
+					cus.setColunaSelecionada( ColunaSelecionada );
+				}
+				
+				GroupLayout jPanelLayout = new GroupLayout( jpanel );
+				jpanel.setLayout( jPanelLayout );
+				jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
+				jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
+				jpanel.add( js );
+				jpanel.updateUI();
 			}
+		} catch( Exception e ){
+			e.printStackTrace();
 		}
 	}
 	
