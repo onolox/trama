@@ -128,10 +128,14 @@ public class ControleTela {
 						}
 					} );
 			}
-			
+	
 			int i = ch.showOpenDialog( tela );
 			if( i == JFileChooser.APPROVE_OPTION ){
 				File fil = ch.getSelectedFile();
+				
+				
+				
+				
 				lista = leitorDeModelo.getObjetos( fil.getAbsolutePath() );
 				lista = controleProjeto.triagemObjetos( matrizAtual, "coluna", lista );
 				
