@@ -396,7 +396,7 @@ public class ControleProjeto {
 	/**
 	 * Busca o nome do arquivo que foi usado para importar os nomes.
 	 * 
-	 * @param nome nome da matriz que se deseja alterar
+	 * @param nome nome da matriz que se deseja buscar o nome
 	 * @return estatus da operação
 	 */
 	public String getTituloLinhaArquivo( String nome ) {
@@ -637,5 +637,27 @@ public class ControleProjeto {
 			l = null;
 		}
 		return l;
+	}
+	
+	/**
+	 * Usado para verificar a existência de um nome igual de linha ou coluna. Existindo retorna o arquivo de importação.
+	 * 
+	 * @param nomeMatriz nome da matriz base
+	 * @param tipo se é linha ou coluna
+	 * @return o nome do arquivo ou null se não houver
+	 */
+	public String triagemMatrizes( String nomeMatriz, String tipo ) {
+		String s = "";
+		if( tipo.equals( "linha" ) ) s = nomeMatriz.split( " X " )[ 0 ];
+		else s = nomeMatriz.split( " X " )[ 1 ];
+		
+		for( Matriz matriz : matrizes ){
+			String t1 = matriz.getNomeMatriz().split( " X " )[ 0 ];
+			if( t1.equals( s ) ) return getTituloLinhaArquivo( nomeMatriz );
+			
+			String t2 = matriz.getNomeMatriz().split( " X " )[ 1 ];
+			if( t2.equals( s ) ) return getTituloColunaArquivo( nomeMatriz );
+		}
+		return null;
 	}
 }

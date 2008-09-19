@@ -93,12 +93,15 @@ public class Tela extends JFrame implements ActionListener {
 			int i = ch.showOpenDialog( this );
 			if( i == JFileChooser.APPROVE_OPTION ){
 				File fil = ch.getSelectedFile();
-				LinkedList< ModeloTabela > l = controle.abrirProjeto( fil.getName() );
-				
+				LinkedList< ModeloTabela > lis = controle.abrirProjeto( fil.getName() );
+				if( lis == null ){
+					JOptionPane.showMessageDialog( this, "Erro na abertura do projeto, arquivo não existente", "", 0 );
+					return;
+				}
 				matrizes = new LinkedList< JTableCustomizado >();
 				jTabbedPane1.removeAll();
 				
-				for( ModeloTabela modeloTabela : l ){
+				for( ModeloTabela modeloTabela : lis ){
 					JPanel j = new JPanel();
 					JScrollPane js = new JScrollPane();
 					JTableCustomizado jT = new JTableCustomizado( modeloTabela );
@@ -227,9 +230,9 @@ public class Tela extends JFrame implements ActionListener {
 			if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
 				ModeloTabela t = ( ModeloTabela ) j.getModel();
 				t.fireTableDataChanged();
+				resetarDestaque();
 			}
 		}
-		resetarDestaque();
 	}
 	
 	/**
@@ -237,7 +240,6 @@ public class Tela extends JFrame implements ActionListener {
 	 */
 	private void adicionarMatriz() {
 		new JDialog( this, true ) {
-			boolean bol = true;
 			String s = "";
 			{
 				initComponents();
@@ -268,21 +270,23 @@ public class Tela extends JFrame implements ActionListener {
 				
 				okButton.setText( "OK" );
 				okButton.addActionListener( new ActionListener() {
+					/** {@inheritDoc } */
 					@SuppressWarnings( "synthetic-access" )
 					public void actionPerformed( ActionEvent e ) {
 						if( !linha.getText().isEmpty() && !coluna.getText().isEmpty() ){
+							linha.setText( linha.getText().trim() );
+							coluna.setText( coluna.getText().trim() );
 							s = linha.getText() + " X " + coluna.getText();
 							
-							while( bol ){
-								bol = false;
-								
-								for( JTableCustomizado jtab : matrizes ){
-									if( s.equalsIgnoreCase( jtab.getNome() ) ){
-										bol = true;
-										JOptionPane.showMessageDialog( null, "Este nome já existe, não é permitido matrizes com o mesmo nome", "", JOptionPane.ERROR_MESSAGE );
-									}
+							for( JTableCustomizado jtab : matrizes ){
+								if( ( linha.getText().equalsIgnoreCase( jtab.getNome().split( " X " )[ 0 ] ) && coluna.getText().equalsIgnoreCase( jtab.getNome().split( " X " )[ 1 ] ) )
+										|| ( linha.getText().equalsIgnoreCase( jtab.getNome().split( " X " )[ 1 ] ) && coluna.getText().equalsIgnoreCase( jtab.getNome().split( " X " )[ 0 ] ) ) ){
+									
+									if( JOptionPane.YES_OPTION != JOptionPane.showConfirmDialog( null,
+										"Já existe uma matriz com esses 2 nomes, tem certeza que deseja criar outra matriz com estes mesmos nomes?", "Alerta de matriz duplicada", 0 ) ) return;
 								}
 							}
+							
 							ModeloTabela m = controle.adicionarMatriz( s );
 							JPanel j = new JPanel();
 							JScrollPane js = new JScrollPane();
@@ -309,6 +313,7 @@ public class Tela extends JFrame implements ActionListener {
 				
 				cancelarButton.setText( "Cancelar" );
 				cancelarButton.addActionListener( new ActionListener() {
+					/** {@inheritDoc } */
 					public void actionPerformed( ActionEvent e ) {
 						dispose();
 					}
@@ -348,7 +353,6 @@ public class Tela extends JFrame implements ActionListener {
 				
 				pack();
 			}// </editor-fold>
-			
 			
 			private javax.swing.JButton cancelarButton;
 			private javax.swing.JTextField coluna;
@@ -487,6 +491,9 @@ public class Tela extends JFrame implements ActionListener {
 	 * Usado para destacar os elementos que tenham relação com o objeto selecionado atualmente.
 	 */
 	private void destacarElementos() {
+		if( destacar.getName().equals( "desligado" ) ) destacar.setIcon( new ImageIcon( getClass().getResource( "/icons/destOn.png" ) ) );
+		else destacar.setIcon( new ImageIcon( getClass().getResource( "/icons/irkickoff-26.png" ) ) );
+		
 		int linhaAtual = 0, colunaAtual = 0, linhaSelecionada = 0, ColunaSelecionada = 0;
 		try{
 			controle.destacarElementos();
@@ -518,6 +525,7 @@ public class Tela extends JFrame implements ActionListener {
 				jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
 				jpanel.add( js );
 				jpanel.updateUI();
+				
 			}
 		} catch( Exception e ){
 			e.printStackTrace();
@@ -835,7 +843,7 @@ public class Tela extends JFrame implements ActionListener {
 				}
 				setTitle( "Trama" );
 			}
-		}
+		} else JOptionPane.showMessageDialog( this, s, "", 0 );
 	}
 	
 	/**

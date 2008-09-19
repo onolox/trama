@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JDialog;
@@ -105,6 +106,7 @@ public class ControleTela {
 	 */
 	public LinkedList< String > adicionarColunasModelo() {
 		LinkedList< String > lista = null;
+		boolean bol = true;
 		final HashMap< String, LinkedList< String >> nE = leitorDeModelo.getNomesExtensoes();
 		JFileChooser ch = new JFileChooser( "arquivos/" );
 		
@@ -128,28 +130,45 @@ public class ControleTela {
 						}
 					} );
 			}
-	
+			
 			int i = ch.showOpenDialog( tela );
 			if( i == JFileChooser.APPROVE_OPTION ){
 				File fil = ch.getSelectedFile();
-				
-				
-				
-				
-				lista = leitorDeModelo.getObjetos( fil.getAbsolutePath() );
-				lista = controleProjeto.triagemObjetos( matrizAtual, "coluna", lista );
-				
-				for( String str : lista ){
-					controleProjeto.adicionarColuna( str, matrizAtual );
+				if( !fil.exists() ){
+					JOptionPane.showMessageDialog( tela, "Erro na abertura do arquivo, arquivo não existente", "", 0 );
+					return null;
 				}
-				controleProjeto.setArquivoColuna( fil.getName(), matrizAtual );
+				String arq = controleProjeto.triagemMatrizes( matrizAtual, "coluna" );
+				Scanner scan = new Scanner( arq );
+				
+				scan.useDelimiter( "\\\\" );
+				while( scan.hasNext() )
+					arq = scan.next();
+				scan.useDelimiter( "/" );
+				while( scan.hasNext() )
+					arq = scan.next();
+				
+				if( arq != null && !arq.equals( fil.getName() ) ){
+					int mess = JOptionPane.showConfirmDialog( tela, "<HTML>Atualmente já existe um arquivo definido para <b>" + matrizAtual.split( " X " )[ 1 ] + "</b> que é o arquivo <b>" + arq
+							+ "</b><br/> deseja realmente importar deste arquivo <b>" + fil.getName() + "</b>?", "Problema na Importação", 2 );
+					if( mess != JOptionPane.YES_OPTION ) bol = false;
+				}
+				if( bol ){
+					lista = leitorDeModelo.getObjetos( fil.getAbsolutePath() );
+					lista = controleProjeto.triagemObjetos( matrizAtual, "coluna", lista );
+					for( String str : lista ){
+						controleProjeto.adicionarColuna( str, matrizAtual );
+					}
+					controleProjeto.setArquivoColuna( fil.getName(), matrizAtual );
+				}
 			}
 		} catch( Exception e ){
 			e.printStackTrace();
+			lista = null;
+			JOptionPane.showConfirmDialog( tela, "Erro na importação" );
 		}
 		return lista;
 	}
-	
 	/**
 	 * Método usado para inserir uma linha na matriz atual.
 	 * 
@@ -194,15 +213,36 @@ public class ControleTela {
 					} );
 			}
 			
-			int i = ch.showSaveDialog( tela );
+			int i = ch.showOpenDialog( tela );
 			if( i == JFileChooser.APPROVE_OPTION ){
 				File fil = ch.getSelectedFile();
-				lista = leitorDeModelo.getObjetos( fil.getAbsolutePath() );
-				lista = controleProjeto.triagemObjetos( matrizAtual, "linha", lista );
+				if( !fil.exists() ){
+					JOptionPane.showMessageDialog( tela, "Erro na abertura do arquivo, arquivo não existente", "", 0 );
+					return null;
+				}
+				String arq = controleProjeto.triagemMatrizes( matrizAtual, "linha" );
+				Scanner scan = new Scanner( arq );
 				
-				for( String str : lista )
-					controleProjeto.adicionarLinha( str, matrizAtual );
-				controleProjeto.setArquivoLinha( fil.getName(), matrizAtual );
+				scan.useDelimiter( "\\\\" );
+				while( scan.hasNext() )
+					arq = scan.next();
+				scan.useDelimiter( "/" );
+				while( scan.hasNext() )
+					arq = scan.next();
+				int mess = 0;
+				if( arq != null && !arq.equals( fil.getName() ) ){
+					mess = JOptionPane.showConfirmDialog( tela, "<HTML>Atualmente já existe um arquivo definido para <b>" + matrizAtual.split( " X " )[ 0 ] + "</b> que é o arquivo <b>" + arq
+							+ "</b><br/> deseja realmente importar deste arquivo <b>" + fil.getName() + "</b>?", "Problema na Importação", 2 );
+					
+				} else if( mess == JOptionPane.YES_OPTION ){
+					
+					lista = leitorDeModelo.getObjetos( fil.getAbsolutePath() );
+					lista = controleProjeto.triagemObjetos( matrizAtual, "linha", lista );
+					
+					for( String str : lista )
+						controleProjeto.adicionarLinha( str, matrizAtual );
+					controleProjeto.setArquivoLinha( fil.getName(), matrizAtual );
+				}
 			}
 		} catch( Exception e ){
 			e.printStackTrace();
@@ -329,7 +369,6 @@ public class ControleTela {
 	
 	/**
 	 * Usado para destacar os elementos que tenham relação com o objeto selecionado atualmente.
-	 * 
 	 */
 	public void destacarElementos() {
 		if( linhaAtual == -1 ) controleProjeto.destacarElementos( colunaAtual, "coluna", matrizAtual );
