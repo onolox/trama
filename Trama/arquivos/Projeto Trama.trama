@@ -509,7 +509,7 @@
           <string>0</string>
         </linked-list>
       </linha>
-      <nomeMatriz>UC X Classes de Análise</nomeMatriz>
+      <nomeMatriz>UC X Classes de Analise</nomeMatriz>
       <qColunas>21</qColunas>
       <qLinhas>22</qLinhas>
       <tituloColuna>
@@ -535,7 +535,7 @@
         <string>TelaMatriz</string>
         <string>TelaProjeto</string>
       </tituloColuna>
-      <tituloColunaArquivo>Classes de Análise_1220827347255.etlp</tituloColunaArquivo>
+      <tituloColunaArquivo>E:\Meus documentos\Java2\Trama\arquivos\Classes de Analise_1220827347255.etlp</tituloColunaArquivo>
       <tituloLinha>
         <string>Abrir Projeto</string>
         <string>Adicionar linha ou coluna</string>
@@ -560,7 +560,7 @@
         <string>Sincronizar linhas ou colunas do modelo</string>
         <string>Sincronizar matriz dos modelos</string>
       </tituloLinha>
-      <tituloLinhaArquivo>requerimentos.txt</tituloLinhaArquivo>
+      <tituloLinhaArquivo>E:\Meus documentos\Java2\Trama\arquivos\requerimentos.txt</tituloLinhaArquivo>
     </persistencia.DadosMatriz>
     <persistencia.DadosMatriz>
       <linha>
@@ -965,7 +965,7 @@
           <string>1</string>
         </linked-list>
       </linha>
-      <nomeMatriz>Classes de Análise X Classes de Projeto</nomeMatriz>
+      <nomeMatriz>Classes de Analise X Classes de Projeto</nomeMatriz>
       <qColunas>18</qColunas>
       <qLinhas>20</qLinhas>
       <tituloColuna>
@@ -988,7 +988,7 @@
         <string>RenderizadorTituloLinha</string>
         <string>Tela</string>
       </tituloColuna>
-      <tituloColunaArquivo>Classes de Projeto_1220827242489.etlp</tituloColunaArquivo>
+      <tituloColunaArquivo>E:\Meus documentos\Java2\Trama\arquivos\Classes de Projeto_1220827242489.etlp</tituloColunaArquivo>
       <tituloLinha>
         <string>CTRL_ExportarImagem</string>
         <string>CTRL_ExportarPDF</string>
@@ -1011,7 +1011,7 @@
         <string>TelaMatriz</string>
         <string>TelaProjeto</string>
       </tituloLinha>
-      <tituloLinhaArquivo>Classes de Análise_1220827347255.etlp</tituloLinhaArquivo>
+      <tituloLinhaArquivo>E:\Meus documentos\Java2\Trama\arquivos\Classes de Analise_1220827347255.etlp</tituloLinhaArquivo>
     </persistencia.DadosMatriz>
   </matrizes>
   <nome>Projeto Trama</nome>

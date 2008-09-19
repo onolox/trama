@@ -9,13 +9,16 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
 /**
+ * Classe usada para persistir o projeto serializando o em XML. Também é usada para desserializar o XML.
+ * 
  * @author Fabio Marmitt
  */
 public class PersistenciaProjeto {
-	
 	/**
-	 * @param nome
-	 * @return
+	 * Usado para ler o arquivo XML de projeto e torná-lo um Projeto para poder ser usado novamente.
+	 * 
+	 * @param nome nome do arquivo
+	 * @return instância de Projeto
 	 */
 	public Projeto abrir( String nome ) {
 		Projeto p = null;
@@ -23,13 +26,16 @@ public class PersistenciaProjeto {
 			p = ( Projeto ) new XStream( new DomDriver() ).fromXML( new FileReader( "arquivos/" + nome ) );
 		} catch( FileNotFoundException e ){
 			e.printStackTrace();
+			p = null;
 		}
 		return p;
 	}
 	
 	/**
-	 * @param projeto
-	 * @return
+	 * Usado para persistir o projeto em XML.
+	 * 
+	 * @param projeto Projeto
+	 * @return estatus da operação
 	 */
 	public String salvar( Projeto projeto ) {
 		String s = "ok";
@@ -41,7 +47,7 @@ public class PersistenciaProjeto {
 			file.close();
 		} catch( IOException e ){
 			e.printStackTrace();
-			s = "erro";
+			s = "Erro na gravação do arquivo";
 		}
 		
 		return s;
