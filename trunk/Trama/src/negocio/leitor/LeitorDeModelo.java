@@ -34,6 +34,7 @@ public class LeitorDeModelo {
 				nE.put( nome, ext );
 			} catch( Exception e ){
 				e.printStackTrace();
+				nE = null;
 			}
 		}
 		return nE;
@@ -46,9 +47,9 @@ public class LeitorDeModelo {
 	 * @return lista de nomes
 	 */
 	public LinkedList< String > getObjetos( String arquivo ) {
-	    lista = getJars();
+		lista = getJars();
 		LinkedList< String > lista2 = null;
-	
+		
 		try{
 			for( String li : lista ){
 				Class cl = getClasseJar( li );
@@ -61,6 +62,7 @@ public class LeitorDeModelo {
 			}
 		} catch( Exception e ){
 			e.printStackTrace();
+			lista2 = null;
 		}
 		return lista2;
 	}

@@ -363,7 +363,7 @@ public class ControleProjeto {
 					for( int i = 0; i < matriz.getQLinhas(); i++ )
 						l.add( matriz.getTituloLinha( i ) );
 				} else{
-					for( int i = 0; i < matriz.getQLinhas(); i++ )
+					for( int i = 0; i < matriz.getQColunas(); i++ )
 						l.add( matriz.getTituloColuna( i ) );
 				}
 			}
