@@ -212,7 +212,7 @@
                 <Property name="text" type="java.lang.String" value="Ajuda"/>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="ajudaMenu.addActionListener( new ActionListener() {&#xa;            public void actionPerformed( ActionEvent e ) {&#xa;                try {&#xa;                    Desktop.getDesktop().open( new File( &quot;doc/Manual Trama.pdf&quot; ) );&#xa;                } catch ( IOException ex ) {&#xa;                    System.out.println( &quot;Erro de abertura do manual&quot; );&#xa;                }&#xa;            }&#xa;        });"/>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="ajudaMenu.addActionListener( new ActionListener() {&#xa;            public void actionPerformed( ActionEvent e ) {&#xa;                try {&#xa;                    Desktop.getDesktop().open( new File( &quot;doc/Manual Trama.pdf&quot; ) );&#xa;                } catch ( IOException ex ) {&#xa;                    JOptionPane.showMessageDialog( null, &quot;Erro na abertura do arquivo, arquivo n&#xe3;o existente&quot;, &quot;&quot;, 0 );&#xa;                }&#xa;            }&#xa;        });"/>
               </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="sobreMenu">
