@@ -62,18 +62,18 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 		}
 		if( !v.equals( getName() ) ){
 			setName( v );
-			if( v.length() > 30 ){
+			if( v.length() > 25 ){
 				String rr = v.replace( "|||", "" );
 				setToolTipText( rr );
 				
-				rr = rr.substring( 0, 29 ) + "...";
+				rr = rr.substring( 0, 25 ) + "...";
 				
 				icon = getVerticalCaption( this, rr, true );
 			} else{
 				
 				String ss = v.replace( "|||", "" );
-				for( int i = 0; i < 30; i++ ){
-					if( ss.length() < 30 ) ss = " " + ss;
+				for( int i = 0; i < 35; i++ ){
+					if( ss.length() < 35 ) ss = " " + ss;
 				}
 				icon = getVerticalCaption( this, ss, true );
 			}
