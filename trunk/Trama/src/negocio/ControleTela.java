@@ -166,7 +166,7 @@ public class ControleTela {
 					for( String str : lista ){
 						controleProjeto.adicionarColuna( str, matrizAtual );
 					}
-					controleProjeto.setArquivoColuna( fil.getName(), matrizAtual );
+					controleProjeto.setArquivoColuna( fil.getAbsolutePath(), matrizAtual );
 				}
 			}
 		} catch( Exception e ){
@@ -250,7 +250,7 @@ public class ControleTela {
 					
 					for( String str : lista )
 						controleProjeto.adicionarLinha( str, matrizAtual );
-					controleProjeto.setArquivoLinha( fil.getName(), matrizAtual );
+					controleProjeto.setArquivoLinha( fil.getAbsolutePath(), matrizAtual );
 				}
 			}
 		} catch( Exception e ){
