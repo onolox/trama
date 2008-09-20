@@ -1,5 +1,6 @@
 package negocio;
 
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -7,11 +8,16 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Scanner;
 
+import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
+import javax.swing.GroupLayout;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
+import javax.swing.border.TitledBorder;
 import javax.swing.filechooser.FileFilter;
 
 import negocio.leitor.LeitorDeModelo;
@@ -139,16 +145,17 @@ public class ControleTela {
 					return null;
 				}
 				String arq = controleProjeto.triagemMatrizes( matrizAtual, "coluna" );
-				Scanner scan = new Scanner( arq );
 				
-				scan.useDelimiter( "\\\\" );
-				while( scan.hasNext() )
-					arq = scan.next();
-				scan.useDelimiter( "/" );
-				while( scan.hasNext() )
-					arq = scan.next();
-				
-				if( arq != null && !arq.equals( fil.getName() ) ){
+				if( arq != null && !arq.endsWith( fil.getName() ) ){
+					Scanner scan = new Scanner( arq );
+					
+					scan.useDelimiter( "\\\\" );
+					while( scan.hasNext() )
+						arq = scan.next();
+					scan.useDelimiter( "/" );
+					while( scan.hasNext() )
+						arq = scan.next();
+					
 					int mess = JOptionPane.showConfirmDialog( tela, "<HTML>Atualmente já existe um arquivo definido para <b>" + matrizAtual.split( " X " )[ 1 ] + "</b> que é o arquivo <b>" + arq
 							+ "</b><br/> deseja realmente importar deste arquivo <b>" + fil.getName() + "</b>?", "Problema na Importação", 2 );
 					if( mess != JOptionPane.YES_OPTION ) bol = false;
@@ -221,16 +228,18 @@ public class ControleTela {
 					return null;
 				}
 				String arq = controleProjeto.triagemMatrizes( matrizAtual, "linha" );
-				Scanner scan = new Scanner( arq );
 				
-				scan.useDelimiter( "\\\\" );
-				while( scan.hasNext() )
-					arq = scan.next();
-				scan.useDelimiter( "/" );
-				while( scan.hasNext() )
-					arq = scan.next();
 				int mess = 0;
-				if( arq != null && !arq.equals( fil.getName() ) ){
+				if( arq != null && !arq.endsWith( fil.getName() ) ){
+					Scanner scan = new Scanner( arq );
+					
+					scan.useDelimiter( "\\\\" );
+					while( scan.hasNext() )
+						arq = scan.next();
+					scan.useDelimiter( "/" );
+					while( scan.hasNext() )
+						arq = scan.next();
+					
 					mess = JOptionPane.showConfirmDialog( tela, "<HTML>Atualmente já existe um arquivo definido para <b>" + matrizAtual.split( " X " )[ 0 ] + "</b> que é o arquivo <b>" + arq
 							+ "</b><br/> deseja realmente importar deste arquivo <b>" + fil.getName() + "</b>?", "Problema na Importação", 2 );
 					
@@ -246,6 +255,8 @@ public class ControleTela {
 			}
 		} catch( Exception e ){
 			e.printStackTrace();
+			lista = null;
+			JOptionPane.showConfirmDialog( tela, "Erro na importação" );
 		}
 		return lista;
 	}
@@ -510,6 +521,8 @@ public class ControleTela {
 				adicionarColunasModelo();
 			} else{
 				l = leitorDeModelo.getObjetos( s );
+				
+				if( l == null || l.isEmpty() ) return "Erro ao buscar objetos do arquivo";
 				final LinkedList< String > l2 = controleProjeto.triagemObjetos( matrizAtual, "coluna", l );
 				if( l2.size() > 0 ){
 					dialog = new JDialog( tela ) {
@@ -542,8 +555,7 @@ public class ControleTela {
 							setLocation( tela.getLocationOnScreen() );
 							setModal( true );
 							
-							jPanel1.setBorder( javax.swing.BorderFactory.createTitledBorder( null, "Novos Objetos", javax.swing.border.TitledBorder.CENTER,
-								javax.swing.border.TitledBorder.DEFAULT_POSITION ) );
+							jPanel1.setBorder( javax.swing.BorderFactory.createTitledBorder( null, "Novos Objetos", TitledBorder.CENTER, TitledBorder.DEFAULT_POSITION ) );
 							
 							listaNova.setModel( new DefaultListModel() );
 							for( int i = 0; i < l2.size(); i++ )
@@ -551,12 +563,12 @@ public class ControleTela {
 							
 							jScrollPane1.setViewportView( listaNova );
 							
-							javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout( jPanel1 );
+							GroupLayout jPanel1Layout = new GroupLayout( jPanel1 );
 							jPanel1.setLayout( jPanel1Layout );
-							jPanel1Layout.setHorizontalGroup( jPanel1Layout.createParallelGroup( javax.swing.GroupLayout.Alignment.LEADING ).addComponent( jScrollPane1,
-								javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE ) );
-							jPanel1Layout.setVerticalGroup( jPanel1Layout.createParallelGroup( javax.swing.GroupLayout.Alignment.LEADING ).addComponent( jScrollPane1,
-								javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE ) );
+							jPanel1Layout.setHorizontalGroup( jPanel1Layout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( jScrollPane1, GroupLayout.DEFAULT_SIZE, 173,
+								Short.MAX_VALUE ) );
+							jPanel1Layout.setVerticalGroup( jPanel1Layout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( jScrollPane1, GroupLayout.DEFAULT_SIZE, 412,
+								Short.MAX_VALUE ) );
 							
 							adicionar.setText( "Adicionar >>" );// ------------------------------Listeners
 							adicionar.addActionListener( new ActionListener() {
@@ -601,15 +613,13 @@ public class ControleTela {
 									javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE ).addPreferredGap( javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148,
 									Short.MAX_VALUE ).addComponent( fechar ).addContainerGap() ) );
 							
-							jPanel2Layout.linkSize( javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] { adicionar, atualizar } );
-							
-							jPanel3.setBorder( javax.swing.BorderFactory.createTitledBorder( null, "Objetos Atuais", javax.swing.border.TitledBorder.CENTER,
-								javax.swing.border.TitledBorder.DEFAULT_POSITION ) );
+							jPanel2Layout.linkSize( SwingConstants.VERTICAL, new Component[] { adicionar, atualizar } );
+							jPanel3.setBorder( BorderFactory.createTitledBorder( null, "Objetos Atuais", TitledBorder.CENTER, TitledBorder.DEFAULT_POSITION ) );
 							
 							listaAtual.setModel( new DefaultListModel() );
-							listaAtual.setSelectionMode( javax.swing.ListSelectionModel.SINGLE_SELECTION );
+							listaAtual.setSelectionMode( ListSelectionModel.SINGLE_SELECTION );
 							
-							for( String str : controleProjeto.getNomes( matrizAtual, "linha" ) ){
+							for( String str : controleProjeto.getNomes( matrizAtual, "coluna" ) ){
 								( ( DefaultListModel ) listaAtual.getModel() ).addElement( str );
 							}
 							
@@ -658,7 +668,7 @@ public class ControleTela {
 			}
 		} catch( Exception e ){
 			e.printStackTrace();
-			s2 = "erro";
+			s2 = "Erro na sincronização";
 		}
 		return s2;
 	}
@@ -680,6 +690,8 @@ public class ControleTela {
 				adicionarLinhasModelo();
 			} else{
 				l = leitorDeModelo.getObjetos( s );
+				if( l == null || l.isEmpty() ) return "Erro ao buscar objetos do arquivo";
+				
 				final LinkedList< String > l2 = controleProjeto.triagemObjetos( matrizAtual, "linha", l );
 				
 				if( l2.size() > 0 ){
@@ -827,7 +839,7 @@ public class ControleTela {
 			}
 		} catch( Exception e ){
 			e.printStackTrace();
-			s2 = "erro";
+			s2 = "Erro na sincronização";
 		}
 		return s2;
 	}
