@@ -135,7 +135,8 @@ public class Tela extends JFrame implements ActionListener {
 		try{
 			s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a coluna", "Adicionar Coluna", JOptionPane.QUESTION_MESSAGE );
 			if( s == null ) return;
-			if( s.equalsIgnoreCase( "" ) ) s = "coluna " + controle.getColunaAtual();
+			s = s.trim();
+			if( s.equalsIgnoreCase( "" ) ) return;
 			s = controle.adicionarColuna( s );
 			
 			if( !s.equalsIgnoreCase( "ok" ) ){
@@ -215,7 +216,8 @@ public class Tela extends JFrame implements ActionListener {
 		try{
 			s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a linha", "Adicionar Linha", JOptionPane.QUESTION_MESSAGE );
 			if( s == null ) return;
-			if( s.equalsIgnoreCase( "" ) ) s = "linha " + controle.getLinhaAtual();
+			s = s.trim();
+			if( s.equalsIgnoreCase( "" ) ) return;
 			s = controle.adicionarLinha( s );
 			
 			if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
@@ -284,7 +286,7 @@ public class Tela extends JFrame implements ActionListener {
 					/** {@inheritDoc } */
 					@SuppressWarnings( "synthetic-access" )
 					public void actionPerformed( ActionEvent e ) {
-						if( !linha.getText().isEmpty() && !coluna.getText().isEmpty() ){
+						if( !linha.getText().trim().isEmpty() && !coluna.getText().trim().isEmpty() ){
 							linha.setText( linha.getText().trim() );
 							coluna.setText( coluna.getText().trim() );
 							s = linha.getText() + " X " + coluna.getText();
@@ -445,20 +447,20 @@ public class Tela extends JFrame implements ActionListener {
 	 */
 	private void atualizarColuna() {
 		try{
-			if( nomeTextField.getText().equals( "" ) ){
+			if( nomeTextField.getText().trim().equals( "" ) ){
 				JOptionPane.showMessageDialog( this, "O nome não pode ser vazio", "Erro no nome", 0 );
 				cancelarEdicao.doClick();
 				
 			} else{
-				String s = controle.atualizarColuna( nomeTextField.getText().replace( "|||", "" ) );
+				String s = controle.atualizarColuna( nomeTextField.getText().trim().replace( "|||", "" ) );
 				
-				if( !s.equalsIgnoreCase( "ok" ) ){
-					JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-				}
-				for( JTableCustomizado j : matrizes ){
-					if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
-						j.getColumnModel().getColumn( controle.getColunaAtual() ).setHeaderValue( nomeTextField.getText().replace( "|||", "" ) );
-						j.updateUI();
+				if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+				else{
+					for( JTableCustomizado j : matrizes ){
+						if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
+							j.getColumnModel().getColumn( controle.getColunaAtual() ).setHeaderValue( nomeTextField.getText().trim().replace( "|||", "" ) );
+							j.getTableHeader().repaint();
+						}
 					}
 				}
 			}
@@ -472,18 +474,18 @@ public class Tela extends JFrame implements ActionListener {
 	 */
 	private void atualizarLinha() {
 		try{
-			if( nomeTextField.getText().equals( "" ) ){
+			if( nomeTextField.getText().trim().equals( "" ) ){
 				JOptionPane.showMessageDialog( this, "O nome não pode ser vazio", "Erro no nome", 0 );
 				cancelarEdicao.doClick();
 			} else{
-				String s = controle.atualizarLinha( nomeTextField.getText().replace( "|||", "" ) );
-				if( !s.equalsIgnoreCase( "ok" ) ){
-					JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-				}
-				for( JTableCustomizado j : matrizes ){
-					if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
-						ModeloTabela t = ( ModeloTabela ) j.getModel();
-						t.fireTableDataChanged();
+				String s = controle.atualizarLinha( nomeTextField.getText().trim().replace( "|||", "" ) );
+				if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+				else{
+					for( JTableCustomizado j : matrizes ){
+						if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
+							ModeloTabela t = ( ModeloTabela ) j.getModel();
+							t.fireTableDataChanged();
+						}
 					}
 				}
 			}
@@ -682,7 +684,7 @@ public class Tela extends JFrame implements ActionListener {
 					if( i == JFileChooser.APPROVE_OPTION ){
 						File fil = ch.getSelectedFile();
 						s = fil.getAbsolutePath();
-						if( s.endsWith( ".png" ) ) s = s.replace( ".png", "" );
+						if( s.endsWith( ".png" ) ) s = s.replace( ".png", "" ).replace( "PNG", "" );
 						
 						int sn = 0;
 						if( new File( s + ".png" ).exists() ) sn = JOptionPane.showConfirmDialog( this, "Arquivo já existente, deseja sobreescrever?", "Atenção", JOptionPane.WARNING_MESSAGE );
@@ -733,7 +735,7 @@ public class Tela extends JFrame implements ActionListener {
 					if( i == JFileChooser.APPROVE_OPTION ){
 						File fil = ch.getSelectedFile();
 						s = fil.getAbsolutePath();
-						if( s.endsWith( ".pdf" ) ) s = s.replace( ".pdf", "" );
+						if( s.endsWith( ".pdf" ) ) s = s.replace( ".pdf", "" ).replace( "PDF", "" );
 						
 						int sn = 0;
 						if( new File( s + ".pdf" ).exists() ) sn = JOptionPane.showConfirmDialog( this, "Arquivo já existente, deseja sobreescrever?", "Atenção", JOptionPane.WARNING_MESSAGE );
@@ -862,22 +864,23 @@ public class Tela extends JFrame implements ActionListener {
 	 */
 	private void salvarProjeto() {
 		String s = "";
-		s = controle.salvarProjeto( "vazio" );
-		if( s.equals( "sem nome" ) ){
+		s = controle.salvarProjeto( "|vazio|" );
+		if( s.equals( "|sem nome|" ) ){
 			s = JOptionPane.showInputDialog( this, "Insira um nome para o projeto", "Nome do projeto", 0 );
 			if( s != null ){
 				s = controle.salvarProjeto( s );
-				if( s.equals( "sem nome" ) ){
+				if( s.equals( "|sem nome|" ) ){
 					salvarProjeto();
+				} else{
+					setTitle( "Trama  ---->  Projeto Salvo Com Sucesso" );
+					try{
+						Thread.sleep( 3000 );
+					} catch( InterruptedException e ){
+						e.printStackTrace();
+					}
+					setTitle( "Trama" );
 				}
-				setTitle( "Trama  ---->  Projeto Salvo Com Sucesso" );
-				try{
-					Thread.sleep( 3000 );
-				} catch( InterruptedException e ){
-					e.printStackTrace();
-				}
-				setTitle( "Trama" );
-			}
+			} else return;
 		} else JOptionPane.showMessageDialog( this, s, "", 0 );
 	}
 	

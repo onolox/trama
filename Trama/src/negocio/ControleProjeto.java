@@ -502,8 +502,8 @@ public class ControleProjeto {
 		String s = "ok";
 		LinkedList< DadosMatriz > lista = new LinkedList< DadosMatriz >();
 		
-		if( ( nome.equals( "vazio" ) || nome.equals( "" ) ) && projeto.getNome().equals( "" ) ) s = "sem nome";
-		else if( !nome.equals( "vazio" ) ){
+		if( ( nome.equals( "|vazio|" ) || nome.equals( "" ) ) && projeto.getNome().equals( "" ) ) s = "|sem nome|";
+		else if( !nome.equals( "|vazio|" ) ){
 			try{
 				for( Matriz matriz : matrizes ){
 					lista.add( matriz.getDadosMatriz() );

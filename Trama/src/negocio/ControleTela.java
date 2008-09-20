@@ -489,7 +489,7 @@ public class ControleTela {
 	 */
 	public String salvarProjeto( String nome ) {
 		String s = "ok";
-		s = controleProjeto.salvarProjeto( nome );
+		s = controleProjeto.salvarProjeto( nome.trim().replace( ".trama", "" ).replace( ".Trama", "" ).replace( "TRAMA", "" ) );
 		return s;
 	}
 	
