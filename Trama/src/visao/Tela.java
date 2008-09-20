@@ -1792,8 +1792,8 @@ public class Tela extends JFrame implements ActionListener {
             public void actionPerformed( ActionEvent e ) {
                 try {
                     Desktop.getDesktop().open( new File( "doc/Manual Trama.pdf" ) );
-                } catch ( IOException ex ) {
-                    JOptionPane.showMessageDialog( null, "Erro na abertura do arquivo, arquivo não existente", "", 0 );
+                } catch ( Exception ex ) {
+                    JOptionPane.showMessageDialog( null, "Erro na abertura do arquivo, arquivo de ajuda não encontrado", "", 0 );
                 }
             }
         });
