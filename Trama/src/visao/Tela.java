@@ -136,36 +136,38 @@ public class Tela extends JFrame implements ActionListener {
 			s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a coluna", "Adicionar Coluna", JOptionPane.QUESTION_MESSAGE );
 			if( s == null ) return;
 			s = s.trim();
-			if( s.equalsIgnoreCase( "" ) ) return;
-			s = controle.adicionarColuna( s );
-			
-			if( !s.equalsIgnoreCase( "ok" ) ){
-				JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-			}
-			for( int i = 0; i < matrizes.size(); i++ ){
-				if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
-					JTableCustomizado jt = matrizes.remove( i );
-					ModeloTabela mod = ( ModeloTabela ) jt.getModel();
-					JPanel jpanel = JP.get( i );
-					jpanel.removeAll();
-					JTableCustomizado cus = new JTableCustomizado( mod );
-					adicionarListener( cus );
-					matrizes.add( i, cus );
-					JScrollPane js = new JScrollPane();
-					js.setViewportView( cus );
-					
-					GroupLayout jPanelLayout = new GroupLayout( jpanel );
-					jpanel.setLayout( jPanelLayout );
-					jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
-					jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
-					jpanel.add( js );
-					jpanel.updateUI();
-					jpanel.repaint();
-					
-					cus.setColunaAtual( controle.getColunaAtual() );
-					cus.setColunaSelecionada( controle.getColunaAtual() );
-					cus.setLinhaSelecionada( -1 );
-					cus.setLinhaAtual( -1 );
+			if( s.equalsIgnoreCase( "" ) ) adicionarColuna();
+			else{
+				s = controle.adicionarColuna( s );
+				
+				if( !s.equalsIgnoreCase( "ok" ) ){
+					JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+				}
+				for( int i = 0; i < matrizes.size(); i++ ){
+					if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
+						JTableCustomizado jt = matrizes.remove( i );
+						ModeloTabela mod = ( ModeloTabela ) jt.getModel();
+						JPanel jpanel = JP.get( i );
+						jpanel.removeAll();
+						JTableCustomizado cus = new JTableCustomizado( mod );
+						adicionarListener( cus );
+						matrizes.add( i, cus );
+						JScrollPane js = new JScrollPane();
+						js.setViewportView( cus );
+						
+						GroupLayout jPanelLayout = new GroupLayout( jpanel );
+						jpanel.setLayout( jPanelLayout );
+						jPanelLayout.setHorizontalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE ) );
+						jPanelLayout.setVerticalGroup( jPanelLayout.createParallelGroup( GroupLayout.Alignment.LEADING ).addComponent( js, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE ) );
+						jpanel.add( js );
+						jpanel.updateUI();
+						jpanel.repaint();
+						
+						cus.setColunaAtual( controle.getColunaAtual() );
+						cus.setColunaSelecionada( controle.getColunaAtual() );
+						cus.setLinhaSelecionada( -1 );
+						cus.setLinhaAtual( -1 );
+					}
 				}
 			}
 		} catch( Exception e ){
@@ -217,15 +219,17 @@ public class Tela extends JFrame implements ActionListener {
 			s = JOptionPane.showInputDialog( this, "Insira o nome desejado para a linha", "Adicionar Linha", JOptionPane.QUESTION_MESSAGE );
 			if( s == null ) return;
 			s = s.trim();
-			if( s.equalsIgnoreCase( "" ) ) return;
-			s = controle.adicionarLinha( s );
-			
-			if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
-			
-			for( JTableCustomizado j : matrizes ){
-				if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
-					ModeloTabela t = ( ModeloTabela ) j.getModel();
-					t.fireTableDataChanged();
+			if( s.equalsIgnoreCase( "" ) ) adicionarLinha();
+			else{
+				s = controle.adicionarLinha( s );
+				
+				if( !s.equalsIgnoreCase( "ok" ) ) JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+				
+				for( JTableCustomizado j : matrizes ){
+					if( controle.getMatrizAtual().equalsIgnoreCase( j.getNome() ) ){
+						ModeloTabela t = ( ModeloTabela ) j.getModel();
+						t.fireTableDataChanged();
+					}
 				}
 			}
 		} catch( Exception e ){

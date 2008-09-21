@@ -170,12 +170,12 @@ public class ControleTela {
 				}
 			}
 		} catch( Exception e ){
-			e.printStackTrace();
 			lista = null;
-			JOptionPane.showConfirmDialog( tela, "Erro na importação" );
+			JOptionPane.showMessageDialog( tela, "Erro na importação" );
 		}
 		return lista;
 	}
+	
 	/**
 	 * Método usado para inserir uma linha na matriz atual.
 	 * 
@@ -254,9 +254,8 @@ public class ControleTela {
 				}
 			}
 		} catch( Exception e ){
-			e.printStackTrace();
 			lista = null;
-			JOptionPane.showConfirmDialog( tela, "Erro na importação" );
+			JOptionPane.showMessageDialog( tela, "Erro na importação" );
 		}
 		return lista;
 	}
