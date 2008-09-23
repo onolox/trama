@@ -280,7 +280,8 @@ public class Tela extends JFrame implements ActionListener {
 				jLabel4 = new javax.swing.JLabel();
 				
 				setDefaultCloseOperation( javax.swing.WindowConstants.DISPOSE_ON_CLOSE );
-				setLocation( getOwner().getLocationOnScreen() );
+				setLocation( getOwner().getLocationOnScreen().x, getOwner().getLocationOnScreen().y + 130 );
+				setTitle( "Nova Matriz" );
 				
 				jLabel1.setHorizontalAlignment( javax.swing.SwingConstants.CENTER );
 				jLabel1.setText( "Insira o nome da matriz" );
