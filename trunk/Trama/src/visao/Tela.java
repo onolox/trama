@@ -291,7 +291,7 @@ public class Tela extends JFrame implements ActionListener {
 					/** {@inheritDoc } */
 					@SuppressWarnings( "synthetic-access" )
 					public void actionPerformed( ActionEvent e ) {
-						if( !linha.getText().trim().isEmpty() && !coluna.getText().trim().isEmpty() ){
+						if( ( !linha.getText().trim().isEmpty() && !coluna.getText().trim().isEmpty() ) && ( !linha.getText().trim().equals( coluna.getText().trim() ) ) ){
 							linha.setText( linha.getText().trim() );
 							coluna.setText( coluna.getText().trim() );
 							s = linha.getText() + " X " + coluna.getText();
@@ -382,7 +382,6 @@ public class Tela extends JFrame implements ActionListener {
 			private javax.swing.JButton okButton;
 		};
 	}
-	
 	/**
 	 * Usado para alterar a posição de uma coluna.
 	 * 

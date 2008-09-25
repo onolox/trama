@@ -26,6 +26,7 @@ public class LeitorDeModelo {
 	public HashMap< String, LinkedList< String >> getNomesExtensoes() {
 		HashMap< String, LinkedList< String >> nE = new HashMap< String, LinkedList< String >>();
 		lista = getJars();
+		if( lista.isEmpty() ) return null;
 		for( String li : lista ){
 			try{
 				Class cl = getClasseJar( li );
