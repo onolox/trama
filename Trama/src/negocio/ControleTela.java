@@ -114,6 +114,11 @@ public class ControleTela {
 		LinkedList< String > lista = null;
 		boolean bol = true;
 		final HashMap< String, LinkedList< String >> nE = leitorDeModelo.getNomesExtensoes();
+		if( nE == null ){
+			JOptionPane.showMessageDialog( tela, "Não há plugins disponíveis para uso", "", 0 );
+			return null;
+		}
+		
 		JFileChooser ch = new JFileChooser( "arquivos/" );
 		
 		try{
@@ -175,7 +180,6 @@ public class ControleTela {
 		}
 		return lista;
 	}
-	
 	/**
 	 * Método usado para inserir uma linha na matriz atual.
 	 * 
@@ -196,6 +200,10 @@ public class ControleTela {
 	public LinkedList< String > adicionarLinhasModelo() {
 		LinkedList< String > lista = null;
 		final HashMap< String, LinkedList< String >> nE = leitorDeModelo.getNomesExtensoes();
+		if( nE == null ){
+			JOptionPane.showMessageDialog( tela, "Não há plugins disponíveis para uso", "", 0 );
+			return null;
+		}
 		JFileChooser ch = new JFileChooser( "arquivos/" );
 		
 		try{
