@@ -54,7 +54,7 @@ public class Tela extends JFrame implements ActionListener {
 		addWindowListener( new WindowAdapter() {
 			/** {@inheritDoc} */
 			public void windowClosing( WindowEvent evt ) {
-				if( salvarProjeto.isEnabled() && false ){
+				if( salvarProjeto.isEnabled() ){
 					int s1 = JOptionPane.showConfirmDialog( null, "Deseja salvar o projeto atual?" );
 					if( s1 == JOptionPane.YES_OPTION ) salvarProjeto();
 					else if( s1 == JOptionPane.NO_OPTION ) System.exit( 0 );
