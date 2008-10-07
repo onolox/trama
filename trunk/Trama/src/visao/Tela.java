@@ -517,7 +517,7 @@ public class Tela extends JFrame implements ActionListener {
 	 */
 	private void destacarElementos() {
 		if( destacar.getName().equals( "desligado" ) ){
-			destacar.setIcon( new ImageIcon( getClass().getResource( "/icons/destOn.png" ) ) );
+			destacar.setIcon( new ImageIcon( getClass().getResource( "/icons/destON.png" ) ) );
 			destacar.setName( "ligado" );
 		} else{
 			destacar.setIcon( new ImageIcon( getClass().getResource( "/icons/irkickoff-26.png" ) ) );
@@ -743,7 +743,7 @@ public class Tela extends JFrame implements ActionListener {
 						
 						int sn = 0;
 						if( new File( s + ".pdf" ).exists() ) sn = JOptionPane.showConfirmDialog( this, "Arquivo já existente, deseja sobreescrever?", "Atenção", JOptionPane.WARNING_MESSAGE );
-						System.out.println( sn );
+						// System.out.println( sn );
 						if( sn == JOptionPane.YES_OPTION ){
 							j.exportarPDF( s );
 							setTitle( "Trama  ---->  PDF Exportado Com Sucesso" );
@@ -885,7 +885,17 @@ public class Tela extends JFrame implements ActionListener {
 					setTitle( "Trama" );
 				}
 			} else return;
-		} else JOptionPane.showMessageDialog( this, s, "", 0 );
+		} else{
+			if( s.equalsIgnoreCase( "ok" ) ){
+				setTitle( "Trama  ---->  Projeto Salvo Com Sucesso" );
+				try{
+					Thread.sleep( 3000 );
+				} catch( InterruptedException e ){
+					e.printStackTrace();
+				}
+				setTitle( "Trama" );
+			} else JOptionPane.showMessageDialog( this, s, "", 0 );
+		}
 	}
 	
 	/**
@@ -928,6 +938,7 @@ public class Tela extends JFrame implements ActionListener {
 			e.printStackTrace();
 		}
 	}
+	
 	/**
 	 * Usado para sincronizar uma linha com um arquivo.
 	 */
