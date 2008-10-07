@@ -513,7 +513,7 @@ public class ControleProjeto {
 				s = persistenciaProjeto.salvar( projeto );
 			} catch( Exception e ){
 				e.printStackTrace();
-				s = "erro";
+				s = "Erro ao tentar salvar o projeto";
 			}
 		} else{
 			try{
@@ -524,7 +524,7 @@ public class ControleProjeto {
 				s = persistenciaProjeto.salvar( projeto );
 			} catch( Exception e ){
 				e.printStackTrace();
-				s = "erro";
+				s = "Erro ao tentar salvar o projeto";
 			}
 		}
 		return s;

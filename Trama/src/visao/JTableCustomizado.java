@@ -154,7 +154,7 @@ public class JTableCustomizado extends JTable {
 			document.open();
 			PdfContentByte cb = w.getDirectContent();
 			
-			cb.saveState();
+			// cb.saveState();
 			Graphics2D g2 = cb.createGraphicsShapes( getWidth() + 40, getHeight() + getTableHeader().getHeight() + 40 );
 			
 			g2.translate( 20, 0 );
@@ -163,13 +163,14 @@ public class JTableCustomizado extends JTable {
 			
 			print( g2 );
 			cb.beginText();
-			BaseFont bf = BaseFont.createFont( BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED );
+			BaseFont bf = BaseFont.createFont( BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED );
 			cb.setFontAndSize( bf, 12 );
 			cb.setTextMatrix( 10, 10 );
 			cb.showText( getNome() );
+			cb.endText();
 			g2.dispose();
 			
-			cb.restoreState();
+			// cb.restoreState();
 		} catch( Exception e ){
 			e.printStackTrace();
 			s = "erro";
