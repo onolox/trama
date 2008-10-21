@@ -1445,6 +1445,7 @@ public class Tela extends JFrame implements ActionListener {
         novoProjetoMenu = new javax.swing.JMenuItem();
         abrirProjetoMenu = new javax.swing.JMenuItem();
         salvarProjetoMenu = new javax.swing.JMenuItem();
+        salvarComoMenu = new javax.swing.JMenuItem();
         fecharProjetoMenu = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JSeparator();
         salvarPDFMenu = new javax.swing.JMenuItem();
@@ -1760,6 +1761,33 @@ public class Tela extends JFrame implements ActionListener {
         jMenu1.add(salvarProjetoMenu);
         salvarProjetoMenu.addActionListener(this);
 
+        salvarComoMenu.setText("Salvar Projeto Como...");
+        jMenu1.add(salvarComoMenu);
+        salvarComoMenu.addActionListener( new ActionListener() {
+            public void actionPerformed( ActionEvent e ) {
+                try {
+
+                    String s = JOptionPane.showInputDialog( null, "Insira um nome para o projeto", "Nome do projeto", 0 );
+                    if( s != null ){
+                        s = controle.salvarProjeto( s );
+                        if( s.equals( "|sem nome|" ) ){
+                            salvarProjeto();
+                        } else{
+                            setTitle( "Trama  ---->  Projeto Salvo Com Sucesso" );
+                            try{
+                                Thread.sleep( 3000 );
+                            } catch( InterruptedException e5 ){
+                                e5.printStackTrace();
+                            }
+                            setTitle( "Trama" );
+                        }
+                    } else return;
+                } catch ( Exception ex ) {
+                    JOptionPane.showMessageDialog( null, "Erro ao salvar o arquivo", "", 0 );
+                }
+            }
+        });
+
         fecharProjetoMenu.setText("Fechar Projeto");
         fecharProjetoMenu.setEnabled(false);
         jMenu1.add(fecharProjetoMenu);
@@ -1829,7 +1857,7 @@ public class Tela extends JFrame implements ActionListener {
         jMenu2.setMnemonic('M');
         jMenu2.setText("Matriz");
 
-        novaMatrizMenu.setText("Nova Matriz");
+        novaMatrizMenu.setText("Nova Matriz...");
         novaMatrizMenu.setEnabled(false);
         jMenu2.add(novaMatrizMenu);
         novaMatrizMenu.addActionListener(this);
@@ -1860,7 +1888,7 @@ public class Tela extends JFrame implements ActionListener {
         excluirLinhaColunaMenu.addActionListener(this);
         jMenu5.add(jSeparator2);
 
-        sincronizarMenu.setText("Sincronizar do Modelo");
+        sincronizarMenu.setText("Sincronizar do Modelo...");
         sincronizarMenu.setEnabled(false);
         jMenu5.add(sincronizarMenu);
         sincronizarMenu.addActionListener( this);
@@ -2106,6 +2134,7 @@ public class Tela extends JFrame implements ActionListener {
     private javax.swing.JMenuItem ordenarMenu;
     private javax.swing.JMenuItem resetarCamposNovosMenu;
     private javax.swing.JMenuItem sairMenu;
+    private javax.swing.JMenuItem salvarComoMenu;
     private javax.swing.JMenuItem salvarImagemMenu;
     private javax.swing.JMenuItem salvarPDFMenu;
     private javax.swing.JButton salvarProjeto;
@@ -2350,6 +2379,15 @@ public class Tela extends JFrame implements ActionListener {
 	public void setSalvarPDFMenu( boolean estado ) {
 		this.salvarPDFMenu.setEnabled( estado );
 	}
+    
+    /**
+	 * Seta o estado visível de salvarComoMenu.
+	 * 
+	 * @param estado boolean
+	 */
+	public void setSalvarProjetoComo( boolean estado ) {
+		this.salvarComoMenu.setEnabled( estado );
+	}
 	
 	/**
 	 * Seta o estado visível de salvarProjeto.
@@ -2358,7 +2396,7 @@ public class Tela extends JFrame implements ActionListener {
 	 */
 	public void setSalvarProjeto( boolean estado ) {
 		this.salvarProjeto.setEnabled( estado );
-	}
+    }
 	
 	/**
 	 * Seta o estado visível de salvarProjetoMenu.

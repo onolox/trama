@@ -35,6 +35,14 @@
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="salvarProjetoMenu.addActionListener(this);"/>
               </AuxValues>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="salvarComoMenu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Salvar Projeto Como..."/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="salvarComoMenu.addActionListener( new ActionListener() {&#xa;            public void actionPerformed( ActionEvent e ) {&#xa;                try {&#xa;                   &#xa;              &#xa;&#xa;String s = JOptionPane.showInputDialog( null, &quot;Insira um nome para o projeto&quot;, &quot;Nome do projeto&quot;, 0 );&#xa;if( s != null ){&#xa;&#x9;&#x9;&#x9;&#x9;s = controle.salvarProjeto( s );&#xa;&#x9;&#x9;&#x9;&#x9;if( s.equals( &quot;|sem nome|&quot; ) ){&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;salvarProjeto();&#xa;&#x9;&#x9;&#x9;&#x9;} else{&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;setTitle( &quot;Trama  ----&gt;  Projeto Salvo Com Sucesso&quot; );&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;try{&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Thread.sleep( 3000 );&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;} catch( InterruptedException e5 ){&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;e5.printStackTrace();&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;setTitle( &quot;Trama&quot; );&#xa;&#x9;&#x9;&#x9;&#x9;}&#xa;} else return;&#xa;  } catch ( Exception ex ) {&#xa;                    JOptionPane.showMessageDialog( null, &quot;Erro ao salvar o arquivo&quot;, &quot;&quot;, 0 );&#xa;                }&#xa;            }&#xa;        });"/>
+              </AuxValues>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="fecharProjetoMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Fechar Projeto"/>
@@ -93,7 +101,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="novaMatrizMenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nova Matriz"/>
+                <Property name="text" type="java.lang.String" value="Nova Matriz..."/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
@@ -148,7 +156,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="sincronizarMenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Sincronizar do Modelo"/>
+                <Property name="text" type="java.lang.String" value="Sincronizar do Modelo..."/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
