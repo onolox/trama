@@ -653,10 +653,10 @@ public class ControleProjeto {
 		
 		for( Matriz matriz : matrizes ){
 			String t1 = matriz.getNomeMatriz().split( " X " )[ 0 ];
-			if( t1.equals( s ) ) return getTituloLinhaArquivo( nomeMatriz );
+			if( t1.equals( s ) ) return getTituloLinhaArquivo( matriz.getNomeMatriz() );
 			
 			String t2 = matriz.getNomeMatriz().split( " X " )[ 1 ];
-			if( t2.equals( s ) ) return getTituloColunaArquivo( nomeMatriz );
+			if( t2.equals( s ) ) return getTituloColunaArquivo( matriz.getNomeMatriz() );
 		}
 		return null;
 	}
