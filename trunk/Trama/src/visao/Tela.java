@@ -56,8 +56,38 @@ public class Tela extends JFrame implements ActionListener {
 			public void windowClosing( WindowEvent evt ) {
 				if( salvarProjeto.isEnabled() ){
 					int s1 = JOptionPane.showConfirmDialog( null, "Deseja salvar o projeto atual?" );
-					if( s1 == JOptionPane.YES_OPTION ) salvarProjeto();
-					else if( s1 == JOptionPane.NO_OPTION ) System.exit( 0 );
+					if( s1 == JOptionPane.YES_OPTION ){
+						String s = controle.salvarProjeto( "|vazio|" );
+						if( s.equals( "|sem nome|" ) ){
+							s = JOptionPane.showInputDialog( null, "Insira um nome para o projeto", "Nome do projeto", 0 );
+							if( s != null ){
+								s = controle.salvarProjeto( s );
+								if( s.equals( "|sem nome|" ) ){
+									salvarProjeto();
+								} else{
+									setTitle( "Trama  ---->  Projeto Salvo Com Sucesso" );
+									try{
+										Thread.sleep( 3000 );
+									} catch( InterruptedException e ){
+										e.printStackTrace();
+									}
+									setTitle( "Trama" );
+									System.exit( 0 );
+								}
+							} else return;
+						} else{
+							if( s.equalsIgnoreCase( "ok" ) ){
+								setTitle( "Trama  ---->  Projeto Salvo Com Sucesso" );
+								try{
+									Thread.sleep( 3000 );
+								} catch( InterruptedException e ){
+									e.printStackTrace();
+								}
+								setTitle( "Trama" );
+								System.exit( 0 );
+							} else JOptionPane.showMessageDialog( null, s, "", 0 );
+						}
+					} else if( s1 == JOptionPane.NO_OPTION ) System.exit( 0 );
 				} else System.exit( 0 );
 			}
 		} );
@@ -300,8 +330,8 @@ public class Tela extends JFrame implements ActionListener {
 								if( ( linha.getText().equalsIgnoreCase( jtab.getNome().split( " X " )[ 0 ] ) && coluna.getText().equalsIgnoreCase( jtab.getNome().split( " X " )[ 1 ] ) )
 										|| ( linha.getText().equalsIgnoreCase( jtab.getNome().split( " X " )[ 1 ] ) && coluna.getText().equalsIgnoreCase( jtab.getNome().split( " X " )[ 0 ] ) ) ){
 									
-									if( JOptionPane.YES_OPTION != JOptionPane.showConfirmDialog( null,
-										"Já existe uma matriz com esses 2 nomes, tem certeza que deseja criar outra matriz com estes mesmos nomes?", "Alerta de matriz duplicada", 0 ) ) return;
+									JOptionPane.showMessageDialog( null, "Já existe uma matriz com esses 2 nomes.", "Alerta de matriz duplicada", 2 );
+									return;
 								}
 							}
 							
@@ -502,13 +532,13 @@ public class Tela extends JFrame implements ActionListener {
 	 * Usado para criar um novo projeto.
 	 */
 	private void criarNovoProjeto() {
-		matrizes = new LinkedList< JTableCustomizado >();
-		jTabbedPane1.removeAll();
-		JP = new LinkedList< JPanel >();
-		String s = controle.criarNovoProjeto();
-		
-		if( !s.equalsIgnoreCase( "ok" ) ){
-			JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+		String s = controle.criarNovoProjeto( matrizes.isEmpty() );
+		if( s.equals( "ok" ) ){
+			matrizes = new LinkedList< JTableCustomizado >();
+			jTabbedPane1.removeAll();
+			JP = new LinkedList< JPanel >();
+		} else if( !s.equalsIgnoreCase( "Cancelar" ) ){
+			JOptionPane.showMessageDialog( this, s, "Erro", 0 );
 		}
 	}
 	

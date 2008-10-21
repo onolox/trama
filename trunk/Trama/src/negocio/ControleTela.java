@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Scanner;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
@@ -152,14 +151,7 @@ public class ControleTela {
 				String arq = controleProjeto.triagemMatrizes( matrizAtual, "coluna" );
 				
 				if( arq != null && !arq.endsWith( fil.getName() ) ){
-					Scanner scan = new Scanner( arq );
-					
-					scan.useDelimiter( "\\\\" );
-					while( scan.hasNext() )
-						arq = scan.next();
-					scan.useDelimiter( "/" );
-					while( scan.hasNext() )
-						arq = scan.next();
+					arq = new File( arq ).getName();
 					
 					int mess = JOptionPane.showConfirmDialog( tela, "<HTML>Atualmente já existe um arquivo definido para <b>" + matrizAtual.split( " X " )[ 1 ] + "</b> que é o arquivo <b>" + arq
 							+ "</b><br/> deseja realmente importar deste arquivo <b>" + fil.getName() + "</b>?", "Problema na Importação", 2 );
@@ -180,6 +172,7 @@ public class ControleTela {
 		}
 		return lista;
 	}
+	
 	/**
 	 * Método usado para inserir uma linha na matriz atual.
 	 * 
@@ -239,14 +232,7 @@ public class ControleTela {
 				
 				int mess = 0;
 				if( arq != null && !arq.endsWith( fil.getName() ) ){
-					Scanner scan = new Scanner( arq );
-					
-					scan.useDelimiter( "\\\\" );
-					while( scan.hasNext() )
-						arq = scan.next();
-					scan.useDelimiter( "/" );
-					while( scan.hasNext() )
-						arq = scan.next();
+					arq = new File( arq ).getName();
 					
 					mess = JOptionPane.showConfirmDialog( tela, "<HTML>Atualmente já existe um arquivo definido para <b>" + matrizAtual.split( " X " )[ 0 ] + "</b> que é o arquivo <b>" + arq
 							+ "</b><br/> deseja realmente importar deste arquivo <b>" + fil.getName() + "</b>?", "Problema na Importação", 2 );
@@ -359,12 +345,13 @@ public class ControleTela {
 	/**
 	 * Usado para criar um novo projeto.
 	 * 
+	 * @param vazio se não existem matrizes no projeto atual
 	 * @return estatus da operação
 	 */
-	public String criarNovoProjeto() {
+	public String criarNovoProjeto( boolean vazio ) {
 		String s = "ok";
 		
-		if( controleProjeto == null ){
+		if( controleProjeto == null || vazio ){
 			controleProjeto = new ControleProjeto();
 			
 			tela.setNovaMatriz( true );
@@ -372,17 +359,23 @@ public class ControleTela {
 			tela.setFecharProjetoMenu( true );
 			
 		} else{
-			int c = JOptionPane.showConfirmDialog( tela, "Deseja salvar o projeto atual?", "Salvar projeto atual", 0 );
+			int c = JOptionPane.showConfirmDialog( tela, "Deseja salvar o projeto atual?", "Salvar projeto atual", 1 );
+			
+			if( c == JOptionPane.CANCEL_OPTION ) return "Cancelar";
 			
 			if( c == JOptionPane.YES_OPTION ){
-				s = controleProjeto.salvarProjeto( "vazio" );
-				if( s.equals( "sem nome" ) ){
-					s = JOptionPane.showInputDialog( tela, "Insira um nome para o projeto", "Deseja salvar o projeto?", 0 );
-					if( s != null ) s = controleProjeto.salvarProjeto( s );
+				s = controleProjeto.salvarProjeto( "|vazio|" );
+				if( s.equals( "|sem nome|" ) ){
+					s = JOptionPane.showInputDialog( tela, "Insira um nome para o projeto", "Deseja salvar o projeto?", 1 );
+					if( s != null ){
+						s = controleProjeto.salvarProjeto( s );
+						controleProjeto = null;
+						criarNovoProjeto( true );
+					} else{
+						s = "Cancelar";
+					}
 				}
 			}
-			controleProjeto = null;
-			criarNovoProjeto();
 		}
 		return s;
 	}
