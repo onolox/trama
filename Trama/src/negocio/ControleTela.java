@@ -281,6 +281,9 @@ public class ControleTela {
 		tela.setImprimirMenu( true );
 		tela.setSalvarImagemMenu( true );
 		tela.setSalvarPDFMenu( true );
+		tela.setSalvarProjeto( true );
+		tela.setSalvarProjetoMenu( true );
+		tela.setSincronizarMatrizMenu( true );
 		
 		matrizAtual = m.getNomeMatriz();
 		
@@ -364,11 +367,10 @@ public class ControleTela {
 		if( controleProjeto == null ){
 			controleProjeto = new ControleProjeto();
 			
-			tela.setSalvarProjeto( true );
 			tela.setNovaMatriz( true );
-			tela.setSalvarProjetoMenu( true );
 			tela.setNovaMatrizMenu( true );
 			tela.setFecharProjetoMenu( true );
+			
 		} else{
 			int c = JOptionPane.showConfirmDialog( tela, "Deseja salvar o projeto atual?", "Salvar projeto atual", 0 );
 			
@@ -424,35 +426,73 @@ public class ControleTela {
 	 */
 	public String excluirMatriz() {
 		String s = "ok";
-		System.out.println( matrizAtual );
+		// System.out.println( matrizAtual );
 		s = controleProjeto.excluirMatriz( matrizAtual );
 		return s;
 	}
 	
 	/**
 	 * Usado para fechar o projeto atualmente aberto.
+	 * 
+	 * @param vazio se não existe matrizes
+	 * @return se o projeto foi fechado
 	 */
-	public void fecharProjeto() {
-		int c = JOptionPane.showConfirmDialog( tela, "Deseja salvar o projeto atual?", "Salvar projeto atual", 0 );
+	public boolean fecharProjeto( boolean vazio ) {
+		boolean bol = false;
+		if( vazio ){
+			controleProjeto = null;
+			tela.setFecharProjetoMenu( false );
+			tela.setNovaMatriz( false );
+			tela.setNovaMatrizMenu( false );
+			tela.setExcluirMatriz( false );
+			tela.setExcluirMatrizMenu( false );
+			tela.setSalvarProjetoMenu( false );
+			tela.setSalvarProjeto( false );
+			tela.setSalvarImagemMenu( false );
+			tela.setSalvarPDFMenu( false );
+			tela.setImprimirMenu( false );
+			
+			return true;
+		}
+		
+		int c = JOptionPane.showConfirmDialog( tela, "Deseja salvar o projeto atual?", "Salvar projeto atual", 1 );
 		
 		if( c == JOptionPane.YES_OPTION ){
 			String s = controleProjeto.salvarProjeto( "vazio" );
 			if( s.equals( "sem nome" ) ){
 				s = JOptionPane.showInputDialog( tela, "Insira um nome para o projeto", "Deseja salvar o projeto?", 0 );
-				if( s != null ) s = controleProjeto.salvarProjeto( s );
+				if( s != null ){
+					s = controleProjeto.salvarProjeto( s.trim().replace( ".trama", "" ).replace( ".Trama", "" ).replace( "TRAMA", "" ) );
+					controleProjeto = null;
+					tela.setFecharProjetoMenu( false );
+					tela.setNovaMatriz( false );
+					tela.setNovaMatrizMenu( false );
+					tela.setExcluirMatriz( false );
+					tela.setExcluirMatrizMenu( false );
+					tela.setSalvarProjetoMenu( false );
+					tela.setSalvarProjeto( false );
+					tela.setSalvarImagemMenu( false );
+					tela.setSalvarPDFMenu( false );
+					tela.setImprimirMenu( false );
+					bol = true;
+				}
 			}
+		} else if( c == JOptionPane.NO_OPTION ){
+			controleProjeto = null;
+			tela.setFecharProjetoMenu( false );
+			tela.setNovaMatriz( false );
+			tela.setNovaMatrizMenu( false );
+			tela.setExcluirMatriz( false );
+			tela.setExcluirMatrizMenu( false );
+			tela.setSalvarProjetoMenu( false );
+			tela.setSalvarProjeto( false );
+			tela.setSalvarImagemMenu( false );
+			tela.setSalvarPDFMenu( false );
+			tela.setImprimirMenu( false );
+			bol = true;
 		}
-		controleProjeto = null;
-		tela.setFecharProjetoMenu( false );
-		tela.setNovaMatriz( false );
-		tela.setNovaMatrizMenu( false );
-		tela.setExcluirMatriz( false );
-		tela.setExcluirMatrizMenu( false );
-		tela.setSalvarProjetoMenu( false );
-		tela.setSalvarProjeto( false );
-		tela.setSalvarImagemMenu( false );
-		tela.setSalvarPDFMenu( false );
-		tela.setImprimirMenu( false );
+		
+		return bol;
 	}
 	
 	/**

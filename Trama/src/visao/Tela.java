@@ -570,12 +570,42 @@ public class Tela extends JFrame implements ActionListener {
 			int ge = JOptionPane.showConfirmDialog( this, "Tem certeza que deseja excluir a matriz " + controle.getMatrizAtual() + " do projeto?", "", 0 );
 			if( ge == 0 ){
 				for( int i = 0; i < matrizes.size(); i++ ){
-					if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
-						matrizes.remove( i );
+					if( matrizes.get( i ).getNome().equals( controle.getMatrizAtual() ) ){
 						String s = controle.excluirMatriz();
-						jTabbedPane1.remove( i );
+						
 						if( !s.equalsIgnoreCase( "ok" ) ){
 							JOptionPane.showMessageDialog( this, s, "Erro", 1 );
+						} else{
+							matrizes.remove( i );
+							jTabbedPane1.remove( i );
+							if( matrizes.isEmpty() ){
+								setCancelarEdicao( false );
+								setOkEdicao( false );
+								setNomeTextField( false );
+								setDeslocar1( false );
+								setDeslocar2( false );
+								setNovaLinhaColuna( false );
+								setNovaLinhaColunaMenu( false );
+								setExcluirLinhaColuna( false );
+								setExcluirLinhaColunaMenu( false );
+								setOrdenar( false );
+								setOrdenarMenu( false );
+								setImportar( false );
+								setImportarDoModeloMenu( false );
+								setDestacar( false );
+								setDestacarMenu( false );
+								setSincronizar( false );
+								setSincronizarMatrizMenu( false );
+								setSincronizarMenu( false );
+								setResetarCamposNovosMenu( false );
+								setSalvarProjeto( false );
+								setSalvarProjetoMenu( false );
+								setExcluirMatriz( false );
+								setExcluirMatrizMenu( false );
+								setImprimirMenu( false );
+								setSalvarPDFMenu( false );
+								setSalvarImagemMenu( false );
+							}
 						}
 					}
 				}
@@ -766,10 +796,11 @@ public class Tela extends JFrame implements ActionListener {
 	 * Usado para fechar o projeto atualmente aberto.
 	 */
 	private void fecharProjeto() {
-		matrizes = new LinkedList< JTableCustomizado >();
-		jTabbedPane1.removeAll();
-		JP = new LinkedList< JPanel >();
-		controle.fecharProjeto();
+		if( controle.fecharProjeto( matrizes.isEmpty() ) ){
+			matrizes = new LinkedList< JTableCustomizado >();
+			jTabbedPane1.removeAll();
+			JP = new LinkedList< JPanel >();
+		}
 	}
 	
 	/**
@@ -868,6 +899,10 @@ public class Tela extends JFrame implements ActionListener {
 	 */
 	private void salvarProjeto() {
 		String s = "";
+		if( matrizes.isEmpty() ){
+			JOptionPane.showMessageDialog( this, "Para salvar o projeto é necessário que este tenha no mínimo 1 matriz.", "", 0 );
+			return;
+		}
 		s = controle.salvarProjeto( "|vazio|" );
 		if( s.equals( "|sem nome|" ) ){
 			s = JOptionPane.showInputDialog( this, "Insira um nome para o projeto", "Nome do projeto", 0 );
@@ -1200,7 +1235,6 @@ public class Tela extends JFrame implements ActionListener {
 							setDestacar( true );
 							setDestacarMenu( true );
 							setSincronizar( true );
-							setSincronizarMatrizMenu( true );
 							setSincronizarMenu( true );
 							setResetarCamposNovosMenu( true );
 							jT.repaint();
@@ -1234,7 +1268,6 @@ public class Tela extends JFrame implements ActionListener {
 							setDestacar( false );
 							setDestacarMenu( false );
 							setSincronizar( false );
-							setSincronizarMatrizMenu( false );
 							setSincronizarMenu( false );
 							setResetarCamposNovosMenu( false );
 							jT.repaint();
@@ -1318,7 +1351,6 @@ public class Tela extends JFrame implements ActionListener {
 							setDestacar( true );
 							setDestacarMenu( true );
 							setSincronizar( true );
-							setSincronizarMatrizMenu( true );
 							setSincronizarMenu( true );
 							setResetarCamposNovosMenu( true );
 						}
@@ -1672,7 +1704,7 @@ public class Tela extends JFrame implements ActionListener {
 				setDestacar( false );
 				setDestacarMenu( false );
 				setSincronizar( false );
-				setSincronizarMatrizMenu( false );
+				
 				setSincronizarMenu( false );
 				setResetarCamposNovosMenu( false );
 			}
