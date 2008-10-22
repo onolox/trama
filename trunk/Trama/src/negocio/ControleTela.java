@@ -69,6 +69,7 @@ public class ControleTela {
 			tela.setSalvarProjeto( true );
 			tela.setNovaMatriz( true );
 			tela.setSalvarProjetoMenu( true );
+			tela.setSalvarProjetoComo( true );
 			tela.setNovaMatrizMenu( true );
 			tela.setFecharProjetoMenu( true );
 			
@@ -269,6 +270,7 @@ public class ControleTela {
 		tela.setSalvarPDFMenu( true );
 		tela.setSalvarProjeto( true );
 		tela.setSalvarProjetoMenu( true );
+		tela.setSalvarProjetoComo( true );
 		tela.setSincronizarMatrizMenu( true );
 		
 		matrizAtual = m.getNomeMatriz();
@@ -419,7 +421,6 @@ public class ControleTela {
 	 */
 	public String excluirMatriz() {
 		String s = "ok";
-		// System.out.println( matrizAtual );
 		s = controleProjeto.excluirMatriz( matrizAtual );
 		return s;
 	}
@@ -440,6 +441,7 @@ public class ControleTela {
 			tela.setExcluirMatriz( false );
 			tela.setExcluirMatrizMenu( false );
 			tela.setSalvarProjetoMenu( false );
+			tela.setSalvarProjetoComo( false );
 			tela.setSalvarProjeto( false );
 			tela.setSalvarImagemMenu( false );
 			tela.setSalvarPDFMenu( false );
@@ -463,6 +465,7 @@ public class ControleTela {
 					tela.setExcluirMatriz( false );
 					tela.setExcluirMatrizMenu( false );
 					tela.setSalvarProjetoMenu( false );
+					tela.setSalvarProjetoComo( false );
 					tela.setSalvarProjeto( false );
 					tela.setSalvarImagemMenu( false );
 					tela.setSalvarPDFMenu( false );
@@ -478,6 +481,7 @@ public class ControleTela {
 			tela.setExcluirMatriz( false );
 			tela.setExcluirMatrizMenu( false );
 			tela.setSalvarProjetoMenu( false );
+			tela.setSalvarProjetoComo( false );
 			tela.setSalvarProjeto( false );
 			tela.setSalvarImagemMenu( false );
 			tela.setSalvarPDFMenu( false );
