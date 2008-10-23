@@ -53,12 +53,13 @@ public class ControleTela {
 	 * Usado para abrir um novo projeto.
 	 * 
 	 * @param nome do projeto à ser aberto
+	 * @param vazio se não existem matrizes no projeto
 	 * @return lista de ModeloTabela
 	 */
-	public LinkedList< ModeloTabela > abrirProjeto( String nome ) {
+	public LinkedList< ModeloTabela > abrirProjeto( String nome, boolean vazio ) {
 		LinkedList< ModeloTabela > l = new LinkedList< ModeloTabela >();
 		
-		if( controleProjeto == null ){
+		if( controleProjeto == null || vazio ){
 			controleProjeto = new ControleProjeto();
 			
 			tela.setExcluirMatriz( true );
@@ -88,7 +89,7 @@ public class ControleTela {
 				}
 			}
 			controleProjeto = null;
-			l = abrirProjeto( nome );
+			l = abrirProjeto( nome, true );
 		}
 		return l;
 	}
