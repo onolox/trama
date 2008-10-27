@@ -941,6 +941,7 @@ public class Tela extends JFrame implements ActionListener {
 	 */
 	private void salvarProjeto() {
 		String s = "";
+		int sn = 0;
 		if( matrizes.isEmpty() ){
 			JOptionPane.showMessageDialog( this, "Para salvar o projeto é necessário que este tenha no mínimo 1 matriz.", "", 0 );
 			return;
@@ -949,17 +950,23 @@ public class Tela extends JFrame implements ActionListener {
 		if( s.equals( "|sem nome|" ) ){
 			s = JOptionPane.showInputDialog( this, "Insira um nome para o projeto", "Nome do projeto", 0 );
 			if( s != null ){
-				s = controle.salvarProjeto( s );
-				if( s.equals( "|sem nome|" ) ){
-					salvarProjeto();
-				} else{
-					setTitle( "Trama  ---->  Projeto Salvo Com Sucesso" );
-					try{
-						Thread.sleep( 3000 );
-					} catch( InterruptedException e ){
-						e.printStackTrace();
+				
+				if( new File( "arquivos/" + s.trim().replace( ".trama", "" ).replace( ".Trama", "" ).replace( "TRAMA", "" ) + ".trama" ).exists() )
+					sn = JOptionPane.showConfirmDialog( this, "Arquivo já existente, deseja sobreescrever?", "Atenção", JOptionPane.WARNING_MESSAGE );
+				
+				if( sn == JOptionPane.YES_OPTION ){
+					s = controle.salvarProjeto( s );
+					if( s.equals( "|sem nome|" ) ){
+						salvarProjeto();
+					} else{
+						setTitle( "Trama  ---->  Projeto Salvo Com Sucesso" );
+						try{
+							Thread.sleep( 3000 );
+						} catch( InterruptedException e ){
+							e.printStackTrace();
+						}
+						setTitle( "Trama" );
 					}
-					setTitle( "Trama" );
 				}
 			} else return;
 		} else{
