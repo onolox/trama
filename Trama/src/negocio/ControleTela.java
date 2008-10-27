@@ -59,6 +59,7 @@ public class ControleTela {
 	 */
 	public LinkedList< ModeloTabela > abrirProjeto( String nome, boolean vazio ) {
 		LinkedList< ModeloTabela > l = new LinkedList< ModeloTabela >();
+		int sn = 0;
 		
 		if( controleProjeto == null || vazio ){
 			controleProjeto = new ControleProjeto();
@@ -84,8 +85,13 @@ public class ControleTela {
 				if( s.equals( "sem nome" ) ){
 					s = JOptionPane.showInputDialog( tela, "Insira um nome para o projeto", "Deseja salvar o projeto?", 0 );
 					if( s != null ){
-						s = controleProjeto.salvarProjeto( s );
-						if( s.equals( "sem nome" ) ) controleProjeto.salvarProjeto( "vazio" );
+						if( new File( "arquivos/" + s.trim().replace( ".trama", "" ).replace( ".Trama", "" ).replace( "TRAMA", "" ) + ".trama" ).exists() )
+							sn = JOptionPane.showConfirmDialog( tela, "Arquivo já existente, deseja sobreescrever?", "Atenção", JOptionPane.WARNING_MESSAGE );
+						
+						if( sn == JOptionPane.YES_OPTION ){
+							s = controleProjeto.salvarProjeto( s );
+							if( s.equals( "sem nome" ) ) controleProjeto.salvarProjeto( "vazio" );
+						}
 					}
 				}
 			}
@@ -354,6 +360,7 @@ public class ControleTela {
 	 */
 	public String criarNovoProjeto( boolean vazio ) {
 		String s = "ok";
+		int sn = 0;
 		
 		if( controleProjeto == null || vazio ){
 			controleProjeto = new ControleProjeto();
@@ -387,6 +394,7 @@ public class ControleTela {
 			tela.setImprimirMenu( false );
 			tela.setSalvarPDFMenu( false );
 			tela.setSalvarImagemMenu( false );
+			tela.setFecharProjetoMenu( true );
 			
 		} else{
 			int c = JOptionPane.showConfirmDialog( tela, "Deseja salvar o projeto atual?", "Salvar projeto atual", 1 );
@@ -398,11 +406,16 @@ public class ControleTela {
 				if( s.equals( "|sem nome|" ) ){
 					s = JOptionPane.showInputDialog( tela, "Insira um nome para o projeto", "Deseja salvar o projeto?", 1 );
 					if( s != null ){
-						s = controleProjeto.salvarProjeto( s );
-						controleProjeto = null;
-						criarNovoProjeto( true );
-					} else{
-						s = "Cancelar";
+						if( new File( "arquivos/" + s.trim().replace( ".trama", "" ).replace( ".Trama", "" ).replace( "TRAMA", "" ) + ".trama" ).exists() )
+							sn = JOptionPane.showConfirmDialog( tela, "Arquivo já existente, deseja sobreescrever?", "Atenção", JOptionPane.WARNING_MESSAGE );
+						
+						if( sn == JOptionPane.YES_OPTION ){
+							s = controleProjeto.salvarProjeto( s );
+							controleProjeto = null;
+							criarNovoProjeto( true );
+						} else{
+							s = "Cancelar";
+						}
 					}
 				}
 			} else criarNovoProjeto( true );
@@ -461,6 +474,8 @@ public class ControleTela {
 	 */
 	public boolean fecharProjeto( boolean vazio ) {
 		boolean bol = false;
+		int sn = 0;
+		
 		if( vazio ){
 			controleProjeto = null;
 			tela.setFecharProjetoMenu( false );
@@ -484,21 +499,27 @@ public class ControleTela {
 			String s = controleProjeto.salvarProjeto( "vazio" );
 			if( s.equals( "sem nome" ) ){
 				s = JOptionPane.showInputDialog( tela, "Insira um nome para o projeto", "Deseja salvar o projeto?", 0 );
+				
 				if( s != null ){
-					s = controleProjeto.salvarProjeto( s.trim().replace( ".trama", "" ).replace( ".Trama", "" ).replace( "TRAMA", "" ) );
-					controleProjeto = null;
-					tela.setFecharProjetoMenu( false );
-					tela.setNovaMatriz( false );
-					tela.setNovaMatrizMenu( false );
-					tela.setExcluirMatriz( false );
-					tela.setExcluirMatrizMenu( false );
-					tela.setSalvarProjetoMenu( false );
-					tela.setSalvarProjetoComo( false );
-					tela.setSalvarProjeto( false );
-					tela.setSalvarImagemMenu( false );
-					tela.setSalvarPDFMenu( false );
-					tela.setImprimirMenu( false );
-					bol = true;
+					if( new File( "arquivos/" + s.trim().replace( ".trama", "" ).replace( ".Trama", "" ).replace( "TRAMA", "" ) + ".trama" ).exists() )
+						sn = JOptionPane.showConfirmDialog( tela, "Arquivo já existente, deseja sobreescrever?", "Atenção", JOptionPane.WARNING_MESSAGE );
+					
+					if( sn == JOptionPane.YES_OPTION ){
+						s = controleProjeto.salvarProjeto( s.trim().replace( ".trama", "" ).replace( ".Trama", "" ).replace( "TRAMA", "" ) );
+						controleProjeto = null;
+						tela.setFecharProjetoMenu( false );
+						tela.setNovaMatriz( false );
+						tela.setNovaMatrizMenu( false );
+						tela.setExcluirMatriz( false );
+						tela.setExcluirMatrizMenu( false );
+						tela.setSalvarProjetoMenu( false );
+						tela.setSalvarProjetoComo( false );
+						tela.setSalvarProjeto( false );
+						tela.setSalvarImagemMenu( false );
+						tela.setSalvarPDFMenu( false );
+						tela.setImprimirMenu( false );
+						bol = true;
+					}
 				}
 			}
 		} else if( c == JOptionPane.NO_OPTION ){
