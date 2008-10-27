@@ -32,7 +32,8 @@ public class ControleTela {
 	private ControleProjeto controleProjeto;
 	private Tela tela;
 	private LeitorDeModelo leitorDeModelo;
-	private int colunaAtual, linhaAtual;
+	private int colunaAtual;
+	private int linhaAtual;
 	/** Matriz atualmente selecionada */
 	private String matrizAtual;
 	
@@ -359,7 +360,33 @@ public class ControleTela {
 			
 			tela.setNovaMatriz( true );
 			tela.setNovaMatrizMenu( true );
-			tela.setFecharProjetoMenu( true );
+			tela.setCancelarEdicao( false );
+			tela.setOkEdicao( false );
+			tela.setNomeTextField( false );
+			tela.setDeslocar1( false );
+			tela.setDeslocar2( false );
+			tela.setNovaLinhaColuna( false );
+			tela.setNovaLinhaColunaMenu( false );
+			tela.setExcluirLinhaColuna( false );
+			tela.setExcluirLinhaColunaMenu( false );
+			tela.setOrdenar( false );
+			tela.setOrdenarMenu( false );
+			tela.setImportar( false );
+			tela.setImportarDoModeloMenu( false );
+			tela.setDestacar( false );
+			tela.setDestacarMenu( false );
+			tela.setSincronizar( false );
+			tela.setSincronizarMatrizMenu( false );
+			tela.setSincronizarMenu( false );
+			tela.setResetarCamposNovosMenu( false );
+			tela.setSalvarProjeto( false );
+			tela.setSalvarProjetoMenu( false );
+			tela.setSalvarProjetoComo( false );
+			tela.setExcluirMatriz( false );
+			tela.setExcluirMatrizMenu( false );
+			tela.setImprimirMenu( false );
+			tela.setSalvarPDFMenu( false );
+			tela.setSalvarImagemMenu( false );
 			
 		} else{
 			int c = JOptionPane.showConfirmDialog( tela, "Deseja salvar o projeto atual?", "Salvar projeto atual", 1 );
@@ -378,7 +405,7 @@ public class ControleTela {
 						s = "Cancelar";
 					}
 				}
-			}
+			} else criarNovoProjeto( true );
 		}
 		return s;
 	}

@@ -129,6 +129,7 @@ public class Tela extends JFrame implements ActionListener {
 				}
 				matrizes = new LinkedList< JTableCustomizado >();
 				jTabbedPane1.removeAll();
+				JP.clear();
 				
 				for( ModeloTabela modeloTabela : lis ){
 					JPanel j = new JPanel();
@@ -412,6 +413,7 @@ public class Tela extends JFrame implements ActionListener {
 			private javax.swing.JButton okButton;
 		};
 	}
+	
 	/**
 	 * Usado para alterar a posição de uma coluna.
 	 * 
@@ -537,6 +539,7 @@ public class Tela extends JFrame implements ActionListener {
 			matrizes = new LinkedList< JTableCustomizado >();
 			jTabbedPane1.removeAll();
 			JP = new LinkedList< JPanel >();
+			
 		} else if( !s.equalsIgnoreCase( "Cancelar" ) ){
 			JOptionPane.showMessageDialog( this, s, "Erro", 0 );
 		}
@@ -608,12 +611,14 @@ public class Tela extends JFrame implements ActionListener {
 						} else{
 							jTabbedPane1.remove( i );
 							matrizes.remove( i );
+							JP.remove( i );
 							
 							if( matrizes.isEmpty() ){
 								controle.setMatrizAtual( null );
 								controle.setColunaAtual( -1 );
 								controle.setLinhaAtual( -1 );
 								jTabbedPane1.removeAll();
+								JP.clear();
 								
 								setCancelarEdicao( false );
 								setOkEdicao( false );
@@ -836,7 +841,7 @@ public class Tela extends JFrame implements ActionListener {
 		if( controle.fecharProjeto( matrizes.isEmpty() ) ){
 			matrizes = new LinkedList< JTableCustomizado >();
 			jTabbedPane1.removeAll();
-			JP = new LinkedList< JPanel >();
+			JP.clear();
 		}
 	}
 	
@@ -1306,7 +1311,6 @@ public class Tela extends JFrame implements ActionListener {
 							setDestacarMenu( false );
 							setSincronizar( false );
 							setSincronizarMenu( false );
-							setResetarCamposNovosMenu( false );
 							jT.repaint();
 							jT.getTableHeader().repaint();
 						}// Modafoca
@@ -1742,9 +1746,8 @@ public class Tela extends JFrame implements ActionListener {
 				setDestacar( false );
 				setDestacarMenu( false );
 				setSincronizar( false );
-				setSincronizarMatrizMenu( false );
 				setSincronizarMenu( false );
-				setResetarCamposNovosMenu( false );
+				setResetarCamposNovosMenu( true );
 			}
 		} );
 		

@@ -335,12 +335,13 @@ public class ControleProjeto {
 	 */
 	public String excluirMatriz( String nomeMatriz ) {
 		String s = "ok";
-		Matriz m = null;
 		try{
 			for( Matriz matriz : matrizes ){
-				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ) m = matriz;
+				if( matriz.getNomeMatriz().equalsIgnoreCase( nomeMatriz ) ){
+					matrizes.remove( matriz );
+					break;
+				}
 			}
-			matrizes.remove( m );
 		} catch( Exception e ){
 			e.printStackTrace();
 			s = "Erro";
