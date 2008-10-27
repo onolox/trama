@@ -1013,6 +1013,24 @@
       </tituloLinha>
       <tituloLinhaArquivo>E:\Meus documentos\Java2\Trama\arquivos\Classes de Analise_1220827347255.etlp</tituloLinhaArquivo>
     </persistencia.DadosMatriz>
+    <persistencia.DadosMatriz>
+      <linha>
+        <linked-list>
+          <string>40</string>
+          <string>40</string>
+        </linked-list>
+      </linha>
+      <nomeMatriz>uc X analise</nomeMatriz>
+      <qColunas>2</qColunas>
+      <qLinhas>1</qLinhas>
+      <tituloColuna>
+        <string></string>
+        <string>Coluna</string>
+      </tituloColuna>
+      <tituloLinha>
+        <string>Linha</string>
+      </tituloLinha>
+    </persistencia.DadosMatriz>
   </matrizes>
   <nome>Projeto Trama</nome>
 </persistencia.Projeto>
