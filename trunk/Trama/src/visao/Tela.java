@@ -1789,7 +1789,7 @@ public class Tela extends JFrame implements ActionListener {
                     String s = JOptionPane.showInputDialog( null, "Insira um nome para o projeto", "Nome do projeto", 0 );
                     if( s != null ){
                         if( new File( "arquivos/" + s.trim().replace( ".trama", "" ).replace( ".Trama", "" ).replace( "TRAMA", "" ) + ".trama" ).exists() )
-                        sn = JOptionPane.showConfirmDialog( this, "Arquivo já existente, deseja sobreescrever?", "Atenção", JOptionPane.WARNING_MESSAGE );
+                        sn = JOptionPane.showConfirmDialog( null, "Arquivo já existente, deseja sobreescrever?", "Atenção", JOptionPane.WARNING_MESSAGE );
 
                         if( sn == JOptionPane.YES_OPTION ) {
                             s = controle.salvarProjeto( s );
