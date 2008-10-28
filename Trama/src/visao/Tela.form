@@ -137,7 +137,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="novaLinhaColunaMenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nova Linha/Coluna"/>
+                <Property name="text" type="java.lang.String" value="Nova Linha/Coluna..."/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
