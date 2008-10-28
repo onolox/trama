@@ -1759,7 +1759,7 @@ public class Tela extends JFrame implements ActionListener {
                 setDestacar( false );
                 setDestacarMenu( false );
                 setSincronizar( false );
-                setSincronizarMatrizMenu( false );
+                setSincronizarMatrizMenu( true );
                 setSincronizarMenu( false );
                 setResetarCamposNovosMenu( false);
             }
