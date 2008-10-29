@@ -123,12 +123,16 @@ public class Matriz {
 	 * 
 	 * @param elemento índice
 	 * @param tipo se é linha ou coluna
-	 * @returnlista de elementos
+	 * @return lista de elementos
 	 */
 	public LinkedList< String > destacarElementos( int elemento, String tipo ) {
 		LinkedList< String > l = new LinkedList< String >();
 		try{
-			if( tipo.equalsIgnoreCase( "linha" ) && !getTituloLinha( elemento ).startsWith( "|||" ) ){
+			if( tipo.equalsIgnoreCase( "linha" ) ){
+				for( int i = 0; i < getQLinhas(); i++ ){
+					if( getTituloLinha( i ).startsWith( "|||" ) ){ return l; }
+				}
+				
 				setTituloLinha( elemento, "|||" + getTituloLinha( elemento ) );
 				
 				for( int i = 1; i < getQColunas(); i++ ){
@@ -139,7 +143,11 @@ public class Matriz {
 					}
 				}
 				
-			} else if( tipo.equalsIgnoreCase( "coluna" ) && !getTituloColuna( elemento ).startsWith( "|||" ) ){// --------------------------coluna
+			} else if( tipo.equalsIgnoreCase( "coluna" ) ){// --------------------------coluna
+				for( int i = 0; i < getQColunas(); i++ ){
+					if( getTituloColuna( i ).startsWith( "|||" ) ){ return l; }
+				}
+				
 				setTituloColuna( elemento, "|||" + getTituloColuna( elemento ) );
 				
 				for( int i = 0; i < getQLinhas(); i++ ){

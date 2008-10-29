@@ -62,11 +62,11 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 		}
 		if( !v.equals( getName() ) ){
 			setName( v );
-			if( v.length() > 25 ){
+			if( v.length() > 31 ){
 				String rr = v.replace( "|||", "" );
 				setToolTipText( rr );
 				
-				rr = rr.substring( 0, 25 ) + "...";
+				rr = rr.substring( 0, 27 ) + "...";
 				
 				icon = getVerticalCaption( this, rr, true );
 			} else{
