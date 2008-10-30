@@ -121,40 +121,65 @@ public class Matriz {
 	/**
 	 * Usado para destacar os elementos que tenham relação com o objeto selecionado atualmente.
 	 * 
-	 * @param elemento índice
+	 * @param elementos nomes dos elementos
 	 * @param tipo se é linha ou coluna
 	 * @return lista de elementos
 	 */
-	public LinkedList< String > destacarElementos( int elemento, String tipo ) {
+	public LinkedList< String > destacarElementos( LinkedList< String > elementos, String tipo ) {
 		LinkedList< String > l = new LinkedList< String >();
+		int elemento = -1;
 		try{
 			if( tipo.equalsIgnoreCase( "linha" ) ){
 				for( int i = 0; i < getQLinhas(); i++ ){
-					if( getTituloLinha( i ).startsWith( "|||" ) ){ return l; }
+					if( getTituloLinha( i ).startsWith( "|||" ) ) return l;
 				}
 				
-				setTituloLinha( elemento, "|||" + getTituloLinha( elemento ) );
+				boolean boleta = false;
+				for( String nome1 : elementos )
+					for( int x = 0; x < getQLinhas(); x++ )
+						if( getTituloLinha( x ).equals( nome1 ) ) boleta = true;
 				
-				for( int i = 1; i < getQColunas(); i++ ){
-					int da = Integer.parseInt( getDadoMatriz( elemento, i ) );
-					if( da == 1 || da == 2 || da == 3 || da == 4 ){
-						l.add( getTituloColuna( i ) );
-						setTituloColuna( i, "|||" + getTituloColuna( i ) );
+				if( boleta ){
+					for( String nome : elementos ){
+						for( int i = 0; i < getQLinhas(); i++ )
+							if( getTituloLinha( i ).equals( nome ) ) elemento = i;
+						
+						setTituloLinha( elemento, "|||" + getTituloLinha( elemento ) );
+						
+						for( int i = 1; i < getQColunas(); i++ ){
+							int da = Integer.parseInt( getDadoMatriz( elemento, i ) );
+							if( da == 1 || da == 2 || da == 3 || da == 4 ){
+								l.add( getTituloColuna( i ) );
+								setTituloColuna( i, "|||" + getTituloColuna( i ) );
+							}
+						}
 					}
 				}
 				
 			} else if( tipo.equalsIgnoreCase( "coluna" ) ){// --------------------------coluna
 				for( int i = 0; i < getQColunas(); i++ ){
-					if( getTituloColuna( i ).startsWith( "|||" ) ){ return l; }
+					if( getTituloColuna( i ).startsWith( "|||" ) ) return l;
 				}
 				
-				setTituloColuna( elemento, "|||" + getTituloColuna( elemento ) );
+				boolean boleta = false;
+				for( String nome1 : elementos )
+					for( int x = 0; x < getQColunas(); x++ )
+						if( getTituloColuna( x ).equals( nome1 ) ) boleta = true;
 				
-				for( int i = 0; i < getQLinhas(); i++ ){
-					int da = Integer.parseInt( getDadoMatriz( i, elemento ) );
-					if( da == 1 || da == 2 || da == 3 || da == 4 ){
-						l.add( getTituloLinha( i ) );
-						setTituloLinha( i, "|||" + getTituloLinha( i ) );
+				if( boleta ){
+					for( String nome : elementos ){
+						for( int i = 0; i < getQColunas(); i++ )
+							if( getTituloColuna( i ).equals( nome ) ) elemento = i;
+						
+						setTituloColuna( elemento, "|||" + getTituloColuna( elemento ) );
+						
+						for( int i = 0; i < getQLinhas(); i++ ){
+							int da = Integer.parseInt( getDadoMatriz( i, elemento ) );
+							if( da == 1 || da == 2 || da == 3 || da == 4 ){
+								l.add( getTituloLinha( i ) );
+								setTituloLinha( i, "|||" + getTituloLinha( i ) );
+							}
+						}
 					}
 				}
 			}

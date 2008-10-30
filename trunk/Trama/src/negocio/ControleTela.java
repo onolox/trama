@@ -78,8 +78,9 @@ public class ControleTela {
 			
 			l = controleProjeto.abrirProjeto( nome );
 		} else{
-			int c = JOptionPane.showConfirmDialog( tela, "Deseja salvar o projeto atual?", "Salvar projeto atual", 0 );
+			int c = JOptionPane.showConfirmDialog( tela, "Deseja salvar o projeto atual?", "Salvar projeto atual", 1 );
 			
+			if( c == JOptionPane.CANCEL_OPTION ) return new LinkedList< ModeloTabela >();
 			if( c == JOptionPane.YES_OPTION ){
 				String s = controleProjeto.salvarProjeto( "vazio" );
 				if( s.equals( "sem nome" ) ){
