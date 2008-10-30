@@ -66,8 +66,11 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 				String rr = v.replace( "|||", "" );
 				setToolTipText( rr );
 				
-				rr = rr.substring( 0, 27 ) + "...";
-				
+				try{
+					rr = rr.substring( 0, 27 ) + "...";
+				} catch( Exception e ){
+					rr = v.replace( "|||", "" );
+				}
 				icon = getVerticalCaption( this, rr, true );
 			} else{
 				
