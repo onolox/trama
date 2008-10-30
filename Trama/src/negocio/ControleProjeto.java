@@ -229,7 +229,9 @@ public class ControleProjeto {
 						else mauElemento = matriz.getTituloColuna( elemento );
 					}
 				}
-				recursivo( mauElemento, toq );
+				LinkedList< String > list = new LinkedList< String >();
+				list.add( mauElemento );
+				recursivo( list, toq, toq, list );
 			} catch( Exception e ){
 				e.printStackTrace();
 			}
@@ -239,10 +241,10 @@ public class ControleProjeto {
 	/**
 	 * Usado para destacar elementos. Método recursivo.
 	 * 
-	 * @param nome da linha ou coluna
+	 * @param nomes das linhas ou colunas
 	 * @param toq metade do nome da matriz
 	 */
-	private void recursivo( String nome, String toq ) {
+	private void recursivo( LinkedList< String > nomes, String toq, String toqOriginal, LinkedList< String > nomeOriginal ) {
 		LinkedList< String > l = null;
 		
 		try{
@@ -251,23 +253,18 @@ public class ControleProjeto {
 				String t2 = matriz.getNomeMatriz().split( " X " )[ 1 ];
 				
 				if( t1.equals( toq ) ){
-					for( int i = 0; i < matriz.getQLinhas(); i++ ){
-						if( matriz.getTituloLinha( i ).equals( nome ) ){
-							l = matriz.destacarElementos( i, "linha" );
-							for( int j = 0; j < l.size(); j++ ){
-								recursivo( l.get( j ), t2 );
-							}
-						}
-					}
+					if( t1.equals( toqOriginal ) ) l = matriz.destacarElementos( nomeOriginal, "linha" );
+					else l = matriz.destacarElementos( nomes, "linha" );
+					
+					if( t2.equals( toqOriginal ) ) l = nomeOriginal;
+					if( !l.isEmpty() ) recursivo( l, t2, toqOriginal, nomeOriginal );
+					
 				} else if( t2.equals( toq ) ){
-					for( int i = 1; i < matriz.getQColunas(); i++ ){
-						if( matriz.getTituloColuna( i ).equals( nome ) ){
-							l = matriz.destacarElementos( i, "coluna" );
-							for( int j = 0; j < l.size(); j++ ){
-								recursivo( l.get( j ), t1 );
-							}
-						}
-					}
+					if( t2.equals( toqOriginal ) ) l = matriz.destacarElementos( nomeOriginal, "coluna" );
+					else l = matriz.destacarElementos( nomes, "coluna" );
+					
+					if( t1.equals( toqOriginal ) ) l = nomeOriginal;
+					if( !l.isEmpty() ) recursivo( l, t1, toqOriginal, nomeOriginal );
 				}
 			}
 		} catch( Exception e ){
