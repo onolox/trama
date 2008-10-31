@@ -932,6 +932,7 @@ public class Tela extends JFrame implements ActionListener {
 					if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
 						JTableCustomizado jt = matrizes.remove( i );
 						ModeloTabela mod = ( ModeloTabela ) jt.getModel();
+						jt = null;
 						JPanel jpanel = JP.get( i );
 						jpanel.removeAll();
 						JTableCustomizado cus = new JTableCustomizado( mod );
@@ -956,6 +957,7 @@ public class Tela extends JFrame implements ActionListener {
 					}
 				}
 			}
+			System.gc();
 		} catch( Exception e ){
 			e.printStackTrace();
 		}
