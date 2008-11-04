@@ -25,6 +25,7 @@ import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileFilter;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
 import negocio.ControleTela;
@@ -430,6 +431,9 @@ public class Tela extends JFrame implements ActionListener {
 				if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
 					JTableCustomizado jt = matrizes.remove( i );
 					ModeloTabela mod = ( ModeloTabela ) jt.getModel();
+					jt.setModel( new DefaultTableModel() );
+					jt = null;
+					
 					JPanel jpanel = JP.get( i );
 					jpanel.removeAll();
 					JTableCustomizado cus = new JTableCustomizado( mod );
@@ -733,6 +737,9 @@ public class Tela extends JFrame implements ActionListener {
 					if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
 						JTableCustomizado jt = matrizes.remove( i );
 						ModeloTabela mod = ( ModeloTabela ) jt.getModel();
+						jt.setModel( new DefaultTableModel() );
+						jt = null;
+						
 						JPanel jpanel = JP.get( i );
 						jpanel.removeAll();
 						JTableCustomizado cus = new JTableCustomizado( mod );
@@ -932,6 +939,7 @@ public class Tela extends JFrame implements ActionListener {
 					if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
 						JTableCustomizado jt = matrizes.remove( i );
 						ModeloTabela mod = ( ModeloTabela ) jt.getModel();
+						jt.setModel( new DefaultTableModel() );
 						jt = null;
 						JPanel jpanel = JP.get( i );
 						jpanel.removeAll();
@@ -1059,6 +1067,9 @@ public class Tela extends JFrame implements ActionListener {
 					if( matrizes.get( i ).getNome().equalsIgnoreCase( controle.getMatrizAtual() ) ){
 						JTableCustomizado jt = matrizes.remove( i );
 						ModeloTabela mod = ( ModeloTabela ) jt.getModel();
+						jt.setModel( new DefaultTableModel() );
+						jt = null;
+						
 						JPanel jpanel = JP.get( i );
 						jpanel.removeAll();
 						JTableCustomizado cus = new JTableCustomizado( mod );
