@@ -24,15 +24,20 @@ import visao.ModeloTabela;
 import visao.Tela;
 
 /**
- * Esta classe gerencia as regras de negócio do aplicativo e interage com a GUI.
+ * Esta classe gerencia as regras de negócio do aplicativo e é o único ponto de iteração com a GUI, que é representada por {@link Tela}.
  * 
  * @author Fabio Marmitt
  */
 public class ControleTela {
+	/** Referência para a classe ControleProjeto */
 	private ControleProjeto controleProjeto;
+	/** Referência para a classe Tela */
 	private Tela tela;
+	/** Referência para a classe LeitorDeModelo */
 	private LeitorDeModelo leitorDeModelo;
+	/** A coluna que está atualmente selecionada */
 	private int colunaAtual;
+	/** A linha que está atualmente selecionada */
 	private int linhaAtual;
 	/** Matriz atualmente selecionada */
 	private String matrizAtual;

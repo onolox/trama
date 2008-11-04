@@ -6,11 +6,12 @@ import negocio.Matriz;
 import visao.renderizador.RenderizadorTituloLinha;
 
 /**
- * Classe que representa o modelo da tabela, que será utilizado por uma JTable.
+ * Classe que representa o modelo da tabela, que poderá ser utilizado por uma {@link JTableCustomizado}.
  * 
  * @author Fabio Marmitt
  */
 public class ModeloTabela extends AbstractTableModel {
+	
 	/** A matriz que possui acesso aos dados */
 	private Matriz matriz;
 	

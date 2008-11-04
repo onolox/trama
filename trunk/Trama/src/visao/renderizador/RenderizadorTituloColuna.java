@@ -21,14 +21,19 @@ import javax.swing.table.DefaultTableCellRenderer;
 import visao.JTableCustomizado;
 
 /**
- * Classe utilizada para renderizar os títulos das colunas da matriz.
+ * Classe utilizada para renderizar os títulos das colunas de uma matriz, esta matriz é representada por {@link JTableCustomizado}.<br>
  * 
  * @author Fabio Marmitt
  */
 public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
+	
+	/** Tipo de borda "levantanda". */
 	private SoftBevelBorder raized;
+	/** Tipo de borda "pressionada". */
 	private SoftBevelBorder low;
+	/** Cor pré estabelecida. */
 	private Color color, color2;
+	/** Icone que será utilizada para exibir o texto na vertical */
 	private Icon icon = null;
 	
 	/** Construtor Padrão. */
@@ -86,6 +91,7 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 		
 		return this;
 	}
+	
 	/**
 	 *Método que gera um ícone baseando-se em um texto.
 	 * 

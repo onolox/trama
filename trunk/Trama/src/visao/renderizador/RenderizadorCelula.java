@@ -10,11 +10,13 @@ import javax.swing.table.DefaultTableCellRenderer;
 import visao.JTableCustomizado;
 
 /**
- * Classe utilizada para renderizar as células da matriz.
+ * Classe utilizada para renderizar as células de uma matriz, esta matriz é representada por {@link JTableCustomizado}.<br>
+ * Esta classe pode renderizar um espaço em branco ou um X no meio da célula. Estes 2 estados podem ter alguma das cores pré estabelecidas de fundo.
  * 
  * @author Fabio Marmitt
  */
 public class RenderizadorCelula extends DefaultTableCellRenderer {
+	
 	/** Cor dos estados da célula */
 	private Color color1, color2, color3, color4, color5;
 	
@@ -33,7 +35,9 @@ public class RenderizadorCelula extends DefaultTableCellRenderer {
 		color5 = new Color( 220, 220, 220 );
 	}
 	
-	/** Método sobreescrito para renderizar o componente de acorco com as necessidades do projeto. */
+	/**
+	 * Método sobreescrito para renderizar o componente de acorco com as necessidades do projeto. <br>{@inheritDoc}
+	 */
 	@Override
 	public Component getTableCellRendererComponent( JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column ) {
 		JTableCustomizado tab = ( JTableCustomizado ) table;
