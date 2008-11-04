@@ -8,15 +8,19 @@ import persistencia.Projeto;
 import visao.ModeloTabela;
 
 /**
- * Classe usada para processar dados referentes ao sistema.
+ * Classe usada para processar dados referentes ao sistema. Como alterar e fornecer dados do projeto atual e persisti-lo.
  * 
  * @author Fabio Marmitt
  */
 public class ControleProjeto {
+	
 	/** Lista de matrizes do projeto */
 	private LinkedList< Matriz > matrizes;
+	/** Referência de {@link PersistenciaProjeto} */
 	private PersistenciaProjeto persistenciaProjeto;
+	/** Referência de {@link Projeto} */
 	private Projeto projeto;
+	
 	private boolean estado = false;
 	
 	/**

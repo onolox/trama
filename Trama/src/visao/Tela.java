@@ -32,15 +32,18 @@ import negocio.ControleTela;
 import negocio.Matriz;
 
 /**
- * Esta classe gera e gerencia a interface gráfica com o usuário.
+ * Esta classe é usada para gerar e gerenciar a interface gráfica com o usuário.<br>
+ * Usa {@link JTableCustomizado} para exibir as matrizes.
  * 
  * @author Fabio Marmitt
  */
 public class Tela extends JFrame implements ActionListener {
+	
+	/** Referência ao header de um {@linkJTableCustomizado} */
 	private JTableHeader header;
-	/** Contém uma instância de CotroleTela */
+	/** Contém uma instância de {@link ControleTela} */
 	private ControleTela controle;
-	/** Contém uma lista de JTableCustomizado que estão na interface */
+	/** Contém uma lista de {@linkJTableCustomizado} que estão na interface */
 	private LinkedList< JTableCustomizado > matrizes;
 	/** Contém uma lista de JPanel que estão na interface */
 	private LinkedList< JPanel > JP;
@@ -53,6 +56,7 @@ public class Tela extends JFrame implements ActionListener {
 		setLocationRelativeTo( null );
 		
 		addWindowListener( new WindowAdapter() {
+			
 			/** {@inheritDoc} */
 			public void windowClosing( WindowEvent evt ) {
 				if( salvarProjeto.isEnabled() ){
@@ -106,6 +110,7 @@ public class Tela extends JFrame implements ActionListener {
 			JFileChooser ch = new JFileChooser( "arquivos/" );
 			ch.setDialogTitle( "Abrir projeto" );
 			ch.setFileFilter( new FileFilter() { // Filtro pra xml e diretorios
+				
 					/** {@inheritDoc} */
 					@Override
 					public boolean accept( File f ) {
@@ -291,6 +296,7 @@ public class Tela extends JFrame implements ActionListener {
 	 */
 	private void adicionarMatriz() {
 		new JDialog( this, true ) {
+			
 			String s = "";
 			{
 				initComponents();
@@ -322,6 +328,7 @@ public class Tela extends JFrame implements ActionListener {
 				
 				okButton.setText( "OK" );
 				okButton.addActionListener( new ActionListener() {
+					
 					/** {@inheritDoc } */
 					@SuppressWarnings( "synthetic-access" )
 					public void actionPerformed( ActionEvent e ) {
@@ -365,6 +372,7 @@ public class Tela extends JFrame implements ActionListener {
 				
 				cancelarButton.setText( "Cancelar" );
 				cancelarButton.addActionListener( new ActionListener() {
+					
 					/** {@inheritDoc } */
 					public void actionPerformed( ActionEvent e ) {
 						dispose();
@@ -813,11 +821,13 @@ public class Tela extends JFrame implements ActionListener {
 					ch.setSelectedFile( new File( "Matriz " + j.getNome() ) );
 					
 					ch.setFileFilter( new FileFilter() { // Filtro pra arquivos e diretorios
+						
 							/** {@inheritDoc} */
 							public boolean accept( File f ) {
 								if( f.getName().endsWith( ".png" ) || f.isDirectory() ) return true;
 								return false;
 							}
+							
 							/** {@inheritDoc} */
 							public String getDescription() {
 								return "Arquivos de imagem PNG";
@@ -864,11 +874,13 @@ public class Tela extends JFrame implements ActionListener {
 					ch.setSelectedFile( new File( "Matriz " + j.getNome() ) );
 					
 					ch.setFileFilter( new FileFilter() { // Filtro pra arquivos e diretorios
+						
 							/** {@inheritDoc} */
 							public boolean accept( File f ) {
 								if( f.getName().endsWith( ".pdf" ) || f.isDirectory() ) return true;
 								return false;
 							}
+							
 							/** {@inheritDoc} */
 							public String getDescription() {
 								return "Arquivos PDF";
@@ -1137,6 +1149,7 @@ public class Tela extends JFrame implements ActionListener {
 			final JMenuItem item3 = new JMenuItem( "Importar do Modelo", new ImageIcon( getClass().getResource( "/icons/inbox-26 copy.png" ) ) );
 			final JMenuItem item4 = new JMenuItem( "Sincronizar do Modelo", new ImageIcon( getClass().getResource( "/icons/reload_all_tabs-26.png" ) ) );
 			item1.addActionListener( new ActionListener() {
+				
 				/** {@inheritDoc} */
 				public void actionPerformed( ActionEvent e ) {
 					menu.setVisible( false );
@@ -1144,6 +1157,7 @@ public class Tela extends JFrame implements ActionListener {
 				}
 			} );
 			item2.addActionListener( new ActionListener() {
+				
 				/** {@inheritDoc} */
 				public void actionPerformed( ActionEvent e ) {
 					menu.setVisible( false );
@@ -1151,6 +1165,7 @@ public class Tela extends JFrame implements ActionListener {
 				}
 			} );
 			item3.addActionListener( new ActionListener() {
+				
 				/** {@inheritDoc} */
 				public void actionPerformed( ActionEvent e ) {
 					menu.setVisible( false );
@@ -1158,6 +1173,7 @@ public class Tela extends JFrame implements ActionListener {
 				}
 			} );
 			item4.addActionListener( new ActionListener() {
+				
 				/** {@inheritDoc} */
 				public void actionPerformed( ActionEvent e ) {
 					menu.setVisible( false );
@@ -1166,40 +1182,48 @@ public class Tela extends JFrame implements ActionListener {
 			} );
 			
 			item1.addMouseListener( new MouseAdapter() {
+				
 				/** {@inheritDoc} */
 				public void mouseExited( MouseEvent e ) {
 					item1.setBackground( Color.WHITE );
 				}
+				
 				/** {@inheritDoc} */
 				public void mouseEntered( MouseEvent e ) {
 					item1.setBackground( new Color( 240, 240, 250 ) );
 				}
 			} );
 			item2.addMouseListener( new MouseAdapter() {
+				
 				/** {@inheritDoc} */
 				public void mouseExited( MouseEvent e ) {
 					item2.setBackground( Color.WHITE );
 				}
+				
 				/** {@inheritDoc} */
 				public void mouseEntered( MouseEvent e ) {
 					item2.setBackground( new Color( 240, 240, 250 ) );
 				}
 			} );
 			item3.addMouseListener( new MouseAdapter() {
+				
 				/** {@inheritDoc} */
 				public void mouseExited( MouseEvent e ) {
 					item3.setBackground( Color.WHITE );
 				}
+				
 				/** {@inheritDoc} */
 				public void mouseEntered( MouseEvent e ) {
 					item3.setBackground( new Color( 240, 240, 250 ) );
 				}
 			} );
 			item4.addMouseListener( new MouseAdapter() {
+				
 				/** {@inheritDoc} */
 				public void mouseExited( MouseEvent e ) {
 					item4.setBackground( Color.WHITE );
 				}
+				
 				/** {@inheritDoc} */
 				public void mouseEntered( MouseEvent e ) {
 					item4.setBackground( new Color( 240, 240, 250 ) );
@@ -1219,6 +1243,7 @@ public class Tela extends JFrame implements ActionListener {
 			final JMenuItem item3 = new JMenuItem( "Importar do Modelo", new ImageIcon( getClass().getResource( "/icons/inbox-26 copy.png" ) ) );
 			final JMenuItem item4 = new JMenuItem( "Sincronizar do Modelo", new ImageIcon( getClass().getResource( "/icons/reload_all_tabs-26.png" ) ) );
 			item1.addActionListener( new ActionListener() {
+				
 				/** * {@inheritDoc} */
 				public void actionPerformed( ActionEvent e ) {
 					menu2.setVisible( false );
@@ -1226,6 +1251,7 @@ public class Tela extends JFrame implements ActionListener {
 				}
 			} );
 			item2.addActionListener( new ActionListener() {
+				
 				/** {@inheritDoc} */
 				public void actionPerformed( ActionEvent e ) {
 					menu2.setVisible( false );
@@ -1233,6 +1259,7 @@ public class Tela extends JFrame implements ActionListener {
 				}
 			} );
 			item3.addActionListener( new ActionListener() {
+				
 				/** {@inheritDoc} */
 				@SuppressWarnings( "synthetic-access" )
 				public void actionPerformed( @SuppressWarnings( "unused" ) ActionEvent e ) {
@@ -1241,6 +1268,7 @@ public class Tela extends JFrame implements ActionListener {
 				}
 			} );
 			item4.addActionListener( new ActionListener() {
+				
 				/** {@inheritDoc} */
 				@SuppressWarnings( "synthetic-access" )
 				public void actionPerformed( ActionEvent e ) {
@@ -1250,40 +1278,48 @@ public class Tela extends JFrame implements ActionListener {
 			} );
 			
 			item1.addMouseListener( new MouseAdapter() {
+				
 				/** {@inheritDoc} */
 				public void mouseExited( MouseEvent e ) {
 					item1.setBackground( Color.WHITE );
 				}
+				
 				/** {@inheritDoc} */
 				public void mouseEntered( MouseEvent e ) {
 					item1.setBackground( new Color( 240, 240, 250 ) );
 				}
 			} );
 			item2.addMouseListener( new MouseAdapter() {
+				
 				/** {@inheritDoc} */
 				public void mouseExited( MouseEvent e ) {
 					item2.setBackground( Color.WHITE );
 				}
+				
 				/** {@inheritDoc} */
 				public void mouseEntered( MouseEvent e ) {
 					item2.setBackground( new Color( 240, 240, 250 ) );
 				}
 			} );
 			item3.addMouseListener( new MouseAdapter() {
+				
 				/** {@inheritDoc} */
 				public void mouseExited( MouseEvent e ) {
 					item3.setBackground( Color.WHITE );
 				}
+				
 				/** {@inheritDoc} */
 				public void mouseEntered( MouseEvent e ) {
 					item3.setBackground( new Color( 240, 240, 250 ) );
 				}
 			} );
 			item4.addMouseListener( new MouseAdapter() {
+				
 				/** {@inheritDoc} */
 				public void mouseExited( MouseEvent e ) {
 					item4.setBackground( Color.WHITE );
 				}
+				
 				/** {@inheritDoc} */
 				public void mouseEntered( MouseEvent e ) {
 					item4.setBackground( new Color( 240, 240, 250 ) );
@@ -1297,6 +1333,7 @@ public class Tela extends JFrame implements ActionListener {
 		}
 		
 		jT.addMouseListener( new MouseAdapter() { // Adiciona listener as tabelas
+			
 				/** {@inheritDoc} */
 				@SuppressWarnings( "synthetic-access" )
 				public void mouseClicked( MouseEvent e ) {
@@ -1438,6 +1475,7 @@ public class Tela extends JFrame implements ActionListener {
 		
 		header = jT.getTableHeader();
 		header.addMouseListener( new MouseAdapter() { // adiciona listeners aos cabecalhos ----Serve pros nomes de colunas ------------header--
+			
 				/** {@inheritDoc} */
 				@SuppressWarnings( "synthetic-access" )
 				@Override
@@ -1837,6 +1875,7 @@ public class Tela extends JFrame implements ActionListener {
 			Short.MAX_VALUE ) );
 		
 		jTabbedPane1.addChangeListener( new javax.swing.event.ChangeListener() {
+			
 			public void stateChanged( javax.swing.event.ChangeEvent evt ) {
 				novaLinhaColunaMenu.setText( "Nova Linha/Coluna" );
 				excluirLinhaColunaMenu.setText( "Excluir Linha/Coluna" );
@@ -1896,6 +1935,7 @@ public class Tela extends JFrame implements ActionListener {
 		salvarComoMenu.setEnabled( false );
 		jMenu1.add( salvarComoMenu );
 		salvarComoMenu.addActionListener( new ActionListener() {
+			
 			public void actionPerformed( ActionEvent e ) {
 				int sn = 0;
 				try{
@@ -1950,6 +1990,7 @@ public class Tela extends JFrame implements ActionListener {
 		sairMenu.setText( "Sair" );
 		jMenu1.add( sairMenu );
 		sairMenu.addActionListener( new ActionListener() {
+			
 			public void actionPerformed( ActionEvent e ) {
 				if( salvarProjeto.isEnabled() ){
 					int s1 = JOptionPane.showConfirmDialog( null, "Deseja salvar o projeto atual?" );
@@ -2063,6 +2104,7 @@ public class Tela extends JFrame implements ActionListener {
 		ajudaMenu.setText( "Ajuda" );
 		jMenu3.add( ajudaMenu );
 		ajudaMenu.addActionListener( new ActionListener() {
+			
 			public void actionPerformed( ActionEvent e ) {
 				try{
 					Desktop.getDesktop().open( new File( "doc/Manual Trama.pdf" ) );
@@ -2075,8 +2117,10 @@ public class Tela extends JFrame implements ActionListener {
 		sobreMenu.setText( "Sobre" );
 		jMenu3.add( sobreMenu );
 		sobreMenu.addActionListener( new ActionListener() {
+			
 			public void actionPerformed( final ActionEvent e ) {
 				JDialog jd = new JDialog() {
+					
 					{
 						initComponents();
 						setVisible( true );
@@ -2145,6 +2189,9 @@ public class Tela extends JFrame implements ActionListener {
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
 	
+	/**
+	 * Método usado para receber os eventos gerados pelos componentes da GUI.
+	 */
 	/** {@inheritDoc } */
 	@Override
 	public void actionPerformed( ActionEvent e ) {
@@ -2263,6 +2310,7 @@ public class Tela extends JFrame implements ActionListener {
 	private javax.swing.JMenuItem sincronizarMatrizMenu;
 	private javax.swing.JMenuItem sincronizarMenu;
 	private javax.swing.JMenuItem sobreMenu;
+	
 	// End of variables declaration//GEN-END:variables
 	
 	/**
