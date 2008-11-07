@@ -31,18 +31,21 @@ import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
- *Classe que extende JTable e foi customizada para representar uma matriz.
+ *Classe que extende JTable e foi customizada para representar uma matriz.<br>
+ * Para esta customização foram necessários 3 rederizadores personalizados.
  * 
- * @author Fabio
+ * @author Fabio Marmitt
  */
 public class JTableCustomizado extends JTable {
-	private DefaultTableCellRenderer cell;
-	private DefaultTableCellRenderer cell0;
-	private Enumeration< TableColumn > l;
+    /**Instância de {@link ModeloTabela} */
 	private ModeloTabela modelo;
+    /**Linha atual na matriz */
 	private int linhaAtual = 0;
+    /** Coluna atual na matriz*/
 	private int colunaAtual = 0;
+    /**Linha atualmente selecionada na matriz */
 	private int linhaSelecionada = -1;
+    /**Coluna atualmente selecionada na matriz */
 	private int colunaSelecionada = -1;
 	
 	/**
@@ -51,6 +54,10 @@ public class JTableCustomizado extends JTable {
 	 * @param modelo ModeloTabela para a JTable.
 	 */
 	public JTableCustomizado( ModeloTabela modelo ) {
+         DefaultTableCellRenderer cell;
+	 DefaultTableCellRenderer cell0;
+      Enumeration< TableColumn > l;
+     
 		cell = new RenderizadorCelula();
 		cell0 = new RenderizadorTituloLinha();
 		this.modelo = modelo;
@@ -115,7 +122,7 @@ public class JTableCustomizado extends JTable {
 	}
 	
 	/**
-	 * Usado para exportar uma imagem da matriz atual.
+	 * Usado para exportar uma imagem da matriz atual. Exporta no formato PNG.
 	 * 
 	 * @param arquivo nome do arquivo
 	 * @return estatus da operação
@@ -141,7 +148,7 @@ public class JTableCustomizado extends JTable {
 	}
 	
 	/**
-	 * Usado para exportar um PDF da matriz atual.
+	 * Usado para exportar um PDF da matriz atual. Utiliza a biblioteca iText.
 	 * 
 	 * @param arquivo nome do arquivo
 	 * @return estatus da operação
@@ -195,64 +202,64 @@ public class JTableCustomizado extends JTable {
 		return s;
 	}
 	
-	/**
+	/** Usado para buscar o nome da matriz.
 	 * @return nome da matriz
 	 */
 	public String getNome() {
 		return modelo.getNomeMatriz();
 	}
 	
-	/**
-	 * @return the linhaAtual
+	/**Usado para buscar a linha atual da matriz.
+	 * @return a linhaAtual
 	 */
 	public int getLinhaAtual() {
 		return linhaAtual;
 	}
 	
-	/**
-	 * @return the colunaAtual
+	/**Usado para buscar a coluna atual da matriz.
+	 * @return a colunaAtual
 	 */
 	public int getColunaAtual() {
 		return colunaAtual;
 	}
 	
-	/**
-	 * @param linhaAtual the linhaAtual to set
+	/**Usado para modificar a linha atual da matriz.
+	 * @param linhaAtual a linhaAtual a mudar
 	 */
 	public void setLinhaAtual( int linhaAtual ) {
 		this.linhaAtual = linhaAtual;
 	}
 	
-	/**
-	 * @param colunaAtual the colunaAtual to set
+	/**Usado para modificar a coluna atual da matriz.
+	 * @param colunaAtual a colunaAtual a mudar
 	 */
 	public void setColunaAtual( int colunaAtual ) {
 		this.colunaAtual = colunaAtual;
 	}
 	
-	/**
-	 * @return the linhaSelecionada
+	/**Usado para buscar a linha selecionada da matriz.
+	 * @return a linhaSelecionada
 	 */
 	public int getLinhaSelecionada() {
 		return linhaSelecionada;
 	}
 	
-	/**
-	 * @param linhaSelecionada the linhaSelecionada to set
+	/**Usado para modificar a linha selecionada da matriz.
+	 * @param linhaSelecionada a linhaSelecionada a mudar
 	 */
 	public void setLinhaSelecionada( int linhaSelecionada ) {
 		this.linhaSelecionada = linhaSelecionada;
 	}
 	
-	/**
-	 * @return the colunaSelecionada
+	/**Usado para buscar a coluna selecionada da matriz.
+	 * @return a colunaSelecionada
 	 */
 	public int getColunaSelecionada() {
 		return colunaSelecionada;
 	}
 	
-	/**
-	 * @param colunaSelecionada the colunaSelecionada to set
+	/**Usado para modificar a coluna selecionada da matriz.
+	 * @param colunaSelecionada a colunaSelecionada a mudar
 	 */
 	public void setColunaSelecionada( int colunaSelecionada ) {
 		this.colunaSelecionada = colunaSelecionada;

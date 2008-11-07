@@ -7,11 +7,16 @@ import visao.Tela;
 /**
  * Classe que dá partida no aplicativo, começando pela interface gráfica, {@link Tela}.
  * 
- * @author Fabio
+ * @author Fabio Marmitt
  * @version 1.0
  */
 public class Main {
+
+    /**     Construtor padrão.     */
+    public Main() {
+    }
 	
+    
 	/**
 	 * Método que da partida no sistema.
 	 * 
