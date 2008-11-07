@@ -1031,7 +1031,7 @@ public class Tela extends JFrame implements ActionListener {
 		}
 		s = controle.salvarProjeto( "|vazio|" );
 		if( s.equals( "|sem nome|" ) ){
-			s = JOptionPane.showInputDialog( this, "Insira um nome para o projeto", "Nome do projeto", 0 );
+			s = JOptionPane.showInputDialog( this, "Insira um nome para o projeto", "Nome do projeto", JOptionPane.QUESTION_MESSAGE );
 			if( s != null ){
 				
 				if( new File( "arquivos/" + s.trim().replace( ".trama", "" ).replace( ".Trama", "" ).replace( "TRAMA", "" ) + ".trama" ).exists() )
