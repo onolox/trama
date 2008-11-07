@@ -11,12 +11,11 @@ import visao.Tela;
  * @version 1.0
  */
 public class Main {
-
-    /**     Construtor padrão.     */
-    public Main() {
-    }
 	
-    
+	/** Construtor padrão. */
+	public Main() {
+	}
+	
 	/**
 	 * Método que da partida no sistema.
 	 * 
