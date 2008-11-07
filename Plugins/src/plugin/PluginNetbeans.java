@@ -19,7 +19,7 @@ import Interface.PluginInterface;
 public class PluginNetbeans implements PluginInterface {
 	
 	/**
-	 * Método utilizado para buscar os nomes das extens�es que este plugin pode trabalhar utilizadas pelo Netbeans.
+	 * Método utilizado para buscar os nomes das extensões que este plugin pode trabalhar utilizadas pelo Netbeans.
 	 * 
 	 * @return a lista com os nomes das extensões.
 	 */
