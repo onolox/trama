@@ -5,16 +5,15 @@ import javax.swing.UIManager;
 import visao.Tela;
 
 /**
- * Classe que dá partida no aplicativo.
+ * Classe que dá partida no aplicativo, começando pela interface gráfica, {@link Tela}.
  * 
  * @author Fabio
  * @version 1.0
  */
 public class Main {
-	public Tela m_Tela;
 	
 	/**
-	 * Método que da partida na interface gráfica.
+	 * Método que da partida no sistema.
 	 * 
 	 * @param args argumentos
 	 */

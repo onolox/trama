@@ -3,12 +3,13 @@ package persistencia;
 import java.util.LinkedList;
 
 /**
- * Classe de persistência que possui os dados de uma matriz do projeto.<br/> A matriz é representada por uma LinkedList dentro de outra LinkedList. Assim é possível ter uma matriz que se expande
- * conforme a necessidade.
+ * Classe de persistência que possui os dados de uma matriz do projeto.<br/>
+ * A matriz é representada por uma {@link LinkedList} dentro de outra {@link LinkedList}. Assim é possível ter uma matriz que se expande conforme a necessidade.
  * 
  * @author Fabio Marmitt
  */
 public class DadosMatriz {
+	
 	/** Representa os dados da matriz */
 	private LinkedList< LinkedList > linha;
 	private String nomeMatriz;

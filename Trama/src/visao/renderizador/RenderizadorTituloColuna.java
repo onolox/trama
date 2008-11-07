@@ -31,7 +31,7 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 	private SoftBevelBorder raized;
 	/** Tipo de borda "pressionada". */
 	private SoftBevelBorder low;
-	/** Cor pré estabelecida. */
+	/** Tipo de cor pré estabelecida. */
 	private Color color, color2;
 	/** Icone que será utilizada para exibir o texto na vertical */
 	private Icon icon = null;
@@ -51,7 +51,7 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 		low = new SoftBevelBorder( BevelBorder.LOWERED );
 	}
 	
-	/** Método sobreescrito para renderizar o componente de acorco com as necessidades do projeto. */
+	/** Método sobreescrito para renderizar o componente de acorco com as necessidades do projeto. <br>{@inheritDoc} */
 	@Override
 	public Component getTableCellRendererComponent( JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column ) {
 		JTableCustomizado tab = ( JTableCustomizado ) table;
@@ -124,7 +124,6 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 		}
 		g.drawString( texto, 2, -6 );
 		
-		Icon icon = new ImageIcon( bi );
-		return icon;
+		return new ImageIcon( bi );
 	}
 }

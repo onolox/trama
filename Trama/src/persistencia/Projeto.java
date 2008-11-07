@@ -7,12 +7,16 @@ package persistencia;
 import java.util.LinkedList;
 
 /**
- * Classe que é usada para serializar o projeto em XML e vice-versa.
+ * Classe que é usada como entidade para armazenamento de {@link DadosMatriz} de um projeto.<br>
+ * Também é utlizada para armazenar o nome do projeto.
  * 
  * @author Fabio Marmitt
  */
 public class Projeto {
+	
+	/** Lista de {@link DadosMatriz} de um projeto */
 	private LinkedList< DadosMatriz > matrizes;
+	/** Nome do projeto */
 	private String nome = "";
 	
 	/**
