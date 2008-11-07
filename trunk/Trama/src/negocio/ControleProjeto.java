@@ -20,7 +20,7 @@ public class ControleProjeto {
 	private PersistenciaProjeto persistenciaProjeto;
 	/** Referência de {@link Projeto} */
 	private Projeto projeto;
-	
+	/** Representa o estado do destacar elementos relacionados */
 	private boolean estado = false;
 	
 	/**
