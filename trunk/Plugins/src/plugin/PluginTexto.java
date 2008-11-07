@@ -7,12 +7,12 @@ import java.util.Scanner;
 import Interface.PluginInterface;
 
 /**
- * Classe utilizada para extrair os nomes dos objetos de um arquivo texto simples.
+ * Classe utilizada para extrair os nomes dos objetos de um arquivo texto simples.<br>
+ * Um arquivo válido é um arquivo que possua em cada linha um nome de objeto. E Na frente de cada linha à ser lida deverá haver um sinal de + (mais). Outras linhas serão ignoradas.
  * 
  * @author Fabio Marmitt
  */
 public class PluginTexto implements PluginInterface {
-	
 	
 	/**
 	 * Método utilizado para buscar os nomes das extensões que este plugin pode trabalhar.
@@ -37,7 +37,7 @@ public class PluginTexto implements PluginInterface {
 	}
 	
 	/**
-	 * Método usado para extrair os objetos dos arquivos de texto.
+	 * Método usado para extrair os nomes de objetos de um arquivo de texto.
 	 * 
 	 * @param arquivo arquivo caminho e nome do arquivo à ser aberto
 	 * @return lista de objetos extraídos.
