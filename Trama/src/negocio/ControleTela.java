@@ -31,7 +31,7 @@ import visao.Tela;
 public class ControleTela {
 	/** Referência para a classe ControleProjeto */
 	private ControleProjeto controleProjeto;
-	/** Referência para a classe Tela */
+	/** Referência para a classe  */
 	private Tela tela;
 	/** Referência para a classe LeitorDeModelo */
 	private LeitorDeModelo leitorDeModelo;

@@ -11,7 +11,7 @@ import java.util.LinkedList;
 public interface PluginInterface {
 	
 	/**
-	 * Método utilizado para buscar o nome do tipo de arquivo.< br />
+	 * Método utilizado para buscar o nome do tipo de arquivo.<br>
 	 * Este nome vai aparecer na lista de nomes de arquivos nos diálogos de importação de nomes do arquivo.>br> Como por exemplo: Arquivos do Netbeans, Arquivo Texto, etc..
 	 * 
 	 * @return nome do tipo de arquivo.
@@ -19,7 +19,7 @@ public interface PluginInterface {
 	public String getNome();
 	
 	/**
-	 * Método usado para se conhecer o nome das extensões dos arquivos que o plugin pode trabalhar.<br />
+	 * Método usado para se conhecer o nome das extensões dos arquivos que o plugin pode trabalhar.<br>
 	 * Como por exemplo .txt, .etd, .xml, etc..
 	 * 
 	 * @return a lista com os nomes das extensões.

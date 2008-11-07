@@ -39,11 +39,11 @@ import negocio.Matriz;
  */
 public class Tela extends JFrame implements ActionListener {
 	
-	/** Referência ao header de um {@linkJTableCustomizado} */
+	/** Referência ao header de um {@link JTableCustomizado} */
 	private JTableHeader header;
 	/** Contém uma instância de {@link ControleTela} */
 	private ControleTela controle;
-	/** Contém uma lista de {@linkJTableCustomizado} que estão na interface */
+	/** Contém uma lista de {@link JTableCustomizado} que estão na interface */
 	private LinkedList< JTableCustomizado > matrizes;
 	/** Contém uma lista de JPanel que estão na interface */
 	private LinkedList< JPanel > JP;
