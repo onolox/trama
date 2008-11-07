@@ -141,7 +141,7 @@ public class ControleTela {
 			
 			for( final String str : nE.keySet() ){
 				ch.setFileFilter( new FileFilter() { // Filtro pra arquivos e diretorios
-						
+					
 						/** {@inheritDoc} */
 						@Override
 						public boolean accept( File f ) {
@@ -222,7 +222,7 @@ public class ControleTela {
 			
 			for( final String str : nE.keySet() ){
 				ch.setFileFilter( new FileFilter() { // Filtro pra arquivos e diretorios
-						
+					
 						/** {@inheritDoc} */
 						@Override
 						public boolean accept( File f ) {
