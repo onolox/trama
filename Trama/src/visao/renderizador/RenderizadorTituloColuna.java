@@ -93,7 +93,7 @@ public class RenderizadorTituloColuna extends DefaultTableCellRenderer {
 	}
 	
 	/**
-	 *Método que gera um ícone baseando-se em um texto.
+	 *Método que gera um ícone baseando-se em um texto. O texto é transformado em imagem e colocado na vertical.
 	 * 
 	 * @param componente o componente que vai receber o ícone
 	 * @param texto o texto que deverá ser inserido na imagem

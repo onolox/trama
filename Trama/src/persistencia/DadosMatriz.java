@@ -12,6 +12,7 @@ public class DadosMatriz {
 	
 	/** Representa os dados da matriz */
 	private LinkedList< LinkedList > linha;
+    /**O nome da matriz */
 	private String nomeMatriz;
 	/** Quantidade de colunas */
 	private int qColunas = 1;

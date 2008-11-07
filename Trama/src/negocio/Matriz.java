@@ -193,6 +193,8 @@ public class Matriz {
 	}
 	
 	/**
+     * Usado para buscar um dado de uma determinada posição na matriz.
+     * 
 	 * @param linha índice
 	 * @param coluna índice
 	 * @return dado da matriz
