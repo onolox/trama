@@ -29,11 +29,12 @@ import visao.Tela;
  * @author Fabio Marmitt
  */
 public class ControleTela {
-	/** Referência para a classe ControleProjeto */
+	
+	/** Referência para a classe {@link ControleProjeto} */
 	private ControleProjeto controleProjeto;
-	/** Referência para a classe  */
+	/** Referência para a classe {@link Tela} */
 	private Tela tela;
-	/** Referência para a classe LeitorDeModelo */
+	/** Referência para a classe {@link LeitorDeModelo} */
 	private LeitorDeModelo leitorDeModelo;
 	/** A coluna que está atualmente selecionada */
 	private int colunaAtual;
@@ -140,6 +141,7 @@ public class ControleTela {
 			
 			for( final String str : nE.keySet() ){
 				ch.setFileFilter( new FileFilter() { // Filtro pra arquivos e diretorios
+						
 						/** {@inheritDoc} */
 						@Override
 						public boolean accept( File f ) {
@@ -148,6 +150,7 @@ public class ControleTela {
 							}
 							return false;
 						}
+						
 						/** {@inheritDoc} */
 						@Override
 						public String getDescription() {
@@ -219,6 +222,7 @@ public class ControleTela {
 			
 			for( final String str : nE.keySet() ){
 				ch.setFileFilter( new FileFilter() { // Filtro pra arquivos e diretorios
+						
 						/** {@inheritDoc} */
 						@Override
 						public boolean accept( File f ) {
@@ -634,6 +638,7 @@ public class ControleTela {
 					final LinkedList< String > l2 = controleProjeto.triagemObjetos( matrizAtual, "coluna", l );
 					if( l2.size() > 0 ){
 						dialog = new JDialog( tela ) {
+							
 							{
 								initComponents();
 								setVisible( true );
@@ -680,6 +685,7 @@ public class ControleTela {
 								
 								adicionar.setText( "Adicionar >>" );// ------------------------------Listeners
 								adicionar.addActionListener( new ActionListener() {
+									
 									/** {@inheritDoc} */
 									public void actionPerformed( ActionEvent e ) {
 										if( listaNova.isSelectionEmpty() ){
@@ -697,6 +703,7 @@ public class ControleTela {
 								
 								atualizar.setText( "Atualizar >>" );
 								atualizar.addActionListener( new ActionListener() {
+									
 									/** {@inheritDoc} */
 									public void actionPerformed( ActionEvent e ) {
 										if( listaNova.isSelectionEmpty() ){
@@ -717,6 +724,7 @@ public class ControleTela {
 								
 								fechar.setText( "Fechar" );
 								fechar.addActionListener( new ActionListener() {
+									
 									/** {@inheritDoc} */
 									public void actionPerformed( ActionEvent e ) {
 										setVisible( false );
@@ -826,6 +834,7 @@ public class ControleTela {
 					
 					if( l2.size() > 0 ){
 						JDialog dialog = new JDialog( tela ) {
+							
 							{
 								initComponents();
 								setVisible( true );
@@ -873,6 +882,7 @@ public class ControleTela {
 								
 								adicionar.setText( "Adicionar >>" );// ------------------------------Listeners
 								adicionar.addActionListener( new ActionListener() {
+									
 									public void actionPerformed( ActionEvent e ) {
 										if( listaNova.isSelectionEmpty() ){
 											JOptionPane.showMessageDialog( tela, "Você deve escolher um nome na lista de Novos Objetos", "", 0 );
@@ -889,6 +899,7 @@ public class ControleTela {
 								
 								atualizar.setText( "Atualizar >>" );
 								atualizar.addActionListener( new ActionListener() {
+									
 									public void actionPerformed( ActionEvent e ) {
 										if( listaNova.isSelectionEmpty() ){
 											JOptionPane.showMessageDialog( tela, "Você deve escolher um nome na lista de Novos Objetos", "", 0 );
@@ -908,6 +919,7 @@ public class ControleTela {
 								
 								fechar.setText( "Fechar" );
 								fechar.addActionListener( new ActionListener() {
+									
 									public void actionPerformed( ActionEvent e ) {
 										setVisible( false );
 									}
