@@ -9,13 +9,15 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
 /**
- * Classe usada para persistir o projeto serializando o em XML. Também é usada para desserializar o XML.
+ * Classe usada para persistir o projeto serializando o em XML. Também é usada para desserializar o XML de volta para uma entidade {@link Projeto}.<br>
+ * Para fazer a serialização e desserialização é utilizada a biblioteca XSTream.
  * 
  * @author Fabio Marmitt
  */
 public class PersistenciaProjeto {
+	
 	/**
-	 * Usado para ler o arquivo XML de projeto e torná-lo um Projeto para poder ser usado novamente.
+	 * Usado para ler o arquivo XML de projeto e torná-lo um {@link Projeto} para poder ser usado novamente.
 	 * 
 	 * @param nome nome do arquivo
 	 * @return instância de Projeto
@@ -32,7 +34,7 @@ public class PersistenciaProjeto {
 	}
 	
 	/**
-	 * Usado para persistir o projeto em XML.
+	 * Usado para persistir o {@link Projeto} em XML.
 	 * 
 	 * @param projeto Projeto
 	 * @return estatus da operação

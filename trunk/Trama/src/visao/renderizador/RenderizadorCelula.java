@@ -17,7 +17,7 @@ import visao.JTableCustomizado;
  */
 public class RenderizadorCelula extends DefaultTableCellRenderer {
 	
-	/** Cor dos estados da célula */
+	/** Cor de fundo da célula */
 	private Color color1, color2, color3, color4, color5;
 	
 	/** Construtor Padrão. */

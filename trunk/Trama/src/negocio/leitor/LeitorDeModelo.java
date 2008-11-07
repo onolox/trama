@@ -9,17 +9,19 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 /**
- *Classe que contém o sistema de plugins do aplicativo.
+ *Classe utilizada para ler os dados de plugins que sejam válidos conforme o sistema proposto. Esta classe contém o sistema de utilização de plugins do aplicativo.
  * 
  * @author Fabio Marmitt
  */
 public class LeitorDeModelo {
+	
 	/** Endereço base do diretório de plugins */
 	private static final String DIRBASE = "plugins/";
+	/** Lista utilizada para armazenar objetos da classe */
 	private LinkedList< String > lista;
 	
 	/**
-	 *Método que busca os nomes e extensões de arquivos que os plugins que estão na pasta plugins podem trabalhar.
+	 *Método que busca os nomes de arquivo e extensões de arquivos que os plugins que estão na pasta plugins podem trabalhar.
 	 * 
 	 * @return a lista com nomes e as extensões
 	 */
@@ -42,7 +44,7 @@ public class LeitorDeModelo {
 	}
 	
 	/**
-	 * Usado para buscar os nomes de um arquivo.
+	 * Usado para buscar os nomes dos objetos presentes em um determindado arquivo. Dependendo da extensão do arquivo passado como parâmetro o plugin correto é selecionado.
 	 * 
 	 * @param arquivo nome do arquivo com extensão à ter os nomes buscados
 	 * @return lista de nomes

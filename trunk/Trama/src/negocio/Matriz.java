@@ -5,11 +5,14 @@ import java.util.LinkedList;
 import persistencia.DadosMatriz;
 
 /**
- * Classe que é uma fachada para acesso aos dados de uma matriz.
+ * Classe que representa uma matriz e é uma fachada para acesso ao {@link DadosMatriz}. <br>
+ * Esta classe é responsável pelo processamento de dados referente a uma matriz do projeto.
  * 
  * @author Fabio Marmitt
  */
 public class Matriz {
+	
+	/** Instância de {@link DadosMatriz} */
 	private DadosMatriz matriz;
 	
 	/**

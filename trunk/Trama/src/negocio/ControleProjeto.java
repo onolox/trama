@@ -8,7 +8,7 @@ import persistencia.Projeto;
 import visao.ModeloTabela;
 
 /**
- * Classe usada para processar dados referentes ao sistema. Como alterar e fornecer dados do projeto atual e persisti-lo.
+ * Classe usada para processar dados referentes ao sistema. Como alterar e fornecer dados do projeto atual e também persisti-lo.
  * 
  * @author Fabio Marmitt
  */
