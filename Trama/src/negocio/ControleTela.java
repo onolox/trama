@@ -508,8 +508,8 @@ public class ControleTela {
 		int c = JOptionPane.showConfirmDialog( tela, "Deseja salvar o projeto atual?", "Salvar projeto atual", 1 );
 		
 		if( c == JOptionPane.YES_OPTION ){
-			String s = controleProjeto.salvarProjeto( "vazio" );
-			if( s.equals( "sem nome" ) ){
+			String s = controleProjeto.salvarProjeto( "|vazio|" );
+			if( s.equals( "|sem nome|" ) ){
 				s = JOptionPane.showInputDialog( tela, "Insira um nome para o projeto", "Deseja salvar o projeto?", 0 );
 				
 				if( s != null ){
