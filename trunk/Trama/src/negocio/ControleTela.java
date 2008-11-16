@@ -88,16 +88,16 @@ public class ControleTela {
 			
 			if( c == JOptionPane.CANCEL_OPTION ) return new LinkedList< ModeloTabela >();
 			if( c == JOptionPane.YES_OPTION ){
-				String s = controleProjeto.salvarProjeto( "vazio" );
-				if( s.equals( "sem nome" ) ){
-					s = JOptionPane.showInputDialog( tela, "Insira um nome para o projeto", "Deseja salvar o projeto?", 0 );
+				String s = controleProjeto.salvarProjeto( "|vazio|" );
+				if( s.equals( "|sem nome|" ) ){
+					s = JOptionPane.showInputDialog( tela, "Insira um nome para o projeto", "Deseja salvar o projeto?", 1 );
 					if( s != null ){
 						if( new File( "arquivos/" + s.trim().replace( ".trama", "" ).replace( ".Trama", "" ).replace( "TRAMA", "" ) + ".trama" ).exists() )
 							sn = JOptionPane.showConfirmDialog( tela, "Arquivo já existente, deseja sobreescrever?", "Atenção", JOptionPane.WARNING_MESSAGE );
 						
 						if( sn == JOptionPane.YES_OPTION ){
 							s = controleProjeto.salvarProjeto( s );
-							if( s.equals( "sem nome" ) ) controleProjeto.salvarProjeto( "vazio" );
+							if( s.equals( "|sem nome|" ) ) controleProjeto.salvarProjeto( "|vazio|" );
 						}
 					}
 				}
