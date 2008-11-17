@@ -178,10 +178,11 @@ public class ControleTela {
 				if( bol ){
 					lista = leitorDeModelo.getObjetos( fil.getAbsolutePath() );
 					lista = controleProjeto.triagemObjetos( matrizAtual, "coluna", lista );
+					controleProjeto.setArquivoColuna( fil.getAbsolutePath(), matrizAtual );
+					
 					for( String str : lista ){
 						controleProjeto.adicionarColuna( str, matrizAtual );
 					}
-					controleProjeto.setArquivoColuna( fil.getAbsolutePath(), matrizAtual );
 				}
 			}
 		} catch( Exception e ){
@@ -261,9 +262,9 @@ public class ControleTela {
 					lista = leitorDeModelo.getObjetos( fil.getAbsolutePath() );
 					lista = controleProjeto.triagemObjetos( matrizAtual, "linha", lista );
 					
+					controleProjeto.setArquivoLinha( fil.getAbsolutePath(), matrizAtual );
 					for( String str : lista )
 						controleProjeto.adicionarLinha( str, matrizAtual );
-					controleProjeto.setArquivoLinha( fil.getAbsolutePath(), matrizAtual );
 				}
 			}
 		} catch( Exception e ){
