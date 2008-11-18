@@ -50,13 +50,9 @@ public class JTableCustomizado extends JTable {
 	private int colunaSelecionada = -1;
 	
 	/**
-	 * Construtor padrão.<br>
-	 * <br>
-	 * <b>Parameters</b> <br>
-	 * <br>
-	 * modelo - {@link ModeloTabela} para a JTable.
+	 * Construtor padrão.
 	 * 
-	 * @param modelo ModeloTabela para a JTable.
+	 * @param modelo {@link ModeloTabela} para a JTable.
 	 */
 	public JTableCustomizado( ModeloTabela modelo ) {
 		DefaultTableCellRenderer cell;

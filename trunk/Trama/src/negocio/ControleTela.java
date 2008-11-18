@@ -44,13 +44,9 @@ public class ControleTela {
 	private String matrizAtual;
 	
 	/**
-	 * Construtor padrão da classe.<br>
-	 * <br>
-	 * <b>Parameters</b> <br>
-	 * <br>
-	 * tela - instância da classe {@link Tela}
+	 * Construtor padrão da classe.
 	 * 
-	 * @param tela instância da classe Tela
+	 * @param tela instância da classe {@link Tela}
 	 */
 	public ControleTela( Tela tela ) {
 		this.tela = tela;
