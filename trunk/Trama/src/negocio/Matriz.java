@@ -16,7 +16,11 @@ public class Matriz {
 	private DadosMatriz matriz;
 	
 	/**
-	 * Construtor padrão.
+	 * Construtor padrão.<br>
+	 * <br>
+	 * <b>Parameters</b> <br>
+	 * <br>
+	 * matriz - {@link DadosMatriz} que esta classe vai usar
 	 * 
 	 * @param matriz DadosMatriz que esta classe vai usar
 	 */

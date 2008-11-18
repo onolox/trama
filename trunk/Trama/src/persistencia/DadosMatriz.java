@@ -28,7 +28,11 @@ public class DadosMatriz {
 	private String tituloLinhaArquivo;
 	
 	/**
-	 * Construtor padrão.
+	 * Construtor padrão.<br>
+	 * <br>
+	 * <b>Parameters</b> <br>
+	 * <br>
+	 * nome - nome da matriz
 	 * 
 	 * @param nome nome da matriz
 	 */
