@@ -16,11 +16,7 @@ public class ModeloTabela extends AbstractTableModel {
 	private Matriz matriz;
 	
 	/**
-	 * Construtor padrão da classe.<br>
-	 * <br>
-	 * <b>Parameters</b> <br>
-	 * <br>
-	 * matriz - a matriz que contém os dados.
+	 * Construtor padrão da classe.
 	 * 
 	 * @param matriz a matriz que contém os dados.
 	 */
