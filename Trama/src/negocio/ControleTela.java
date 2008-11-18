@@ -44,7 +44,11 @@ public class ControleTela {
 	private String matrizAtual;
 	
 	/**
-	 * Construtor padrão da classe.
+	 * Construtor padrão da classe.<br>
+	 * <br>
+	 * <b>Parameters</b> <br>
+	 * <br>
+	 * tela - instância da classe {@link Tela}
 	 * 
 	 * @param tela instância da classe Tela
 	 */
@@ -261,8 +265,8 @@ public class ControleTela {
 					
 					lista = leitorDeModelo.getObjetos( fil.getAbsolutePath() );
 					lista = controleProjeto.triagemObjetos( matrizAtual, "linha", lista );
-					
 					controleProjeto.setArquivoLinha( fil.getAbsolutePath(), matrizAtual );
+					
 					for( String str : lista )
 						controleProjeto.adicionarLinha( str, matrizAtual );
 				}

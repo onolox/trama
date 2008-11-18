@@ -50,7 +50,11 @@ public class JTableCustomizado extends JTable {
 	private int colunaSelecionada = -1;
 	
 	/**
-	 * Construtor padrão.
+	 * Construtor padrão.<br>
+	 * <br>
+	 * <b>Parameters</b> <br>
+	 * <br>
+	 * modelo - {@link ModeloTabela} para a JTable.
 	 * 
 	 * @param modelo ModeloTabela para a JTable.
 	 */
@@ -106,7 +110,7 @@ public class JTableCustomizado extends JTable {
 		} );
 		
 		getTableHeader().addMouseMotionListener( new MouseMotionAdapter() {// Pro header
-				
+			
 				/** {@inheritDoc} */
 				@SuppressWarnings( "synthetic-access" )
 				public void mouseMoved( MouseEvent e ) {
